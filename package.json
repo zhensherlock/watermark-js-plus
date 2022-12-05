@@ -1,7 +1,7 @@
 {
   "name": "watermark-js-plus",
   "version": "0.0.1",
-  "description": "水印插件",
+  "description": "watermark for the browser",
   "main": "lib/watermark.js",
   "type": "module",
   "scripts": {
@@ -26,16 +26,16 @@
   "bugs": {
     "url": "https://github.com/zhensherlock/watermark-js-plus/issues"
   },
-  "homepage": "https://github.com/zhensherlock/watermark-js-plus#readme",
+  "homepage": "https://zhensherlock.github.io/watermark-js-plus/",
   "keywords": [
     "watermark",
+    "canvas",
     "水印",
     "暗水印",
     "盲水印",
     "数据水印",
     "防删除水印",
-    "解密水印",
-    "canvas"
+    "解密水印"
   ],
   "devDependencies": {
     "@babel/core": "^7.20.5",
