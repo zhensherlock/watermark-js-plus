@@ -7,8 +7,8 @@ This is a canvas-based watermark for browser.
 
 ## Features
 - Create watermark and blind watermark
-- Supports text, multi text, image, rich text.
-- Watching for dom changes
+- Supports text, multi text, image, rich text
+- Watching for DOM changes
 - Supports typescript
 - Rich configuration
 
