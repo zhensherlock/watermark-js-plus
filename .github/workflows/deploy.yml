@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 16
           cache: npm
-      - run: npm install --frozen-lockfile
+      - run: npm ci
 
       - name: Build
         run: yarn docs:build

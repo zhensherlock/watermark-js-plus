@@ -4,7 +4,7 @@ import zh_CN from './locales/zh-CN'
 export default {
   title: 'watermark-js-plus',
   description: 'A watermark plugin',
-  base: '/',
+  base: '/watermark-js-plus',
   themeConfig: {
     // siteTitle: "Kitty",
     // logo: "/logo.png",
