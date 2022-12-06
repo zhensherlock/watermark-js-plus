@@ -9,7 +9,7 @@ hero:
   text: 高级的水印插件
   tagline: 简易、强大、高性能。
   image:
-    src: /logo.png
+    src: /hero-image.png
     alt: watermark-js-plus
   actions:
     - theme: brand

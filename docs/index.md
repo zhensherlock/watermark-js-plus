@@ -9,7 +9,7 @@ hero:
   text: Advanced watermark plugin
   tagline: Simple, powerful, and performant.
   image:
-    src: /logo.png
+    src: /hero-image.png
     alt: watermark-js-plus
   actions:
     - theme: brand

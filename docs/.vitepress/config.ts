@@ -5,9 +5,19 @@ export default {
   title: 'watermark-js-plus',
   description: 'A watermark plugin',
   base: '/watermark-js-plus',
+  head: [
+    ['link', { rel: 'shortcut icon', href: '/favicons/favicon-64x64.png' }],
+    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png' }],
+    // ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png' }],
+    // ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png' }],
+    // ['link', { rel: "manifest", href: "/assets/favicons/site.webmanifest"}],
+    // ['link', { rel: "mask-icon", href: "/assets/favicons/safari-pinned-tab.svg", color: "#3a0839"}],
+    // ['meta', { name: "msapplication-TileColor", content: "#3a0839"}],
+    // ['meta', { name: "msapplication-config", content: "/assets/favicons/browserconfig.xml"}],
+    // ['meta', { name: "theme-color", content: "#ffffff"}],
+  ],
   themeConfig: {
-    // siteTitle: "Kitty",
-    // logo: "/logo.png",
+    logo: '/logo.png',
     nav: [
       { text: 'Guide', link: '/guide/what-is-this', activeMatch: '/guide/' },
       { text: 'Configs', link: '/config/', activeMatch: '/config/' },
@@ -20,7 +30,7 @@ export default {
           },
           // {
           //   text: 'Contributing',
-          //   link: 'https://github.com/vuejs/vitepress/blob/main/.github/contributing.md'
+          //   link: 'https://github.com/zhensherlock/watermark-js-plus/blob/main/.github/contributing.md'
           // }
         ]
       }
@@ -32,6 +42,7 @@ export default {
       '/guide': [
         {
           text: 'Guide',
+          // collapsible: true,
           items: [
             { text: 'Introduce', link: '/guide/what-is-this' },
             { text: 'Getting Started', link: '/guide/getting-started' },
@@ -43,6 +54,7 @@ export default {
       '/config': [
         {
           text: 'Config',
+          // collapsible: true,
           items: [
             { text: 'Basic Config', link: '/config/' },
             { text: 'Blind Watermark Config', link: '/config/blind' },

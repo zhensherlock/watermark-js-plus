@@ -24,6 +24,7 @@ export default {
     '/zh/guide': [
       {
         text: '向导',
+        // collapsible: true,
         items: [
           { text: '介绍', link: '/zh/guide/what-is-this' },
           { text: '开始使用', link: '/zh/guide/getting-started' },
@@ -35,6 +36,7 @@ export default {
     '/zh/config': [
       {
         text: '配置',
+        // collapsible: true,
         items: [
           { text: '基础配置项', link: '/zh/config/' },
           { text: '暗水印配置项', link: '/zh/config/blind' },

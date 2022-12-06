@@ -26,7 +26,7 @@ const textWatermark = new wm.Watermark({
   }
 });
 const handleAddTextWatermark = () => {
-  if (isDark) {
+  if (isDark.value) {
     textWatermark.options.fontColor = '#fff'
   }
   textWatermark.create();
@@ -50,7 +50,7 @@ const multiLineTextWatermark = new wm.Watermark({
   }
 });
 const handleAddMultiLineTextWatermark = () => {
-  if (isDark) {
+  if (isDark.value) {
     multiLineTextWatermark.options.fontColor = '#fff'
   }
   multiLineTextWatermark.create();
