@@ -4,9 +4,9 @@ import { convertImage, isFunction } from './utils'
 
 export default class BlindWatermark extends Watermark {
   constructor (props: Partial<WatermarkOptions> = {}) {
+    props.globalAlpha = 0.005
+    props.mode = CreateWatermarkModeEnum.blind
     super(props)
-    this.options.globalAlpha = 0.005
-    this.options.mode = CreateWatermarkModeEnum.blind
   }
 
   static decode (props: Partial<DecodeBlindWatermark>) {

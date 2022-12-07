@@ -54,7 +54,7 @@ export interface WatermarkOptions {
   mode: CreateWatermarkModeEnum; // 模式 default | blind
   mutationObserve: boolean;
   unique: boolean;
-  parentElement: HTMLElement;
+  parent: Element | string;
   onSuccess: Function;
   onBeforeDestroy: Function;
   onDestroyed: Function;

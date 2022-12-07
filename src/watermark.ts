@@ -9,10 +9,11 @@ import {
 } from './types'
 
 export default class Watermark {
-  options: WatermarkOptions
-  observer?: MutationObserver
-  parentObserve?: MutationObserver
-  watermarkDom?: WatermarkDom
+  private readonly options: WatermarkOptions
+  private parentElement: Element = document.body
+  private observer?: MutationObserver
+  private parentObserve?: MutationObserver
+  private watermarkDom?: WatermarkDom
 
   constructor (props: Partial<WatermarkOptions> = {}) {
     this.options = Object.assign({
@@ -36,7 +37,7 @@ export default class Watermark {
       mode: CreateWatermarkModeEnum.default, // 模式 default | blind
       mutationObserve: true,
       unique: true,
-      parentElement: document.body,
+      parent: 'body',
       onSuccess: () => {},
       onBeforeDestroy: () => {},
       onDestroyed: () => {}
@@ -44,6 +45,7 @@ export default class Watermark {
     if (this.options?.rotate) {
       this.options.rotate = (360 - this.options.rotate % 360) * (Math.PI / 180)
     }
+    this.changeParentElement(this.options.parent)
   }
 
   static createCanvas (width: number, height: number): HTMLCanvasElement {
@@ -55,6 +57,15 @@ export default class Watermark {
     canvas.style.height = `${height}px` // 控制显示大小
     canvas.getContext('2d')?.setTransform(ratio, 0, 0, ratio, 0, 0)
     return canvas
+  }
+
+  changeParentElement (parent: Element | string) {
+    if (typeof parent === 'string') {
+      const parentElement = document.querySelector(parent)
+      parentElement && (this.parentElement = parentElement)
+    } else {
+      this.parentElement = parent
+    }
   }
 
   async create () {
@@ -74,6 +85,7 @@ export default class Watermark {
     this.watermarkDom.__WATERMARK__INSTANCE__ = this
     this.watermarkDom.style.cssText = `
       z-index: ${this.options.zIndex};
+      position: relative;
     `
     watermarkInnerDom.style.cssText = `
       position: fixed;
@@ -90,7 +102,7 @@ export default class Watermark {
       -webkit-print-color-adjust: exact;
     `
     this.watermarkDom.append(watermarkInnerDom)
-    this.options.parentElement.appendChild(this.watermarkDom)
+    this.parentElement.appendChild(this.watermarkDom)
 
     if (this.options.mutationObserve) {
       this.bindMutationObserve()
@@ -109,7 +121,7 @@ export default class Watermark {
   private validateUnique (): boolean {
     let result = true
     if (this.options.unique) {
-      this.options.parentElement.childNodes.forEach(node => {
+      this.parentElement.childNodes.forEach(node => {
         if (!result) {
           return
         }
@@ -278,7 +290,7 @@ export default class Watermark {
         }
       })
     })
-    this.parentObserve.observe(this.options.parentElement, {
+    this.parentObserve.observe(this.parentElement, {
       attributes: true, // 子节点的变动（指新增，删除或者更改）
       childList: true, // 属性的变动
       subtree: true, // 布尔值，表示是否将该观察器应用于该节点的所有后代节点。
