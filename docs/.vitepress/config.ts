@@ -97,7 +97,7 @@ export default {
       description: '一个水印插件',
       outlineTitle: '本页目录',
       lastUpdatedText: '上次更新',
-      base: '/zh/',
+      base: '/watermark-js-plus/zh/',
     }
   }
 }
