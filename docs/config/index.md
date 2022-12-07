@@ -149,10 +149,10 @@ Enable listening for watermark dom changes.
 
 The watermark cannot be added repeatedly.
 
-## parentElement
+## parent
 
-- **Type:** `HTMLElement`
-- **Default:** `document.body`
+- **Type:** `Element | string`
+- **Default:** `'body'`
 
 Watermarking container.
 

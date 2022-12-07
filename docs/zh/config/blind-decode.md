@@ -1,14 +1,14 @@
 ---
 layout: doc
 ---
-# Blind Watermark Decode
+# 解析暗水印
 
 ## url
 
 - **Type:** `string`
 - **Default:** `''`
 
-Decoding picture path.
+解码暗水印图片路径。
 
 ## mode
 
@@ -16,18 +16,18 @@ Decoding picture path.
 - **Default:** `'canvas'`
 - **available values**: `'canvas'`
 
-Mode of decoding.
+解码模式。
 
 ## fillColor
 
 - **Type:** `string`
 - **Default:** `'#000'`
 
-fill color.
+解码 fill color.
 
 ## compositeOperation
 
 - **Type:** `string`
 - **Default:** `'color-burn'`
 
-composite operation.
+解码 composite operation.

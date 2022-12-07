@@ -1,14 +1,14 @@
 ---
 layout: doc
 ---
-# Blind Watermark Config
+# 暗水印
 
 ## globalAlpha
 
 - **Type:** `number`
 - **Default:** `0.005`
 
-Transparency of watermark.
+水印的透明度。
 
 ## mode
 
@@ -16,4 +16,4 @@ Transparency of watermark.
 - **Default:** `'blind'`
 - **available values**: `'default' | 'blind'`
 
-Watermark mode
+水印模式。

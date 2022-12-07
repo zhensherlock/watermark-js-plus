@@ -3,7 +3,7 @@ layout: doc
 ---
 
 # What is this?
-This is a canvas-based watermark for browser.
+This is a *canvas-based* watermark for browser.
 
 ## Features
 - Create watermark and blind watermark

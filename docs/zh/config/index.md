@@ -1,30 +1,30 @@
 ---
 layout: doc
 ---
-# Basic Config
+# 基础配置项
 
 ## width
 
 - **Type:** `number`
 - **Default:** `300`
 
-A unit of width for a single watermark.
+单个水印的宽度。
 
 ## height
 
 - **Type:** `number`
 - **Default:** `300`
 
-A unit of height for a single watermark.
+单个水印的高度。
 
 ## rotate
 
 - **Type:** `number`
 - **Default:** `45`
 
-Watermark rotation Angle.
+水印旋转角度
 
-Rotate with the center of the text as the origin.
+以文本的中心为原点旋转。
 
 ## contentType
 
@@ -32,35 +32,35 @@ Rotate with the center of the text as the origin.
 - **Default:** `'text'`
 - **available values**: `'text' | 'image' | 'multi-line-text' | 'rich-text'`
 
-Type of watermark content.
+水印内容类型。
 
 ## content
 
 - **Type:** `string`
 - **Default:** `'hello watermark-js-plus'`
 
-Watermark content.
+水印内容。
 
 ## imageWidth
 
 - **Type:** `number`
 - **Default:** `0`
 
-Watermark image width.
+水印图像宽度。
 
 ## imageHeight
 
 - **Type:** `number`
 - **Default:** `0`
 
-Watermark image height.
+水印图像高度。
 
 ## lineHeight
 
 - **Type:** `number`
 - **Default:** `30`
 
-Watermark content line high.
+水印内容行高。
 
 ## zIndex
 
@@ -81,14 +81,14 @@ background-position
 - **Type:** `number`
 - **Default:** `20`
 
-The font size of the watermark content.
+水印内容的字体大小。
 
 ## fontFamily
 
 - **Type:** `string`
 - **Default:** `'sans-serif'`
 
-The font family of the watermark content.
+水印内容的字体。
 
 ## textAlign
 
@@ -96,7 +96,7 @@ The font family of the watermark content.
 - **Default:** `'center'`
 - **available values**: `'center' | 'left' | 'right'`
 
-Watermark content horizontal alignment.
+水印内容水平对齐方式。
 
 ## textBaseline
 
@@ -104,28 +104,28 @@ Watermark content horizontal alignment.
 - **Default:** `'middle'`
 - **available values**: `'top' | 'bottom' | 'middle'`
 
-Watermark content baseline.
+水印内容基准线。
 
 ## fontColor
 
 - **Type:** `string`
 - **Default:** `'#000'`
 
-Watermark content font color.
+水印内容字体颜色。
 
 ## globalAlpha
 
 - **Type:** `number`
 - **Default:** `0.5`
 
-Transparency of watermark.
+水印的透明度。
 
 ## fontWeight
 
 - **Type:** `string`
 - **Default:** `'normal'`
 
-Watermark content font weight.
+水印内容字体权重。
 
 ## mode
 
@@ -133,46 +133,46 @@ Watermark content font weight.
 - **Default:** `'default'`
 - **available values**: `'default' | 'blind'`
 
-Watermark mode
+水印模式。
 
 ## mutationObserve
 
 - **Type:** `boolean`
 - **Default:** `true`
 
-Enable listening for watermark dom changes.
+启用侦听水印dom更改。
 
 ## unique
 
 - **Type:** `boolean`
 - **Default:** `true`
 
-The watermark cannot be added repeatedly.
+不能重复添加水印。
 
-## parentElement
+## parent
 
-- **Type:** `HTMLElement`
-- **Default:** `document.body`
+- **Type:** `Element | string`
+- **Default:** `'body'`
 
-Watermarking container.
+水印的容器。
 
 ## onSuccess
 
 - **Type:** `Function`
 - **Default:** `() => {}`
 
-Watermark added successful callback event.
+水印添加成功的回调事件。
 
 ## onBeforeDestroy
 
 - **Type:** `Function`
 - **Default:** `() => {}`
 
-Watermark delete before callback event.
+水印删除前的回调事件。
 
 ## onDestroyed
 
 - **Type:** `Function`
 - **Default:** `() => {}`
 
-Watermark deleted after callback event.
+水印删除后的回调事件。
