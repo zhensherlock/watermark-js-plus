@@ -4,7 +4,7 @@ import zh_CN from './locales/zh-CN'
 export default {
   title: 'watermark-js-plus',
   description: 'A watermark plugin',
-  base: '/watermark-js-plus',
+  base: '/watermark-js-plus/',
   head: [
     ['link', { rel: 'shortcut icon', href: '/watermark-js-plus/favicons/favicon-64x64.png' }],
     ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/watermark-js-plus/favicons/apple-touch-icon.png' }],
@@ -97,7 +97,6 @@ export default {
       description: '一个水印插件',
       outlineTitle: '本页目录',
       lastUpdatedText: '上次更新',
-      base: '/watermark-js-plus/zh/',
     }
   }
 }
