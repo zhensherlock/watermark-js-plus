@@ -1,6 +1,6 @@
 {
   "name": "watermark-js-plus",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "watermark for the browser",
   "type": "module",
   "scripts": {
