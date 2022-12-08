@@ -7,7 +7,7 @@ layout: doc
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
 import { ref, getCurrentInstance } from 'vue';
 import { Plus } from '@element-plus/icons-vue';
-import wm from '../../src';
+import { BlindWatermark } from '../../src';
 import { useData } from 'vitepress';
 
 const { isDark } = useData();
@@ -15,7 +15,7 @@ const app = getCurrentInstance();
 const decodeBlindImage = ref('');
 
 // text blind watermark
-const textBlindWatermark = new wm.BlindWatermark({
+const textBlindWatermark = new BlindWatermark({
   content: 'hello my watermark',
   width: 200,
   height: 200,
@@ -37,7 +37,7 @@ const handleRemoveTextBlindWatermark = () => {
 };
 
 // multiline blind text watermark
-const multiLineTextBlindWatermark = new wm.BlindWatermark({
+const multiLineTextBlindWatermark = new BlindWatermark({
   contentType: 'multi-line-text',
   content: 'hello my multiline blind watermark',
   fontSize: 30,
@@ -61,7 +61,7 @@ const handleRemoveMultiLineTextBlindWatermark = () => {
 };
 
 // image blind watermark
-const imageBlindWatermark = new wm.BlindWatermark({
+const imageBlindWatermark = new BlindWatermark({
   contentType: 'image',
   image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
   imageWidth: 200,
@@ -83,7 +83,7 @@ const handleRemoveImageBlindWatermark = () => {
 };
 
 // rich text blind watermark
-const richTextBlindWatermark = new wm.BlindWatermark({
+const richTextBlindWatermark = new BlindWatermark({
   contentType: 'rich-text',
   content: '<div style="background: #ccc;">The watermark is so <span style="color: #f00">good</span>.</div>',
   width: 300,
@@ -104,7 +104,7 @@ const handleRemoveRichTextBlindWatermark = () => {
 
 // decode blind watermark
 const handleSuccess = (uploadFile) => {
-  wm.BlindWatermark.decode({
+  BlindWatermark.decode({
     ...(isDark.value ? {
       compositeOperation: 'overlay',
       fillColor: '#fff',
@@ -120,17 +120,14 @@ const handleSuccess = (uploadFile) => {
 ## Text Blind Watermark
 
 ```js
-import wm from 'watermark-js-plus' // import watermark plugin
+import { BlindWatermark } from 'watermark-js-plus' // import watermark plugin
 
-const watermark = new wm.BlindWatermark({
+const watermark = new BlindWatermark({
   content: 'hello my watermark',
   width: 200,
   height: 200,
   onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: 'The text blind watermark added successfully!',
-      type: 'success'
-    });
+    // success callback
   }
 })
 
@@ -146,19 +143,16 @@ watermark.destroy() // remove watermark
 ## Multiline Text Blind Watermark
 
 ```js
-import wm from 'watermark-js-plus' // import watermark plugin
+import { BlindWatermark } from 'watermark-js-plus' // import watermark plugin
 
-const watermark = new wm.BlindWatermark({
+const watermark = new BlindWatermark({
   contentType: 'multi-line-text',
   content: 'hello my multiline blind watermark',
   fontSize: 30,
   width: 200,
   height: 200,
   onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: 'The multiline text blind watermark added successfully!',
-      type: 'success'
-    });
+    // success callback
   }
 })
 
@@ -174,9 +168,9 @@ watermark.destroy() // remove watermark
 ## Image Blind Watermark
 
 ```js
-import wm from 'watermark-js-plus' // import watermark plugin
+import { BlindWatermark } from 'watermark-js-plus' // import watermark plugin
 
-const watermark = new wm.BlindWatermark({
+const watermark = new BlindWatermark({
   contentType: 'image',
   content: 'http://upic-service.test.upcdn.net/uPic/github-JxMIKf.png',
   width: 300,
@@ -184,10 +178,7 @@ const watermark = new wm.BlindWatermark({
   imageWidth: 100, // image width
   // imageHeight: 20, // image height
   onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: 'The image blind watermark added successfully!',
-      type: 'success'
-    });
+    // success callback
   }
 })
 
@@ -203,18 +194,15 @@ watermark.destroy() // remove watermark
 ## Rich Text Blind Watermark
 
 ```js
-import wm from 'watermark-js-plus' // import watermark plugin
+import { BlindWatermark } from 'watermark-js-plus' // import watermark plugin
 
-const watermark = new wm.BlindWatermark({
+const watermark = new BlindWatermark({
   contentType: 'rich-text',
   content: '<div style="background: #ccc;">The watermark is so <span style="color: #f00">good</span>.</div>',
   width: 300,
   height: 300,
   onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: 'The rich text blind watermark added successfully!',
-      type: 'success'
-    });
+    // success callback
   }
 })
 
@@ -230,11 +218,12 @@ watermark.destroy() // remove watermark
 ## Decode Blind Watermark
 
 ```js
-import wm from 'watermark-js-plus' // import watermark plugin
+import { BlindWatermark } from 'watermark-js-plus' // import watermark plugin
 
-wm.BlindWatermark.decode({
+BlindWatermark.decode({
   url: uploadFile.url, // image url
-  onSuccess: (imageBase64) => { // success callback
+  onSuccess: (imageBase64) => {
+    // success callback
   }
 });
 ```

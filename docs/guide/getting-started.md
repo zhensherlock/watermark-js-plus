@@ -51,19 +51,16 @@ $ yarn add watermark-js-plus
 
 1. Import watermark plugin
 ```ts
-import wm from 'watermark-js-plus' // 引入水印插件
+import { Watermark } from 'watermark-js-plus'
 ```
 2. instantiation
 ```ts
-const watermark = new wm.Watermark({
+const watermark = new Watermark({
   content: 'hello my watermark',
   width: 200,
   height: 200,
   onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: 'text watermark added successfully！',
-      type: 'success'
-    });
+    // success callback
   }
 })
 ```

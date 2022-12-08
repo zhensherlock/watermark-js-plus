@@ -6,43 +6,36 @@ layout: doc
 
 ## 安装
 
-Using npm:
+使用 npm:
 
 ```bash
 $ npm install watermark-js-plus
 ```
 
-[//]: # (Using bower:)
-
-[//]: # ()
-[//]: # (```bash)
-
-[//]: # ($ bower install watermark-js-plus)
-
-[//]: # (```)
-
-Using yarn:
+使用 yarn:
 
 ```bash
 $ yarn add watermark-js-plus
 ```
 
-[//]: # ()
-[//]: # (Using jsDelivr CDN:)
+## 用法
 
-[//]: # ()
-[//]: # (```html)
-
-[//]: # (<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (Using unpkg CDN:)
-
-[//]: # ()
-[//]: # (```html)
-
-[//]: # (<script src="https://unpkg.com/axios/dist/axios.min.js"></script>)
-
-[//]: # (```)
+1. 引入水印插件
+```ts
+import { Watermark } from 'watermark-js-plus'
+```
+2. 实例化
+```ts
+const watermark = new Watermark({
+  content: 'hello my watermark',
+  width: 200,
+  height: 200,
+  onSuccess: () => {
+    // success callback
+  }
+})
+```
+3. 添加水印
+```ts
+watermark.create()
+```

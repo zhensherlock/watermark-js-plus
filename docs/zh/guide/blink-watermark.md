@@ -7,7 +7,7 @@ layout: doc
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
 import { ref, getCurrentInstance } from 'vue';
 import { Plus } from '@element-plus/icons-vue';
-import wm from '../../../src';
+import { BlindWatermark } from '../../../src';
 import { useData } from 'vitepress';
 
 const { isDark } = useData();
@@ -15,7 +15,7 @@ const app = getCurrentInstance();
 const decodeBlindImage = ref('');
 
 // 文本暗水印
-const textBlindWatermark = new wm.BlindWatermark({
+const textBlindWatermark = new BlindWatermark({
   content: 'hello my watermark',
   width: 200,
   height: 200,
@@ -27,7 +27,7 @@ const textBlindWatermark = new wm.BlindWatermark({
   }
 });
 const handleAddTextBlindWatermark = () => {
-  if (isDark) {
+  if (isDark.value) {
     textBlindWatermark.options.fontColor = '#fff'
   }
   textBlindWatermark.create();
@@ -37,7 +37,7 @@ const handleRemoveTextBlindWatermark = () => {
 };
 
 // 多行水印
-const multiLineTextBlindWatermark = new wm.BlindWatermark({
+const multiLineTextBlindWatermark = new BlindWatermark({
   contentType: 'multi-line-text',
   content: 'hello my watermark watermark',
   fontSize: 30,
@@ -51,7 +51,7 @@ const multiLineTextBlindWatermark = new wm.BlindWatermark({
   }
 });
 const handleAddMultiLineTextBlindWatermark = () => {
-  if (isDark) {
+  if (isDark.value) {
     multiLineTextBlindWatermark.options.fontColor = '#fff'
   }
   multiLineTextBlindWatermark.create();
@@ -61,7 +61,7 @@ const handleRemoveMultiLineTextBlindWatermark = () => {
 };
 
 // 图片暗水印
-const imageBlindWatermark = new wm.BlindWatermark({
+const imageBlindWatermark = new BlindWatermark({
   contentType: 'image',
   image: 'http://upic-service.test.upcdn.net/uPic/github-JxMIKf.png',
   imageWidth: 200,
@@ -83,7 +83,7 @@ const handleRemoveImageBlindWatermark = () => {
 };
 
 // 富文本水印
-const richTextBlindWatermark = new wm.BlindWatermark({
+const richTextBlindWatermark = new BlindWatermark({
   contentType: 'rich-text',
   content: '<div style="background: #ccc;">富文本暗水印 <span style="color: #f00">good</span></div>',
   width: 300,
@@ -103,7 +103,7 @@ const handleRemoveRichTextBlindWatermark = () => {
 };
 
 // 支持暗黑模式单行文本暗水印
-const textBlindWatermarkSupportDark = new wm.BlindWatermark({
+const textBlindWatermarkSupportDark = new BlindWatermark({
   content: 'hello my watermark',
   width: 200,
   height: 200,
@@ -123,8 +123,8 @@ const handleSupportDarkRemoveTextBlindWatermark = () => {
 
 // 解析暗水印
 const handleSuccess = (uploadFile) => {
-  wm.BlindWatermark.decode({
-    ...(isDark ? {
+  BlindWatermark.decode({
+    ...(isDark.value ? {
       compositeOperation: 'overlay',
       fillColor: '#fff',
     } : {}),
@@ -139,17 +139,14 @@ const handleSuccess = (uploadFile) => {
 ## 文本暗水印
 
 ```js
-import wm from 'watermark-js-plus' // 引入水印插件
+import { BlindWatermark } from 'watermark-js-plus' // 引入水印插件
 
-const watermark = new wm.BlindWatermark({
+const watermark = new BlindWatermark({
   content: 'hello my watermark',
   width: 200,
   height: 200,
   onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: '文本暗水印添加成功！',
-      type: 'success'
-    });
+    // success callback
   }
 })
 
@@ -165,19 +162,16 @@ watermark.destroy() // 删除水印
 ## 多行文本暗水印
 
 ```js
-import wm from 'watermark-js-plus' // 引入水印插件
+import { BlindWatermark } from 'watermark-js-plus' // 引入水印插件
 
-const watermark = new wm.BlindWatermark({
+const watermark = new BlindWatermark({
   contentType: 'multi-line-text',
   content: 'hello my watermark watermark',
   fontSize: 30,
   width: 200,
   height: 200,
   onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: '多行文本暗水印添加成功！',
-      type: 'success'
-    });
+    // success callback
   }
 })
 
@@ -193,9 +187,9 @@ watermark.destroy() // 删除水印
 ## 图片暗水印
 
 ```js
-import wm from 'watermark-js-plus' // 引入水印插件
+import { BlindWatermark } from 'watermark-js-plus' // 引入水印插件
 
-const watermark = new wm.BlindWatermark({
+const watermark = new BlindWatermark({
   contentType: 'image',
   content: 'http://upic-service.test.upcdn.net/uPic/github-JxMIKf.png',
   width: 300,
@@ -203,10 +197,7 @@ const watermark = new wm.BlindWatermark({
   imageWidth: 100, // 图片宽度
   // imageHeight: 20, // 图片高度
   onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: '图片暗水印添加成功！',
-      type: 'success'
-    });
+    // success callback
   }
 })
 
@@ -222,18 +213,15 @@ watermark.destroy() // 删除水印
 ## 富文本水印
 
 ```js
-import wm from 'watermark-js-plus' // 引入水印插件
+import { BlindWatermark } from 'watermark-js-plus' // 引入水印插件
 
-const watermark = new wm.BlindWatermark({
+const watermark = new BlindWatermark({
   contentType: 'rich-text',
   content: '<div style="background: #ccc;">富文本暗水印 <span style="color: #f00">good</span></div>',
   width: 300,
   height: 300,
   onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: '富文本暗水印添加成功！',
-      type: 'success'
-    });
+    // success callback
   }
 })
 
@@ -246,16 +234,15 @@ watermark.destroy() // 删除水印
   <VPButton text="删除富文本暗水印" @click="handleRemoveRichTextBlindWatermark"></VPButton>
 </el-space>
 
-
-
 ## 解析暗水印
 
 ```js
-import wm from 'watermark-js-plus' // 引入水印插件
+import { BlindWatermark } from 'watermark-js-plus' // 引入水印插件
 
-wm.BlindWatermark.decode({
+BlindWatermark.decode({
   url: uploadFile.url, // 需要解析暗水印图片的URL
-  onSuccess: (imageBase64) => { // 解析成功后的回调事件，返回的是解析后图片的base64
+  onSuccess: (imageBase64) => {
+    // 解析成功后的回调事件，返回的是解析后图片的base64
   }
 });
 ```
@@ -278,11 +265,3 @@ wm.BlindWatermark.decode({
     fit="cover"
   />
 </div>
-
-[//]: # (<div style="position: relative;">)
-
-[//]: # (  <div style="position: absolute;top:0;bottom: 0;left: 0;right: 0;mix-blend-mode: color-burn;background: #000;"></div>)
-
-[//]: # (  <img width="200" src="http://upic-service.test.upcdn.net/uPic/iShot_2022-11-28_10.35.29-RP6dBG.png" alt="">)
-
-[//]: # (</div>)

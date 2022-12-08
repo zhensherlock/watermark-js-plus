@@ -6,7 +6,7 @@ layout: doc
 <script setup lang="ts">
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
 import { ref, getCurrentInstance } from 'vue';
-import wm from '../../../src';
+import { Watermark } from '../../../src';
 import { useData } from 'vitepress';
 
 const { isDark } = useData();
@@ -14,7 +14,7 @@ const decodeBlindImage = ref('');
 const app = getCurrentInstance();
 
 // 文本水印
-const textWatermark = new wm.Watermark({
+const textWatermark = new Watermark({
   content: 'hello my watermark',
   width: 200,
   height: 200,
@@ -36,7 +36,7 @@ const handleRemoveTextWatermark = () => {
 };
 
 // 多行文本水印
-const multiLineTextWatermark = new wm.Watermark({
+const multiLineTextWatermark = new Watermark({
   contentType: 'multi-line-text',
   content: 'hello my watermark watermark',
   fontSize: 30,
@@ -60,7 +60,7 @@ const handleRemoveMultiLineTextWatermark = () => {
 };
 
 // 图片水印
-const imageWatermark = new wm.Watermark({
+const imageWatermark = new Watermark({
   contentType: 'image',
   image: 'http://upic-service.test.upcdn.net/uPic/github-JxMIKf.png',
   imageWidth: 200,
@@ -82,7 +82,7 @@ const handleRemoveImageWatermark = () => {
 };
 
 // 富文本水印
-const richTextWatermark = new wm.Watermark({
+const richTextWatermark = new Watermark({
   contentType: 'rich-text',
   content: '<div style="background: #ccc;">富文本水印 <span style="color: #f00">good</span></div>',
   width: 300,
@@ -105,17 +105,14 @@ const handleRemoveRichTextWatermark = () => {
 ## 文本水印
 
 ```js
-import wm from 'watermark-js-plus' // 引入水印插件
+import { Watermark } from 'watermark-js-plus' // 引入水印插件
 
-const watermark = new wm.Watermark({
+const watermark = new Watermark({
   content: 'hello my watermark',
   width: 200,
   height: 200,
   onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: '文本水印添加成功！',
-      type: 'success'
-    });
+    // success callback
   }
 })
 
@@ -131,19 +128,16 @@ watermark.destroy() // 删除水印
 ## 多行文本水印
 
 ```js
-import wm from 'watermark-js-plus' // 引入水印插件
+import { Watermark } from 'watermark-js-plus' // 引入水印插件
 
-const watermark = new wm.Watermark({
+const watermark = new Watermark({
   contentType: 'multi-line-text',
   content: 'hello my watermark watermark',
   fontSize: 30,
   width: 200,
   height: 200,
   onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: '多行文本水印添加成功！',
-      type: 'success'
-    });
+    // success callback
   }
 })
 
@@ -159,9 +153,9 @@ watermark.destroy() // 删除水印
 ## 图片水印
 
 ```js
-import wm from 'watermark-js-plus' // 引入水印插件
+import { Watermark } from 'watermark-js-plus' // 引入水印插件
 
-const watermark = new wm.Watermark({
+const watermark = new Watermark({
   contentType: 'image',
   content: 'http://upic-service.test.upcdn.net/uPic/github-JxMIKf.png',
   width: 300,
@@ -169,10 +163,7 @@ const watermark = new wm.Watermark({
   imageWidth: 100, // 图片宽度
   // imageHeight: 20, // 图片高度
   onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: '图片水印添加成功！',
-      type: 'success'
-    });
+    // success callback
   }
 })
 
@@ -188,18 +179,15 @@ watermark.destroy() // 删除水印
 ## 富文本水印
 
 ```js
-import wm from 'watermark-js-plus' // 引入水印插件
+import { Watermark } from 'watermark-js-plus' // 引入水印插件
 
-const watermark = new wm.Watermark({
+const watermark = new Watermark({
   contentType: 'rich-text',
   content: '<div style="background: #ccc;">富文本水印超级 <span style="color: #f00">棒</span></div>',
   width: 300,
   height: 300,
   onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: '富文本水印添加成功！',
-      type: 'success'
-    });
+    // success callback
   }
 })
 

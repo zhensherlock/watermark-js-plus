@@ -6,7 +6,7 @@ layout: doc
 <script setup lang="ts">
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
 import { ref, getCurrentInstance } from 'vue';
-import wm from '../../src';
+import { Watermark } from '../../src';
 import { useData } from 'vitepress';
 
 const { isDark } = useData();
@@ -14,7 +14,7 @@ const decodeBlindImage = ref('');
 const app = getCurrentInstance();
 
 // text watermark
-const textWatermark = new wm.Watermark({
+const textWatermark = new Watermark({
   content: 'hello my text watermark',
   width: 200,
   height: 200,
@@ -36,7 +36,7 @@ const handleRemoveTextWatermark = () => {
 };
 
 // multiline text watermark
-const multiLineTextWatermark = new wm.Watermark({
+const multiLineTextWatermark = new Watermark({
   contentType: 'multi-line-text',
   content: 'hello my multi text watermark',
   fontSize: 30,
@@ -60,7 +60,7 @@ const handleRemoveMultiLineTextWatermark = () => {
 };
 
 // image watermark
-const imageWatermark = new wm.Watermark({
+const imageWatermark = new Watermark({
   contentType: 'image',
   image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
   imageWidth: 200,
@@ -82,7 +82,7 @@ const handleRemoveImageWatermark = () => {
 };
 
 // rich text watermark
-const richTextWatermark = new wm.Watermark({
+const richTextWatermark = new Watermark({
   contentType: 'rich-text',
   content: '<div style="background: #ccc;">The watermark is so <span style="color: #f00">nice</span>.</div>',
   width: 300,
@@ -105,17 +105,14 @@ const handleRemoveRichTextWatermark = () => {
 ## Text Watermark
 
 ```js
-import wm from 'watermark-js-plus' // import watermark plugin
+import { Watermark } from 'watermark-js-plus' // import watermark plugin
 
-const watermark = new wm.Watermark({
+const watermark = new Watermark({
   content: 'hello my watermark',
   width: 200,
   height: 200,
   onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: 'The text watermark added successfully!',
-      type: 'success'
-    });
+    // success callback
   }
 })
 
@@ -131,19 +128,16 @@ watermark.destroy() // remove watermark
 ## Multiline Text Watermark
 
 ```js
-import wm from 'watermark-js-plus' // import watermark plugin
+import { Watermark } from 'watermark-js-plus' // import watermark plugin
 
-const watermark = new wm.Watermark({
+const watermark = new Watermark({
   contentType: 'multi-line-text',
   content: 'hello my watermark watermark',
   fontSize: 30,
   width: 200,
   height: 200,
   onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: 'The multiline text watermark added successfully!',
-      type: 'success'
-    });
+    // success callback
   }
 })
 
@@ -159,9 +153,9 @@ watermark.destroy() // remove watermark
 ## Image Watermark
 
 ```js
-import wm from 'watermark-js-plus' // import watermark plugin
+import { Watermark } from 'watermark-js-plus' // import watermark plugin
 
-const watermark = new wm.Watermark({
+const watermark = new Watermark({
   contentType: 'image',
   content: 'http://upic-service.test.upcdn.net/uPic/github-JxMIKf.png',
   width: 300,
@@ -169,10 +163,7 @@ const watermark = new wm.Watermark({
   imageWidth: 100, // image width
   // imageHeight: 20, // image height
   onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: 'The image watermark added successfully!',
-      type: 'success'
-    });
+    // success callback
   }
 })
 
@@ -188,18 +179,15 @@ watermark.destroy() // remove watermark
 ## Rich Text Watermark
 
 ```js
-import wm from 'watermark-js-plus' // import watermark plugin
+import { Watermark } from 'watermark-js-plus' // import watermark plugin
 
-const watermark = new wm.Watermark({
+const watermark = new Watermark({
   contentType: 'rich-text',
   content: '<div style="background: #ccc;">Rich text watermark is so <span style="color: #f00">nice</span></div>',
   width: 300,
   height: 300,
   onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: 'The rich text watermark added successfully!',
-      type: 'success'
-    });
+    // success callback
   }
 })
 
