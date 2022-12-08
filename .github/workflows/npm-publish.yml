@@ -16,17 +16,19 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install
+      - name: Install Node
         uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: npm
+          with:
+            node-version: 16
+            cache: npm
+
+      - name: Install Package
         run: npm ci
 
-      - name: Build
+      - name: Build Package
         run: npm run build
 
-      - name: Publish
+      - name: Publish NPM Package
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
         run: npm publish

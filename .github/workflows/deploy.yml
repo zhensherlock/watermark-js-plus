@@ -14,17 +14,19 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install
+      - name: Install Node
         uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: npm
+          with:
+            node-version: 16
+            cache: npm
+
+      - name: Install Package
         run: npm ci
 
-      - name: Build
+      - name: Build Docs Package
         run: npm run docs:build
 
-      - name: Deploy
+      - name: Deploy Docs
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
