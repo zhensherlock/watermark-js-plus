@@ -1,3 +1,17 @@
+## [0.0.3](https://github.com/zhensherlock/watermark-js-plus/compare/v0.0.2...v0.0.3) (2022-12-08)
+
+
+### ✨ Features | 新功能
+
+* update export mode ([eba399c](https://github.com/zhensherlock/watermark-js-plus/commit/eba399cca1031c112c6884ca426825ea059d57d4))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* i18n document path problem ([18e69e4](https://github.com/zhensherlock/watermark-js-plus/commit/18e69e4568bf3aad97bc04c955e792fd96f68194))
+
+
+
 ## [0.0.2](https://github.com/zhensherlock/watermark-js-plus/compare/v0.0.1...v0.0.2) (2022-12-07)
 
 
