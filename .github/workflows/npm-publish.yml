@@ -11,22 +11,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
-          node-version: 16
-      - run: npm ci
+          fetch-depth: 0
 
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Install
+        uses: actions/setup-node@v3
         with:
           node-version: 16
-          registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm publish
+          cache: npm
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+        run: npm publish
