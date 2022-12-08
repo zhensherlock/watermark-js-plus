@@ -11,15 +11,13 @@ export default {
   input: 'src/index.ts',
   output: [
     {
-      file: 'dist/watermark.js',
+      file: 'dist/index.js',
       format: 'umd',
-      exports: 'default',
       name: 'watermark',
     },
     {
-      file: 'dist/watermark.min.js',
+      file: 'dist/index.min.js',
       format: 'umd',
-      exports: 'default',
       name: 'watermark',
       plugins: [terser()]
     }

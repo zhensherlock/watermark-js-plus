@@ -2,7 +2,6 @@
   "name": "watermark-js-plus",
   "version": "0.0.2",
   "description": "watermark for the browser",
-  "main": "lib/watermark.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -36,6 +35,19 @@
     "数据水印",
     "防删除水印",
     "解密水印"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.js",
+      "require": "./dist/index.js",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.js",
+  "files": [
+    "dist"
   ],
   "devDependencies": {
     "@babel/core": "^7.20.5",
