@@ -1,8 +1,18 @@
+# [0.1.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.0.4...v0.1.0) (2022-12-14)
+
+
+### ✨ Features | 新功能
+
+* support typescript ([4ccd410](https://github.com/zhensherlock/watermark-js-plus/commit/4ccd410006ac0ea45eca543b7ab35a22dd3d54b9))
+
+
+
 ## [0.0.4](https://github.com/zhensherlock/watermark-js-plus/compare/v0.0.3...v0.0.4) (2022-12-08)
 
 
 ### 🐛 Bug Fixes | Bug 修复
 
+* npm publish issue ([b5ebb7a](https://github.com/zhensherlock/watermark-js-plus/commit/b5ebb7aeecbf400d51f2e462082185a16aca1d3d))
 * npm publish issue ([f4e73f4](https://github.com/zhensherlock/watermark-js-plus/commit/f4e73f4472d04007086f268696146cf5516adb0d))
 
 
