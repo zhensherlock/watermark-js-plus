@@ -1,4 +1,4 @@
-import { convertImage, convertSVGToImage, createCustomContentSVG, getMultiLineData } from './utils'
+import { convertImage, convertSVGToImage, createCustomContentSVG, getMultiLineData } from '../utils'
 import {
   ContentTypeEnum,
   CreateWatermarkModeEnum,
@@ -6,8 +6,11 @@ import {
   TextBaselineEnum,
   WatermarkDom,
   WatermarkOptions
-} from './types'
+} from '../types'
 
+/**
+ * Watermark class
+ */
 export default class Watermark {
   private readonly options: WatermarkOptions
   private parentElement: Element = document.body
@@ -15,6 +18,10 @@ export default class Watermark {
   private parentObserve?: MutationObserver
   private watermarkDom?: WatermarkDom
 
+  /**
+   * Watermark constructor
+   * @param props - watermark options
+   */
   constructor (props: Partial<WatermarkOptions> = {}) {
     this.options = Object.assign({
       width: 300,
@@ -29,12 +36,12 @@ export default class Watermark {
       backgroundPosition: '0 0, 0 0',
       fontSize: 20,
       fontFamily: 'sans-serif',
-      textAlign: TextAlignEnum.center, // 对齐方式 center | left | right
-      textBaseline: TextBaselineEnum.middle, // 底部对齐方式 top | bottom | middle
+      textAlign: TextAlignEnum.center,
+      textBaseline: TextBaselineEnum.middle,
       fontColor: '#000',
       globalAlpha: 0.5,
       fontWeight: 'normal',
-      mode: CreateWatermarkModeEnum.default, // 模式 default | blind
+      mode: CreateWatermarkModeEnum.default,
       mutationObserve: true,
       unique: true,
       parent: 'body',
@@ -48,13 +55,18 @@ export default class Watermark {
     this.changeParentElement(this.options.parent)
   }
 
+  /**
+   * Create an HD canvas.
+   * @param width - width of canvas
+   * @param height - height of canvas
+   */
   static createCanvas (width: number, height: number): HTMLCanvasElement {
     const ratio = window.devicePixelRatio || 1
     const canvas = document.createElement('canvas')
-    canvas.width = width * ratio // 实际渲染像素
-    canvas.height = height * ratio // 实际渲染像素
-    canvas.style.width = `${width}px` // 控制显示大小
-    canvas.style.height = `${height}px` // 控制显示大小
+    canvas.width = width * ratio // actual rendered pixel
+    canvas.height = height * ratio // actual rendered pixel
+    canvas.style.width = `${width}px` // control display size
+    canvas.style.height = `${height}px` // control display size
     canvas.getContext('2d')?.setTransform(ratio, 0, 0, ratio, 0, 0)
     return canvas
   }
@@ -68,6 +80,9 @@ export default class Watermark {
     }
   }
 
+  /**
+   * Creating a watermark.
+   */
   async create () {
     if (!this.validateUnique()) {
       return
@@ -110,6 +125,9 @@ export default class Watermark {
     this.options.onSuccess?.()
   }
 
+  /**
+   * Deleting this watermark.
+   */
   destroy () {
     this.options.onBeforeDestroy?.()
     this.observer?.disconnect()

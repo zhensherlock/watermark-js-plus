@@ -1,15 +1,26 @@
+import { CreateWatermarkModeEnum, DecodeBlindWatermarkOptions, DecodeBlindWatermarkModeEnum, WatermarkOptions } from '../types'
+import { convertImage, isFunction } from '../utils'
 import Watermark from './watermark'
-import { CreateWatermarkModeEnum, DecodeBlindWatermark, DecodeBlindWatermarkModeEnum, WatermarkOptions } from './types'
-import { convertImage, isFunction } from './utils'
 
+/**
+ * BlindWatermark class
+ */
 export default class BlindWatermark extends Watermark {
+  /**
+   * BlindWatermark constructor
+   * @param props - blind watermark options
+   */
   constructor (props: Partial<WatermarkOptions> = {}) {
     props.globalAlpha = 0.005
     props.mode = CreateWatermarkModeEnum.blind
     super(props)
   }
 
-  static decode (props: Partial<DecodeBlindWatermark>) {
+  /**
+   * Decode blind watermark.
+   * @param props - decode options
+   */
+  static decode (props: Partial<DecodeBlindWatermarkOptions>) {
     const options = Object.assign({
       url: '',
       fillColor: '#000',

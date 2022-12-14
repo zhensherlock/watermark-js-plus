@@ -60,7 +60,7 @@ export interface WatermarkOptions {
   onDestroyed: Function;
 }
 
-export interface DecodeBlindWatermark {
+export interface DecodeBlindWatermarkOptions {
   url: string;
   fillColor: string;
   compositeOperation: string;

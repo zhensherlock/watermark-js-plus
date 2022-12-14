@@ -1,6 +1,11 @@
 ## [0.0.4](https://github.com/zhensherlock/watermark-js-plus/compare/v0.0.3...v0.0.4) (2022-12-08)
 
 
+### 🐛 Bug Fixes | Bug 修复
+
+* npm publish issue ([f4e73f4](https://github.com/zhensherlock/watermark-js-plus/commit/f4e73f4472d04007086f268696146cf5516adb0d))
+
+
 
 ## [0.0.3](https://github.com/zhensherlock/watermark-js-plus/compare/v0.0.2...v0.0.3) (2022-12-08)
 

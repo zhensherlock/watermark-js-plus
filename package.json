@@ -1,16 +1,15 @@
 {
   "name": "watermark-js-plus",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "watermark for the browser",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "lint": "npx eslint \"src/*.{ts,js}\"",
     "dev": "concurrently \"npm run src:dev\" \"npm run docs:dev\"",
-    "src:dev": "rollup -c --watch --bundleConfigAsCjs",
-    "build": "rollup -c --bundleConfigAsCjs --environment NODE_ENV:production",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 -n changelog-option.cjs",
+    "src:dev": "rollup -c --watch",
+    "build": "rollup -c --environment NODE_ENV:production",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 -n changelog-option.js",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
@@ -36,16 +35,11 @@
     "防删除水印",
     "解密水印"
   ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.js",
-      "require": "./dist/index.js",
-      "import": "./dist/index.js"
-    }
-  },
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.js",
+  "main": "dist/watermark.esm.js",
+  "module": "dist/watermark.esm.js",
+  "browser": "dist/watermark.umd.min.js",
+  "unpkg": "",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -62,10 +56,10 @@
     "@rollup/plugin-eslint": "^9.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-replace": "^5.0.1",
-    "@rollup/plugin-terser": "^0.2.0",
+    "@rollup/plugin-terser": "0.1.0",
     "@rollup/plugin-typescript": "^10.0.1",
     "@types/markdown-it": "^12.2.3",
-    "@typescript-eslint/parser": "^5.45.1",
+    "@typescript-eslint/parser": "^5.46.1",
     "@vue/theme": "^1.3.0",
     "concurrently": "^7.6.0",
     "conventional-changelog-angular": "^5.0.13",
@@ -79,12 +73,12 @@
     "husky": "^8.0.2",
     "lint-staged": "^13.1.0",
     "markdown-it": "^13.0.1",
-    "rollup": "^3.7.0",
+    "rollup": "^3.7.4",
     "rollup-plugin-filesize": "^9.1.2",
-    "rollup-plugin-your-function": "^0.4.3",
+    "rollup-plugin-your-function": "^0.4.4",
     "terser": "^5.16.1",
     "typescript": "^4.9.4",
     "unplugin-element-plus": "^0.4.1",
-    "vitepress": "^1.0.0-alpha.30"
+    "vitepress": "^1.0.0-alpha.31"
   }
 }
