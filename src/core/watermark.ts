@@ -99,12 +99,13 @@ export default class Watermark {
     const watermarkInnerDom = document.createElement('div')
     this.watermarkDom.__WATERMARK__ = 'watermark'
     this.watermarkDom.__WATERMARK__INSTANCE__ = this
+    const parentElementType = this.checkParentElementType()
     this.watermarkDom.style.cssText = `
       z-index: ${this.options.zIndex};
-      position: relative;
+      ${parentElementType === 'custom' ? 'top: 0;bottom: 0;left: 0;right: 0;height: 100%;pointer-events: none;position: absolute' : 'position: relative'}
     `
     watermarkInnerDom.style.cssText = `
-      position: fixed;
+      position: ${parentElementType === 'root' ? 'fixed;' : 'absolute;'}
       z-index: ${this.options.zIndex};
       pointer-events: none;
       top: 0;
@@ -283,6 +284,13 @@ export default class Watermark {
         break
     }
     return rect
+  }
+
+  private checkParentElementType () {
+    if (['html', 'body'].includes(this.parentElement.tagName.toLocaleLowerCase())) {
+      return 'root'
+    }
+    return 'custom'
   }
 
   private bindMutationObserve (): void {

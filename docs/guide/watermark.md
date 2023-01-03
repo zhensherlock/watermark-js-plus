@@ -5,7 +5,7 @@ layout: doc
 
 <script setup lang="ts">
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
-import { ref, getCurrentInstance } from 'vue';
+import { ref, getCurrentInstance, onMounted } from 'vue';
 import { Watermark } from '../../src';
 import { useData } from 'vitepress';
 
@@ -100,6 +100,24 @@ const handleAddRichTextWatermark = () => {
 const handleRemoveRichTextWatermark = () => {
   richTextWatermark.destroy();
 };
+
+// child element watermark
+let childElementWatermark = null
+onMounted(() => {
+  childElementWatermark = new Watermark({
+    parent: '.parent-element',
+    width: 200,
+    height: 200,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: '100% 100%',
+  });
+});
+const handleAddChildElementWatermark = () => {
+  childElementWatermark.create();
+};
+const handleRemoveChildElementWatermark = () => {
+  childElementWatermark.destroy();
+};
 </script>
 
 ## Text Watermark
@@ -157,7 +175,7 @@ import { Watermark } from 'watermark-js-plus' // import watermark plugin
 
 const watermark = new Watermark({
   contentType: 'image',
-  content: 'http://upic-service.test.upcdn.net/uPic/github-JxMIKf.png',
+  content: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
   width: 300,
   height: 300,
   imageWidth: 100, // image width
@@ -199,3 +217,27 @@ watermark.destroy() // remove watermark
   <VPButton text="Add Rich Text Watermark" @click="handleAddRichTextWatermark"></VPButton>
   <VPButton text="Remove Rich Text Watermark" @click="handleRemoveRichTextWatermark"></VPButton>
 </el-space>
+
+## Child Element Watermark
+
+```js
+import { Watermark } from 'watermark-js-plus' // import watermark plugin
+
+const watermark = new Watermark({
+  parent: '.parent-element',
+  width: 200,
+  height: 200,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: '100% 100%',
+})
+
+watermark.create() // add watermark
+
+watermark.destroy() // remove watermark
+```
+<el-space>
+  <VPButton text="Add Child Element Watermark" @click="handleAddChildElementWatermark"></VPButton>
+  <VPButton text="Remove Child Element Watermark" @click="handleRemoveChildElementWatermark"></VPButton>
+</el-space>
+<div class="parent-element" style="width: 400px;height: 400px;border: 1px solid #333;margin-top: 10px;position: relative;">
+</div>

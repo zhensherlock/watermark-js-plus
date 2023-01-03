@@ -5,7 +5,7 @@ layout: doc
 
 <script setup lang="ts">
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
-import { ref, getCurrentInstance } from 'vue';
+import { ref, getCurrentInstance, onMounted } from 'vue';
 import { Watermark } from '../../../src';
 import { useData } from 'vitepress';
 
@@ -100,6 +100,24 @@ const handleAddRichTextWatermark = () => {
 const handleRemoveRichTextWatermark = () => {
   richTextWatermark.destroy();
 };
+
+// 子元素水印
+let childElementWatermark = null
+onMounted(() => {
+  childElementWatermark = new Watermark({
+    parent: '.parent-element',
+    width: 200,
+    height: 200,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: '100% 100%',
+  });
+});
+const handleAddChildElementWatermark = () => {
+  childElementWatermark.create();
+};
+const handleRemoveChildElementWatermark = () => {
+  childElementWatermark.destroy();
+};
 </script>
 
 ## 文本水印
@@ -157,7 +175,7 @@ import { Watermark } from 'watermark-js-plus' // 引入水印插件
 
 const watermark = new Watermark({
   contentType: 'image',
-  content: 'http://upic-service.test.upcdn.net/uPic/github-JxMIKf.png',
+  content: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
   width: 300,
   height: 300,
   imageWidth: 100, // 图片宽度
@@ -199,3 +217,27 @@ watermark.destroy() // 删除水印
   <VPButton text="添加富文本水印" @click="handleAddRichTextWatermark"></VPButton>
   <VPButton text="删除富文本水印" @click="handleRemoveRichTextWatermark"></VPButton>
 </el-space>
+
+## 子元素水印
+
+```js
+import { Watermark } from 'watermark-js-plus' // 引入水印插件
+
+const watermark = new Watermark({
+  parent: '.parent-element',
+  width: 200,
+  height: 200,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: '100% 100%',
+})
+
+watermark.create() // 添加水印
+
+watermark.destroy() // 删除水印
+```
+<el-space>
+  <VPButton text="添加子元素水印" @click="handleAddChildElementWatermark"></VPButton>
+  <VPButton text="删除子元素水印" @click="handleRemoveChildElementWatermark"></VPButton>
+</el-space>
+<div class="parent-element" style="width: 400px;height: 400px;border: 1px solid #333;margin-top: 10px;position: relative;">
+</div>
