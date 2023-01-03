@@ -29,7 +29,7 @@ export default {
           { text: '介绍', link: '/zh/guide/what-is-this' },
           { text: '开始使用', link: '/zh/guide/getting-started' },
           { text: '水印', link: '/zh/guide/watermark' },
-          { text: '暗水印', link: '/zh/guide/blink-watermark' },
+          { text: '暗水印', link: '/zh/guide/blind-watermark' },
         ]
       }
     ],

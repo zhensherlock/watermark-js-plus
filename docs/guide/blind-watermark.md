@@ -6,13 +6,14 @@ layout: doc
 <script setup lang="ts">
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
 import { ref, getCurrentInstance } from 'vue';
-import { Plus } from '@element-plus/icons-vue';
+import { Plus, Warning } from '@element-plus/icons-vue';
 import { BlindWatermark } from '../../src';
 import { useData } from 'vitepress';
 
 const { isDark } = useData();
 const app = getCurrentInstance();
-const decodeBlindImage = ref('');
+const decodeBlindImageByLight = ref('');
+const decodeBlindImageByDark = ref('');
 
 // text blind watermark
 const textBlindWatermark = new BlindWatermark({
@@ -103,15 +104,21 @@ const handleRemoveRichTextBlindWatermark = () => {
 };
 
 // decode blind watermark
-const handleSuccess = (uploadFile) => {
+const handleSuccessByLight = (uploadFile) => {
   BlindWatermark.decode({
-    ...(isDark.value ? {
-      compositeOperation: 'overlay',
-      fillColor: '#fff',
-    } : {}),
     url: uploadFile.url,
     onSuccess: (imageBase64) => {
-      decodeBlindImage.value = imageBase64
+      decodeBlindImageByLight.value = imageBase64
+    }
+  });
+}
+const handleSuccessByDark = (uploadFile) => {
+  BlindWatermark.decode({
+    compositeOperation: 'overlay',
+    fillColor: '#fff',
+    url: uploadFile.url,
+    onSuccess: (imageBase64) => {
+      decodeBlindImageByDark.value = imageBase64
     }
   });
 }
@@ -135,6 +142,7 @@ watermark.create() // add watermark
 
 watermark.destroy() // remove watermark
 ```
+👉 Add parameters for dark background：`fontColor: '#fff'`
 <el-space>
   <VPButton text="Add Text Blind Watermark" @click="handleAddTextBlindWatermark"></VPButton>
   <VPButton text="Remove Text Blind Watermark" @click="handleRemoveTextBlindWatermark"></VPButton>
@@ -160,6 +168,7 @@ watermark.create() // add watermark
 
 watermark.destroy() // remove watermark
 ```
+👉 Add parameters for dark background：`fontColor: '#fff'`
 <el-space>
   <VPButton text="Add Multiline Text Blind Watermark" @click="handleAddMultiLineTextBlindWatermark"></VPButton>
   <VPButton text="Remove Multiline Text Blind Watermark" @click="handleRemoveMultiLineTextBlindWatermark"></VPButton>
@@ -227,25 +236,58 @@ BlindWatermark.decode({
   }
 });
 ```
-
-<div>
-  <el-upload
-    list-type="picture-card"
-    accept="image/*"
-    :auto-upload="false"
-    :show-file-list="false"
-    :on-change="handleSuccess"
-  >
-    <el-icon><Plus /></el-icon>
-  </el-upload>
-  <el-image
-    v-if="decodeBlindImage"
-    style="width: 400px; height: 400px;margin-top: 20px;"
-    :src="decodeBlindImage"
-    :preview-src-list="[decodeBlindImage]"
-    fit="cover"
-  />
-</div>
+<el-row :gutter="20">
+  <el-col :span="12">
+    <el-tooltip content="Use a light background image" placement="right">
+      <el-link :underline="false">
+        Light Background<el-icon class="el-icon--right"><Warning /></el-icon>
+      </el-link>
+    </el-tooltip>
+    <div>
+      <el-upload
+        list-type="picture-card"
+        accept="image/*"
+        :auto-upload="false"
+        :show-file-list="false"
+        :on-change="handleSuccessByLight"
+      >
+        <el-icon><Plus /></el-icon>
+      </el-upload>
+      <el-image
+        v-if="decodeBlindImageByLight"
+        style="width: 400px; height: 400px;margin-top: 20px;"
+        :src="decodeBlindImageByLight"
+        :preview-src-list="[decodeBlindImageByLight]"
+        fit="cover"
+      />
+    </div>
+  </el-col>
+  <el-col :span="12">
+    <el-tooltip content="Use with dark background image" placement="right">
+      <el-link :underline="false">
+        Dark Background<el-icon class="el-icon--right"><Warning /></el-icon>
+      </el-link>
+    </el-tooltip>
+    <div>
+      <el-upload
+        list-type="picture-card"
+        accept="image/*"
+        :auto-upload="false"
+        :show-file-list="false"
+        :on-change="handleSuccessByDark"
+      >
+        <el-icon><Plus /></el-icon>
+      </el-upload>
+      <el-image
+        v-if="decodeBlindImageByDark"
+        style="width: 400px; height: 400px;margin-top: 20px;"
+        :src="decodeBlindImageByDark"
+        :preview-src-list="[decodeBlindImageByDark]"
+        fit="cover"
+      />
+    </div>
+  </el-col>
+</el-row>
 
 [//]: # (<div style="position: relative;">)
 
