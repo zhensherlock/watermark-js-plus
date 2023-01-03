@@ -1,3 +1,13 @@
+# [0.2.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.1.0...v0.2.0) (2023-01-03)
+
+
+### ✨ Features | 新功能
+
+* add options: backgroundRepeat ([295883b](https://github.com/zhensherlock/watermark-js-plus/commit/295883b0581b867a23397c9fd1dff8d7b0f15e56))
+* support child element watermark ([a687054](https://github.com/zhensherlock/watermark-js-plus/commit/a6870541257f937e61962dbf57dd401a08ac94ec))
+
+
+
 # [0.1.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.0.4...v0.1.0) (2022-12-14)
 
 
