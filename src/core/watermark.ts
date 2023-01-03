@@ -34,6 +34,7 @@ export default class Watermark {
       lineHeight: 30,
       zIndex: 10000,
       backgroundPosition: '0 0, 0 0',
+      backgroundRepeat: 'repeat',
       fontSize: 20,
       fontFamily: 'sans-serif',
       textAlign: TextAlignEnum.center,
@@ -111,7 +112,7 @@ export default class Watermark {
       left: 0;
       right: 0;
       background-image: url(${image});
-      background-repeat: repeat;
+      background-repeat: ${this.options.backgroundRepeat};
       background-size: ${this.options.width}px ${this.options.height}px;
       background-position: ${this.options.backgroundPosition};
       -webkit-print-color-adjust: exact;

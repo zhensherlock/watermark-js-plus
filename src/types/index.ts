@@ -44,6 +44,7 @@ export interface WatermarkOptions {
   lineHeight: number;
   zIndex: number;
   backgroundPosition: string;
+  backgroundRepeat: string;
   fontSize: number;
   fontFamily: string;
   textAlign: TextAlignEnum; // 对齐方式 center | left | right
