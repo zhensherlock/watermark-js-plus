@@ -1,3 +1,17 @@
+# [0.3.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.2.0...v0.3.0) (2023-01-04)
+
+
+### ♻ Code Refactoring | 代码重构
+
+* textAlign and textBaseline default values ([a3557f8](https://github.com/zhensherlock/watermark-js-plus/commit/a3557f87232e7e18a0d4a5a127c82d285b0d78bd))
+
+
+### ✨ Features | 新功能
+
+* support translate placement ([7181b81](https://github.com/zhensherlock/watermark-js-plus/commit/7181b81c3139c6e487c2b094047332ec7d768183))
+
+
+
 # [0.2.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.1.0...v0.2.0) (2023-01-03)
 
 
