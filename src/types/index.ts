@@ -27,6 +27,18 @@ export enum DecodeBlindWatermarkModeEnum {
   svg = 'svg'
 }
 
+export enum TranslatePlacementEnum {
+  top = 'top',
+  topStart = 'top-start',
+  topEnd = 'top-end',
+  bottom = 'bottom',
+  bottomStart = 'bottom-start',
+  bottomEnd = 'bottom-end',
+  left = 'left',
+  right = 'right',
+  middle = 'middle'
+}
+
 export interface WatermarkDom extends HTMLDivElement {
   __WATERMARK__?: string;
   __WATERMARK__INSTANCE__?: any;
@@ -36,6 +48,9 @@ export interface WatermarkOptions {
   width: number;
   height: number;
   rotate: number;
+  translatePlacement: TranslatePlacementEnum;
+  translateX?: number;
+  translateY?: number;
   contentType: ContentTypeEnum;
   content: string;
   image?: string;

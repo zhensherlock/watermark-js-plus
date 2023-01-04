@@ -24,7 +24,25 @@ A unit of height for a single watermark.
 
 Watermark rotation Angle.
 
-Rotate with the center of the text as the origin.
+## translatePlacement
+
+- **Type:** `string`
+- **Default:** `'text'`
+- **available values**: `'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'right' | 'middle'`
+
+Translation transformation to the current matrix by moving the canvas and its origin x units horizontally and y units vertically on the grid.
+
+## translateX
+
+- **Type:** `number`
+
+Distance to move in the horizontal direction. Positive values are to the right, and negative to the left.
+
+## translateY
+
+- **Type:** `number`
+
+Distance to move in the vertical direction. Positive values are down, and negative are up.
 
 ## contentType
 
@@ -75,6 +93,13 @@ z-index
 - **Default:** `'0 0, 0 0'`
 
 background-position
+
+## backgroundRepeat
+
+- **Type:** `string`
+- **Default:** `'repeat'`
+
+background-repeat
 
 ## fontSize
 

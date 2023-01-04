@@ -8,6 +8,10 @@ export const isFunction = (value: Function): boolean => {
   return typeof value === 'function'
 }
 
+export const isUndefined = (value: any): boolean => {
+  return value === undefined
+}
+
 export const createSVGElement = (tagName: string, attrs: {[key: string]: string} = {}, namespaceURI = 'http://www.w3.org/2000/svg'): Element => {
   const element = document.createElementNS(namespaceURI, tagName)
   for (const attr in attrs) {

@@ -24,7 +24,25 @@ layout: doc
 
 水印旋转角度
 
-以文本的中心为原点旋转。
+## translatePlacement
+
+- **Type:** `string`
+- **Default:** `'text'`
+- **available values**: `'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'right' | 'middle'`
+
+水平方向的移动位置
+
+## translateX
+
+- **Type:** `number`
+
+水平方向的移动距离。
+
+## translateY
+
+- **Type:** `number`
+
+垂直方向的移动距离。
 
 ## contentType
 
@@ -75,6 +93,13 @@ z-index
 - **Default:** `'0 0, 0 0'`
 
 background-position
+
+## backgroundRepeat
+
+- **Type:** `string`
+- **Default:** `'repeat'`
+
+background-repeat
 
 ## fontSize
 

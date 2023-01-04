@@ -1,9 +1,10 @@
-import { convertImage, convertSVGToImage, createCustomContentSVG, getMultiLineData } from '../utils'
+import { convertImage, convertSVGToImage, createCustomContentSVG, getMultiLineData, isUndefined } from '../utils'
 import {
   ContentTypeEnum,
   CreateWatermarkModeEnum,
   TextAlignEnum,
   TextBaselineEnum,
+  TranslatePlacementEnum,
   WatermarkDom,
   WatermarkOptions
 } from '../types'
@@ -27,6 +28,7 @@ export default class Watermark {
       width: 300,
       height: 300,
       rotate: 45,
+      translatePlacement: TranslatePlacementEnum.middle,
       contentType: ContentTypeEnum.text,
       content: 'hello watermark-js-plus',
       imageWidth: 0,
@@ -54,6 +56,7 @@ export default class Watermark {
       this.options.rotate = (360 - this.options.rotate % 360) * (Math.PI / 180)
     }
     this.changeParentElement(this.options.parent)
+    this.initializeTranslateData()
   }
 
   /**
@@ -138,6 +141,51 @@ export default class Watermark {
     this.options.onDestroyed?.()
   }
 
+  private initializeTranslateData () {
+    let translateX
+    let translateY
+    switch (this.options.translatePlacement) {
+      case TranslatePlacementEnum.top:
+        translateX = this.options.width / 2
+        translateY = 0
+        break
+      case TranslatePlacementEnum.topStart:
+        translateX = 0
+        translateY = 0
+        break
+      case TranslatePlacementEnum.topEnd:
+        translateX = this.options.width
+        translateY = 0
+        break
+      case TranslatePlacementEnum.bottom:
+        translateX = this.options.width / 2
+        translateY = this.options.height
+        break
+      case TranslatePlacementEnum.bottomStart:
+        translateX = 0
+        translateY = this.options.height
+        break
+      case TranslatePlacementEnum.bottomEnd:
+        translateX = this.options.width
+        translateY = this.options.height
+        break
+      case TranslatePlacementEnum.left:
+        translateX = 0
+        translateY = this.options.height / 2
+        break
+      case TranslatePlacementEnum.right:
+        translateX = this.options.width
+        translateY = this.options.height / 2
+        break
+      case TranslatePlacementEnum.middle:
+        translateX = this.options.width / 2
+        translateY = this.options.height / 2
+        break
+    }
+    isUndefined(this.options.translateX) && (this.options.translateX = translateX)
+    isUndefined(this.options.translateY) && (this.options.translateY = translateY)
+  }
+
   private validateUnique (): boolean {
     let result = true
     if (this.options.unique) {
@@ -178,6 +226,8 @@ export default class Watermark {
     ctx.textBaseline = this.options.textBaseline
     ctx.fillStyle = this.options.fontColor
     ctx.globalAlpha = this.options.globalAlpha
+    ctx.translate(this.options.translateX as number, this.options.translateY as number)
+    ctx.rotate(this.options.rotate)
     return new Promise((resolve) => {
       switch (this.options.contentType) {
         case ContentTypeEnum.text:
@@ -197,8 +247,6 @@ export default class Watermark {
   }
 
   private drawText (ctx: CanvasRenderingContext2D, resolve: Function) {
-    ctx.translate(this.options.width / 2, this.options.height / 2)
-    ctx.rotate(this.options.rotate)
     ctx.fillText(this.options.content, 0, 0)
     resolve(ctx.canvas)
   }
@@ -208,8 +256,6 @@ export default class Watermark {
     image.setAttribute('crossOrigin', 'Anonymous')
     image.src = this.options.image as string
     image.onload = () => {
-      ctx.translate(this.options.width / 2, this.options.height / 2)
-      ctx.rotate(this.options.rotate)
       const { width: imageWidth, height: imageHeight } = this.getImageRect(image)
       ctx.drawImage(
         image,
@@ -240,8 +286,6 @@ export default class Watermark {
     //   resolve(canvas)
     // }
     const lines = getMultiLineData(ctx, this.options.content, this.options.width)
-    ctx.translate(this.options.width / 2, this.options.height / 2)
-    ctx.rotate(this.options.rotate)
     const yOffsetValue = (lines.length - 1) * this.options.lineHeight / 2
     lines.forEach((txt, index) => {
       ctx.fillText(txt, 0, this.options.lineHeight * index - yOffsetValue)
@@ -256,8 +300,6 @@ export default class Watermark {
     const element = createCustomContentSVG(ctx, this.options)
     image.src = convertSVGToImage(element)
     image.onload = () => {
-      ctx.translate(this.options.width / 2, this.options.height / 2)
-      ctx.rotate(this.options.rotate)
       ctx.drawImage(
         image,
         -this.options.width / 2,
