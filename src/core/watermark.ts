@@ -39,8 +39,6 @@ export default class Watermark {
       backgroundRepeat: 'repeat',
       fontSize: 20,
       fontFamily: 'sans-serif',
-      textAlign: TextAlignEnum.center,
-      textBaseline: TextBaselineEnum.middle,
       fontColor: '#000',
       globalAlpha: 0.5,
       fontWeight: 'normal',
@@ -52,11 +50,8 @@ export default class Watermark {
       onBeforeDestroy: () => {},
       onDestroyed: () => {}
     }, props)
-    if (this.options?.rotate) {
-      this.options.rotate = (360 - this.options.rotate % 360) * (Math.PI / 180)
-    }
     this.changeParentElement(this.options.parent)
-    this.initializeTranslateData()
+    this.initializeOptions()
   }
 
   /**
@@ -141,41 +136,58 @@ export default class Watermark {
     this.options.onDestroyed?.()
   }
 
-  private initializeTranslateData () {
-    let translateX
-    let translateY
+  private initializeOptions () {
+    if (this.options?.rotate) {
+      this.options.rotate = (360 - this.options.rotate % 360) * (Math.PI / 180)
+    }
+    let translateX: number
+    let translateY: number
+    let textBaseline: TextBaselineEnum = TextBaselineEnum.middle
+    let textAlign: TextAlignEnum = TextAlignEnum.center
     switch (this.options.translatePlacement) {
       case TranslatePlacementEnum.top:
         translateX = this.options.width / 2
         translateY = 0
+        textBaseline = TextBaselineEnum.top
         break
       case TranslatePlacementEnum.topStart:
         translateX = 0
         translateY = 0
+        textBaseline = TextBaselineEnum.top
+        textAlign = TextAlignEnum.left
         break
       case TranslatePlacementEnum.topEnd:
         translateX = this.options.width
         translateY = 0
+        textBaseline = TextBaselineEnum.top
+        textAlign = TextAlignEnum.right
         break
       case TranslatePlacementEnum.bottom:
         translateX = this.options.width / 2
         translateY = this.options.height
+        textBaseline = TextBaselineEnum.bottom
         break
       case TranslatePlacementEnum.bottomStart:
         translateX = 0
         translateY = this.options.height
+        textBaseline = TextBaselineEnum.bottom
+        textAlign = TextAlignEnum.left
         break
       case TranslatePlacementEnum.bottomEnd:
         translateX = this.options.width
         translateY = this.options.height
+        textBaseline = TextBaselineEnum.bottom
+        textAlign = TextAlignEnum.right
         break
       case TranslatePlacementEnum.left:
         translateX = 0
         translateY = this.options.height / 2
+        textAlign = TextAlignEnum.left
         break
       case TranslatePlacementEnum.right:
         translateX = this.options.width
         translateY = this.options.height / 2
+        textAlign = TextAlignEnum.right
         break
       case TranslatePlacementEnum.middle:
         translateX = this.options.width / 2
@@ -184,6 +196,8 @@ export default class Watermark {
     }
     isUndefined(this.options.translateX) && (this.options.translateX = translateX)
     isUndefined(this.options.translateY) && (this.options.translateY = translateY)
+    isUndefined(this.options.textBaseline) && (this.options.textBaseline = textBaseline)
+    isUndefined(this.options.textAlign) && (this.options.textAlign = textAlign)
   }
 
   private validateUnique (): boolean {
@@ -222,8 +236,8 @@ export default class Watermark {
       throw new Error('get context error')
     }
     ctx.font = `${this.options.fontWeight} ${this.options.fontSize}px ${this.options.fontFamily}`
-    ctx.textAlign = this.options.textAlign
-    ctx.textBaseline = this.options.textBaseline
+    this.options.textAlign && (ctx.textAlign = this.options.textAlign)
+    this.options.textBaseline && (ctx.textBaseline = this.options.textBaseline)
     ctx.fillStyle = this.options.fontColor
     ctx.globalAlpha = this.options.globalAlpha
     ctx.translate(this.options.translateX as number, this.options.translateY as number)

@@ -11,6 +11,9 @@ export enum TextAlignEnum {
 }
 
 export enum TextBaselineEnum {
+  alphabetic = 'alphabetic',
+  hanging = 'hanging',
+  ideographic = 'ideographic',
   top = 'top',
   bottom = 'bottom',
   middle = 'middle'
@@ -62,8 +65,8 @@ export interface WatermarkOptions {
   backgroundRepeat: string;
   fontSize: number;
   fontFamily: string;
-  textAlign: TextAlignEnum; // 对齐方式 center | left | right
-  textBaseline: TextBaselineEnum; // 底部对齐方式 top | bottom | middle
+  textAlign?: TextAlignEnum; // 对齐方式 center | left | right
+  textBaseline?: TextBaselineEnum; // 底部对齐方式 top | bottom | middle
   fontColor: string;
   globalAlpha: number;
   fontWeight: string;

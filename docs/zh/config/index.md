@@ -118,7 +118,6 @@ background-repeat
 ## textAlign
 
 - **Type:** `string`
-- **Default:** `'center'`
 - **available values**: `'center' | 'left' | 'right'`
 
 水印内容水平对齐方式。
@@ -126,10 +125,10 @@ background-repeat
 ## textBaseline
 
 - **Type:** `string`
-- **Default:** `'middle'`
-- **available values**: `'top' | 'bottom' | 'middle'`
+- **available values**: `'top' | 'bottom' | 'middle' | 'alphabetic' | 'hanging' | 'ideographic'`
 
 水印内容基准线。
+![textBaseline](../../public/text-baseline.png)
 
 ## fontColor
 

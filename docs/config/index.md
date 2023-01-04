@@ -118,7 +118,6 @@ The font family of the watermark content.
 ## textAlign
 
 - **Type:** `string`
-- **Default:** `'center'`
 - **available values**: `'center' | 'left' | 'right'`
 
 Watermark content horizontal alignment.
@@ -126,10 +125,10 @@ Watermark content horizontal alignment.
 ## textBaseline
 
 - **Type:** `string`
-- **Default:** `'middle'`
-- **available values**: `'top' | 'bottom' | 'middle'`
+- **available values**: `'top' | 'bottom' | 'middle' | 'alphabetic' | 'hanging' | 'ideographic'`
 
 Watermark content baseline.
+![textBaseline](../public/text-baseline.png)
 
 ## fontColor
 
