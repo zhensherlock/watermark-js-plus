@@ -1,4 +1,4 @@
-import { CreateWatermarkModeEnum, DecodeBlindWatermarkOptions, DecodeBlindWatermarkModeEnum, WatermarkOptions } from '../types'
+import { DecodeBlindWatermarkOptions, WatermarkOptions } from '../types'
 import { convertImage, isFunction } from '../utils'
 import Watermark from './watermark'
 
@@ -12,7 +12,7 @@ export default class BlindWatermark extends Watermark {
    */
   constructor (props: Partial<WatermarkOptions> = {}) {
     props.globalAlpha = 0.005
-    props.mode = CreateWatermarkModeEnum.blind
+    props.mode = 'blind'
     super(props)
   }
 
@@ -25,12 +25,12 @@ export default class BlindWatermark extends Watermark {
       url: '',
       fillColor: '#000',
       compositeOperation: 'color-burn',
-      mode: DecodeBlindWatermarkModeEnum.canvas
+      mode: 'canvas'
     }, props)
     if (!options.url) {
       return
     }
-    if (options.mode === DecodeBlindWatermarkModeEnum.canvas) {
+    if (options.mode === 'canvas') {
       const img = new Image()
       img.src = options.url
       img.onload = () => {

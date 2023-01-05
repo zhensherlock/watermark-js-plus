@@ -1,10 +1,7 @@
 import { convertImage, convertSVGToImage, createCustomContentSVG, getMultiLineData, isUndefined } from '../utils'
 import {
-  ContentTypeEnum,
-  CreateWatermarkModeEnum,
-  TextAlignEnum,
-  TextBaselineEnum,
-  TranslatePlacementEnum,
+  TextAlignType,
+  TextBaselineType,
   WatermarkDom,
   WatermarkOptions
 } from '../types'
@@ -28,8 +25,8 @@ export default class Watermark {
       width: 300,
       height: 300,
       rotate: 45,
-      translatePlacement: TranslatePlacementEnum.middle,
-      contentType: ContentTypeEnum.text,
+      translatePlacement: 'middle',
+      contentType: 'text',
       content: 'hello watermark-js-plus',
       imageWidth: 0,
       imageHeight: 0,
@@ -42,7 +39,7 @@ export default class Watermark {
       fontColor: '#000',
       globalAlpha: 0.5,
       fontWeight: 'normal',
-      mode: CreateWatermarkModeEnum.default,
+      mode: 'default',
       mutationObserve: true,
       unique: true,
       parent: 'body',
@@ -142,54 +139,54 @@ export default class Watermark {
     }
     let translateX: number
     let translateY: number
-    let textBaseline: TextBaselineEnum = TextBaselineEnum.middle
-    let textAlign: TextAlignEnum = TextAlignEnum.center
+    let textBaseline: TextBaselineType = 'middle'
+    let textAlign: TextAlignType = 'center'
     switch (this.options.translatePlacement) {
-      case TranslatePlacementEnum.top:
+      case 'top':
         translateX = this.options.width / 2
         translateY = 0
-        textBaseline = TextBaselineEnum.top
+        textBaseline = 'top'
         break
-      case TranslatePlacementEnum.topStart:
+      case 'top-start':
         translateX = 0
         translateY = 0
-        textBaseline = TextBaselineEnum.top
-        textAlign = TextAlignEnum.left
+        textBaseline = 'top'
+        textAlign = 'start'
         break
-      case TranslatePlacementEnum.topEnd:
+      case 'top-end':
         translateX = this.options.width
         translateY = 0
-        textBaseline = TextBaselineEnum.top
-        textAlign = TextAlignEnum.right
+        textBaseline = 'top'
+        textAlign = 'end'
         break
-      case TranslatePlacementEnum.bottom:
+      case 'bottom':
         translateX = this.options.width / 2
         translateY = this.options.height
-        textBaseline = TextBaselineEnum.bottom
+        textBaseline = 'bottom'
         break
-      case TranslatePlacementEnum.bottomStart:
+      case 'bottom-start':
         translateX = 0
         translateY = this.options.height
-        textBaseline = TextBaselineEnum.bottom
-        textAlign = TextAlignEnum.left
+        textBaseline = 'bottom'
+        textAlign = 'start'
         break
-      case TranslatePlacementEnum.bottomEnd:
+      case 'bottom-end':
         translateX = this.options.width
         translateY = this.options.height
-        textBaseline = TextBaselineEnum.bottom
-        textAlign = TextAlignEnum.right
+        textBaseline = 'bottom'
+        textAlign = 'end'
         break
-      case TranslatePlacementEnum.left:
+      case 'left':
         translateX = 0
         translateY = this.options.height / 2
-        textAlign = TextAlignEnum.left
+        textAlign = 'start'
         break
-      case TranslatePlacementEnum.right:
+      case 'right':
         translateX = this.options.width
         translateY = this.options.height / 2
-        textAlign = TextAlignEnum.right
+        textAlign = 'end'
         break
-      case TranslatePlacementEnum.middle:
+      case 'middle':
         translateX = this.options.width / 2
         translateY = this.options.height / 2
         break
@@ -218,11 +215,11 @@ export default class Watermark {
 
   private validateContent (): boolean {
     switch (this.options.contentType) {
-      case ContentTypeEnum.image:
+      case 'image':
         return Object.hasOwnProperty.call(this.options, 'image')
-      case ContentTypeEnum.multiLineText:
-      case ContentTypeEnum.richText:
-      case ContentTypeEnum.text:
+      case 'multi-line-text':
+      case 'rich-text':
+      case 'text':
         return this.options.content.length > 0
     }
     return false
@@ -244,16 +241,16 @@ export default class Watermark {
     ctx.rotate(this.options.rotate)
     return new Promise((resolve) => {
       switch (this.options.contentType) {
-        case ContentTypeEnum.text:
+        case 'text':
           this.drawText(ctx, resolve)
           break
-        case ContentTypeEnum.image:
+        case 'image':
           this.drawImage(ctx, resolve)
           break
-        case ContentTypeEnum.multiLineText:
+        case 'multi-line-text':
           this.drawMultiLineText(ctx, resolve)
           break
-        case ContentTypeEnum.richText:
+        case 'rich-text':
           this.drawRichText(ctx, resolve)
           break
       }

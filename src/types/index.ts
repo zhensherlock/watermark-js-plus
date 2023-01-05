@@ -1,46 +1,14 @@
-export enum ContentTypeEnum {
-  text = 'text',
-  image = 'image',
-  multiLineText = 'multi-line-text',
-  richText = 'rich-text'
-}
-export enum TextAlignEnum {
-  center = 'center',
-  left = 'left',
-  right = 'right'
-}
+export type ContentTypeType = 'text' | 'image' | 'multi-line-text' | 'rich-text'
 
-export enum TextBaselineEnum {
-  alphabetic = 'alphabetic',
-  hanging = 'hanging',
-  ideographic = 'ideographic',
-  top = 'top',
-  bottom = 'bottom',
-  middle = 'middle'
-}
+export type TextAlignType = 'center' | 'end' | 'left' | 'right' | 'start'
 
-export enum CreateWatermarkModeEnum {
-  default = 'default',
-  blind = 'blind'
-}
+export type TextBaselineType = 'alphabetic' | 'hanging' | 'ideographic' | 'top' | 'bottom' | 'middle'
 
-export enum DecodeBlindWatermarkModeEnum {
-  canvas = 'canvas',
-  html = 'html',
-  svg = 'svg'
-}
+export type CreateWatermarkModeType = 'default' | 'blind'
 
-export enum TranslatePlacementEnum {
-  top = 'top',
-  topStart = 'top-start',
-  topEnd = 'top-end',
-  bottom = 'bottom',
-  bottomStart = 'bottom-start',
-  bottomEnd = 'bottom-end',
-  left = 'left',
-  right = 'right',
-  middle = 'middle'
-}
+export type DecodeBlindWatermarkModeType = 'canvas' | 'html' | 'svg'
+
+export type TranslatePlacementType = 'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'right' | 'middle'
 
 export interface WatermarkDom extends HTMLDivElement {
   __WATERMARK__?: string;
@@ -51,10 +19,10 @@ export interface WatermarkOptions {
   width: number;
   height: number;
   rotate: number;
-  translatePlacement: TranslatePlacementEnum;
+  translatePlacement: TranslatePlacementType;
   translateX?: number;
   translateY?: number;
-  contentType: ContentTypeEnum;
+  contentType: ContentTypeType;
   content: string;
   image?: string;
   imageWidth: number;
@@ -65,12 +33,12 @@ export interface WatermarkOptions {
   backgroundRepeat: string;
   fontSize: number;
   fontFamily: string;
-  textAlign?: TextAlignEnum; // 对齐方式 center | left | right
-  textBaseline?: TextBaselineEnum; // 底部对齐方式 top | bottom | middle
+  textAlign?: TextAlignType;
+  textBaseline?: TextBaselineType;
   fontColor: string;
   globalAlpha: number;
   fontWeight: string;
-  mode: CreateWatermarkModeEnum; // 模式 default | blind
+  mode: CreateWatermarkModeType;
   mutationObserve: boolean;
   unique: boolean;
   parent: Element | string;
@@ -83,6 +51,6 @@ export interface DecodeBlindWatermarkOptions {
   url: string;
   fillColor: string;
   compositeOperation: string;
-  mode: DecodeBlindWatermarkModeEnum;
+  mode: DecodeBlindWatermarkModeType;
   onSuccess: Function;
 }
