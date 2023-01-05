@@ -1,9 +1,10 @@
-# [0.3.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.2.0...v0.3.0) (2023-01-04)
+# [0.3.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.2.0...v0.3.0) (2023-01-05)
 
 
 ### ♻ Code Refactoring | 代码重构
 
 * textAlign and textBaseline default values ([a3557f8](https://github.com/zhensherlock/watermark-js-plus/commit/a3557f87232e7e18a0d4a5a127c82d285b0d78bd))
+* ts enum replaces type ([bf18df3](https://github.com/zhensherlock/watermark-js-plus/commit/bf18df38c2ce724251b0eefe16103f5b408113bb))
 
 
 ### ✨ Features | 新功能
