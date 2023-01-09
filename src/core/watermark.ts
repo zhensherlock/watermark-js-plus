@@ -274,10 +274,11 @@ export default class Watermark {
     image.src = this.options.image as string
     image.onload = () => {
       const { width: imageWidth, height: imageHeight } = this.getImageRect(image)
+      const imagePosition = this.getDrawImagePosition(imageWidth, imageHeight)
       ctx.drawImage(
         image,
-        0 - imageWidth / 2,
-        0 - imageHeight / 2,
+        imagePosition.x,
+        imagePosition.y,
         imageWidth,
         imageHeight
       )
@@ -357,6 +358,50 @@ export default class Watermark {
         break
     }
     return rect
+  }
+
+  private getDrawImagePosition (imageWidth: number, imageHeight: number) {
+    const result = {
+      x: -imageWidth / 2,
+      y: -imageHeight / 2
+    }
+    switch (this.options.translatePlacement) {
+      case 'top':
+        result.x = -imageWidth / 2
+        result.y = 0
+        break
+      case 'top-start':
+        result.x = 0
+        result.y = 0
+        break
+      case 'top-end':
+        result.x = -imageWidth
+        result.y = 0
+        break
+      case 'bottom':
+        result.x = -imageWidth / 2
+        result.y = -imageHeight
+        break
+      case 'bottom-start':
+        result.x = 0
+        result.y = -imageHeight
+        break
+      case 'bottom-end':
+        result.x = -imageWidth
+        result.y = -imageHeight
+        break
+      case 'left':
+        result.x = 0
+        result.y = -imageHeight / 2
+        break
+      case 'right':
+        result.x = -imageWidth
+        result.y = -imageHeight / 2
+        break
+    }
+    !isUndefined(this.props?.translateX) && (result.x = 0)
+    !isUndefined(this.props?.translateY) && (result.y = 0)
+    return result
   }
 
   private checkParentElementType () {
