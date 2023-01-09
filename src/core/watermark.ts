@@ -326,16 +326,17 @@ export default class Watermark {
   }
 
   private drawRichText (ctx: CanvasRenderingContext2D, resolve: Function) {
+    const obj = createCustomContentSVG(ctx, this.options)
     const image = new Image()
-    image.width = this.options.width
-    image.height = this.options.height
-    const element = createCustomContentSVG(ctx, this.options)
-    image.src = convertSVGToImage(element)
+    image.width = obj.width
+    image.height = obj.height
+    image.src = convertSVGToImage(obj.element)
     image.onload = () => {
+      const imagePosition = this.getDrawImagePosition(image.width, image.height)
       ctx.drawImage(
         image,
-        -this.options.width / 2,
-        -this.options.height / 2,
+        imagePosition.x,
+        imagePosition.y,
         ctx.canvas.width,
         ctx.canvas.height
       )

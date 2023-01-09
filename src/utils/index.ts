@@ -1,4 +1,4 @@
-import { WatermarkOptions } from '../types'
+import { CustomContentSVGType, WatermarkOptions } from '../types'
 
 export const convertImage = (canvas: HTMLCanvasElement): string => {
   return canvas.toDataURL('image/png', 1)
@@ -35,13 +35,9 @@ export const getMultiLineData = (ctx: CanvasRenderingContext2D, text: string, ma
   return result
 }
 
-export const createCustomContentSVG = (ctx: CanvasRenderingContext2D, options: WatermarkOptions): Element => {
+export const createCustomContentSVG = (ctx: CanvasRenderingContext2D, options: WatermarkOptions): CustomContentSVGType => {
   const svgElement = createSVGElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg'
-  })
-  const foreignObjectElement = createSVGElement('foreignObject', {
-    width: options.width.toString(),
-    height: options.height.toString()
   })
   const bodyElement = document.createElement('div')
   bodyElement.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml')
@@ -54,11 +50,24 @@ export const createCustomContentSVG = (ctx: CanvasRenderingContext2D, options: W
   height: 100%;
   font: ${ctx.font};
   color: ${options.fontColor};
-  `
-  bodyElement.innerHTML = options.content
+`
+  bodyElement.innerHTML = `<div class="rich-text-content">${options.content}</div>`
+  document.body.appendChild(bodyElement)
+  const { offsetHeight, offsetWidth } = <HTMLElement>bodyElement.querySelector('.rich-text-content')
+  document.body.removeChild(bodyElement)
+  const width = options.richTextWidth || offsetWidth || options.width
+  const height = options.richTextHeight || offsetHeight || options.height
+  const foreignObjectElement = createSVGElement('foreignObject', {
+    width: width.toString(),
+    height: height.toString()
+  })
   foreignObjectElement.appendChild(bodyElement)
   svgElement.appendChild(foreignObjectElement)
-  return svgElement
+  return {
+    element: svgElement,
+    width,
+    height
+  }
 }
 
 export const convertSVGToImage = (svg: Element): string => {

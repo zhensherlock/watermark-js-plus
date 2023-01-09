@@ -27,6 +27,8 @@ export interface WatermarkOptions {
   image?: string;
   imageWidth: number;
   imageHeight: number;
+  richTextWidth?: number;
+  richTextHeight?: number;
   lineHeight: number;
   zIndex: number;
   backgroundPosition: string;
@@ -53,4 +55,10 @@ export interface DecodeBlindWatermarkOptions {
   compositeOperation: string;
   mode: DecodeBlindWatermarkModeType;
   onSuccess: Function;
+}
+
+export interface CustomContentSVGType {
+  element: Element,
+  width: number,
+  height: number
 }
