@@ -303,7 +303,21 @@ export default class Watermark {
     //   resolve(canvas)
     // }
     const lines = getMultiLineData(ctx, this.options.content, this.options.width)
-    const yOffsetValue = (lines.length - 1) * this.options.lineHeight / 2
+    let yOffsetValue: number
+    switch (this.options.textBaseline) {
+      case 'middle':
+        yOffsetValue = (lines.length - 1) * this.options.lineHeight / 2
+        break
+      case 'bottom':
+      case 'alphabetic':
+      case 'ideographic':
+        yOffsetValue = (lines.length - 1) * this.options.lineHeight
+        break
+      case 'top':
+      case 'hanging':
+        yOffsetValue = 0
+        break
+    }
     lines.forEach((txt, index) => {
       ctx.fillText(txt, 0, this.options.lineHeight * index - yOffsetValue)
     })
