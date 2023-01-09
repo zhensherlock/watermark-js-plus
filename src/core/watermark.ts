@@ -15,12 +15,14 @@ export default class Watermark {
   private observer?: MutationObserver
   private parentObserve?: MutationObserver
   private watermarkDom?: WatermarkDom
+  private props?: Partial<WatermarkOptions>
 
   /**
    * Watermark constructor
    * @param props - watermark options
    */
   constructor (props: Partial<WatermarkOptions> = {}) {
+    this.props = props
     this.options = Object.assign({
       width: 300,
       height: 300,
@@ -191,10 +193,14 @@ export default class Watermark {
         translateY = this.options.height / 2
         break
     }
-    isUndefined(this.options.translateX) && (this.options.translateX = translateX)
-    isUndefined(this.options.translateY) && (this.options.translateY = translateY)
-    isUndefined(this.options.textBaseline) && (this.options.textBaseline = textBaseline)
-    isUndefined(this.options.textAlign) && (this.options.textAlign = textAlign)
+    if (!isUndefined(this.props?.translateX) || !isUndefined(this.props?.translateY)) {
+      textBaseline = 'top'
+      textAlign = 'left'
+    }
+    isUndefined(this.props?.translateX) && (this.options.translateX = translateX)
+    isUndefined(this.props?.translateY) && (this.options.translateY = translateY)
+    isUndefined(this.props?.textBaseline) && (this.options.textBaseline = textBaseline)
+    isUndefined(this.props?.textAlign) && (this.options.textAlign = textAlign)
   }
 
   private validateUnique (): boolean {
