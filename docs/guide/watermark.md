@@ -175,7 +175,7 @@ import { Watermark } from 'watermark-js-plus' // import watermark plugin
 
 const watermark = new Watermark({
   contentType: 'image',
-  content: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
+  image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
   width: 300,
   height: 300,
   imageWidth: 100, // image width

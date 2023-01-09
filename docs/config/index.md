@@ -27,7 +27,6 @@ Watermark rotation Angle.
 ## translatePlacement
 
 - **Type:** `string`
-- **Default:** `'text'`
 - **available values**: `'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'right' | 'middle'`
 
 Translation transformation to the current matrix by moving the canvas and its origin x units horizontally and y units vertically on the grid.
@@ -59,6 +58,12 @@ Type of watermark content.
 
 Watermark content.
 
+## image
+
+- **Type:** `string`
+
+Watermark image url.
+
 ## imageWidth
 
 - **Type:** `number`
@@ -72,6 +77,18 @@ Watermark image width.
 - **Default:** `0`
 
 Watermark image height.
+
+## richTextWidth
+
+- **Type:** `number`
+
+Watermark rich text width.
+
+## richTextHeight
+
+- **Type:** `number`
+
+Watermark rich text height.
 
 ## lineHeight
 
@@ -118,7 +135,7 @@ The font family of the watermark content.
 ## textAlign
 
 - **Type:** `string`
-- **available values**: `'center' | 'left' | 'right'`
+- **available values**: `'center' | 'end' | 'left' | 'right' | 'start'`
 
 Watermark content horizontal alignment.
 

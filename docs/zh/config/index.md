@@ -27,7 +27,6 @@ layout: doc
 ## translatePlacement
 
 - **Type:** `string`
-- **Default:** `'text'`
 - **available values**: `'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'right' | 'middle'`
 
 水平方向的移动位置
@@ -59,6 +58,12 @@ layout: doc
 
 水印内容。
 
+## image
+
+- **Type:** `string`
+
+水印图像路径。
+
 ## imageWidth
 
 - **Type:** `number`
@@ -72,6 +77,18 @@ layout: doc
 - **Default:** `0`
 
 水印图像高度。
+
+## richTextWidth
+
+- **Type:** `number`
+
+水印富文本宽度。
+
+## richTextHeight
+
+- **Type:** `number`
+
+水印富文本高度。
 
 ## lineHeight
 
@@ -118,7 +135,7 @@ background-repeat
 ## textAlign
 
 - **Type:** `string`
-- **available values**: `'center' | 'left' | 'right'`
+- **available values**: `'center' | 'end' | 'left' | 'right' | 'start'`
 
 水印内容水平对齐方式。
 
