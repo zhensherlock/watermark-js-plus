@@ -1,3 +1,15 @@
+# [0.4.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.3.0...v0.4.0) (2023-01-09)
+
+
+### ✨ Features | 新功能
+
+* support image watermark position dynamic calculation ([8b9c6e0](https://github.com/zhensherlock/watermark-js-plus/commit/8b9c6e0256a310402cc3a0ca99c690b22faec8e2))
+* support multiline text watermark position dynamic calculation ([a9a59b2](https://github.com/zhensherlock/watermark-js-plus/commit/a9a59b2adcd5f8b548954e43c322417622012243))
+* support rich text watermark position dynamic calculation ([a19d820](https://github.com/zhensherlock/watermark-js-plus/commit/a19d820240762814273631c3891f417d27162fd6))
+* support text watermark position dynamic calculation ([65cb1a8](https://github.com/zhensherlock/watermark-js-plus/commit/65cb1a8b580c6aa1aabaf302a3ce9264c448cb3a))
+
+
+
 # [0.3.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.2.0...v0.3.0) (2023-01-05)
 
 
