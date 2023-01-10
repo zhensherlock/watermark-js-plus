@@ -341,8 +341,8 @@ export default class Watermark {
         yOffsetValue = 0
         break
     }
-    lines.forEach((txt, index) => {
-      ctx.fillText(txt, 0, this.options.lineHeight * index - yOffsetValue)
+    lines.forEach((text, index) => {
+      this.setText(ctx, { text, x: 0, y: this.options.lineHeight * index - yOffsetValue })
     })
     resolve(ctx.canvas)
   }
