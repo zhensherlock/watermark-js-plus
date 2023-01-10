@@ -285,7 +285,8 @@ export default class Watermark {
     this.setText(ctx, {
       text: this.options.content,
       x: 0,
-      y: 0
+      y: 0,
+      maxWidth: this.options.textRowMaxWidth
     })
     resolve(ctx.canvas)
   }

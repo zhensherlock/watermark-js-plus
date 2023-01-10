@@ -27,6 +27,7 @@ export interface WatermarkOptions {
   contentType: ContentTypeType;
   content: string;
   textType: TextType;
+  textRowMaxWidth?: number;
   image?: string;
   imageWidth: number;
   imageHeight: number;
