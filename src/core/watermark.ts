@@ -326,7 +326,8 @@ export default class Watermark {
     //   )
     //   resolve(canvas)
     // }
-    const lines = getMultiLineData(ctx, this.options.content, this.options.width)
+    const width = this.options.textRowMaxWidth || this.options.width
+    const lines = getMultiLineData(ctx, this.options.content, width)
     let yOffsetValue: number
     switch (this.options.textBaseline) {
       case 'middle':
