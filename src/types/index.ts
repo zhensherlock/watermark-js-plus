@@ -10,6 +10,8 @@ export type DecodeBlindWatermarkModeType = 'canvas' | 'html' | 'svg'
 
 export type TranslatePlacementType = 'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'right' | 'middle'
 
+export type TextType = 'fill' | 'stroke'
+
 export interface WatermarkDom extends HTMLDivElement {
   __WATERMARK__?: string;
   __WATERMARK__INSTANCE__?: any;
@@ -24,6 +26,7 @@ export interface WatermarkOptions {
   translateY?: number;
   contentType: ContentTypeType;
   content: string;
+  textType: TextType;
   image?: string;
   imageWidth: number;
   imageHeight: number;

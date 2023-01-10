@@ -30,6 +30,7 @@ export default class Watermark {
       translatePlacement: 'middle',
       contentType: 'text',
       content: 'hello watermark-js-plus',
+      textType: 'fill',
       imageWidth: 0,
       imageHeight: 0,
       lineHeight: 30,
@@ -241,7 +242,7 @@ export default class Watermark {
     ctx.font = `${this.options.fontWeight} ${this.options.fontSize}px ${this.options.fontFamily}`
     this.options.textAlign && (ctx.textAlign = this.options.textAlign)
     this.options.textBaseline && (ctx.textBaseline = this.options.textBaseline)
-    ctx.fillStyle = this.options.fontColor
+    this.setTextStyle(ctx)
     ctx.globalAlpha = this.options.globalAlpha
     ctx.translate(this.options.translateX as number, this.options.translateY as number)
     ctx.rotate(this.options.rotate)
@@ -263,8 +264,29 @@ export default class Watermark {
     })
   }
 
+  private setTextStyle (ctx: CanvasRenderingContext2D) {
+    let propName: 'fillStyle' | 'strokeStyle' = 'fillStyle'
+    if (this.options.textType === 'stroke') {
+      propName = 'strokeStyle'
+    }
+    let style: string | CanvasGradient | CanvasPattern = this.options.fontColor
+    ctx[propName] && (ctx[propName] = style)
+  }
+
+  private setText (ctx: CanvasRenderingContext2D, params: { text: string; x: number; y: number; maxWidth?: number }) {
+    let methodName: 'fillText' | 'strokeText' = 'fillText'
+    if (this.options.textType === 'stroke') {
+      methodName = 'strokeText'
+    }
+    ctx[methodName] && ctx[methodName](params.text, params.x, params.y, params.maxWidth)
+  }
+
   private drawText (ctx: CanvasRenderingContext2D, resolve: Function) {
-    ctx.fillText(this.options.content, 0, 0)
+    this.setText(ctx, {
+      text: this.options.content,
+      x: 0,
+      y: 0
+    })
     resolve(ctx.canvas)
   }
 
