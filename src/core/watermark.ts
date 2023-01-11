@@ -269,8 +269,7 @@ export default class Watermark {
     if (this.options.textType === 'stroke') {
       propName = 'strokeStyle'
     }
-    let style: string | CanvasGradient | CanvasPattern = this.options.fontColor
-    ctx[propName] && (ctx[propName] = style)
+    ctx[propName] && (ctx[propName] = this.options.fontColor)
   }
 
   private setText (ctx: CanvasRenderingContext2D, params: { text: string; x: number; y: number; maxWidth?: number }) {
