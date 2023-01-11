@@ -1,3 +1,12 @@
+## [0.5.1](https://github.com/zhensherlock/watermark-js-plus/compare/v0.5.0...v0.5.1) (2023-01-11)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 'style' is never reassigned. Use 'const' instead ([3e1c38c](https://github.com/zhensherlock/watermark-js-plus/commit/3e1c38cdbf823ecd64129407161c5bd629f242d7))
+
+
+
 # [0.5.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.4.0...v0.5.0) (2023-01-11)
 
 
