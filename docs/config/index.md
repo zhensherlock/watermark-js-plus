@@ -58,6 +58,20 @@ Type of watermark content.
 
 Watermark content.
 
+## textType
+
+- **Type:** `string`
+- **Default:** `'fill'`
+- **available values**: `'fill' | 'stroke'`
+
+Watermark text type.
+
+## textRowMaxWidth
+
+- **Type:** `number`
+
+Watermark text row max width.
+
 ## image
 
 - **Type:** `string`

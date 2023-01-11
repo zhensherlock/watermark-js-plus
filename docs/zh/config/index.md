@@ -58,6 +58,20 @@ layout: doc
 
 水印内容。
 
+## textType
+
+- **Type:** `string`
+- **Default:** `'fill'`
+- **available values**: `'fill' | 'stroke'`
+
+文本水印渲染文字的方式。方式：填充文字和绘制文字。
+
+## textRowMaxWidth
+
+- **Type:** `number`
+
+文本水印单行最大宽度。
+
 ## image
 
 - **Type:** `string`
