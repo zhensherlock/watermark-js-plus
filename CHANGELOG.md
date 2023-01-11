@@ -1,3 +1,15 @@
+# [0.5.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.4.0...v0.5.0) (2023-01-11)
+
+
+### ✨ Features | 新功能
+
+* multi line text watermark supports stroke text ([0c46128](https://github.com/zhensherlock/watermark-js-plus/commit/0c4612878b1034b2794a6cb821aed8b164be0ffb))
+* multi text supports row max width ([877b5b7](https://github.com/zhensherlock/watermark-js-plus/commit/877b5b7cda75ddd7a0633ebf38baebfbbbc1f394))
+* text watermark supports row max width ([dfbfc5c](https://github.com/zhensherlock/watermark-js-plus/commit/dfbfc5c88891520b0f7787cd19b54c48cbd8043e))
+* text watermark supports stroke text ([3aa3c0c](https://github.com/zhensherlock/watermark-js-plus/commit/3aa3c0cad1a23a3f27898332a4821a30f0f4c3c8))
+
+
+
 # [0.4.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.3.0...v0.4.0) (2023-01-09)
 
 
