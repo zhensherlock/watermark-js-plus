@@ -1,4 +1,12 @@
-import { convertImage, convertSVGToImage, createCustomContentSVG, getMultiLineData, isUndefined } from '../utils'
+import {
+  convertImage,
+  convertSVGToImage,
+  createCustomContentSVG,
+  getMultiLineData,
+  isFunction,
+  // isString,
+  isUndefined
+} from '../utils'
 import {
   TextAlignType,
   TextBaselineType,
@@ -279,6 +287,9 @@ export default class Watermark {
       ctx.shadowColor = this.options.shadowStyle.shadowColor || '#00000000'
       ctx.shadowOffsetX = this.options.shadowStyle.shadowOffsetX || 0
       ctx.shadowOffsetY = this.options.shadowStyle.shadowOffsetY || 0
+    }
+    if (isFunction(<Function> this.options.extraDrawFunc)) {
+      (<Function> this.options.extraDrawFunc)(ctx)
     }
   }
 

@@ -47,6 +47,7 @@ export interface WatermarkOptions {
   filter: string;
   shadowStyle?: Partial<CanvasShadowStyles>;
   globalAlpha: number;
+  extraDrawFunc?: Function;
   mode: CreateWatermarkModeType;
   mutationObserve: boolean;
   unique: boolean;
