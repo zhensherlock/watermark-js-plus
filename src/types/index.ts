@@ -42,6 +42,7 @@ export interface WatermarkOptions {
   textAlign?: TextAlignType;
   textBaseline?: TextBaselineType;
   fontColor: string;
+  shadowStyle?: Partial<CanvasShadowStyles>;
   globalAlpha: number;
   fontWeight: string;
   mode: CreateWatermarkModeType;

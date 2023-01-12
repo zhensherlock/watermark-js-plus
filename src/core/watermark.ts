@@ -270,6 +270,12 @@ export default class Watermark {
       propName = 'strokeStyle'
     }
     ctx[propName] && (ctx[propName] = this.options.fontColor)
+    if (this.options.shadowStyle) {
+      ctx.shadowBlur = this.options.shadowStyle.shadowBlur || 0
+      ctx.shadowColor = this.options.shadowStyle.shadowColor || '#00000000'
+      ctx.shadowOffsetX = this.options.shadowStyle.shadowOffsetX || 0
+      ctx.shadowOffsetY = this.options.shadowStyle.shadowOffsetY || 0
+    }
   }
 
   private setText (ctx: CanvasRenderingContext2D, params: { text: string; x: number; y: number; maxWidth?: number }) {
