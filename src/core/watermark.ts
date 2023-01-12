@@ -40,6 +40,7 @@ export default class Watermark {
       fontSize: 20,
       fontFamily: 'sans-serif',
       fontColor: '#000',
+      filter: 'none',
       globalAlpha: 0.5,
       fontWeight: 'normal',
       mode: 'default',
@@ -239,11 +240,7 @@ export default class Watermark {
     if (ctx === null) {
       throw new Error('get context error')
     }
-    ctx.font = `${this.options.fontWeight} ${this.options.fontSize}px ${this.options.fontFamily}`
-    this.options.textAlign && (ctx.textAlign = this.options.textAlign)
-    this.options.textBaseline && (ctx.textBaseline = this.options.textBaseline)
-    this.setTextStyle(ctx)
-    ctx.globalAlpha = this.options.globalAlpha
+    this.setStyle(ctx)
     ctx.translate(this.options.translateX as number, this.options.translateY as number)
     ctx.rotate(this.options.rotate)
     return new Promise((resolve) => {
@@ -264,12 +261,18 @@ export default class Watermark {
     })
   }
 
-  private setTextStyle (ctx: CanvasRenderingContext2D) {
+  private setStyle (ctx: CanvasRenderingContext2D) {
     let propName: 'fillStyle' | 'strokeStyle' = 'fillStyle'
     if (this.options.textType === 'stroke') {
       propName = 'strokeStyle'
     }
     ctx[propName] && (ctx[propName] = this.options.fontColor)
+
+    ctx.font = `${this.options.fontWeight} ${this.options.fontSize}px ${this.options.fontFamily}`
+    ctx.filter = this.options.filter
+    this.options.textAlign && (ctx.textAlign = this.options.textAlign)
+    this.options.textBaseline && (ctx.textBaseline = this.options.textBaseline)
+    ctx.globalAlpha = this.options.globalAlpha
     if (this.options.shadowStyle) {
       ctx.shadowBlur = this.options.shadowStyle.shadowBlur || 0
       ctx.shadowColor = this.options.shadowStyle.shadowColor || '#00000000'
