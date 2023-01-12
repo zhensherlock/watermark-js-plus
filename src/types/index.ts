@@ -39,13 +39,14 @@ export interface WatermarkOptions {
   backgroundRepeat: string;
   fontSize: number;
   fontFamily: string;
+  fontStyle: string;
+  fontColor: string;
+  fontWeight: string;
   textAlign?: TextAlignType;
   textBaseline?: TextBaselineType;
-  fontColor: string;
   filter: string;
   shadowStyle?: Partial<CanvasShadowStyles>;
   globalAlpha: number;
-  fontWeight: string;
   mode: CreateWatermarkModeType;
   mutationObserve: boolean;
   unique: boolean;
