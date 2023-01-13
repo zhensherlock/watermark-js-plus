@@ -1,3 +1,15 @@
+# [0.6.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.5.1...0.6.0) (2023-01-12)
+
+
+### ✨ Features | 新功能
+
+* watermark supports extra draw function ([17daedd](https://github.com/zhensherlock/watermark-js-plus/commit/17daedd1df60ccc97f79583443afa438ee98e961))
+* watermark supports filter ([f9ab1dc](https://github.com/zhensherlock/watermark-js-plus/commit/f9ab1dcb62793c742f0711f3c90109620e7e9bba))
+* watermark supports font style ([65787ef](https://github.com/zhensherlock/watermark-js-plus/commit/65787ef6ad304e6090eff129c43c39a33f37da93))
+* watermark supports shadow style ([801c477](https://github.com/zhensherlock/watermark-js-plus/commit/801c4778350dc900b4546feaaaab416b577212eb))
+
+
+
 ## [0.5.1](https://github.com/zhensherlock/watermark-js-plus/compare/v0.5.0...v0.5.1) (2023-01-11)
 
 
