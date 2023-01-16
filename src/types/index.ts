@@ -40,6 +40,7 @@ export interface WatermarkOptions {
   fontSize: number;
   fontFamily: string;
   fontStyle: string;
+  fontVariant: string;
   fontColor: string;
   fontWeight: string;
   textAlign?: TextAlignType;
