@@ -81,6 +81,12 @@ export default class Watermark {
     return canvas
   }
 
+  changeOptions (props: Partial<WatermarkOptions> = {}) {
+    Object.keys(props).forEach(key => {
+      this.options?.[key as keyof WatermarkOptions] && (this.options[key as keyof WatermarkOptions] = <never> props[key as keyof WatermarkOptions])
+    })
+  }
+
   changeParentElement (parent: Element | string) {
     if (typeof parent === 'string') {
       const parentElement = document.querySelector(parent)
