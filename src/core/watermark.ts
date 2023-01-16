@@ -45,7 +45,7 @@ export default class Watermark {
       zIndex: 10000,
       backgroundPosition: '0 0, 0 0',
       backgroundRepeat: 'repeat',
-      fontSize: 20,
+      fontSize: '20px',
       fontFamily: 'sans-serif',
       fontStyle: '',
       fontVariant: '',
@@ -278,7 +278,7 @@ export default class Watermark {
     }
     ctx[propName] && (ctx[propName] = this.options.fontColor)
 
-    ctx.font = `${this.options.fontStyle} ${this.options.fontVariant} ${this.options.fontWeight} ${this.options.fontSize}px ${this.options.fontFamily}`
+    ctx.font = `${this.options.fontStyle} ${this.options.fontVariant} ${this.options.fontWeight} ${this.options.fontSize} ${this.options.fontFamily}`
     ctx.filter = this.options.filter
     this.options.textAlign && (ctx.textAlign = this.options.textAlign)
     this.options.textBaseline && (ctx.textBaseline = this.options.textBaseline)

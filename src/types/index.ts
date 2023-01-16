@@ -37,7 +37,7 @@ export interface WatermarkOptions {
   zIndex: number;
   backgroundPosition: string;
   backgroundRepeat: string;
-  fontSize: number;
+  fontSize: string;
   fontFamily: string;
   fontStyle: string;
   fontVariant: string;
