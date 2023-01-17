@@ -12,6 +12,10 @@ export const isUndefined = (value: any): boolean => {
   return value === undefined
 }
 
+export const isString = (value: any): boolean => {
+  return typeof value === 'string'
+}
+
 export const createSVGElement = (tagName: string, attrs: {[key: string]: string} = {}, namespaceURI = 'http://www.w3.org/2000/svg'): Element => {
   const element = document.createElementNS(namespaceURI, tagName)
   for (const attr in attrs) {

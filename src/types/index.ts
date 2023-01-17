@@ -48,6 +48,7 @@ export interface WatermarkOptions {
   filter: string;
   shadowStyle?: Partial<CanvasShadowStyles>;
   globalAlpha: number;
+  advancedStyle?: AdvancedStyleType;
   extraDrawFunc?: Function;
   mode: CreateWatermarkModeType;
   mutationObserve: boolean;
@@ -70,4 +71,24 @@ export interface CustomContentSVGType {
   element: Element,
   width: number,
   height: number
+}
+
+export interface AdvancedStyleType {
+  type: 'linear' | 'radial' | 'conic' | 'pattern',
+  params?: Partial<AdvancedStyleParamsType>,
+  colorStops?: { offset: number, color: string }[]
+}
+
+export interface AdvancedStyleParamsType {
+  x0: number,
+  y0: number,
+  r0: number,
+  x1: number,
+  y1: number,
+  r1: number,
+  startAngle: number,
+  x: number,
+  y: number,
+  image: CanvasImageSource,
+  repetition: string,
 }

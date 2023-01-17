@@ -211,12 +211,15 @@ export default class Watermark {
         translateY = this.options.height / 2
         break
     }
-    if (!isUndefined(this.props?.translateX) || !isUndefined(this.props?.translateY)) {
+    if (isUndefined(this.props?.translateX) || isUndefined(this.props?.translateY)) {
+      this.options.translateX = translateX
+      this.options.translateY = translateY
+    } else {
       textBaseline = 'top'
       textAlign = 'left'
+      this.defaultAdvancedStyleParams.x0 = 0
+      this.defaultAdvancedStyleParams.x1 = this.options.textRowMaxWidth || this.options.width
     }
-    isUndefined(this.props?.translateX) && (this.options.translateX = translateX)
-    isUndefined(this.props?.translateY) && (this.options.translateY = translateY)
     isUndefined(this.props?.textBaseline) && (this.options.textBaseline = textBaseline)
     isUndefined(this.props?.textAlign) && (this.options.textAlign = textAlign)
   }
@@ -282,7 +285,24 @@ export default class Watermark {
     if (this.options.textType === 'stroke') {
       propName = 'strokeStyle'
     }
-    ctx[propName] && (ctx[propName] = this.options.fontColor)
+    let style: string | CanvasGradient | CanvasPattern | null = this.options.fontColor
+    if (this.options?.advancedStyle) {
+      switch (this.options.advancedStyle.type) {
+        case 'linear':
+          style = this.createLinearGradient(ctx)
+          break
+        case 'radial':
+          style = this.createRadialGradient(ctx)
+          break
+        case 'conic':
+          style = this.createConicGradient(ctx)
+          break
+        case 'pattern':
+          style = this.createPattern(ctx)
+          break
+      }
+    }
+    ctx[propName] && style && (ctx[propName] = style)
 
     ctx.font = `${this.options.fontStyle} ${this.options.fontVariant} ${this.options.fontWeight} ${this.options.fontSize} ${this.options.fontFamily}`
     ctx.filter = this.options.filter
@@ -298,6 +318,53 @@ export default class Watermark {
     if (isFunction(<Function> this.options.extraDrawFunc)) {
       (<Function> this.options.extraDrawFunc)(ctx)
     }
+  }
+
+  createLinearGradient (ctx: CanvasRenderingContext2D): CanvasGradient {
+    const gradient = ctx.createLinearGradient(
+      <number> this.options?.advancedStyle?.params?.x0,
+      <number> this.options?.advancedStyle?.params?.y0,
+      <number> this.options?.advancedStyle?.params?.x1,
+      <number> this.options?.advancedStyle?.params?.y1
+    )
+    this.options?.advancedStyle?.colorStops?.forEach(item => {
+      gradient.addColorStop(item.offset, item.color)
+    })
+    return gradient
+  }
+
+  createConicGradient (ctx: CanvasRenderingContext2D): CanvasGradient {
+    const gradient = ctx.createConicGradient(
+      <number> this.options?.advancedStyle?.params?.startAngle,
+      <number> this.options?.advancedStyle?.params?.x,
+      <number> this.options?.advancedStyle?.params?.y
+    )
+    this.options?.advancedStyle?.colorStops?.forEach(item => {
+      gradient.addColorStop(item.offset, item.color)
+    })
+    return gradient
+  }
+
+  createRadialGradient (ctx: CanvasRenderingContext2D): CanvasGradient {
+    const gradient = ctx.createRadialGradient(
+      <number> this.options?.advancedStyle?.params?.x0,
+      <number> this.options?.advancedStyle?.params?.y0,
+      <number> this.options?.advancedStyle?.params?.r0,
+      <number> this.options?.advancedStyle?.params?.x1,
+      <number> this.options?.advancedStyle?.params?.y1,
+      <number> this.options?.advancedStyle?.params?.r1
+    )
+    this.options?.advancedStyle?.colorStops?.forEach(item => {
+      gradient.addColorStop(item.offset, item.color)
+    })
+    return gradient
+  }
+
+  createPattern (ctx: CanvasRenderingContext2D): CanvasPattern | null {
+    return ctx.createPattern(
+      <HTMLImageElement | SVGImageElement | HTMLVideoElement | HTMLCanvasElement | ImageBitmap | OffscreenCanvas> this.options?.advancedStyle?.params?.image,
+      this.options?.advancedStyle?.params?.repetition || ''
+    )
   }
 
   private setText (ctx: CanvasRenderingContext2D, params: { text: string; x: number; y: number; maxWidth?: number }) {
