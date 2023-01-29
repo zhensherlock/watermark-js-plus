@@ -1,4 +1,16 @@
-# [0.6.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.5.1...0.6.0) (2023-01-12)
+# [0.7.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.6.0...v0.7.0) (2023-01-29)
+
+
+### ✨ Features | 新功能
+
+* add change watermark options function ([93b87fe](https://github.com/zhensherlock/watermark-js-plus/commit/93b87fe96cb47626475c50a9e28cf71741a8b6b7))
+* add watermark advanced style ([0ca97a7](https://github.com/zhensherlock/watermark-js-plus/commit/0ca97a7de2d3cda5ff453e2114b31ee00e001340))
+* watermark supports font variant ([5890789](https://github.com/zhensherlock/watermark-js-plus/commit/5890789872bd05b650a737a191cf66890a967004))
+* watermark supports more font size ([9d62e2f](https://github.com/zhensherlock/watermark-js-plus/commit/9d62e2fa7a899c3a0d700fc701bab1f3f101d987))
+
+
+
+# [0.6.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.5.1...v0.6.0) (2023-01-13)
 
 
 ### ✨ Features | 新功能
