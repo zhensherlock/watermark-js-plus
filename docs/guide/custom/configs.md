@@ -46,10 +46,12 @@ const handleChangeOptions = (options) => {
 };
 </script>
 
-<WatermarkOptionsForm
-  :options="initialWatermarkOptions"
-  @change="handleChangeOptions"
-/>
+<ClientOnly>
+  <WatermarkOptionsForm
+    :options="initialWatermarkOptions"
+    @change="handleChangeOptions"
+  />
+</ClientOnly>
 
 ```js-vue
 import { Watermark } from 'watermark-js-plus' // import watermark plugin
