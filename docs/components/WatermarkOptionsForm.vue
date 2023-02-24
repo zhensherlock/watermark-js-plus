@@ -297,7 +297,10 @@
 
 <script lang="ts" setup>
 import { reactive, onMounted, watch, ref } from 'vue'
-import { cloneDeep, pick, defaultsDeep } from 'lodash'
+// import { cloneDeep, pick, defaultsDeep } from 'lodash'
+import cloneDeep from 'lodash/cloneDeep'
+import pick from 'lodash/pick'
+import defaultsDeep from 'lodash/defaultsDeep'
 import {
   defaultConfig,
   basicOptionKeys,
@@ -377,7 +380,6 @@ const handleChangeForm = (newVal: any) => {
     ...(newVal.advancedStyle.enabled ? pick(newVal.data, advancedStyleOptionKeys) : null),
     ...(newVal.extra.enabled ? pick(newVal.data, extraOptionKeys) : null)
   }
-  // console.log(newVal)
   if (eventFlag) {
     clearTimeout(eventFlag)
   }
@@ -402,8 +404,6 @@ const handleChangeStyleEnabled = () => {
 }
 
 const handleChangeShadowEnabled = () => {
-  if (form.shadow.enabled) {
-  }
 }
 
 const handleChangeAdvancedStyleEnabled = () => {

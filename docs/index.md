@@ -28,6 +28,6 @@ features:
     details: Flexible programmatic APIs with full TypeScript typing..
   - icon: 📦
     title: Extremely light
-    details: weighs ~4kb, you will forget it's even there!
+    details: weighs ~5kb, you will forget it's even there!
 ---
 

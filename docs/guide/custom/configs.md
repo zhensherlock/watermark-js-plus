@@ -4,11 +4,10 @@ layout: doc
 # Custom Configs
 
 <script setup lang="ts">
-import { reactive, getCurrentInstance } from 'vue';
+import { reactive, getCurrentInstance, onMounted } from 'vue';
 import { Watermark } from '../../../src';
 import { useData } from 'vitepress';
-import WatermarkOptionsForm from '../../components/WatermarkOptionsForm.vue';
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 
 const { isDark } = useData();
 const app = getCurrentInstance();
@@ -20,10 +19,14 @@ const initialWatermarkOptions = {
 
 let outputWatermarkOptions = reactive(
   cloneDeep(initialWatermarkOptions)
-)
+);
+
+let watermark = null;
+onMounted(() => {
+  watermark = new Watermark(initialWatermarkOptions);
+});
 
 // watermark
-const watermark = new Watermark(initialWatermarkOptions);
 const handleAddWatermark = () => {
   // if (isDark.value) {
   //   watermark.options.fontColor = '#fff'
@@ -41,11 +44,6 @@ const handleChangeOptions = (options) => {
   watermark.changeOptions(options);
 };
 </script>
-
-<WatermarkOptionsForm
-  :options="initialWatermarkOptions"
-  @change="handleChangeOptions"
-/>
 
 ```js-vue
 import { Watermark } from 'watermark-js-plus' // import watermark plugin

@@ -5,7 +5,7 @@ layout: doc
 
 <script setup lang="ts">
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
-import { ref, getCurrentInstance } from 'vue';
+import { ref, getCurrentInstance, onMounted } from 'vue';
 import { Plus, Warning } from '@element-plus/icons-vue';
 import { BlindWatermark } from '../../../src';
 import { useData } from 'vitepress';
@@ -15,18 +15,68 @@ const app = getCurrentInstance();
 const decodeBlindImageByLight = ref('');
 const decodeBlindImageByDark = ref('');
 
-// 文本暗水印
-const textBlindWatermark = new BlindWatermark({
-  content: 'hello my watermark',
-  width: 200,
-  height: 200,
-  onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: '文本暗水印添加成功！',
-      type: 'success'
-    });
-  }
-});
+let textBlindWatermark = null;
+let multiLineTextBlindWatermark = null;
+let imageBlindWatermark = null;
+let richTextBlindWatermark = null;
+
+onMounted(() => {
+  // 文本暗水印
+  textBlindWatermark = new BlindWatermark({
+    content: 'hello my watermark',
+    width: 200,
+    height: 200,
+    onSuccess: () => {
+      app.appContext.config.globalProperties.$message({
+        message: '文本暗水印添加成功！',
+        type: 'success'
+      });
+    }
+  });
+  // 多行水印
+  multiLineTextBlindWatermark = new BlindWatermark({
+    contentType: 'multi-line-text',
+    content: 'hello my watermark watermark',
+    fontSize: 30,
+    width: 200,
+    height: 200,
+    onSuccess: () => {
+      app.appContext.config.globalProperties.$message({
+        message: '多行文本暗水印添加成功！',
+        type: 'success'
+      });
+    }
+  });
+  // 图片暗水印
+  imageBlindWatermark = new BlindWatermark({
+    contentType: 'image',
+    image: 'http://upic-service.test.upcdn.net/uPic/github-JxMIKf.png',
+    imageWidth: 200,
+    // imageHeight: 20,
+    width: 300,
+    height: 300,
+    onSuccess: () => {
+      app.appContext.config.globalProperties.$message({
+        message: '图片暗水印添加成功！',
+        type: 'success'
+      });
+    }
+  });
+  // 富文本水印
+  richTextBlindWatermark = new BlindWatermark({
+    contentType: 'rich-text',
+    content: '<div style="background: #ccc;">富文本暗水印 <span style="color: #f00">good</span></div>',
+    width: 300,
+    height: 300,
+    onSuccess: () => {
+      app.appContext.config.globalProperties.$message({
+        message: '富文本暗水印添加成功！',
+        type: 'success'
+      });
+    }
+  });
+})
+
 const handleAddTextBlindWatermark = () => {
   if (isDark.value) {
     textBlindWatermark.options.fontColor = '#fff'
@@ -37,20 +87,6 @@ const handleRemoveTextBlindWatermark = () => {
   textBlindWatermark.destroy();
 };
 
-// 多行水印
-const multiLineTextBlindWatermark = new BlindWatermark({
-  contentType: 'multi-line-text',
-  content: 'hello my watermark watermark',
-  fontSize: 30,
-  width: 200,
-  height: 200,
-  onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: '多行文本暗水印添加成功！',
-      type: 'success'
-    });
-  }
-});
 const handleAddMultiLineTextBlindWatermark = () => {
   if (isDark.value) {
     multiLineTextBlindWatermark.options.fontColor = '#fff'
@@ -61,21 +97,6 @@ const handleRemoveMultiLineTextBlindWatermark = () => {
   multiLineTextBlindWatermark.destroy();
 };
 
-// 图片暗水印
-const imageBlindWatermark = new BlindWatermark({
-  contentType: 'image',
-  image: 'http://upic-service.test.upcdn.net/uPic/github-JxMIKf.png',
-  imageWidth: 200,
-  // imageHeight: 20,
-  width: 300,
-  height: 300,
-  onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: '图片暗水印添加成功！',
-      type: 'success'
-    });
-  }
-});
 const handleAddImageBlindWatermark = () => {
   imageBlindWatermark.create();
 };
@@ -83,43 +104,11 @@ const handleRemoveImageBlindWatermark = () => {
   imageBlindWatermark.destroy();
 };
 
-// 富文本水印
-const richTextBlindWatermark = new BlindWatermark({
-  contentType: 'rich-text',
-  content: '<div style="background: #ccc;">富文本暗水印 <span style="color: #f00">good</span></div>',
-  width: 300,
-  height: 300,
-  onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: '富文本暗水印添加成功！',
-      type: 'success'
-    });
-  }
-});
 const handleAddRichTextBlindWatermark = () => {
   richTextBlindWatermark.create();
 };
 const handleRemoveRichTextBlindWatermark = () => {
   richTextBlindWatermark.destroy();
-};
-
-// 支持暗黑模式单行文本暗水印
-const textBlindWatermarkSupportDark = new BlindWatermark({
-  content: 'hello my watermark',
-  width: 200,
-  height: 200,
-  onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: '支持暗黑模式单行文本暗水印添加成功！',
-      type: 'success'
-    });
-  }
-});
-const handleSupportDarkAddTextBlindWatermark = () => {
-  textBlindWatermarkSupportDark.create();
-};
-const handleSupportDarkRemoveTextBlindWatermark = () => {
-  textBlindWatermarkSupportDark.destroy();
 };
 
 // 解析暗水印

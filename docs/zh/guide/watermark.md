@@ -13,18 +13,77 @@ const { isDark } = useData();
 const decodeBlindImage = ref('');
 const app = getCurrentInstance();
 
-// 文本水印
-const textWatermark = new Watermark({
-  content: 'hello my watermark',
-  width: 200,
-  height: 200,
-  onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: '文本水印添加成功！',
-      type: 'success'
-    });
-  }
+let textWatermark = null;
+let multiLineTextWatermark = null;
+let imageWatermark = null;
+let richTextWatermark = null;
+// 子元素水印
+let childElementWatermark = null
+
+onMounted(() => {
+  // 文本水印
+  textWatermark = new Watermark({
+    content: 'hello my watermark',
+    width: 200,
+    height: 200,
+    onSuccess: () => {
+      app.appContext.config.globalProperties.$message({
+        message: '文本水印添加成功！',
+        type: 'success'
+      });
+    }
+  });
+  // 多行文本水印
+  multiLineTextWatermark = new Watermark({
+    contentType: 'multi-line-text',
+    content: 'hello my watermark watermark',
+    fontSize: 30,
+    width: 200,
+    height: 200,
+    onSuccess: () => {
+      app.appContext.config.globalProperties.$message({
+        message: '多行文本水印添加成功！',
+        type: 'success'
+      });
+    }
+  });
+  // 图片水印
+  imageWatermark = new Watermark({
+    contentType: 'image',
+    image: 'http://upic-service.test.upcdn.net/uPic/github-JxMIKf.png',
+    imageWidth: 200,
+    // imageHeight: 20,
+    width: 300,
+    height: 300,
+    onSuccess: () => {
+      app.appContext.config.globalProperties.$message({
+        message: '图片水印添加成功！',
+        type: 'success'
+      });
+    }
+  });
+  // 富文本水印
+  const richTextWatermark = new Watermark({
+    contentType: 'rich-text',
+    content: '<div style="background: #ccc;">富文本水印 <span style="color: #f00">good</span></div>',
+    width: 300,
+    height: 300,
+    onSuccess: () => {
+      app.appContext.config.globalProperties.$message({
+        message: '富文本水印添加成功！',
+        type: 'success'
+      });
+    }
+  });
+  childElementWatermark = new Watermark({
+    parent: '.parent-element',
+    width: 200,
+    height: 200,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: '100% 100%',
+  });
 });
+
 const handleAddTextWatermark = () => {
   if (isDark.value) {
     textWatermark.options.fontColor = '#fff'
@@ -35,20 +94,6 @@ const handleRemoveTextWatermark = () => {
   textWatermark.destroy();
 };
 
-// 多行文本水印
-const multiLineTextWatermark = new Watermark({
-  contentType: 'multi-line-text',
-  content: 'hello my watermark watermark',
-  fontSize: 30,
-  width: 200,
-  height: 200,
-  onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: '多行文本水印添加成功！',
-      type: 'success'
-    });
-  }
-});
 const handleAddMultiLineTextWatermark = () => {
   if (isDark.value) {
     multiLineTextWatermark.options.fontColor = '#fff'
@@ -59,21 +104,6 @@ const handleRemoveMultiLineTextWatermark = () => {
   multiLineTextWatermark.destroy();
 };
 
-// 图片水印
-const imageWatermark = new Watermark({
-  contentType: 'image',
-  image: 'http://upic-service.test.upcdn.net/uPic/github-JxMIKf.png',
-  imageWidth: 200,
-  // imageHeight: 20,
-  width: 300,
-  height: 300,
-  onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: '图片水印添加成功！',
-      type: 'success'
-    });
-  }
-});
 const handleAddImageWatermark = () => {
   imageWatermark.create();
 };
@@ -81,19 +111,6 @@ const handleRemoveImageWatermark = () => {
   imageWatermark.destroy();
 };
 
-// 富文本水印
-const richTextWatermark = new Watermark({
-  contentType: 'rich-text',
-  content: '<div style="background: #ccc;">富文本水印 <span style="color: #f00">good</span></div>',
-  width: 300,
-  height: 300,
-  onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: '富文本水印添加成功！',
-      type: 'success'
-    });
-  }
-});
 const handleAddRichTextWatermark = () => {
   richTextWatermark.create();
 };
@@ -101,17 +118,6 @@ const handleRemoveRichTextWatermark = () => {
   richTextWatermark.destroy();
 };
 
-// 子元素水印
-let childElementWatermark = null
-onMounted(() => {
-  childElementWatermark = new Watermark({
-    parent: '.parent-element',
-    width: 200,
-    height: 200,
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: '100% 100%',
-  });
-});
 const handleAddChildElementWatermark = () => {
   childElementWatermark.create();
 };

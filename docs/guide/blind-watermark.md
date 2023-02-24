@@ -5,7 +5,7 @@ layout: doc
 
 <script setup lang="ts">
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
-import { ref, getCurrentInstance } from 'vue';
+import { ref, getCurrentInstance, onMounted } from 'vue';
 import { Plus, Warning } from '@element-plus/icons-vue';
 import { BlindWatermark } from '../../src';
 import { useData } from 'vitepress';
@@ -15,18 +15,68 @@ const app = getCurrentInstance();
 const decodeBlindImageByLight = ref('');
 const decodeBlindImageByDark = ref('');
 
-// text blind watermark
-const textBlindWatermark = new BlindWatermark({
-  content: 'hello my watermark',
-  width: 200,
-  height: 200,
-  onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: 'The text blind watermark added successfully!',
-      type: 'success'
-    });
-  }
-});
+let textBlindWatermark = null;
+let multiLineTextBlindWatermark = null;
+let imageBlindWatermark = null;
+let richTextBlindWatermark = null;
+
+onMounted(() => {
+  // text blind watermark
+  textBlindWatermark = new BlindWatermark({
+    content: 'hello my watermark',
+    width: 200,
+    height: 200,
+    onSuccess: () => {
+      app.appContext.config.globalProperties.$message({
+        message: 'The text blind watermark added successfully!',
+        type: 'success'
+      });
+    }
+  });
+  // multiline blind text watermark
+  multiLineTextBlindWatermark = new BlindWatermark({
+    contentType: 'multi-line-text',
+    content: 'hello my multiline blind watermark',
+    fontSize: 30,
+    width: 200,
+    height: 200,
+    onSuccess: () => {
+      app.appContext.config.globalProperties.$message({
+        message: 'The multiline text blind watermark added successfully!',
+        type: 'success'
+      });
+    }
+  });
+  // image blind watermark
+  imageBlindWatermark = new BlindWatermark({
+    contentType: 'image',
+    image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
+    imageWidth: 200,
+    // imageHeight: 20,
+    width: 300,
+    height: 300,
+    onSuccess: () => {
+      app.appContext.config.globalProperties.$message({
+        message: '!The image blind watermark added successfully',
+        type: 'success'
+      });
+    }
+  });
+  // rich text blind watermark
+  richTextBlindWatermark = new BlindWatermark({
+    contentType: 'rich-text',
+    content: '<div style="background: #ccc;">The watermark is so <span style="color: #f00">good</span>.</div>',
+    width: 300,
+    height: 300,
+    onSuccess: () => {
+      app.appContext.config.globalProperties.$message({
+        message: 'The rich text blind watermark added successfully!',
+        type: 'success'
+      });
+    }
+  });
+})
+
 const handleAddTextBlindWatermark = () => {
   if (isDark.value) {
     textBlindWatermark.options.fontColor = '#fff'
@@ -37,20 +87,6 @@ const handleRemoveTextBlindWatermark = () => {
   textBlindWatermark.destroy();
 };
 
-// multiline blind text watermark
-const multiLineTextBlindWatermark = new BlindWatermark({
-  contentType: 'multi-line-text',
-  content: 'hello my multiline blind watermark',
-  fontSize: 30,
-  width: 200,
-  height: 200,
-  onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: 'The multiline text blind watermark added successfully!',
-      type: 'success'
-    });
-  }
-});
 const handleAddMultiLineTextBlindWatermark = () => {
   if (isDark.value) {
     multiLineTextBlindWatermark.options.fontColor = '#fff'
@@ -61,21 +97,6 @@ const handleRemoveMultiLineTextBlindWatermark = () => {
   multiLineTextBlindWatermark.destroy();
 };
 
-// image blind watermark
-const imageBlindWatermark = new BlindWatermark({
-  contentType: 'image',
-  image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
-  imageWidth: 200,
-  // imageHeight: 20,
-  width: 300,
-  height: 300,
-  onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: '!The image blind watermark added successfully',
-      type: 'success'
-    });
-  }
-});
 const handleAddImageBlindWatermark = () => {
   imageBlindWatermark.create();
 };
@@ -83,19 +104,6 @@ const handleRemoveImageBlindWatermark = () => {
   imageBlindWatermark.destroy();
 };
 
-// rich text blind watermark
-const richTextBlindWatermark = new BlindWatermark({
-  contentType: 'rich-text',
-  content: '<div style="background: #ccc;">The watermark is so <span style="color: #f00">good</span>.</div>',
-  width: 300,
-  height: 300,
-  onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: 'The rich text blind watermark added successfully!',
-      type: 'success'
-    });
-  }
-});
 const handleAddRichTextBlindWatermark = () => {
   richTextBlindWatermark.create();
 };

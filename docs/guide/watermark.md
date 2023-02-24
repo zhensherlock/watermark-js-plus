@@ -13,18 +13,126 @@ const { isDark } = useData();
 const decodeBlindImage = ref('');
 const app = getCurrentInstance();
 
-// text watermark
-const textWatermark = new Watermark({
-  content: 'hello my text watermark',
-  width: 200,
-  height: 200,
-  onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: 'The text watermark added successfully!',
-      type: 'success'
-    });
-  }
-});
+let textWatermark = null;
+let multiLineTextWatermark = null;
+let imageWatermark = null;
+let richTextWatermark = null;
+// child element watermark
+let childElementWatermark = null
+
+onMounted(() => {
+  // text watermark
+  textWatermark = new Watermark({
+    content: 'hello my text watermark',
+    width: 200,
+    height: 200,
+    onSuccess: () => {
+      app.appContext.config.globalProperties.$message({
+        message: 'The text watermark added successfully!',
+        type: 'success'
+      });
+    }
+  });  
+  // multiline text watermark
+  multiLineTextWatermark = new Watermark({
+    contentType: 'multi-line-text',
+    content: 'hello my multi text watermark',
+    fontSize: '30px',
+    width: 200,
+    height: 200,
+    onSuccess: () => {
+      app.appContext.config.globalProperties.$message({
+        message: 'The multi text watermark added successfully!',
+        type: 'success'
+      });
+    }
+  });
+  // image watermark
+  imageWatermark = new Watermark({
+    contentType: 'image',
+    image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
+    imageWidth: 200,
+    // imageHeight: 20,
+    width: 300,
+    height: 300,
+    onSuccess: () => {
+      app.appContext.config.globalProperties.$message({
+        message: 'The image watermark added successfully!',
+        type: 'success'
+      });
+    }
+  });
+  // rich text watermark
+  richTextWatermark = new Watermark({
+    contentType: 'rich-text',
+    content: '<div style="background: #ccc;">The watermark is so <span style="color: #f00">nice</span>.</div>',
+    width: 300,
+    height: 300,
+    onSuccess: () => {
+      app.appContext.config.globalProperties.$message({
+        message: 'The rich text watermark added successfully！',
+        type: 'success'
+      });
+    }
+  });
+  childElementWatermark = new Watermark({
+    parent: '.parent-element',
+    
+    // textRowMaxWidth: 200,
+
+    content: '123456789123456789123456789123456789',
+
+    // contentType: 'multi-line-text',
+    // content: 'hello my watermark watermark watermark',
+    // fontSize: '30px',
+
+    // contentType: 'image',
+    // image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
+    // imageWidth: 100,
+
+    // contentType: 'rich-text',
+    // content: '<div style="background: #ccc;">Rich text watermark is so <span style="color: #f00">nice</span></div>',
+
+    width: 300,
+    height: 300,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: '100% 100%',
+    translatePlacement: 'top',
+    // translateX: 100,
+    // translateY: 100,
+    rotate: 0,
+    // textType: 'stroke',
+    // shadowStyle: {
+    //   shadowBlur: 20,
+    //   shadowColor: 'black'
+    // },
+    // extraDrawFunc: (ctx) => {
+    //   ctx.lineWidth = 5
+		//   ctx.strokeRect(0,0,150,100)
+    // },
+    advancedStyle: {
+      // type: 'linear',
+      // type: 'radial',
+      // type: 'conic',
+      // colorStops: [
+      //   { offset: 0, color: 'red' },
+      //   { offset: 0.5, color: 'green' },
+      //   { offset: 1, color: 'blue' }
+      // ],
+      // colorStops: [
+      //   { offset: 0, color: 'red' },
+      //   { offset: 0.3, color: 'green' },
+      //   { offset: 0.6, color: 'black' },
+      //   { offset: 1, color: 'blue' }
+      // ],
+      // colorStops: [
+      //   { offset: 0, color: 'red' },
+      //   { offset: 1, color: 'blue' }
+      // ],
+    }
+  });
+})
+
 const handleAddTextWatermark = () => {
   if (isDark.value) {
     textWatermark.options.fontColor = '#fff'
@@ -35,20 +143,6 @@ const handleRemoveTextWatermark = () => {
   textWatermark.destroy();
 };
 
-// multiline text watermark
-const multiLineTextWatermark = new Watermark({
-  contentType: 'multi-line-text',
-  content: 'hello my multi text watermark',
-  fontSize: '30px',
-  width: 200,
-  height: 200,
-  onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: 'The multi text watermark added successfully!',
-      type: 'success'
-    });
-  }
-});
 const handleAddMultiLineTextWatermark = () => {
   if (isDark.value) {
     multiLineTextWatermark.options.fontColor = '#fff'
@@ -59,21 +153,6 @@ const handleRemoveMultiLineTextWatermark = () => {
   multiLineTextWatermark.destroy();
 };
 
-// image watermark
-const imageWatermark = new Watermark({
-  contentType: 'image',
-  image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
-  imageWidth: 200,
-  // imageHeight: 20,
-  width: 300,
-  height: 300,
-  onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: 'The image watermark added successfully!',
-      type: 'success'
-    });
-  }
-});
 const handleAddImageWatermark = () => {
   imageWatermark.create();
 };
@@ -81,19 +160,6 @@ const handleRemoveImageWatermark = () => {
   imageWatermark.destroy();
 };
 
-// rich text watermark
-const richTextWatermark = new Watermark({
-  contentType: 'rich-text',
-  content: '<div style="background: #ccc;">The watermark is so <span style="color: #f00">nice</span>.</div>',
-  width: 300,
-  height: 300,
-  onSuccess: () => {
-    app.appContext.config.globalProperties.$message({
-      message: 'The rich text watermark added successfully！',
-      type: 'success'
-    });
-  }
-});
 const handleAddRichTextWatermark = () => {
   richTextWatermark.create();
 };
@@ -101,17 +167,6 @@ const handleRemoveRichTextWatermark = () => {
   richTextWatermark.destroy();
 };
 
-// child element watermark
-let childElementWatermark = null
-onMounted(() => {
-  childElementWatermark = new Watermark({
-    parent: '.parent-element',
-    width: 200,
-    height: 200,
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: '100% 100%',
-  });
-});
 const handleAddChildElementWatermark = () => {
   childElementWatermark.create();
 };
