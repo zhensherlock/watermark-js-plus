@@ -14,6 +14,11 @@ export default [
       {
         file: 'dist/watermark.esm.js',
         format: 'esm'
+      },
+      {
+        file: 'dist/watermark.esm.min.js',
+        format: 'esm',
+        plugins: [terser()]
       }
     ],
     plugins: [
