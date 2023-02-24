@@ -3,7 +3,14 @@
 
 ### ✨ Features | 新功能
 
+* add watermark.esm.min.js ([2060a8c](https://github.com/zhensherlock/watermark-js-plus/commit/2060a8c4b2e3b73beb28a045f928d151dfd851b3))
 * perfect watermark advanced style logic ([0eb1998](https://github.com/zhensherlock/watermark-js-plus/commit/0eb199867feb3342d6a33a8a5208fdae561b4918))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* build docs errors ([3c7a959](https://github.com/zhensherlock/watermark-js-plus/commit/3c7a959f602bcbfade51d534919522edc55622c4))
+* missing lodash package ([2fa56ec](https://github.com/zhensherlock/watermark-js-plus/commit/2fa56ec82c813f59d8cd6a26cbdf2c9184f41810))
 
 
 
