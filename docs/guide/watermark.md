@@ -39,7 +39,7 @@ const handleRemoveTextWatermark = () => {
 const multiLineTextWatermark = new Watermark({
   contentType: 'multi-line-text',
   content: 'hello my multi text watermark',
-  fontSize: 30,
+  fontSize: '30px',
   width: 200,
   height: 200,
   onSuccess: () => {

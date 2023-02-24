@@ -49,6 +49,12 @@ export default {
             { text: 'Watermark', link: '/guide/watermark' },
             { text: 'Blind Watermark', link: '/guide/blind-watermark' },
           ]
+        },
+        {
+          text: 'Custom',
+          items: [
+            { text: 'Configs', link: '/guide/custom/configs' },
+          ]
         }
       ],
       '/config': [
@@ -84,7 +90,7 @@ export default {
     },
   },
   markdown: {
-    lineNumbers: true
+    // lineNumbers: true
   },
   locales: {
     '/': {
