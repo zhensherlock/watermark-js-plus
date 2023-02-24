@@ -12,6 +12,8 @@ export type TranslatePlacementType = 'top' | 'top-start' | 'top-end' | 'bottom' 
 
 export type TextType = 'fill' | 'stroke'
 
+export type ChangeOptionsMode = 'overwrite' | 'append'
+
 export interface WatermarkDom extends HTMLDivElement {
   __WATERMARK__?: string;
   __WATERMARK__INSTANCE__?: any;
@@ -21,22 +23,22 @@ export interface WatermarkOptions {
   width: number;
   height: number;
   rotate: number;
+  auxiliaryLine: boolean;
+  globalAlpha: number;
+  zIndex: number;
+  mutationObserve: boolean;
+  unique: boolean;
+  mode: CreateWatermarkModeType;
+  parent: Element | string;
+  backgroundPosition: string;
+  backgroundRepeat: string;
   translatePlacement: TranslatePlacementType;
   translateX?: number;
   translateY?: number;
   contentType: ContentTypeType;
   content: string;
   textType: TextType;
-  textRowMaxWidth?: number;
-  image?: string;
-  imageWidth: number;
-  imageHeight: number;
-  richTextWidth?: number;
-  richTextHeight?: number;
   lineHeight: number;
-  zIndex: number;
-  backgroundPosition: string;
-  backgroundRepeat: string;
   fontSize: string;
   fontFamily: string;
   fontStyle: string;
@@ -46,14 +48,15 @@ export interface WatermarkOptions {
   textAlign?: TextAlignType;
   textBaseline?: TextBaselineType;
   filter: string;
+  textRowMaxWidth?: number;
+  richTextWidth?: number;
+  richTextHeight?: number;
+  image?: string;
+  imageWidth: number;
+  imageHeight: number;
   shadowStyle?: Partial<CanvasShadowStyles>;
-  globalAlpha: number;
   advancedStyle?: AdvancedStyleType;
   extraDrawFunc?: Function;
-  mode: CreateWatermarkModeType;
-  mutationObserve: boolean;
-  unique: boolean;
-  parent: Element | string;
   onSuccess: Function;
   onBeforeDestroy: Function;
   onDestroyed: Function;
@@ -80,15 +83,27 @@ export interface AdvancedStyleType {
 }
 
 export interface AdvancedStyleParamsType {
-  x0: number,
-  y0: number,
-  r0: number,
-  x1: number,
-  y1: number,
-  r1: number,
-  startAngle: number,
-  x: number,
-  y: number,
-  image: CanvasImageSource,
-  repetition: string,
+  linear: Partial<{
+    x0: number,
+    y0: number,
+    x1: number,
+    y1: number,
+  }>,
+  radial: Partial<{
+    x0: number,
+    y0: number,
+    r0: number,
+    x1: number,
+    y1: number,
+    r1: number,
+  }>,
+  conic: Partial<{
+    startAngle: number,
+    x: number,
+    y: number,
+  }>,
+  pattern: Partial<{
+    image: HTMLImageElement | SVGImageElement | HTMLVideoElement | HTMLCanvasElement | ImageBitmap | OffscreenCanvas,
+    repetition: string,
+  }>
 }

@@ -2,67 +2,42 @@ import {
   convertImage,
   convertSVGToImage,
   createCustomContentSVG,
-  getMultiLineData,
   isFunction,
-  // isString,
-  isUndefined
+  isUndefined,
+  getValue,
+  loadImage
 } from '../utils'
 import {
-  TextAlignType,
-  TextBaselineType,
+  ChangeOptionsMode,
   WatermarkDom,
   WatermarkOptions
 } from '../types'
+
+import { generateRecommendOptions, initialOptions } from '../utils/initialization'
 
 /**
  * Watermark class
  */
 export default class Watermark {
-  private readonly options: WatermarkOptions
+  private options: WatermarkOptions
   private parentElement: Element = document.body
   private observer?: MutationObserver
   private parentObserve?: MutationObserver
   private watermarkDom?: WatermarkDom
   private props?: Partial<WatermarkOptions>
+  private canvas: HTMLCanvasElement
+  private recommendOptions
 
   /**
    * Watermark constructor
-   * @param props - watermark options
+   * @param args - watermark args
    */
-  constructor (props: Partial<WatermarkOptions> = {}) {
-    this.props = props
-    this.options = Object.assign({
-      width: 300,
-      height: 300,
-      rotate: 45,
-      translatePlacement: 'middle',
-      contentType: 'text',
-      content: 'hello watermark-js-plus',
-      textType: 'fill',
-      imageWidth: 0,
-      imageHeight: 0,
-      lineHeight: 30,
-      zIndex: 10000,
-      backgroundPosition: '0 0, 0 0',
-      backgroundRepeat: 'repeat',
-      fontSize: '20px',
-      fontFamily: 'sans-serif',
-      fontStyle: '',
-      fontVariant: '',
-      fontColor: '#000',
-      fontWeight: 'normal',
-      filter: 'none',
-      globalAlpha: 0.5,
-      mode: 'default',
-      mutationObserve: true,
-      unique: true,
-      parent: 'body',
-      onSuccess: () => {},
-      onBeforeDestroy: () => {},
-      onDestroyed: () => {}
-    }, props)
+  constructor (args: Partial<WatermarkOptions> = {}) {
+    this.props = args
+    this.options = Object.assign({}, initialOptions, args)
     this.changeParentElement(this.options.parent)
-    this.initializeOptions()
+    this.canvas = Watermark.createCanvas(this.options.width, this.options.height)
+    this.recommendOptions = generateRecommendOptions(this.canvas, this.options, this.props)
   }
 
   /**
@@ -81,19 +56,8 @@ export default class Watermark {
     return canvas
   }
 
-  changeOptions (props: Partial<WatermarkOptions> = {}) {
-    Object.keys(props).forEach(key => {
-      this.options?.[key as keyof WatermarkOptions] && (this.options[key as keyof WatermarkOptions] = <never> props[key as keyof WatermarkOptions])
-    })
-  }
-
-  changeParentElement (parent: Element | string) {
-    if (typeof parent === 'string') {
-      const parentElement = document.querySelector(parent)
-      parentElement && (this.parentElement = parentElement)
-    } else {
-      this.parentElement = parent
-    }
+  changeOptions (args: Partial<WatermarkOptions> = {}, mode: ChangeOptionsMode = 'overwrite') {
+    this.initConfigData(args, mode)
   }
 
   /**
@@ -110,6 +74,7 @@ export default class Watermark {
 
     const canvas = await this.draw()
     const image = convertImage(canvas)
+    this.clearCanvas()
     this.watermarkDom = document.createElement('div')
     const watermarkInnerDom = document.createElement('div')
     this.watermarkDom.__WATERMARK__ = 'watermark'
@@ -143,7 +108,7 @@ export default class Watermark {
   }
 
   /**
-   * Deleting this watermark.
+   * Delete this watermark.
    */
   destroy () {
     this.options.onBeforeDestroy?.()
@@ -153,75 +118,28 @@ export default class Watermark {
     this.options.onDestroyed?.()
   }
 
-  private initializeOptions () {
-    if (this.options?.rotate) {
-      this.options.rotate = (360 - this.options.rotate % 360) * (Math.PI / 180)
-    }
-    let translateX: number
-    let translateY: number
-    let textBaseline: TextBaselineType = 'middle'
-    let textAlign: TextAlignType = 'center'
-    switch (this.options.translatePlacement) {
-      case 'top':
-        translateX = this.options.width / 2
-        translateY = 0
-        textBaseline = 'top'
-        break
-      case 'top-start':
-        translateX = 0
-        translateY = 0
-        textBaseline = 'top'
-        textAlign = 'start'
-        break
-      case 'top-end':
-        translateX = this.options.width
-        translateY = 0
-        textBaseline = 'top'
-        textAlign = 'end'
-        break
-      case 'bottom':
-        translateX = this.options.width / 2
-        translateY = this.options.height
-        textBaseline = 'bottom'
-        break
-      case 'bottom-start':
-        translateX = 0
-        translateY = this.options.height
-        textBaseline = 'bottom'
-        textAlign = 'start'
-        break
-      case 'bottom-end':
-        translateX = this.options.width
-        translateY = this.options.height
-        textBaseline = 'bottom'
-        textAlign = 'end'
-        break
-      case 'left':
-        translateX = 0
-        translateY = this.options.height / 2
-        textAlign = 'start'
-        break
-      case 'right':
-        translateX = this.options.width
-        translateY = this.options.height / 2
-        textAlign = 'end'
-        break
-      case 'middle':
-        translateX = this.options.width / 2
-        translateY = this.options.height / 2
-        break
-    }
-    if (isUndefined(this.props?.translateX) || isUndefined(this.props?.translateY)) {
-      this.options.translateX = translateX
-      this.options.translateY = translateY
+  private initConfigData (args: Partial<WatermarkOptions>, mode: ChangeOptionsMode = 'overwrite') {
+    this.props = args
+    if (mode === 'overwrite') {
+      this.options = Object.assign({}, initialOptions, args)
     } else {
-      textBaseline = 'top'
-      textAlign = 'left'
-      this.defaultAdvancedStyleParams.x0 = 0
-      this.defaultAdvancedStyleParams.x1 = this.options.textRowMaxWidth || this.options.width
+      Object.keys(args).forEach(key => {
+        this.options[key as keyof WatermarkOptions] = <never> args[key as keyof WatermarkOptions]
+      })
     }
-    isUndefined(this.props?.textBaseline) && (this.options.textBaseline = textBaseline)
-    isUndefined(this.props?.textAlign) && (this.options.textAlign = textAlign)
+    this.changeParentElement(this.options.parent)
+    this.canvas = Watermark.createCanvas(this.options.width, this.options.height)
+    this.recommendOptions = generateRecommendOptions(this.canvas, this.options, this.props)
+    // document.body?.appendChild(this.canvas)
+  }
+
+  private changeParentElement (parent: Element | string) {
+    if (typeof parent === 'string') {
+      const parentElement = document.querySelector(parent)
+      parentElement && (this.parentElement = parentElement)
+    } else {
+      this.parentElement = parent
+    }
   }
 
   private validateUnique (): boolean {
@@ -253,13 +171,13 @@ export default class Watermark {
   }
 
   private draw (): Promise<HTMLCanvasElement> {
-    const canvas = Watermark.createCanvas(this.options.width, this.options.height)
-    // document.body?.appendChild(canvas)
-    const ctx = canvas.getContext('2d')
+    // const canvas = Watermark.createCanvas(this.options.width, this.options.height)
+    const ctx = this.canvas.getContext('2d')
     if (ctx === null) {
       throw new Error('get context error')
     }
     this.setStyle(ctx)
+    ctx.save()
     ctx.translate(this.options.translateX as number, this.options.translateY as number)
     ctx.rotate(this.options.rotate)
     return new Promise((resolve) => {
@@ -304,28 +222,26 @@ export default class Watermark {
     }
     ctx[propName] && style && (ctx[propName] = style)
 
-    ctx.font = `${this.options.fontStyle} ${this.options.fontVariant} ${this.options.fontWeight} ${this.options.fontSize} ${this.options.fontFamily}`
-    ctx.filter = this.options.filter
     this.options.textAlign && (ctx.textAlign = this.options.textAlign)
     this.options.textBaseline && (ctx.textBaseline = this.options.textBaseline)
     ctx.globalAlpha = this.options.globalAlpha
     if (this.options.shadowStyle) {
-      ctx.shadowBlur = this.options.shadowStyle.shadowBlur || 0
-      ctx.shadowColor = this.options.shadowStyle.shadowColor || '#00000000'
-      ctx.shadowOffsetX = this.options.shadowStyle.shadowOffsetX || 0
-      ctx.shadowOffsetY = this.options.shadowStyle.shadowOffsetY || 0
+      ctx.shadowBlur = getValue(this.options.shadowStyle.shadowBlur, 0)
+      ctx.shadowColor = getValue(this.options.shadowStyle.shadowColor, '#00000000')
+      ctx.shadowOffsetX = getValue(this.options.shadowStyle.shadowOffsetX, 0)
+      ctx.shadowOffsetY = getValue(this.options.shadowStyle.shadowOffsetY, 0)
     }
     if (isFunction(<Function> this.options.extraDrawFunc)) {
       (<Function> this.options.extraDrawFunc)(ctx)
     }
   }
 
-  createLinearGradient (ctx: CanvasRenderingContext2D): CanvasGradient {
+  private createLinearGradient (ctx: CanvasRenderingContext2D): CanvasGradient {
     const gradient = ctx.createLinearGradient(
-      <number> this.options?.advancedStyle?.params?.x0,
-      <number> this.options?.advancedStyle?.params?.y0,
-      <number> this.options?.advancedStyle?.params?.x1,
-      <number> this.options?.advancedStyle?.params?.y1
+      <number> getValue(this.options.advancedStyle?.params?.linear?.x0, this.recommendOptions.advancedStyleParams.linear.x0),
+      <number> getValue(this.options.advancedStyle?.params?.linear?.y0, 0),
+      <number> getValue(this.options.advancedStyle?.params?.linear?.x1, this.recommendOptions.advancedStyleParams.linear.x1),
+      <number> getValue(this.options.advancedStyle?.params?.linear?.y1, 0)
     )
     this.options?.advancedStyle?.colorStops?.forEach(item => {
       gradient.addColorStop(item.offset, item.color)
@@ -333,11 +249,11 @@ export default class Watermark {
     return gradient
   }
 
-  createConicGradient (ctx: CanvasRenderingContext2D): CanvasGradient {
+  private createConicGradient (ctx: CanvasRenderingContext2D): CanvasGradient {
     const gradient = ctx.createConicGradient(
-      <number> this.options?.advancedStyle?.params?.startAngle,
-      <number> this.options?.advancedStyle?.params?.x,
-      <number> this.options?.advancedStyle?.params?.y
+      <number> getValue(this.options?.advancedStyle?.params?.conic?.startAngle, 0),
+      <number> getValue(this.options?.advancedStyle?.params?.conic?.x, this.recommendOptions.advancedStyleParams.conic.x),
+      <number> getValue(this.options?.advancedStyle?.params?.conic?.y, this.recommendOptions.advancedStyleParams.conic.y)
     )
     this.options?.advancedStyle?.colorStops?.forEach(item => {
       gradient.addColorStop(item.offset, item.color)
@@ -345,14 +261,14 @@ export default class Watermark {
     return gradient
   }
 
-  createRadialGradient (ctx: CanvasRenderingContext2D): CanvasGradient {
+  private createRadialGradient (ctx: CanvasRenderingContext2D): CanvasGradient {
     const gradient = ctx.createRadialGradient(
-      <number> this.options?.advancedStyle?.params?.x0,
-      <number> this.options?.advancedStyle?.params?.y0,
-      <number> this.options?.advancedStyle?.params?.r0,
-      <number> this.options?.advancedStyle?.params?.x1,
-      <number> this.options?.advancedStyle?.params?.y1,
-      <number> this.options?.advancedStyle?.params?.r1
+      <number> getValue(this.options?.advancedStyle?.params?.radial?.x0, this.recommendOptions.advancedStyleParams.radial.x0),
+      <number> getValue(this.options?.advancedStyle?.params?.radial?.y0, this.recommendOptions.advancedStyleParams.radial.y0),
+      <number> getValue(this.options?.advancedStyle?.params?.radial?.r0, this.recommendOptions.advancedStyleParams.radial.r0),
+      <number> getValue(this.options?.advancedStyle?.params?.radial?.x1, this.recommendOptions.advancedStyleParams.radial.x1),
+      <number> getValue(this.options?.advancedStyle?.params?.radial?.y1, this.recommendOptions.advancedStyleParams.radial.y1),
+      <number> getValue(this.options?.advancedStyle?.params?.radial?.r1, this.recommendOptions.advancedStyleParams.radial.r1)
     )
     this.options?.advancedStyle?.colorStops?.forEach(item => {
       gradient.addColorStop(item.offset, item.color)
@@ -360,10 +276,10 @@ export default class Watermark {
     return gradient
   }
 
-  createPattern (ctx: CanvasRenderingContext2D): CanvasPattern | null {
+  private createPattern (ctx: CanvasRenderingContext2D): CanvasPattern | null {
     return ctx.createPattern(
-      <HTMLImageElement | SVGImageElement | HTMLVideoElement | HTMLCanvasElement | ImageBitmap | OffscreenCanvas> this.options?.advancedStyle?.params?.image,
-      this.options?.advancedStyle?.params?.repetition || ''
+      <HTMLImageElement | SVGImageElement | HTMLVideoElement | HTMLCanvasElement | ImageBitmap | OffscreenCanvas> this.options?.advancedStyle?.params?.pattern?.image,
+      this.options?.advancedStyle?.params?.pattern?.repetition || ''
     )
   }
 
@@ -380,16 +296,13 @@ export default class Watermark {
       text: this.options.content,
       x: 0,
       y: 0,
-      maxWidth: this.options.textRowMaxWidth
+      maxWidth: this.options.textRowMaxWidth || this.options.width
     })
     resolve(ctx.canvas)
   }
 
   private drawImage (ctx: CanvasRenderingContext2D, resolve: Function) {
-    const image = new Image()
-    image.setAttribute('crossOrigin', 'Anonymous')
-    image.src = this.options.image as string
-    image.onload = () => {
+    loadImage(<string> this.options.image).then(image => {
       const { width: imageWidth, height: imageHeight } = this.getImageRect(image)
       const imagePosition = this.getDrawImagePosition(imageWidth, imageHeight)
       ctx.drawImage(
@@ -400,7 +313,7 @@ export default class Watermark {
         imageHeight
       )
       resolve(ctx.canvas)
-    }
+    })
   }
 
   private drawMultiLineText (ctx: CanvasRenderingContext2D, resolve: Function) {
@@ -420,23 +333,8 @@ export default class Watermark {
     //   )
     //   resolve(canvas)
     // }
-    const width = this.options.textRowMaxWidth || this.options.width
-    const lines = getMultiLineData(ctx, this.options.content, width)
-    let yOffsetValue: number
-    switch (this.options.textBaseline) {
-      case 'middle':
-        yOffsetValue = (lines.length - 1) * this.options.lineHeight / 2
-        break
-      case 'bottom':
-      case 'alphabetic':
-      case 'ideographic':
-        yOffsetValue = (lines.length - 1) * this.options.lineHeight
-        break
-      case 'top':
-      case 'hanging':
-        yOffsetValue = 0
-        break
-    }
+    const lines = this.recommendOptions.textLine.data
+    const yOffsetValue = this.recommendOptions.textLine.yOffsetValue
     lines.forEach((text, index) => {
       this.setText(ctx, { text, x: 0, y: this.options.lineHeight * index - yOffsetValue })
     })
@@ -445,11 +343,7 @@ export default class Watermark {
 
   private drawRichText (ctx: CanvasRenderingContext2D, resolve: Function) {
     const obj = createCustomContentSVG(ctx, this.options)
-    const image = new Image()
-    image.width = obj.width
-    image.height = obj.height
-    image.src = convertSVGToImage(obj.element)
-    image.onload = () => {
+    loadImage(convertSVGToImage(obj.element), obj.width, obj.height).then(image => {
       const imagePosition = this.getDrawImagePosition(image.width, image.height)
       ctx.drawImage(
         image,
@@ -459,11 +353,11 @@ export default class Watermark {
         ctx.canvas.height
       )
       resolve(ctx.canvas)
-    }
+    })
   }
 
   private getImageRect (image: HTMLImageElement) {
-    const rect = { width: this.options.imageWidth, height: this.options.imageHeight }
+    const rect = { width: this.options.imageWidth || 0, height: this.options.imageHeight || 0 }
     switch (true) {
       case rect.width !== 0 && rect.height === 0:
         rect.height = rect.width * image.height / image.width
@@ -560,5 +454,15 @@ export default class Watermark {
       subtree: true, // 布尔值，表示是否将该观察器应用于该节点的所有后代节点。
       characterData: true // 节点内容或节点文本的变动。
     })
+  }
+
+  private clearCanvas () {
+    const ctx = this.canvas.getContext('2d')
+    if (ctx === null) {
+      throw new Error('get context error')
+    }
+    ctx.restore()
+    ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+    // this.canvas.width = this.options.w
   }
 }

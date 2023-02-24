@@ -78,3 +78,24 @@ export const convertSVGToImage = (svg: Element): string => {
   const richContent = svg.outerHTML.replace(/\n/g, '').replace(/\t/g, '').replace(/#/g, '%23')
   return `data:image/svg+xml;charset=utf-8,${richContent}`
 }
+
+export const getValue = (v1: any, v2: any) => {
+  if (isUndefined(v1)) {
+    return v2
+  } else {
+    return v1
+  }
+}
+
+export const loadImage = (url: string, width: number | undefined = undefined, height: number | undefined = undefined): Promise<HTMLImageElement> => {
+  const image = new Image()
+  image.setAttribute('crossOrigin', 'Anonymous')
+  !isUndefined(width) && (image.width = <number> width)
+  !isUndefined(height) && (image.height = <number> height)
+  image.src = url
+  return new Promise(resolve => {
+    image.onload = () => {
+      resolve(image)
+    }
+  })
+}
