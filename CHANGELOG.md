@@ -1,3 +1,12 @@
+# [0.8.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.7.0...v0.8.0) (2023-02-24)
+
+
+### ✨ Features | 新功能
+
+* perfect watermark advanced style logic ([0eb1998](https://github.com/zhensherlock/watermark-js-plus/commit/0eb199867feb3342d6a33a8a5208fdae561b4918))
+
+
+
 # [0.7.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.6.0...v0.7.0) (2023-01-29)
 
 
