@@ -176,6 +176,23 @@ export default class Watermark {
     if (ctx === null) {
       throw new Error('get context error')
     }
+
+    if (this.options.auxiliaryLine) {
+      ctx.beginPath()
+      ctx.rect(1, 1, this.options.width, this.options.height)
+      ctx.lineWidth = 1
+      ctx.strokeStyle = '#000'
+      ctx.stroke()
+      ctx.closePath()
+
+      ctx.beginPath()
+      ctx.rect(this.options.translateX as number, this.options.translateY as number, 1, 1)
+      ctx.lineWidth = 1
+      ctx.strokeStyle = '#f00'
+      ctx.stroke()
+      ctx.closePath()
+    }
+
     this.setStyle(ctx)
     ctx.save()
     ctx.translate(this.options.translateX as number, this.options.translateY as number)
