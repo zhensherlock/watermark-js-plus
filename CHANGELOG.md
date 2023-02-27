@@ -1,3 +1,12 @@
+## [0.8.1](https://github.com/zhensherlock/watermark-js-plus/compare/v0.8.0...v0.8.1) (2023-02-27)
+
+
+### ✨ Features | 新功能
+
+* add the auxiliary line function ([39e8b6d](https://github.com/zhensherlock/watermark-js-plus/commit/39e8b6d0c496c02fdcabdfbaf80531747f356e06))
+
+
+
 # [0.8.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.7.0...v0.8.0) (2023-02-24)
 
 
