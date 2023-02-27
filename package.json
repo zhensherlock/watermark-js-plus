@@ -64,9 +64,9 @@
     "concurrently": "^7.6.0",
     "conventional-changelog-angular": "^5.0.13",
     "conventional-changelog-cli": "^2.2.2",
-    "core-js": "^3.28.0",
+    "core-js": "^3.29.0",
     "element-plus": "^2.2.32",
-    "eslint": "^8.34.0",
+    "eslint": "^8.35.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-semistandard": "^17.0.0",
     "eslint-plugin-import": "^2.27.5",
@@ -74,12 +74,12 @@
     "lint-staged": "^13.1.2",
     "lodash": "^4.17.21",
     "markdown-it": "^13.0.1",
-    "rollup": "^3.17.2",
+    "rollup": "^3.17.3",
     "rollup-plugin-filesize": "^9.1.2",
-    "rollup-plugin-your-function": "^0.4.9",
+    "rollup-plugin-your-function": "^0.4.10",
     "terser": "^5.16.5",
     "typescript": "^4.9.5",
     "unplugin-element-plus": "^0.7.0",
-    "vitepress": "^1.0.0-alpha.47"
+    "vitepress": "^1.0.0-alpha.48"
   }
 }
