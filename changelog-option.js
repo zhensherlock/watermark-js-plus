@@ -24,14 +24,14 @@ module.exports = {
         commit.type = '✅ Tests | 测试'
       } else if (commit.type === 'build') {
         commit.type = '👷‍ Build System | 构建'
-      } else if (commit.type === 'ci') {
-        commit.type = '🔧 Continuous Integration | CI 配置'
       } else if (commit.type === 'chore') {
         commit.type = '🎫 Chores | 其他更新'
       } else if (commit.type === 'style') {
         commit.type = '💄 Styles | 风格'
       } else if (discard) {
         return
+      } else if (commit.type === 'ci') {
+        commit.type = '🔧 Continuous Integration | CI 配置'
       } else if (commit.type === 'docs') {
         commit.type = '📝 Documentation | 文档'
       }
