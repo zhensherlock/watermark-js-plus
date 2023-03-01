@@ -1,9 +1,23 @@
+## [0.8.2](https://github.com/zhensherlock/watermark-js-plus/compare/v0.8.1...v0.8.2) (2023-03-01)
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([9787ba2](https://github.com/zhensherlock/watermark-js-plus/commit/9787ba248ef646cca72177febce09fac8bb0a053))
+
+
+
 ## [0.8.1](https://github.com/zhensherlock/watermark-js-plus/compare/v0.8.0...v0.8.1) (2023-02-27)
 
 
 ### ✨ Features | 新功能
 
 * add the auxiliary line function ([39e8b6d](https://github.com/zhensherlock/watermark-js-plus/commit/39e8b6d0c496c02fdcabdfbaf80531747f356e06))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([0f0eb83](https://github.com/zhensherlock/watermark-js-plus/commit/0f0eb83509b86a0a1bf45988be958d79e759ebee))
 
 
 
@@ -32,6 +46,11 @@
 * add watermark advanced style ([0ca97a7](https://github.com/zhensherlock/watermark-js-plus/commit/0ca97a7de2d3cda5ff453e2114b31ee00e001340))
 * watermark supports font variant ([5890789](https://github.com/zhensherlock/watermark-js-plus/commit/5890789872bd05b650a737a191cf66890a967004))
 * watermark supports more font size ([9d62e2f](https://github.com/zhensherlock/watermark-js-plus/commit/9d62e2fa7a899c3a0d700fc701bab1f3f101d987))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([c8e455f](https://github.com/zhensherlock/watermark-js-plus/commit/c8e455fb432408f6b744792fe87a08f81eb6d664))
 
 
 
@@ -79,6 +98,12 @@
 * support text watermark position dynamic calculation ([65cb1a8](https://github.com/zhensherlock/watermark-js-plus/commit/65cb1a8b580c6aa1aabaf302a3ce9264c448cb3a))
 
 
+### 🎫 Chores | 其他更新
+
+* update dependencies ([3332411](https://github.com/zhensherlock/watermark-js-plus/commit/3332411a04bbf5626678e1cc131084330c1ef2cd))
+* update dependencies ([2d622a5](https://github.com/zhensherlock/watermark-js-plus/commit/2d622a5b99fe2fb060b2207d248fab2efb8dcae8))
+
+
 
 # [0.3.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.2.0...v0.3.0) (2023-01-05)
 
@@ -94,6 +119,11 @@
 * support translate placement ([7181b81](https://github.com/zhensherlock/watermark-js-plus/commit/7181b81c3139c6e487c2b094047332ec7d768183))
 
 
+### 🎫 Chores | 其他更新
+
+* update changelog-option.js ([679b719](https://github.com/zhensherlock/watermark-js-plus/commit/679b719be5ffe5b9a9a6e90d1fda077e0ddfe83d))
+
+
 
 # [0.2.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.1.0...v0.2.0) (2023-01-03)
 
@@ -102,6 +132,11 @@
 
 * add options: backgroundRepeat ([295883b](https://github.com/zhensherlock/watermark-js-plus/commit/295883b0581b867a23397c9fd1dff8d7b0f15e56))
 * support child element watermark ([a687054](https://github.com/zhensherlock/watermark-js-plus/commit/a6870541257f937e61962dbf57dd401a08ac94ec))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([892dbcb](https://github.com/zhensherlock/watermark-js-plus/commit/892dbcbc13566690f9618c114778a00c6ba38b7c))
 
 
 
@@ -117,6 +152,11 @@
 ## [0.0.4](https://github.com/zhensherlock/watermark-js-plus/compare/v0.0.3...v0.0.4) (2022-12-08)
 
 
+### 🎫 Chores | 其他更新
+
+* update version ([2da181c](https://github.com/zhensherlock/watermark-js-plus/commit/2da181c817e223fa31ef7347076b61990810bf65))
+
+
 ### 🐛 Bug Fixes | Bug 修复
 
 * npm publish issue ([b5ebb7a](https://github.com/zhensherlock/watermark-js-plus/commit/b5ebb7aeecbf400d51f2e462082185a16aca1d3d))
@@ -130,6 +170,11 @@
 ### ✨ Features | 新功能
 
 * update export mode ([eba399c](https://github.com/zhensherlock/watermark-js-plus/commit/eba399cca1031c112c6884ca426825ea059d57d4))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([50b62ec](https://github.com/zhensherlock/watermark-js-plus/commit/50b62ec2f36fa109420214ab64b2abd8bc099492))
 
 
 ### 🐛 Bug Fixes | Bug 修复
@@ -153,6 +198,15 @@
 ### ✨ Features | 新功能
 
 * add initial version ([fb530a7](https://github.com/zhensherlock/watermark-js-plus/commit/fb530a78a35020947fec230142a131b56b3588b4))
+
+
+### 🎫 Chores | 其他更新
+
+* add GitHub Actions ([8d7f6db](https://github.com/zhensherlock/watermark-js-plus/commit/8d7f6db492986d7077ea3c7e70ec7150fe408251))
+* perfect commit hook ([613cca2](https://github.com/zhensherlock/watermark-js-plus/commit/613cca2217704735ff80a4e3595107cac35f2117))
+* replace 'yarn' to 'npm' ([addbe19](https://github.com/zhensherlock/watermark-js-plus/commit/addbe1954bb2d6b084910498bd6a03c5f3735164))
+* update dependencies ([748f0d5](https://github.com/zhensherlock/watermark-js-plus/commit/748f0d5b20892aa919da62168d076570a6d6b64e))
+* update package.json ([cd927b1](https://github.com/zhensherlock/watermark-js-plus/commit/cd927b16bcdf0ad65226dd65ae145803fdce73fa))
 
 
 
