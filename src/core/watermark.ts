@@ -72,8 +72,8 @@ export default class Watermark {
       return
     }
 
-    const canvas = await this.draw()
-    const image = convertImage(canvas)
+    await this.draw()
+    const image = convertImage(this.canvas)
     this.clearCanvas()
     this.watermarkDom = document.createElement('div')
     const watermarkInnerDom = document.createElement('div')
