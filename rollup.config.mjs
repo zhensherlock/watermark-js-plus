@@ -19,25 +19,7 @@ export default [
         file: 'dist/watermark.esm.min.js',
         format: 'esm',
         plugins: [terser()]
-      }
-    ],
-    plugins: [
-      typescript(),
-      eslint({
-        throwOnError: true,
-        throwOnWarning: true,
-        include: ['src/**'],
-        exclude: ['node_modules/**']
-      }),
-      resolve(),
-      commonjs(),
-      filesize(),
-      babel({ babelHelpers: 'runtime', exclude: ['node_modules/**'] })
-    ]
-  },
-  {
-    input: 'src/index.ts',
-    output: [
+      },
       {
         name: 'watermark',
         file: 'dist/watermark.umd.js',
