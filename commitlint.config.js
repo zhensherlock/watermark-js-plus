@@ -11,7 +11,7 @@ module.exports = {
         'docs', // 文档变更
         'style', // 代码格式
         'refactor', // 重构
-        'pref', // 性能优化
+        'perf', // 性能优化
         'test', // 增加测试
         'build', // 构建
         'ci', // CI配置
