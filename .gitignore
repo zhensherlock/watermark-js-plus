@@ -105,4 +105,4 @@ dist
 # TernJS port file
 .tern-port
 
-/docs/.vitepress/cache/deps/
+/docs/.vitepress/cache/
