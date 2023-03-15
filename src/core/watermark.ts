@@ -81,10 +81,11 @@ export default class Watermark {
     this.watermarkDom.__WATERMARK__INSTANCE__ = this
     const parentElementType = this.checkParentElementType()
     this.watermarkDom.style.cssText = `
-      z-index: ${this.options.zIndex};
+      z-index: ${this.options.zIndex};display: block!important;
       ${parentElementType === 'custom' ? 'top: 0;bottom: 0;left: 0;right: 0;height: 100%;pointer-events: none;position: absolute' : 'position: relative'}
     `
     watermarkInnerDom.style.cssText = `
+      display: block!important;
       position: ${parentElementType === 'root' ? 'fixed;' : 'absolute;'}
       z-index: ${this.options.zIndex};
       pointer-events: none;
@@ -171,7 +172,6 @@ export default class Watermark {
   }
 
   private draw (): Promise<HTMLCanvasElement> {
-    // const canvas = Watermark.createCanvas(this.options.width, this.options.height)
     const ctx = this.canvas.getContext('2d')
     if (ctx === null) {
       throw new Error('get context error')
