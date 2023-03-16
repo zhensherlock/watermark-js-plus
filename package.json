@@ -1,6 +1,6 @@
 {
   "name": "watermark-js-plus",
-  "version": "0.8.7",
+  "version": "0.8.8",
   "description": "watermark for the browser",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -60,7 +60,7 @@
     "@rollup/plugin-typescript": "^11.0.0",
     "@types/markdown-it": "^12.2.3",
     "@typescript-eslint/parser": "^5.55.0",
-    "@vue/theme": "^2.1.1",
+    "@vue/theme": "^2.2.0",
     "concurrently": "^7.6.0",
     "conventional-changelog-angular": "^5.0.13",
     "conventional-changelog-cli": "^2.2.2",
@@ -76,10 +76,10 @@
     "markdown-it": "^13.0.1",
     "rollup": "^3.19.1",
     "rollup-plugin-filesize": "^10.0.0",
-    "rollup-plugin-your-function": "^0.4.11",
+    "rollup-plugin-your-function": "^0.4.12",
     "terser": "^5.16.6",
     "typescript": "^4.9.5",
     "unplugin-element-plus": "^0.7.0",
-    "vitepress": "^1.0.0-alpha.58"
+    "vitepress": "^1.0.0-alpha.60"
   }
 }
