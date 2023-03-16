@@ -13,7 +13,7 @@ export const initialOptions = {
   imageWidth: 0,
   imageHeight: 0,
   lineHeight: 30,
-  zIndex: 10000,
+  zIndex: 2147483647,
   backgroundPosition: '0 0, 0 0',
   backgroundRepeat: 'repeat',
   fontSize: '20px',
