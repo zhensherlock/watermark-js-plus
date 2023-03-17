@@ -28,6 +28,7 @@ onMounted(() => {
     height: 200,
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
+        appendTo: '#app',
         message: '文本水印添加成功！',
         type: 'success'
       });
@@ -42,6 +43,7 @@ onMounted(() => {
     height: 200,
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
+        appendTo: '#app',
         message: '多行文本水印添加成功！',
         type: 'success'
       });
@@ -57,6 +59,7 @@ onMounted(() => {
     height: 300,
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
+        appendTo: '#app',
         message: '图片水印添加成功！',
         type: 'success'
       });
@@ -70,6 +73,7 @@ onMounted(() => {
     height: 300,
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
+        appendTo: '#app',
         message: '富文本水印添加成功！',
         type: 'success'
       });

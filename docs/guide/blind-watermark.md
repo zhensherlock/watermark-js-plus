@@ -28,6 +28,7 @@ onMounted(() => {
     height: 200,
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
+        appendTo: '#app',
         message: 'The text blind watermark added successfully!',
         type: 'success'
       });
@@ -42,6 +43,7 @@ onMounted(() => {
     height: 200,
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
+        appendTo: '#app',
         message: 'The multiline text blind watermark added successfully!',
         type: 'success'
       });
@@ -57,6 +59,7 @@ onMounted(() => {
     height: 300,
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
+        appendTo: '#app',
         message: '!The image blind watermark added successfully',
         type: 'success'
       });
@@ -70,6 +73,7 @@ onMounted(() => {
     height: 300,
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
+        appendTo: '#app',
         message: 'The rich text blind watermark added successfully!',
         type: 'success'
       });

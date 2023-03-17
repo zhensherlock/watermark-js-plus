@@ -31,6 +31,12 @@ export default {
           { text: '水印', link: '/zh/guide/watermark' },
           { text: '暗水印', link: '/zh/guide/blind-watermark' },
         ]
+      },
+      {
+        text: '自定义',
+        items: [
+          { text: '配置', link: '/zh/guide/custom/configs' },
+        ]
       }
     ],
     '/zh/config': [

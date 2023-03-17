@@ -78,11 +78,8 @@ export default {
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2021-present Michael Sun'
     },
-    locales: {
-      '/zh/': zh_CN
-    },
     localeLinks: {
-      // text: 'English',
+      text: 'English',
       items: [
         { text: 'English', link: '/' },
         { text: '简体中文', link: '/zh/' },
@@ -93,16 +90,15 @@ export default {
     // lineNumbers: true
   },
   locales: {
-    '/': {
-      lang: 'en-US',
-      title: 'watermark-js-plus',
-      description: 'A watermark plugin',
+    root: {
+      label: 'English',
+      lang: 'en'
     },
-    '/zh/': {
+    zh: {
+      label: '中文',
       lang: 'zh-CN',
-      description: '一个水印插件',
-      outlineTitle: '本页目录',
-      lastUpdatedText: '上次更新',
+      link: '/zh/',
+      themeConfig: zh_CN
     }
   }
 }
