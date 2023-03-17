@@ -443,22 +443,26 @@ export default class Watermark {
       }
     })
     this.observer.observe(this.watermarkDom, {
-      attributes: true, // 子节点的变动（指新增，删除或者更改）
-      childList: true, // 属性的变动
+      attributes: true, // 属性的变动
+      childList: true, // 子节点的变动（指新增，删除或者更改）
       subtree: true, // 布尔值，表示是否将该观察器应用于该节点的所有后代节点。
       characterData: true // 节点内容或节点文本的变动。
     })
     this.parentObserve = new MutationObserver((mutationsList: MutationRecord[]) => {
       mutationsList.forEach(item => {
-        if (item?.target === this.watermarkDom || item?.removedNodes?.[0] === this.watermarkDom) {
+        if (
+          item?.target === this.watermarkDom ||
+          item?.removedNodes?.[0] === this.watermarkDom ||
+          (item.type === 'childList' && item.target === this.parentElement && item.target.lastChild !== this.watermarkDom)
+        ) {
           this.destroy()
           this.create()
         }
       })
     })
     this.parentObserve.observe(this.parentElement, {
-      attributes: true, // 子节点的变动（指新增，删除或者更改）
-      childList: true, // 属性的变动
+      attributes: true, // 属性的变动
+      childList: true, // 子节点的变动（指新增，删除或者更改）
       subtree: true, // 布尔值，表示是否将该观察器应用于该节点的所有后代节点。
       characterData: true // 节点内容或节点文本的变动。
     })
