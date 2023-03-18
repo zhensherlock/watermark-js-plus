@@ -81,12 +81,12 @@ export default class Watermark {
     this.watermarkDom.__WATERMARK__INSTANCE__ = this
     const parentElementType = this.checkParentElementType()
     this.watermarkDom.style.cssText = `
-      z-index: ${this.options.zIndex};display:block!important;visibility:visible!important;transform:none!important;
+      z-index: ${this.options.zIndex};display:block!important;visibility:visible!important;transform:none!important;scale:none!important;
       ${parentElementType === 'custom' ? 'top:0;bottom:0;left:0;right:0;height:100%;pointer-events:none;position:absolute' : 'position:relative'}
     `
     watermarkInnerDom.style.cssText = `
-      display:block!important;visibility:visible!important;pointer-events:none;top:0;bottom:0;left:0;right:0;
-      position:${parentElementType === 'root' ? 'fixed' : 'absolute'};-webkit-print-color-adjust: exact;
+      display:block!important;visibility:visible!important;pointer-events:none;top:0;bottom:0;left:0;right:0;transform:none!important;scale:none!important;
+      position:${parentElementType === 'root' ? 'fixed' : 'absolute'};-webkit-print-color-adjust:exact;width:100%!important;height:100%!important;
       z-index:${this.options.zIndex};background-image:url(${image});background-repeat:${this.options.backgroundRepeat};
       background-size:${this.options.width}px ${this.options.height}px;background-position:${this.options.backgroundPosition};
     `
