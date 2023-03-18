@@ -76,9 +76,9 @@
     "markdown-it": "^13.0.1",
     "rollup": "^3.19.1",
     "rollup-plugin-filesize": "^10.0.0",
-    "rollup-plugin-your-function": "^0.4.12",
+    "rollup-plugin-your-function": "^0.5.0",
     "terser": "^5.16.6",
-    "typescript": "^4.9.5",
+    "typescript": "^5.0.2",
     "unplugin-element-plus": "^0.7.0",
     "vitepress": "^1.0.0-alpha.60"
   }
