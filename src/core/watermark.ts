@@ -12,8 +12,8 @@ import {
   WatermarkDom,
   WatermarkOptions
 } from '../types'
-
 import { generateRecommendOptions, initialOptions } from '../utils/initialization'
+import bootstrap from '../utils/bootstrap'
 
 /**
  * Watermark class
@@ -38,6 +38,7 @@ export default class Watermark {
     this.changeParentElement(this.options.parent)
     this.canvas = Watermark.createCanvas(this.options.width, this.options.height)
     this.recommendOptions = generateRecommendOptions(this.canvas, this.options, this.props)
+    bootstrap()
   }
 
   /**
