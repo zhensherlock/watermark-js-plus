@@ -1,1 +1,0 @@
-import{_ as a,x as e,o,R as t}from"./chunks/framework.356fae59.js";const p=JSON.parse('{"title":"Blind Watermark Config","description":"","frontmatter":{"layout":"doc"},"headers":[],"relativePath":"config/blind.md"}'),l={name:"config/blind.md"},r=t("",7),n=[r];function i(d,c,s,_,h,m){return o(),e("div",null,n)}const f=a(l,[["render",i]]);export{p as __pageData,f as default};
