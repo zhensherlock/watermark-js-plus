@@ -80,6 +80,6 @@
     "terser": "^5.16.6",
     "typescript": "^5.0.2",
     "unplugin-element-plus": "^0.7.0",
-    "vitepress": "^1.0.0-alpha.61"
+    "vitepress": "^1.0.0-alpha.60"
   }
 }
