@@ -1,3 +1,23 @@
+## [0.8.12](https://github.com/zhensherlock/watermark-js-plus/compare/v0.8.11...v0.8.12) (2023-03-22)
+
+
+### ⚡ Performance Improvements | 性能优化
+
+* canvas draw logic ([efeeebf](https://github.com/zhensherlock/watermark-js-plus/commit/efeeebfeb0dd25422ca82f127a282006b04f230a))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([93df7ff](https://github.com/zhensherlock/watermark-js-plus/commit/93df7ffcae9ace3b8b9c0ebbf635e22a2e5e9da8))
+* update dependencies ([29fc1b2](https://github.com/zhensherlock/watermark-js-plus/commit/29fc1b22ed14da73aa0e8c6501708ac168ba5af4))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* issue [#7](https://github.com/zhensherlock/watermark-js-plus/issues/7) ([4c9f26d](https://github.com/zhensherlock/watermark-js-plus/commit/4c9f26d96f6bee45c7909e292b1a84f96660a276))
+
+
+
 ## [0.8.11](https://github.com/zhensherlock/watermark-js-plus/compare/v0.8.10...v0.8.11) (2023-03-20)
 
 
