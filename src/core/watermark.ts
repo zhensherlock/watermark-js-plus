@@ -82,14 +82,14 @@ export default class Watermark {
     this.watermarkDom.__WATERMARK__INSTANCE__ = this
     const parentElementType = this.checkParentElementType()
     this.watermarkDom.style.cssText = `
-      z-index: ${this.options.zIndex};display:block!important;visibility:visible!important;transform:none!important;scale:none!important;
-      ${parentElementType === 'custom' ? 'top:0;bottom:0;left:0;right:0;height:100%;pointer-events:none;position:absolute' : 'position:relative'}
+      z-index: ${this.options.zIndex}!important;display:block!important;visibility:visible!important;transform:none!important;scale:none!important;
+      ${parentElementType === 'custom' ? 'top:0!important;bottom:0!important;left:0!important;right:0!important;height:100%!important;pointer-events:none!important;position:absolute!important;' : 'position:relative!important;'}
     `
     watermarkInnerDom.style.cssText = `
       display:block!important;visibility:visible!important;pointer-events:none;top:0;bottom:0;left:0;right:0;transform:none!important;scale:none!important;
-      position:${parentElementType === 'root' ? 'fixed' : 'absolute'};-webkit-print-color-adjust:exact;width:100%!important;height:100%!important;
-      z-index:${this.options.zIndex};background-image:url(${image});background-repeat:${this.options.backgroundRepeat};
-      background-size:${this.options.width}px ${this.options.height}px;background-position:${this.options.backgroundPosition};
+      position:${parentElementType === 'root' ? 'fixed' : 'absolute'}!important;-webkit-print-color-adjust:exact!important;width:100%!important;height:100%!important;
+      z-index:${this.options.zIndex}!important;background-image:url(${image})!important;background-repeat:${this.options.backgroundRepeat}!important;
+      background-size:${this.options.width}px ${this.options.height}px!important;background-position:${this.options.backgroundPosition}!important;
     `
     this.watermarkDom.append(watermarkInnerDom)
     this.parentElement.appendChild(this.watermarkDom)
