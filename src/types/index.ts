@@ -60,6 +60,7 @@ export interface WatermarkOptions {
   onSuccess: Function;
   onBeforeDestroy: Function;
   onDestroyed: Function;
+  onObserveError: Function;
 }
 
 export interface DecodeBlindWatermarkOptions {

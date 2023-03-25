@@ -96,7 +96,11 @@ export default class Watermark {
     this.parentElement.appendChild(this.watermarkDom)
 
     if (this.options.mutationObserve) {
-      this.bindMutationObserve()
+      try {
+        this.bindMutationObserve()
+      } catch (e) {
+        this.options.onObserveError?.()
+      }
     }
     this.options.onSuccess?.()
   }

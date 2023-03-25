@@ -30,7 +30,8 @@ export const initialOptions = {
   parent: 'body',
   onSuccess: () => {},
   onBeforeDestroy: () => {},
-  onDestroyed: () => {}
+  onDestroyed: () => {},
+  onObserveError: () => {}
 }
 
 export const generateRecommendOptions = (canvas: HTMLCanvasElement, options: WatermarkOptions, args: Partial<WatermarkOptions>) => {

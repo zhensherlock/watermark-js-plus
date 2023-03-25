@@ -4,5 +4,9 @@ export default () => {
       writable: false,
       configurable: false
     })
+    Object.defineProperty(window, 'requestAnimationFrame', {
+      writable: false,
+      configurable: false
+    })
   }
 }
