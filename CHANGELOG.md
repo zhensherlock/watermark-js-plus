@@ -1,6 +1,13 @@
 ## [0.8.13](https://github.com/zhensherlock/watermark-js-plus/compare/v0.8.12...v0.8.13) (2023-03-25)
 
 
+### ✨ Features | 新功能
+
+* add check public function ([0d5ee0c](https://github.com/zhensherlock/watermark-js-plus/commit/0d5ee0c5383bb4ff4f64a29d08e5ae7b3a14a980))
+* add check watermark element logic ([fe6808e](https://github.com/zhensherlock/watermark-js-plus/commit/fe6808e629b75266216686492b85971a265e08d7))
+* add observe error callback ([6431acf](https://github.com/zhensherlock/watermark-js-plus/commit/6431acf01cec8dde66e1d4d65e497d9e622ed457))
+
+
 ### 🎫 Chores | 其他更新
 
 * update dependencies ([71ada5e](https://github.com/zhensherlock/watermark-js-plus/commit/71ada5e386c7f94dbb1cbb925547315686c16598))
