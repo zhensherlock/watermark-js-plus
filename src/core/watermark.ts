@@ -115,6 +115,13 @@ export default class Watermark {
     this.options.onDestroyed?.()
   }
 
+  check () {
+    if (!document.body.contains(<Node> this.watermarkDom)) {
+      this.destroy()
+      this.create()
+    }
+  }
+
   private initConfigData (args: Partial<WatermarkOptions>, mode: ChangeOptionsMode = 'overwrite') {
     this.props = args
     if (mode === 'overwrite') {
