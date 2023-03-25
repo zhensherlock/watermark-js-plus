@@ -27,6 +27,7 @@ export default class Watermark {
   private props?: Partial<WatermarkOptions>
   private canvas: HTMLCanvasElement
   private recommendOptions
+  private checkWatermarkElementRequestID?: number
 
   /**
    * Watermark constructor
@@ -107,6 +108,9 @@ export default class Watermark {
     this.options.onBeforeDestroy?.()
     this.observer?.disconnect()
     this.parentObserve?.disconnect()
+    if (!isUndefined(this.checkWatermarkElementRequestID)) {
+      cancelAnimationFrame(<number> this.checkWatermarkElementRequestID)
+    }
     this.watermarkDom?.remove()
     this.options.onDestroyed?.()
   }
@@ -433,10 +437,19 @@ export default class Watermark {
     return 'custom'
   }
 
+  private checkWatermarkElement () {
+    if (!document.body.contains(<Node> this.watermarkDom)) {
+      this.destroy()
+      this.create()
+    }
+    this.checkWatermarkElementRequestID = requestAnimationFrame(this.checkWatermarkElement.bind(this))
+  }
+
   private bindMutationObserve (): void {
     if (!this.watermarkDom) {
       return
     }
+    this.checkWatermarkElementRequestID = requestAnimationFrame(this.checkWatermarkElement.bind(this))
     this.observer = new MutationObserver((mutationsList: MutationRecord[]) => {
       if (mutationsList.length > 0) {
         this.destroy()
