@@ -73,6 +73,7 @@ export default class Watermark {
     if (!this.validateContent()) {
       return
     }
+    const firstDraw = isUndefined(this.watermarkDom)
 
     await this.draw()
     const image = convertImage(this.canvas)
@@ -102,7 +103,7 @@ export default class Watermark {
         this.options.onObserveError?.()
       }
     }
-    this.options.onSuccess?.()
+    firstDraw && this.options.onSuccess?.()
   }
 
   /**
