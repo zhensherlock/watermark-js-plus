@@ -1,6 +1,6 @@
 {
   "name": "watermark-js-plus",
-  "version": "0.8.13",
+  "version": "0.8.14",
   "description": "watermark for the browser",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -59,7 +59,7 @@
     "@rollup/plugin-terser": "0.4.0",
     "@rollup/plugin-typescript": "^11.0.0",
     "@types/markdown-it": "^12.2.3",
-    "@typescript-eslint/parser": "^5.56.0",
+    "@typescript-eslint/parser": "^5.57.0",
     "@vue/theme": "^2.2.1",
     "concurrently": "^7.6.0",
     "conventional-changelog-angular": "^5.0.13",
@@ -80,6 +80,6 @@
     "terser": "^5.16.8",
     "typescript": "^5.0.2",
     "unplugin-element-plus": "^0.7.0",
-    "vitepress": "^1.0.0-alpha.62"
+    "vitepress": "^1.0.0-alpha.63"
   }
 }
