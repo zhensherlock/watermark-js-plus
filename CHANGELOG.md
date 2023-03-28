@@ -1,3 +1,17 @@
+## [0.8.14](https://github.com/zhensherlock/watermark-js-plus/compare/v0.8.13...v0.8.14) (2023-03-28)
+
+
+### ⚡ Performance Improvements | 性能优化
+
+* onSuccess trigger logic ([14ea465](https://github.com/zhensherlock/watermark-js-plus/commit/14ea4652e4773975a017d545b8a2d9e3a7f91d84))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([42b5ee5](https://github.com/zhensherlock/watermark-js-plus/commit/42b5ee52ee4d33e190f0e6adf6ccf5eb17848433))
+
+
+
 ## [0.8.13](https://github.com/zhensherlock/watermark-js-plus/compare/v0.8.12...v0.8.13) (2023-03-25)
 
 
