@@ -1,6 +1,6 @@
 {
   "name": "watermark-js-plus",
-  "version": "0.8.16",
+  "version": "0.8.17",
   "description": "watermark for the browser",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -54,17 +54,17 @@
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-eslint": "^9.0.3",
-    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.2",
     "@rollup/plugin-replace": "^5.0.2",
     "@rollup/plugin-terser": "0.4.0",
-    "@rollup/plugin-typescript": "^11.0.0",
+    "@rollup/plugin-typescript": "^11.1.0",
     "@types/markdown-it": "^12.2.3",
-    "@typescript-eslint/parser": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.1",
     "@vue/theme": "^2.2.1",
     "concurrently": "^8.0.1",
     "conventional-changelog-angular": "^5.0.13",
     "conventional-changelog-cli": "^2.2.2",
-    "core-js": "^3.29.1",
+    "core-js": "^3.30.0",
     "element-plus": "^2.3.2",
     "eslint": "^8.37.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -80,6 +80,6 @@
     "terser": "^5.16.8",
     "typescript": "^5.0.3",
     "unplugin-element-plus": "^0.7.0",
-    "vitepress": "^1.0.0-alpha.64"
+    "vitepress": "^1.0.0-alpha.65"
   }
 }
