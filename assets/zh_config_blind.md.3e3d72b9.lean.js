@@ -1,0 +1,1 @@
+import{_ as a,g as e,o,R as l}from"./chunks/framework.33d0ee6e.js";const g=JSON.parse('{"title":"暗水印","description":"","frontmatter":{"layout":"doc"},"headers":[],"relativePath":"zh/config/blind.md"}'),t={name:"zh/config/blind.md"},n=l("",7),r=[n];function i(d,s,c,_,h,p){return o(),e("div",null,r)}const b=a(t,[["render",i]]);export{g as __pageData,b as default};
