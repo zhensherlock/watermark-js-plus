@@ -1,6 +1,6 @@
 {
   "name": "watermark-js-plus",
-  "version": "0.8.22",
+  "version": "0.8.23",
   "description": "watermark for the browser",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -65,8 +65,8 @@
     "conventional-changelog-angular": "^5.0.13",
     "conventional-changelog-cli": "^2.2.2",
     "core-js": "^3.30.1",
-    "element-plus": "^2.3.3",
-    "eslint": "^8.38.0",
+    "element-plus": "^2.3.4",
+    "eslint": "^8.39.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-semistandard": "^17.0.0",
     "eslint-plugin-import": "^2.27.5",
@@ -74,7 +74,7 @@
     "lint-staged": "^13.2.1",
     "lodash": "^4.17.21",
     "markdown-it": "^13.0.1",
-    "rollup": "^3.20.7",
+    "rollup": "^3.21.0",
     "rollup-plugin-filesize": "^10.0.0",
     "rollup-plugin-your-function": "^0.5.1",
     "terser": "^5.17.1",
