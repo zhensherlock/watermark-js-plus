@@ -1,3 +1,12 @@
+## [0.9.1](https://github.com/zhensherlock/watermark-js-plus/compare/v0.8.23...v0.9.1) (2023-04-27)
+
+
+### ✨ Features | 新功能
+
+* Better typescript support ([6e6409e](https://github.com/zhensherlock/watermark-js-plus/commit/6e6409e8edb7f452d21a4dfe294f9cb967436ab0))
+
+
+
 ## [0.8.23](https://github.com/zhensherlock/watermark-js-plus/compare/v0.8.22...v0.8.23) (2023-04-24)
 
 
