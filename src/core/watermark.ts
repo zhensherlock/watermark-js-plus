@@ -18,7 +18,7 @@ import bootstrap from '../utils/bootstrap'
 /**
  * Watermark class
  */
-export default class Watermark {
+class Watermark {
   private options: WatermarkOptions
   private parentElement: Element = document.body
   private observer?: MutationObserver
@@ -503,4 +503,8 @@ export default class Watermark {
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
     // this.canvas.width = this.options.w
   }
+}
+
+export {
+  Watermark
 }

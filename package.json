@@ -1,6 +1,6 @@
 {
   "name": "watermark-js-plus",
-  "version": "0.8.23",
+  "version": "0.9.1",
   "description": "watermark for the browser",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -8,7 +8,8 @@
     "lint": "npx eslint \"src/*.{ts,js}\"",
     "dev": "concurrently \"npm run src:dev\" \"npm run docs:dev\"",
     "src:dev": "rollup -c --watch",
-    "build": "rollup -c --environment NODE_ENV:production",
+    "build:types": "tsc",
+    "build": "npm run build:types && rollup -c --environment NODE_ENV:production",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 -n changelog-option.js",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
@@ -35,11 +36,11 @@
     "防删除水印",
     "解密水印"
   ],
-  "main": "dist/watermark.esm.js",
-  "module": "dist/watermark.esm.js",
-  "browser": "dist/watermark.umd.min.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.browser.js",
   "unpkg": "",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/src/index.d.ts",
   "files": [
     "dist"
   ],
@@ -56,10 +57,11 @@
     "@rollup/plugin-eslint": "^9.0.3",
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@rollup/plugin-replace": "^5.0.2",
+    "@rollup/plugin-strip": "^3.0.2",
     "@rollup/plugin-terser": "0.4.1",
     "@rollup/plugin-typescript": "^11.1.0",
     "@types/markdown-it": "^12.2.3",
-    "@typescript-eslint/parser": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.1",
     "@vue/theme": "^2.2.1",
     "concurrently": "^8.0.1",
     "conventional-changelog-angular": "^5.0.13",
@@ -71,7 +73,7 @@
     "eslint-config-semistandard": "^17.0.0",
     "eslint-plugin-import": "^2.27.5",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.1",
+    "lint-staged": "^13.2.2",
     "lodash": "^4.17.21",
     "markdown-it": "^13.0.1",
     "rollup": "^3.21.0",
@@ -80,6 +82,6 @@
     "terser": "^5.17.1",
     "typescript": "^5.0.4",
     "unplugin-element-plus": "^0.7.1",
-    "vitepress": "^1.0.0-alpha.73"
+    "vitepress": "^1.0.0-alpha.74"
   }
 }

@@ -1,11 +1,11 @@
 import { DecodeBlindWatermarkOptions, WatermarkOptions } from '../types'
 import { convertImage, isFunction } from '../utils'
-import Watermark from './watermark'
+import { Watermark } from './watermark'
 
 /**
  * BlindWatermark class
  */
-export default class BlindWatermark extends Watermark {
+class BlindWatermark extends Watermark {
   /**
    * BlindWatermark constructor
    * @param props - blind watermark options
@@ -51,4 +51,8 @@ export default class BlindWatermark extends Watermark {
       }
     }
   }
+}
+
+export {
+  BlindWatermark
 }
