@@ -1,8 +1,9 @@
 {
   "name": "watermark-js-plus",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "watermark for the browser",
   "scripts": {
+    "clean:dist": "rimraf dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "lint": "npx eslint \"src/*.{ts,js}\"",
@@ -45,10 +46,10 @@
     "dist"
   ],
   "devDependencies": {
-    "@babel/core": "^7.21.4",
+    "@babel/core": "^7.21.5",
     "@babel/eslint-parser": "^7.21.3",
     "@babel/plugin-transform-runtime": "^7.21.4",
-    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-env": "^7.21.5",
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",
     "@element-plus/icons-vue": "^2.1.0",
@@ -76,7 +77,7 @@
     "lint-staged": "^13.2.2",
     "lodash": "^4.17.21",
     "markdown-it": "^13.0.1",
-    "rollup": "^3.21.0",
+    "rollup": "^3.21.1",
     "rollup-plugin-filesize": "^10.0.0",
     "rollup-plugin-your-function": "^0.5.1",
     "terser": "^5.17.1",
