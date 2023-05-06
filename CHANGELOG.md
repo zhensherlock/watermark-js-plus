@@ -6,6 +6,11 @@
 * update dependencies ([5fe0278](https://github.com/zhensherlock/watermark-js-plus/commit/5fe02786b3eafa2ce2f1781903a1777419b9c9b3))
 
 
+### 🐛 Bug Fixes | Bug 修复
+
+* issue [#9](https://github.com/zhensherlock/watermark-js-plus/issues/9) ([6c20786](https://github.com/zhensherlock/watermark-js-plus/commit/6c2078611ca20ba682c80a06a19f268ddd481ac7))
+
+
 
 ## [0.9.3](https://github.com/zhensherlock/watermark-js-plus/compare/v0.9.2...v0.9.3) (2023-05-03)
 
