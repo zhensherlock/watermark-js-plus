@@ -10,50 +10,50 @@ import strip from '@rollup/plugin-strip'
 
 const output = [
   {
-    name: 'watermark',
+    name: 'WatermarkPlus',
     format: 'esm',
     file: 'dist/index.esm.js',
     sourcemap: true
   },
   {
-    name: 'watermark',
+    name: 'WatermarkPlus',
     format: 'umd',
     file: 'dist/index.umd.js',
     sourcemap: true
   },
   {
-    name: 'watermark',
+    name: 'WatermarkPlus',
     format: 'iife',
-    file: 'dist/index.browser.js',
+    file: 'dist/index.iife.js',
     sourcemap: true
   },
   {
-    name: 'watermark',
+    name: 'WatermarkPlus',
     format: 'cjs',
     file: 'dist/index.cjs.js',
     sourcemap: true
   },
   // min
   {
-    name: 'watermark',
+    name: 'WatermarkPlus',
     format: 'esm',
     file: 'dist/index.esm.min.js',
     plugins: [terser()]
   },
   {
-    name: 'watermark',
+    name: 'WatermarkPlus',
     format: 'umd',
     file: 'dist/index.umd.min.js',
     plugins: [terser()]
   },
   {
-    name: 'watermark',
+    name: 'WatermarkPlus',
     format: 'iife',
-    file: 'dist/index.browser.min.js',
+    file: 'dist/index.iife.min.js',
     plugins: [terser()]
   },
   {
-    name: 'watermark',
+    name: 'WatermarkPlus',
     format: 'cjs',
     file: 'dist/index.cjs.min.js',
     plugins: [terser()]
