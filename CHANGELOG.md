@@ -1,3 +1,17 @@
+## [0.9.5](https://github.com/zhensherlock/watermark-js-plus/compare/v0.9.4...v0.9.5) (2023-05-09)
+
+
+### ✨ Features | 新功能
+
+* optimized typescript ([1925340](https://github.com/zhensherlock/watermark-js-plus/commit/19253402cd7af1e7dbd5ed2f820d9d89a8ab8aeb))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([6e1b7ac](https://github.com/zhensherlock/watermark-js-plus/commit/6e1b7aca0eddd6cb2ace1a29f16e8ed6fb74c35c))
+
+
+
 ## [0.9.4](https://github.com/zhensherlock/watermark-js-plus/compare/v0.9.3...v0.9.4) (2023-05-06)
 
 
