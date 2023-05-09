@@ -1,4 +1,4 @@
-import { CustomContentSVGType, WatermarkOptions } from '../types'
+import type { CustomContentSVGType, WatermarkOptions } from '../types'
 
 export const convertImage = (canvas: HTMLCanvasElement): string => {
   return canvas.toDataURL('image/png', 1)

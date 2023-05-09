@@ -1,4 +1,4 @@
-import { AdvancedStyleParamsType, TextAlignType, TextBaselineType, WatermarkOptions } from '../types'
+import type { AdvancedStyleParamsType, TextAlignType, TextBaselineType, WatermarkOptions } from '../types'
 import { getMultiLineData, isUndefined } from './index'
 
 export const initialOptions = {

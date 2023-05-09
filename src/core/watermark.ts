@@ -7,7 +7,7 @@ import {
   getValue,
   loadImage
 } from '../utils'
-import {
+import type {
   ChangeOptionsMode,
   WatermarkDom,
   WatermarkOptions

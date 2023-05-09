@@ -1,4 +1,4 @@
-import { DecodeBlindWatermarkOptions, WatermarkOptions } from '../types'
+import type { DecodeBlindWatermarkOptions, WatermarkOptions } from '../types'
 import { convertImage, isFunction } from '../utils'
 import { Watermark } from './watermark'
 
