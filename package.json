@@ -1,6 +1,6 @@
 {
   "name": "watermark-js-plus",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "description": "watermark for the browser",
   "scripts": {
     "clean:dist": "rimraf dist",
@@ -92,10 +92,10 @@
     "lodash": "^4.17.21",
     "markdown-it": "^13.0.1",
     "rimraf": "^5.0.0",
-    "rollup": "^3.21.5",
+    "rollup": "^3.21.6",
     "rollup-plugin-filesize": "^10.0.0",
     "rollup-plugin-your-function": "^0.5.1",
-    "terser": "^5.17.2",
+    "terser": "^5.17.3",
     "typescript": "^5.0.4",
     "unplugin-element-plus": "^0.7.1",
     "vitepress": "^1.0.0-alpha.75"
