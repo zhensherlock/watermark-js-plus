@@ -120,10 +120,10 @@ class Watermark {
     this.options.onDestroyed?.()
   }
 
-  check () {
+  async check () {
     if (!document.body.contains(<Node> this.watermarkDom)) {
       this.destroy()
-      this.create()
+      await this.create()
     }
   }
 
@@ -449,10 +449,10 @@ class Watermark {
     return 'custom'
   }
 
-  private checkWatermarkElement () {
+  private async checkWatermarkElement () {
     if (!document.body.contains(<Node> this.watermarkDom)) {
       this.destroy()
-      this.create()
+      await this.create()
     }
     this.checkWatermarkElementRequestID = requestAnimationFrame(this.checkWatermarkElement.bind(this))
   }
@@ -462,10 +462,10 @@ class Watermark {
       return
     }
     this.checkWatermarkElementRequestID = requestAnimationFrame(this.checkWatermarkElement.bind(this))
-    this.observer = new MutationObserver((mutationsList: MutationRecord[]) => {
+    this.observer = new MutationObserver(async (mutationsList: MutationRecord[]) => {
       if (mutationsList.length > 0) {
         this.destroy()
-        this.create()
+        await this.create()
       }
     })
     this.observer.observe(this.watermarkDom, {
@@ -474,17 +474,17 @@ class Watermark {
       subtree: true, // 布尔值，表示是否将该观察器应用于该节点的所有后代节点。
       characterData: true // 节点内容或节点文本的变动。
     })
-    this.parentObserve = new MutationObserver((mutationsList: MutationRecord[]) => {
-      mutationsList.forEach(item => {
+    this.parentObserve = new MutationObserver(async (mutationsList: MutationRecord[]) => {
+      for (const item of mutationsList) {
         if (
           item?.target === this.watermarkDom ||
           item?.removedNodes?.[0] === this.watermarkDom ||
           (item.type === 'childList' && item.target === this.parentElement && item.target.lastChild !== this.watermarkDom)
         ) {
           this.destroy()
-          this.create()
+          await this.create()
         }
-      })
+      }
     })
     this.parentObserve.observe(this.parentElement, {
       attributes: true, // 属性的变动
