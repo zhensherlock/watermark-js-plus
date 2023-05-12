@@ -1,3 +1,17 @@
+## [0.9.6](https://github.com/zhensherlock/watermark-js-plus/compare/v0.9.5...v0.9.6) (2023-05-12)
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([c678b0e](https://github.com/zhensherlock/watermark-js-plus/commit/c678b0e93fc844551da267d22f7cb129d8d5dcfd))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* issue [#10](https://github.com/zhensherlock/watermark-js-plus/issues/10) ([8db0708](https://github.com/zhensherlock/watermark-js-plus/commit/8db0708a8781222fd447ba988d03c866832cc6f9))
+
+
+
 ## [0.9.5](https://github.com/zhensherlock/watermark-js-plus/compare/v0.9.4...v0.9.5) (2023-05-09)
 
 
