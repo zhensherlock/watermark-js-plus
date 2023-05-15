@@ -34,8 +34,8 @@ export const defaultConfig = {
   imageWidth: undefined,
   imageHeight: undefined,
   shadowStyle: {
-    shadowBlur: 0,
-    shadowColor: '#00000000',
+    shadowBlur: 10,
+    shadowColor: '#000000FF',
     shadowOffsetX: 0,
     shadowOffsetY: 0
   },
