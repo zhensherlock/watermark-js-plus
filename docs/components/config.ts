@@ -2,6 +2,10 @@ export const defaultConfig = {
   width: 300,
   height: 300,
   rotate: 45,
+  layout: 'grid',
+  gridLayoutOptions: {
+    rows: 3
+  },
   contentType: 'text',
   content: 'this is my new watermark',
   globalAlpha: 0.5,
@@ -63,7 +67,7 @@ export const defaultConfig = {
       },
       pattern: {
         image: '',
-        repetition: '',
+        repetition: ''
       }
     },
     colorStops: [

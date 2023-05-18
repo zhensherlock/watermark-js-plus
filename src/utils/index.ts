@@ -99,3 +99,7 @@ export const loadImage = (url: string, width: number | undefined = undefined, he
     }
   })
 }
+
+export const generateMatrix = (rows: number, columns: number, value: any) => {
+  return Array.from({ length: rows }, () => new Array(columns).fill(value))
+}

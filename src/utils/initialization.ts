@@ -1,10 +1,11 @@
 import type { AdvancedStyleParamsType, TextAlignType, TextBaselineType, WatermarkOptions } from '../types'
 import { getMultiLineData, isUndefined } from './index'
 
-export const initialOptions = {
+export const initialOptions: WatermarkOptions = {
   width: 300,
   height: 300,
   rotate: 45,
+  layout: 'default',
   auxiliaryLine: false,
   translatePlacement: 'middle',
   contentType: 'text',

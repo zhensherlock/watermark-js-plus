@@ -1,5 +1,7 @@
 export type ContentTypeType = 'text' | 'image' | 'multi-line-text' | 'rich-text'
 
+export type LayoutType = 'default' | 'grid'
+
 export type TextAlignType = 'center' | 'end' | 'left' | 'right' | 'start'
 
 export type TextBaselineType = 'alphabetic' | 'hanging' | 'ideographic' | 'top' | 'bottom' | 'middle'
@@ -13,6 +15,8 @@ export type TranslatePlacementType = 'top' | 'top-start' | 'top-end' | 'bottom' 
 export type TextType = 'fill' | 'stroke'
 
 export type ChangeOptionsMode = 'overwrite' | 'append'
+
+export type Matrix<T> = Array<Array<T>>
 
 export interface CanvasShadowStyles {
   shadowBlur: number;
@@ -58,10 +62,20 @@ export interface WatermarkDom extends HTMLDivElement {
   __WATERMARK__INSTANCE__?: any;
 }
 
+export interface LayoutOptions {}
+
+export interface GridLayoutOptions extends LayoutOptions{
+  rows: number;
+  cols: number;
+  matrix: Matrix<number>;
+}
+
 export interface WatermarkOptions {
   width: number;
   height: number;
   rotate: number;
+  layout: LayoutType;
+  gridLayoutOptions?: GridLayoutOptions;
   auxiliaryLine: boolean;
   globalAlpha: number;
   zIndex: number;
