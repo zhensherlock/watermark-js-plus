@@ -14,6 +14,45 @@ export type TextType = 'fill' | 'stroke'
 
 export type ChangeOptionsMode = 'overwrite' | 'append'
 
+export interface CanvasShadowStyles {
+  shadowBlur: number;
+  shadowColor: string;
+  shadowOffsetX: number;
+  shadowOffsetY: number;
+}
+
+export interface AdvancedStyleParamsType {
+  linear: Partial<{
+    x0: number,
+    y0: number,
+    x1: number,
+    y1: number,
+  }>,
+  radial: Partial<{
+    x0: number,
+    y0: number,
+    r0: number,
+    x1: number,
+    y1: number,
+    r1: number,
+  }>,
+  conic: Partial<{
+    startAngle: number,
+    x: number,
+    y: number,
+  }>,
+  pattern: Partial<{
+    image: HTMLImageElement | SVGImageElement | HTMLVideoElement | HTMLCanvasElement | ImageBitmap | OffscreenCanvas,
+    repetition: string,
+  }>
+}
+
+export interface AdvancedStyleType {
+  type: 'linear' | 'radial' | 'conic' | 'pattern',
+  params?: Partial<AdvancedStyleParamsType>,
+  colorStops?: { offset: number, color: string }[]
+}
+
 export interface WatermarkDom extends HTMLDivElement {
   __WATERMARK__?: string;
   __WATERMARK__INSTANCE__?: any;
@@ -75,36 +114,4 @@ export interface CustomContentSVGType {
   element: Element,
   width: number,
   height: number
-}
-
-export interface AdvancedStyleType {
-  type: 'linear' | 'radial' | 'conic' | 'pattern',
-  params?: Partial<AdvancedStyleParamsType>,
-  colorStops?: { offset: number, color: string }[]
-}
-
-export interface AdvancedStyleParamsType {
-  linear: Partial<{
-    x0: number,
-    y0: number,
-    x1: number,
-    y1: number,
-  }>,
-  radial: Partial<{
-    x0: number,
-    y0: number,
-    r0: number,
-    x1: number,
-    y1: number,
-    r1: number,
-  }>,
-  conic: Partial<{
-    startAngle: number,
-    x: number,
-    y: number,
-  }>,
-  pattern: Partial<{
-    image: HTMLImageElement | SVGImageElement | HTMLVideoElement | HTMLCanvasElement | ImageBitmap | OffscreenCanvas,
-    repetition: string,
-  }>
 }
