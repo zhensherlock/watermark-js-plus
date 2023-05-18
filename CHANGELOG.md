@@ -1,3 +1,18 @@
+## [0.9.8](https://github.com/zhensherlock/watermark-js-plus/compare/v0.9.7...v0.9.8) (2023-05-18)
+
+
+### ✨ Features | 新功能
+
+* add grid layout function [#11](https://github.com/zhensherlock/watermark-js-plus/issues/11) ([0d6efaf](https://github.com/zhensherlock/watermark-js-plus/commit/0d6efafed2761043fbf4121ebf738e60f3f8f9a3))
+* optimized typescript ([e2b0fd9](https://github.com/zhensherlock/watermark-js-plus/commit/e2b0fd94495c53372a25c0b906eaa094544e537a))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([549a036](https://github.com/zhensherlock/watermark-js-plus/commit/549a036baffdea8f7cd29ca4dfbbe6cc011fcd88))
+
+
+
 ## [0.9.7](https://github.com/zhensherlock/watermark-js-plus/compare/v0.9.6...v0.9.7) (2023-05-15)
 
 
