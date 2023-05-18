@@ -26,12 +26,6 @@ onMounted(() => {
     content: 'hello my text watermark',
     width: 200,
     height: 200,
-    layout: 'grid',
-    gridLayoutOptions: {
-      rows: 2,
-      cols: 2,
-      matrix: [[1,0], [0,1]]
-    },
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
         appendTo: '#app',

@@ -2,10 +2,13 @@ export const defaultConfig = {
   width: 300,
   height: 300,
   rotate: 45,
-  layout: 'grid',
-  gridLayoutOptions: {
-    rows: 3
-  },
+  layout: 'default',
+  // layout: 'grid',
+  // gridLayoutOptions: {
+  //   rows: 2,
+  //   cols: 2,
+  //   matrix: [[1, 0], [0, 1]]
+  // },
   contentType: 'text',
   content: 'this is my new watermark',
   globalAlpha: 0.5,
