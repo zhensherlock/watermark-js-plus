@@ -1,3 +1,17 @@
+## [0.9.9](https://github.com/zhensherlock/watermark-js-plus/compare/v0.9.8...v0.9.9) (2023-05-20)
+
+
+### ✨ Features | 新功能
+
+* add grid layout gap ([458a616](https://github.com/zhensherlock/watermark-js-plus/commit/458a616bfdea3b2befd26656c4ae49cea030f996))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([6bd9ae2](https://github.com/zhensherlock/watermark-js-plus/commit/6bd9ae2dba03028fdc35d5a813aa2dc0613ec743))
+
+
+
 ## [0.9.8](https://github.com/zhensherlock/watermark-js-plus/compare/v0.9.7...v0.9.8) (2023-05-18)
 
 
