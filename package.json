@@ -1,6 +1,6 @@
 {
   "name": "watermark-js-plus",
-  "version": "0.9.8",
+  "version": "0.9.9",
   "description": "watermark for the browser",
   "scripts": {
     "clean:dist": "rimraf dist",
@@ -82,8 +82,8 @@
     "conventional-changelog-angular": "^5.0.13",
     "conventional-changelog-cli": "^2.2.2",
     "core-js": "^3.30.2",
-    "element-plus": "^2.3.4",
-    "eslint": "^8.40.0",
+    "element-plus": "^2.3.5",
+    "eslint": "^8.41.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-semistandard": "^17.0.0",
     "eslint-plugin-import": "^2.27.5",
@@ -98,6 +98,6 @@
     "terser": "^5.17.4",
     "typescript": "^5.0.4",
     "unplugin-element-plus": "^0.7.1",
-    "vitepress": "^1.0.0-alpha.75"
+    "vitepress": "^1.0.0-alpha.76"
   }
 }
