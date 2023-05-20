@@ -67,6 +67,7 @@ export interface LayoutOptions {}
 export interface GridLayoutOptions extends LayoutOptions{
   rows: number;
   cols: number;
+  gap: [number, number];
   matrix: Matrix<number>;
 }
 

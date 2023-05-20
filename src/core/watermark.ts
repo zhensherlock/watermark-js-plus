@@ -14,7 +14,7 @@ import type {
 } from '../types'
 import { generateRecommendOptions, initialOptions } from '../utils/initialization'
 import bootstrap from '../utils/bootstrap'
-import { renderLayout } from './layout'
+import { generateBackgroundSize, renderLayout } from './layout'
 
 /**
  * Watermark class
@@ -90,11 +90,12 @@ class Watermark {
       z-index: ${this.options.zIndex}!important;display:block!important;visibility:visible!important;transform:none!important;scale:none!important;
       ${parentElementType === 'custom' ? 'top:0!important;bottom:0!important;left:0!important;right:0!important;height:100%!important;pointer-events:none!important;position:absolute!important;' : 'position:relative!important;'}
     `
+    const backgroundSize = generateBackgroundSize(this.options)
     watermarkInnerDom.style.cssText = `
       display:block!important;visibility:visible!important;pointer-events:none;top:0;bottom:0;left:0;right:0;transform:none!important;scale:none!important;
       position:${parentElementType === 'root' ? 'fixed' : 'absolute'}!important;-webkit-print-color-adjust:exact!important;width:100%!important;height:100%!important;
       z-index:${this.options.zIndex}!important;background-image:url(${image})!important;background-repeat:${this.options.backgroundRepeat}!important;
-      background-size:${this.options.width * (this.options.gridLayoutOptions?.rows || 1)}px ${this.options.height * (this.options.gridLayoutOptions?.cols || 1)}px!important;background-position:${this.options.backgroundPosition}!important;
+      background-size:${backgroundSize[0]}px ${backgroundSize[1]}px!important;background-position:${this.options.backgroundPosition}!important;
     `
     this.watermarkDom.append(watermarkInnerDom)
     this.parentElement.appendChild(this.watermarkDom)
