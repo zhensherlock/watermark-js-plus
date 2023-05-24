@@ -114,6 +114,18 @@ class Watermark {
    * Delete this watermark.
    */
   destroy () {
+    this.remove()
+    this.watermarkDom = undefined
+  }
+
+  async check () {
+    if (!document.body.contains(<Node> this.watermarkDom)) {
+      this.remove()
+      await this.create()
+    }
+  }
+
+  private remove () {
     this.options.onBeforeDestroy?.()
     this.observer?.disconnect()
     this.parentObserve?.disconnect()
@@ -122,13 +134,6 @@ class Watermark {
     }
     this.watermarkDom?.remove()
     this.options.onDestroyed?.()
-  }
-
-  async check () {
-    if (!document.body.contains(<Node> this.watermarkDom)) {
-      this.destroy()
-      await this.create()
-    }
   }
 
   private initConfigData (args: Partial<WatermarkOptions>, mode: ChangeOptionsMode = 'overwrite') {
@@ -455,7 +460,7 @@ class Watermark {
 
   private async checkWatermarkElement () {
     if (!document.body.contains(<Node> this.watermarkDom)) {
-      this.destroy()
+      this.remove()
       await this.create()
     }
     this.checkWatermarkElementRequestID = requestAnimationFrame(this.checkWatermarkElement.bind(this))
@@ -468,7 +473,7 @@ class Watermark {
     this.checkWatermarkElementRequestID = requestAnimationFrame(this.checkWatermarkElement.bind(this))
     this.observer = new MutationObserver(async (mutationsList: MutationRecord[]) => {
       if (mutationsList.length > 0) {
-        this.destroy()
+        this.remove()
         await this.create()
       }
     })
@@ -485,7 +490,7 @@ class Watermark {
           item?.removedNodes?.[0] === this.watermarkDom ||
           (item.type === 'childList' && item.target === this.parentElement && item.target.lastChild !== this.watermarkDom)
         ) {
-          this.destroy()
+          this.remove()
           await this.create()
         }
       }
