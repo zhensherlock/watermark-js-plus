@@ -15,6 +15,7 @@ import type {
 import { generateRecommendOptions, initialOptions } from '../utils/initialization'
 import bootstrap from '../utils/bootstrap'
 import { generateBackgroundSize, renderLayout } from './layout'
+import { WatermarkCanvas } from './canvas'
 
 /**
  * Watermark class
@@ -39,25 +40,9 @@ class Watermark {
     this.props = args
     this.options = Object.assign({}, initialOptions, args)
     this.changeParentElement(this.options.parent)
-    this.canvas = Watermark.createCanvas(this.options.width, this.options.height)
+    this.canvas = WatermarkCanvas.createCanvas(this.options.width, this.options.height)
     this.recommendOptions = generateRecommendOptions(this.canvas, this.options, this.props)
     bootstrap()
-  }
-
-  /**
-   * Create an HD canvas.
-   * @param width - width of canvas
-   * @param height - height of canvas
-   */
-  static createCanvas (width: number, height: number): HTMLCanvasElement {
-    const ratio = window.devicePixelRatio || 1
-    const canvas = document.createElement('canvas')
-    canvas.width = width * ratio // actual rendered pixel
-    canvas.height = height * ratio // actual rendered pixel
-    canvas.style.width = `${width}px` // control display size
-    canvas.style.height = `${height}px` // control display size
-    canvas.getContext('2d')?.setTransform(ratio, 0, 0, ratio, 0, 0)
-    return canvas
   }
 
   changeOptions (args: Partial<WatermarkOptions> = {}, mode: ChangeOptionsMode = 'overwrite') {
@@ -146,7 +131,7 @@ class Watermark {
       })
     }
     this.changeParentElement(this.options.parent)
-    this.canvas = Watermark.createCanvas(this.options.width, this.options.height)
+    this.canvas = WatermarkCanvas.createCanvas(this.options.width, this.options.height)
     this.recommendOptions = generateRecommendOptions(this.canvas, this.options, this.props)
     // document.body?.appendChild(this.canvas)
   }

@@ -1,6 +1,7 @@
 import type { DecodeBlindWatermarkOptions, WatermarkOptions } from '../types'
 import { convertImage, isFunction } from '../utils'
 import { Watermark } from './watermark'
+import { WatermarkCanvas } from './canvas'
 
 /**
  * BlindWatermark class
@@ -35,7 +36,7 @@ class BlindWatermark extends Watermark {
       img.src = options.url
       img.onload = () => {
         const { width, height } = img
-        const canvas = Watermark.createCanvas(width, height)
+        const canvas = WatermarkCanvas.createCanvas(width, height)
         const ctx = canvas.getContext('2d')
         if (ctx === null) {
           throw new Error('get context error')

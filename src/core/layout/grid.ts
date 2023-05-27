@@ -1,7 +1,7 @@
 import type { WatermarkOptions } from '../../types'
-import { Watermark } from '../watermark'
 import { Matrix } from '../../types'
 import { generateMatrix } from '../../utils'
+import { WatermarkCanvas } from '../canvas'
 
 class GridLayout {
   private readonly options: WatermarkOptions
@@ -25,7 +25,7 @@ class GridLayout {
   }
 
   draw (): HTMLCanvasElement {
-    const layoutCanvas = Watermark.createCanvas(
+    const layoutCanvas = WatermarkCanvas.createCanvas(
       this.partialWidth * this.cols + this.gap[0] * this.cols,
       this.partialHeight * this.rows + this.gap[1] * this.rows
     )
