@@ -1,6 +1,6 @@
 {
   "name": "watermark-js-plus",
-  "version": "0.9.10",
+  "version": "0.9.11",
   "description": "watermark for the browser",
   "scripts": {
     "clean:dist": "rimraf dist",
@@ -60,10 +60,10 @@
     "README.md"
   ],
   "devDependencies": {
-    "@babel/core": "^7.21.8",
+    "@babel/core": "^7.22.1",
     "@babel/eslint-parser": "^7.21.8",
-    "@babel/plugin-transform-runtime": "^7.21.4",
-    "@babel/preset-env": "^7.21.5",
+    "@babel/plugin-transform-runtime": "^7.22.2",
+    "@babel/preset-env": "^7.22.2",
     "@commitlint/cli": "^17.6.3",
     "@commitlint/config-conventional": "^17.6.3",
     "@element-plus/icons-vue": "^2.1.0",
