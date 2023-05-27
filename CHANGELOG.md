@@ -1,9 +1,28 @@
+## [0.9.11](https://github.com/zhensherlock/watermark-js-plus/compare/v0.9.10...v0.9.11) (2023-05-27)
+
+
+### ♻ Code Refactoring | 代码重构
+
+* add WatermarkCanvas class ([c3687c8](https://github.com/zhensherlock/watermark-js-plus/commit/c3687c82a8b9d434ad108b45a60695b11b99d351))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([080fed6](https://github.com/zhensherlock/watermark-js-plus/commit/080fed6e8c2d8672b1e46ca230103552a0168145))
+
+
+
 ## [0.9.10](https://github.com/zhensherlock/watermark-js-plus/compare/v0.9.9...v0.9.10) (2023-05-24)
 
 
 ### 🎫 Chores | 其他更新
 
 * update dependencies ([8be4dd1](https://github.com/zhensherlock/watermark-js-plus/commit/8be4dd1090defb79a67f77e2838c4b90807907d8))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* issue [#14](https://github.com/zhensherlock/watermark-js-plus/issues/14) ([f895f23](https://github.com/zhensherlock/watermark-js-plus/commit/f895f238deebdc14326ba64f0913a2464b68710d))
 
 
 
