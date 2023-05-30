@@ -1,3 +1,17 @@
+## [0.9.12](https://github.com/zhensherlock/watermark-js-plus/compare/v0.9.11...v0.9.12) (2023-05-30)
+
+
+### ♻ Code Refactoring | 代码重构
+
+* add clearCanvas function ([e99cd6b](https://github.com/zhensherlock/watermark-js-plus/commit/e99cd6b1a16245fb96beaf8725f4015fc710fccd))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([96cd2da](https://github.com/zhensherlock/watermark-js-plus/commit/96cd2da64e325459920ec24b0542f18ab65915e3))
+
+
+
 ## [0.9.11](https://github.com/zhensherlock/watermark-js-plus/compare/v0.9.10...v0.9.11) (2023-05-27)
 
 
