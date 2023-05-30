@@ -19,6 +19,19 @@ class WatermarkCanvas {
     canvas.getContext('2d')?.setTransform(ratio, 0, 0, ratio, 0, 0)
     return canvas
   }
+
+  /**
+   * Clean the canvas
+   * @param canvas
+   */
+  static clearCanvas (canvas: HTMLCanvasElement) {
+    const ctx = canvas.getContext('2d')
+    if (ctx === null) {
+      throw new Error('get context error')
+    }
+    ctx.restore()
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+  }
 }
 
 export {

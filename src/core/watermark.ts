@@ -65,7 +65,7 @@ class Watermark {
     await this.draw()
     this.layoutCanvas = renderLayout(this.options, this.canvas)
     const image = convertImage(this.layoutCanvas)
-    this.clearCanvas()
+    WatermarkCanvas.clearCanvas(this.canvas)
     this.watermarkDom = document.createElement('div')
     const watermarkInnerDom = document.createElement('div')
     this.watermarkDom.__WATERMARK__ = 'watermark'
@@ -486,16 +486,6 @@ class Watermark {
       subtree: true, // 布尔值，表示是否将该观察器应用于该节点的所有后代节点。
       characterData: true // 节点内容或节点文本的变动。
     })
-  }
-
-  private clearCanvas () {
-    const ctx = this.canvas.getContext('2d')
-    if (ctx === null) {
-      throw new Error('get context error')
-    }
-    ctx.restore()
-    ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-    // this.canvas.width = this.options.w
   }
 }
 
