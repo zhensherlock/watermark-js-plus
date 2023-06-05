@@ -64,11 +64,14 @@ export interface WatermarkDom extends HTMLDivElement {
 
 export interface LayoutOptions {}
 
-export interface GridLayoutOptions extends LayoutOptions{
-  rows: number;
-  cols: number;
-  gap: [number, number];
-  matrix: Matrix<number>;
+export interface GridLayoutOptions extends LayoutOptions {
+  rows?: number;
+  cols?: number;
+  gap?: [number, number];
+  matrix?: Matrix<number>;
+  width?: number;
+  height?: number;
+  backgroundImage?: any;
 }
 
 export interface WatermarkOptions {
@@ -129,4 +132,8 @@ export interface CustomContentSVGType {
   element: Element,
   width: number,
   height: number
+}
+
+export interface ImageWatermarkOptions extends WatermarkOptions {
+  dom: HTMLImageElement
 }
