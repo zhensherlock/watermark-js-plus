@@ -7,6 +7,7 @@ layout: doc
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
 import { onMounted } from 'vue';
 import { ImageWatermark } from '../../../src';
+import imageSrc from '../../public/image.png';
 
 let watermark = null;
 let imgDom = null;
@@ -28,7 +29,7 @@ const handleRemoveWatermark = () => {
 };
 </script>
 <div>
-  <img class="image" src="/watermark-js-plus/public/image.png" >
+  <img class="image" :src="imageSrc" >
 </div>
 <el-space style="margin-top: 10px;">
   <VPButton text="添加水印" @click="handleAddWatermark"></VPButton>
