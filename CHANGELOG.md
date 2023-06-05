@@ -1,3 +1,17 @@
+# [0.10.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.9.13...v0.10.0) (2023-06-05)
+
+
+### ✨ Features | 新功能
+
+* add image watermark ([1ab76b2](https://github.com/zhensherlock/watermark-js-plus/commit/1ab76b2fbb3e512e5ae6eb2af2a6d95df45d3cf9))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([99564fc](https://github.com/zhensherlock/watermark-js-plus/commit/99564fce0b48c7d05a20d6b77765ef3970f4bc01))
+
+
+
 ## [0.9.13](https://github.com/zhensherlock/watermark-js-plus/compare/v0.9.12...v0.9.13) (2023-06-02)
 
 
