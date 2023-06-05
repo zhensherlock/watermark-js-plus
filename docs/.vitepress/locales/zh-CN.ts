@@ -30,6 +30,7 @@ export default {
           { text: '开始使用', link: '/zh/guide/getting-started' },
           { text: '水印', link: '/zh/guide/watermark' },
           { text: '暗水印', link: '/zh/guide/blind-watermark' },
+          { text: '图片水印', link: '/zh/guide/image' },
         ]
       },
       {

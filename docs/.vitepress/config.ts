@@ -48,6 +48,7 @@ export default {
             { text: 'Getting Started', link: '/guide/getting-started' },
             { text: 'Watermark', link: '/guide/watermark' },
             { text: 'Blind Watermark', link: '/guide/blind-watermark' },
+            { text: 'Image', link: '/guide/image' },
           ]
         },
         {
