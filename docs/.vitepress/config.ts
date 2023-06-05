@@ -1,3 +1,4 @@
+// @ts-ignore
 import { version } from '../../package.json'
 import zh_CN from './locales/zh-CN'
 
