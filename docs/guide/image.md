@@ -5,19 +5,36 @@ layout: doc
 
 <script setup lang="ts">
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { ImageWatermark } from '../../src';
 import imageSrc from '../public/image.png';
 
 let watermark = null;
 let imgDom = null;
+const isFirst = ref(true);
+
 onMounted(() => {
   imgDom = document.querySelector('.image');
-  watermark = new ImageWatermark({
-    content: 'my watermark',
-    width: 100,
-    height: 100,
-    dom: imgDom
+  imgDom.addEventListener('load', () => {
+    if (!isFirst.value) {
+      return
+    }
+    watermark = new ImageWatermark({
+      content: 'my watermark',
+      width: imgDom.width,
+      height: imgDom.height,
+      dom: imgDom,
+      rotate: 0,
+      lineHeight: 50,
+      // translatePlacement: 'bottom-end',
+      shadowStyle: {
+        "shadowBlur": 10,
+        "shadowColor": "#FFFFFFFF",
+        "shadowOffsetX": 0,
+        "shadowOffsetY": 0
+      }
+    });
+    isFirst.value = false
   });
 });
 
