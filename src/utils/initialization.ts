@@ -88,11 +88,11 @@ export const generateRecommendOptions = (canvas: HTMLCanvasElement, options: Wat
     case 'text':
       result.textLine.data = [options.content]
       break
-    // case 'image':
-    //   break
     case 'multi-line-text':
       result.textLine.data = getMultiLineData(ctx, options.content, <number> options.textRowMaxWidth)
       break
+    // case 'image':
+    //   break
     // case 'rich-text':
     //   break
   }
@@ -259,7 +259,7 @@ export const generateRecommendOptions = (canvas: HTMLCanvasElement, options: Wat
   isUndefined(args?.textBaseline) && (options.textBaseline = textBaseline)
   isUndefined(args?.textAlign) && (options.textAlign = textAlign)
 
-  if (options.contentType === 'multi-line-text') {
+  if (['text', 'multi-line-text'].includes(options.contentType)) {
     switch (options.textBaseline) {
       case 'middle':
         result.textLine.yOffsetValue = (result.textLine.data.length - 1) * options.lineHeight / 2
@@ -267,11 +267,11 @@ export const generateRecommendOptions = (canvas: HTMLCanvasElement, options: Wat
       case 'bottom':
       case 'alphabetic':
       case 'ideographic':
-        result.textLine.yOffsetValue = (result.textLine.data.length - 1) * options.lineHeight
+        result.textLine.yOffsetValue = (result.textLine.data.length - 1) * options.lineHeight + (options.lineHeight - parseInt(options.fontSize)) / 2
         break
       case 'top':
       case 'hanging':
-        result.textLine.yOffsetValue = 0
+        result.textLine.yOffsetValue = -options.lineHeight / 2 + parseInt(options.fontSize) / 2
         break
     }
   }

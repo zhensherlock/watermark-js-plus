@@ -192,7 +192,7 @@ class WatermarkCanvas {
     this.setText(ctx, {
       text: this.options.content,
       x: 0,
-      y: 0,
+      y: 0 - this.recommendOptions.textLine.yOffsetValue,
       maxWidth: this.options.textRowMaxWidth || this.options.width
     })
     resolve(ctx.canvas)
