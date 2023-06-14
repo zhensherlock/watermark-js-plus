@@ -1,3 +1,17 @@
+## [0.10.3](https://github.com/zhensherlock/watermark-js-plus/compare/v0.10.2...v0.10.3) (2023-06-14)
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([a509a65](https://github.com/zhensherlock/watermark-js-plus/commit/a509a6548a50ddee72cb9ed2135ff9fff8224839))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* text watermark line-height not work ([92cf6f4](https://github.com/zhensherlock/watermark-js-plus/commit/92cf6f413876ca56157dfbdf238fd23718cbb832))
+
+
+
 ## [0.10.2](https://github.com/zhensherlock/watermark-js-plus/compare/v0.10.1...v0.10.2) (2023-06-10)
 
 
