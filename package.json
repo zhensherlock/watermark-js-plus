@@ -1,6 +1,6 @@
 {
   "name": "watermark-js-plus",
-  "version": "0.10.3",
+  "version": "0.10.4",
   "description": "watermark for the browser",
   "scripts": {
     "clean:dist": "rimraf dist",
@@ -83,7 +83,7 @@
     "conventional-changelog-cli": "^3.0.0",
     "core-js": "^3.31.0",
     "element-plus": "^2.3.6",
-    "eslint": "^8.42.0",
+    "eslint": "^8.43.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-semistandard": "^17.0.0",
     "eslint-plugin-import": "^2.27.5",
