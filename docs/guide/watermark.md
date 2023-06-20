@@ -94,8 +94,8 @@ onMounted(() => {
     content: '123456789123456789123456789123456789',
 
     // contentType: 'multi-line-text',
-    // content: 'hello my watermark watermark watermark',
-    // fontSize: '30px',
+    content: 'hello my watermark1 watermark2 watermark3 watermark4 watermark5 watermark6 watermark7 watermark8 watermark9 watermark10 watermark11 watermark12 watermark13 watermark14',
+    fontSize: '20px',
 
     // contentType: 'image',
     // image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
@@ -104,11 +104,12 @@ onMounted(() => {
     // contentType: 'rich-text',
     // content: '<div style="background: #ccc;">Rich text watermark is so <span style="color: #f00">nice</span></div>',
 
-    width: 300,
-    height: 300,
+    width: 400,
+    height: 400,
+    lineHeight: 100,
     backgroundRepeat: 'no-repeat',
     backgroundPosition: '100% 100%',
-    translatePlacement: 'top',
+    translatePlacement: 'bottom',
     // translateX: 100,
     // translateY: 100,
     rotate: 0,
