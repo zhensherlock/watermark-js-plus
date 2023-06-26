@@ -1,3 +1,17 @@
+# [0.11.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.10.6...v0.11.0) (2023-06-26)
+
+
+### ✨ Features | 新功能
+
+* images can be watermarked ([c4091b8](https://github.com/zhensherlock/watermark-js-plus/commit/c4091b89cf56992bba79222b05bb108837546b27))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([3267b81](https://github.com/zhensherlock/watermark-js-plus/commit/3267b8170876007226156130905fe028d580b997))
+
+
+
 ## [0.10.6](https://github.com/zhensherlock/watermark-js-plus/compare/v0.10.5...v0.10.6) (2023-06-23)
 
 
