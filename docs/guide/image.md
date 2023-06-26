@@ -20,13 +20,16 @@ onMounted(() => {
       return
     }
     watermark = new ImageWatermark({
-      content: 'my watermark',
+      // content: 'my watermark',
+      contentType: 'image',
+      image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
+      imageWidth: 200,
       width: imgDom.width,
       height: imgDom.height,
       dom: imgDom,
       rotate: 0,
       lineHeight: 50,
-      // translatePlacement: 'bottom-end',
+      translatePlacement: 'bottom-end',
       shadowStyle: {
         "shadowBlur": 10,
         "shadowColor": "#FFFFFFFF",
