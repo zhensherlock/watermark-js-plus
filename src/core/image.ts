@@ -28,11 +28,11 @@ class ImageWatermark {
     this.backgroundImage = this.getBackgroundImage()
   }
 
-  create () {
+  async create () {
     if (this.drew) {
       return
     }
-    this.watermarkCanvas?.draw()
+    await this.watermarkCanvas?.draw()
     this.options.layout = 'grid'
     this.options.gridLayoutOptions = {
       ...this.options.gridLayoutOptions,
