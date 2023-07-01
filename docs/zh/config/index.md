@@ -22,14 +22,35 @@ layout: doc
 - **Type:** `number`
 - **Default:** `45`
 
-水印旋转角度
+水印旋转角度。
+
+## layout
+
+- **Type:** `string`
+- **Default:** `default`
+
+水印布局方式。
+
+## gridLayoutOptions
+
+- **Type:** `Object`
+- **Default:** `null`
+
+水印Grid布局配置项。
+
+## auxiliaryLine
+
+- **Type:** `boolean`
+- **Default:** `false`
+
+水印辅助线可见性。
 
 ## translatePlacement
 
 - **Type:** `string`
 - **available values**: `'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'right' | 'middle'`
 
-水平方向的移动位置
+水平方向的移动位置。
 
 ## translateX
 
@@ -146,6 +167,20 @@ background-repeat
 
 水印内容的字体。
 
+## fontStyle
+
+- **Type:** `string`
+- **Default:** `''`
+
+水印内容的fontStyle。
+
+## fontVariant
+
+- **Type:** `string`
+- **Default:** `''`
+
+水印内容的fontVariant。
+
 ## textAlign
 
 - **Type:** `string`
@@ -182,6 +217,13 @@ background-repeat
 
 水印内容字体权重。
 
+## filter
+
+- **Type:** `string`
+- **Default:** `''`
+
+水印内容的滤镜。
+
 ## mode
 
 - **Type:** `string`
@@ -210,6 +252,27 @@ background-repeat
 - **Default:** `'body'`
 
 水印的容器。
+
+## shadowStyle
+
+- **Type:** `Object`
+- **Default:** `null`
+
+水印的阴影样式。
+
+## advancedStyle
+
+- **Type:** `Object`
+- **Default:** `null`
+
+水印的渐变样式。
+
+## extraDrawFunc
+
+- **Type:** `Function`
+- **Default:** `() => {}`
+
+水印自定义额外绘图函数。
 
 ## onSuccess
 

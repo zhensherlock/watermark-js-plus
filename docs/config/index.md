@@ -22,7 +22,28 @@ A unit of height for a single watermark.
 - **Type:** `number`
 - **Default:** `45`
 
-Watermark rotation Angle.
+Watermark rotation angle.
+
+## layout
+
+- **Type:** `string`
+- **Default:** `default`
+
+Watermark layout mode.
+
+## gridLayoutOptions
+
+- **Type:** `Object`
+- **Default:** `null`
+
+Watermark grid layout options.
+
+## auxiliaryLine
+
+- **Type:** `boolean`
+- **Default:** `false`
+
+Watermark auxiliary line visible.
 
 ## translatePlacement
 
@@ -146,6 +167,20 @@ The font size of the watermark content.
 
 The font family of the watermark content.
 
+## fontStyle
+
+- **Type:** `string`
+- **Default:** `''`
+
+The font style of the watermark content.
+
+## fontVariant
+
+- **Type:** `string`
+- **Default:** `''`
+
+The font variant of the watermark content.
+
 ## textAlign
 
 - **Type:** `string`
@@ -182,6 +217,13 @@ Transparency of watermark.
 
 Watermark content font weight.
 
+## filter
+
+- **Type:** `string`
+- **Default:** `''`
+
+The filter of the watermark content.
+
 ## mode
 
 - **Type:** `string`
@@ -210,6 +252,27 @@ The watermark cannot be added repeatedly.
 - **Default:** `'body'`
 
 Watermarking container.
+
+## shadowStyle
+
+- **Type:** `Object`
+- **Default:** `null`
+
+The shadow style of the watermark content.
+
+## advancedStyle
+
+- **Type:** `Object`
+- **Default:** `null`
+
+The gradient style of the watermark content.
+
+## extraDrawFunc
+
+- **Type:** `Function`
+- **Default:** `() => {}`
+
+Watermark extra draw callback event.
 
 ## onSuccess
 

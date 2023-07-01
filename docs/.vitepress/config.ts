@@ -65,6 +65,7 @@ export default {
           // collapsible: true,
           items: [
             { text: 'Basic Config', link: '/config/' },
+            { text: 'Basic Function', link: '/config/function' },
             { text: 'Blind Watermark Config', link: '/config/blind' },
             { text: 'Blind Watermark Decode', link: '/config/blind-decode' },
           ]

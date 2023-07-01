@@ -47,6 +47,7 @@ export default {
         // collapsible: true,
         items: [
           { text: '基础配置项', link: '/zh/config/' },
+          { text: '基础方法', link: '/zh/config/function' },
           { text: '暗水印配置项', link: '/zh/config/blind' },
           { text: '暗水印解码配置项', link: '/zh/config/blind-decode' },
         ]
