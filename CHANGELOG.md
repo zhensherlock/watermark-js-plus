@@ -1,3 +1,17 @@
+## [0.11.2](https://github.com/zhensherlock/watermark-js-plus/compare/v0.11.1...v0.11.2) (2023-07-02)
+
+
+### ⚡ Performance Improvements | 性能优化
+
+* update check watermark logic ([5bcad5c](https://github.com/zhensherlock/watermark-js-plus/commit/5bcad5c8330054566dc36a72370a4b214e6e3bb5))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([e83c6b5](https://github.com/zhensherlock/watermark-js-plus/commit/e83c6b51febb68cf38e6c591c717af59427aab10))
+
+
+
 ## [0.11.1](https://github.com/zhensherlock/watermark-js-plus/compare/v0.11.0...v0.11.1) (2023-06-29)
 
 
