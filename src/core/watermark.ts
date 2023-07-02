@@ -90,7 +90,7 @@ class Watermark {
   }
 
   async check () {
-    if (!document.body.contains(<Node> this.watermarkDom)) {
+    if (!this.parentElement.contains(<Node> this.watermarkDom)) {
       this.remove()
       await this.create()
     }
@@ -165,7 +165,7 @@ class Watermark {
   }
 
   private async checkWatermarkElement () {
-    if (!document.body.contains(<Node> this.watermarkDom)) {
+    if (!this.parentElement.contains(<Node> this.watermarkDom)) {
       this.remove()
       await this.create()
     }
@@ -194,7 +194,7 @@ class Watermark {
         if (
           item?.target === this.watermarkDom ||
           item?.removedNodes?.[0] === this.watermarkDom ||
-          (item.type === 'childList' && item.target === this.parentElement && item.target.lastChild !== this.watermarkDom)
+          (item.type === 'childList' && item.target === this.parentElement && (this.options.unique ? (item.target.lastChild !== this.watermarkDom) : false))
         ) {
           this.remove()
           await this.create()
