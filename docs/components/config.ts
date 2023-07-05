@@ -14,7 +14,6 @@ export const defaultConfig = {
   globalAlpha: 0.5,
   zIndex: 10000,
   mutationObserve: true,
-  unique: true,
   auxiliaryLine: false,
   mode: 'default',
   parent: 'body',
@@ -141,6 +140,5 @@ export const advancedStyleOptionKeys = [
 
 export const extraOptionKeys = [
   'mutationObserve',
-  'unique',
   'auxiliaryLine'
 ]

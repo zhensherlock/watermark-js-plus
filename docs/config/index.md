@@ -239,13 +239,6 @@ Watermark mode
 
 Enable listening for watermark dom changes.
 
-## unique
-
-- **Type:** `boolean`
-- **Default:** `true`
-
-The watermark cannot be added repeatedly.
-
 ## parent
 
 - **Type:** `Element | string`

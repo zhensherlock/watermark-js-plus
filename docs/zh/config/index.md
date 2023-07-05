@@ -239,13 +239,6 @@ background-repeat
 
 启用侦听水印dom更改。
 
-## unique
-
-- **Type:** `boolean`
-- **Default:** `true`
-
-不能重复添加水印。
-
 ## parent
 
 - **Type:** `Element | string`
