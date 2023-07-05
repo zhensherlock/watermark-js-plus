@@ -1,3 +1,17 @@
+## [0.11.3](https://github.com/zhensherlock/watermark-js-plus/compare/v0.11.2...v0.11.3) (2023-07-05)
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([5a8b1a7](https://github.com/zhensherlock/watermark-js-plus/commit/5a8b1a708def94f3422567e493e6c6238611cacc))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* remove unique argument ([#15](https://github.com/zhensherlock/watermark-js-plus/issues/15)) ([7d6e821](https://github.com/zhensherlock/watermark-js-plus/commit/7d6e82161d6064361fed1f99fb7711c09094c281))
+
+
+
 ## [0.11.2](https://github.com/zhensherlock/watermark-js-plus/compare/v0.11.1...v0.11.2) (2023-07-02)
 
 
