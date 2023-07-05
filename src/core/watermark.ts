@@ -100,9 +100,7 @@ class Watermark {
     this.options.onBeforeDestroy?.()
     this.observer?.disconnect()
     this.parentObserve?.disconnect()
-    if (!isUndefined(this.checkWatermarkElementRequestID)) {
-      cancelAnimationFrame(<number> this.checkWatermarkElementRequestID)
-    }
+    this.unbindCheckWatermarkElementEvent()
     this.watermarkDom?.remove()
     this.options.onDestroyed?.()
   }
@@ -131,17 +129,15 @@ class Watermark {
 
   private validateUnique (): boolean {
     let result = true
-    if (this.options.unique) {
-      this.parentElement.childNodes.forEach(node => {
-        if (!result) {
-          return
-        }
-        if (Object.hasOwnProperty.call(node, '__WATERMARK__')) {
-          result = false
-          // throw new Error('duplicate watermark error')
-        }
-      })
-    }
+    this.parentElement.childNodes.forEach(node => {
+      if (!result) {
+        return
+      }
+      if (Object.hasOwnProperty.call(node, '__WATERMARK__')) {
+        result = false
+        // throw new Error('duplicate watermark error')
+      }
+    })
     return result
   }
 
@@ -169,14 +165,14 @@ class Watermark {
       this.remove()
       await this.create()
     }
-    this.checkWatermarkElementRequestID = requestAnimationFrame(this.checkWatermarkElement.bind(this))
+    this.bindCheckWatermarkElementEvent()
   }
 
   private bindMutationObserve (): void {
     if (!this.watermarkDom) {
       return
     }
-    this.checkWatermarkElementRequestID = requestAnimationFrame(this.checkWatermarkElement.bind(this))
+    this.bindCheckWatermarkElementEvent()
     this.observer = new MutationObserver(async (mutationsList: MutationRecord[]) => {
       if (mutationsList.length > 0) {
         this.remove()
@@ -194,7 +190,7 @@ class Watermark {
         if (
           item?.target === this.watermarkDom ||
           item?.removedNodes?.[0] === this.watermarkDom ||
-          (item.type === 'childList' && item.target === this.parentElement && (this.options.unique ? (item.target.lastChild !== this.watermarkDom) : false))
+          (item.type === 'childList' && item.target === this.parentElement && item.target.lastChild !== this.watermarkDom)
         ) {
           this.remove()
           await this.create()
@@ -207,6 +203,17 @@ class Watermark {
       subtree: true, // 布尔值，表示是否将该观察器应用于该节点的所有后代节点。
       characterData: true // 节点内容或节点文本的变动。
     })
+  }
+
+  private bindCheckWatermarkElementEvent (): void {
+    this.unbindCheckWatermarkElementEvent()
+    this.checkWatermarkElementRequestID = requestAnimationFrame(this.checkWatermarkElement.bind(this))
+  }
+
+  private unbindCheckWatermarkElementEvent (): void {
+    if (!isUndefined(this.checkWatermarkElementRequestID)) {
+      cancelAnimationFrame(<number> this.checkWatermarkElementRequestID)
+    }
   }
 }
 

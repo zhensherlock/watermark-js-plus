@@ -27,7 +27,6 @@ export const initialOptions: WatermarkOptions = {
   globalAlpha: 0.5,
   mode: 'default',
   mutationObserve: true,
-  unique: true,
   parent: 'body',
   onSuccess: () => {},
   onBeforeDestroy: () => {},
