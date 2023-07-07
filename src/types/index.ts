@@ -84,6 +84,7 @@ export interface WatermarkOptions {
   globalAlpha: number;
   zIndex: number;
   mutationObserve: boolean;
+  movable: boolean;
   mode: CreateWatermarkModeType;
   parent: Element | string;
   backgroundPosition: string;
