@@ -64,6 +64,7 @@ onMounted(() => {
     // imageHeight: 20,
     width: 300,
     height: 300,
+    filter: 'grayscale(100%)',
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
         appendTo: '#app',
@@ -88,60 +89,54 @@ onMounted(() => {
   });
   childElementWatermark = new Watermark({
     parent: '.parent-element',
-    
-    // textRowMaxWidth: 200,
-
-    content: '123456789123456789123456789123456789',
-
-    // contentType: 'multi-line-text',
-    content: 'hello my watermark1 watermark2 watermark3 watermark4 watermark5 watermark6 watermark7 watermark8 watermark9 watermark10 watermark11 watermark12 watermark13 watermark14',
-    fontSize: '20px',
-
-    // contentType: 'image',
-    // image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
-    // imageWidth: 100,
-
-    // contentType: 'rich-text',
-    // content: '<div style="background: #ccc;">Rich text watermark is so <span style="color: #f00">nice</span></div>',
-
     width: 400,
     height: 400,
-    lineHeight: 100,
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: '100% 100%',
-    translatePlacement: 'bottom',
-    // translateX: 100,
-    // translateY: 100,
-    rotate: 0,
-    // textType: 'stroke',
-    // shadowStyle: {
-    //   shadowBlur: 20,
-    //   shadowColor: 'black'
-    // },
-    // extraDrawFunc: (ctx) => {
-    //   ctx.lineWidth = 5
-		//   ctx.strokeRect(0,0,150,100)
-    // },
-    advancedStyle: {
-      // type: 'linear',
-      // type: 'radial',
-      // type: 'conic',
-      // colorStops: [
-      //   { offset: 0, color: 'red' },
-      //   { offset: 0.5, color: 'green' },
-      //   { offset: 1, color: 'blue' }
-      // ],
-      // colorStops: [
-      //   { offset: 0, color: 'red' },
-      //   { offset: 0.3, color: 'green' },
-      //   { offset: 0.6, color: 'black' },
-      //   { offset: 1, color: 'blue' }
-      // ],
-      // colorStops: [
-      //   { offset: 0, color: 'red' },
-      //   { offset: 1, color: 'blue' }
-      // ],
-    }
+    // parent: '.parent-element',
+    // // textRowMaxWidth: 200,
+    // // contentType: 'multi-line-text',
+    // content: 'hello my watermark1 watermark2 watermark3 watermark4 watermark5 watermark6 watermark7 watermark8 watermark9 watermark10 watermark11 watermark12 watermark13 watermark14',
+    // fontSize: '20px',
+    // // contentType: 'image',
+    // // image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
+    // // imageWidth: 100,
+    // // contentType: 'rich-text',
+    // // content: '<div style="background: #ccc;">Rich text watermark is so <span style="color: #f00">nice</span></div>',
+    // lineHeight: 100,
+    // backgroundRepeat: 'no-repeat',
+    // translatePlacement: 'bottom',
+    // // translateX: 100,
+    // // translateY: 100,
+    // rotate: 0,
+    // // textType: 'stroke',
+    // // shadowStyle: {
+    // //   shadowBlur: 20,
+    // //   shadowColor: 'black'
+    // // },
+    // // extraDrawFunc: (ctx) => {
+    // //   ctx.lineWidth = 5
+		// //   ctx.strokeRect(0,0,150,100)
+    // // },
+    // advancedStyle: {
+    //   // type: 'linear',
+    //   // type: 'radial',
+    //   // type: 'conic',
+    //   // colorStops: [
+    //   //   { offset: 0, color: 'red' },
+    //   //   { offset: 0.5, color: 'green' },
+    //   //   { offset: 1, color: 'blue' }
+    //   // ],
+    //   // colorStops: [
+    //   //   { offset: 0, color: 'red' },
+    //   //   { offset: 0.3, color: 'green' },
+    //   //   { offset: 0.6, color: 'black' },
+    //   //   { offset: 1, color: 'blue' }
+    //   // ],
+    //   // colorStops: [
+    //   //   { offset: 0, color: 'red' },
+    //   //   { offset: 1, color: 'blue' }
+    //   // ],
+    // }
   });
 })
 
@@ -196,6 +191,13 @@ const watermark = new Watermark({
   content: 'hello my watermark',
   width: 200,
   height: 200,
+  layout: 'grid',
+  gridLayoutOptions: {
+    rows: 2,
+    cols: 2,
+    gap: [0, 0],
+    matrix: [[1, 0], [0, 1]]
+  },
   onSuccess: () => {
     // success callback
   }
@@ -247,6 +249,7 @@ const watermark = new Watermark({
   height: 300,
   imageWidth: 100, // image width
   // imageHeight: 20, // image height
+  filter: 'grayscale(100%)', // graylevel
   onSuccess: () => {
     // success callback
   }
@@ -294,8 +297,7 @@ const watermark = new Watermark({
   parent: '.parent-element',
   width: 200,
   height: 200,
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: '100% 100%',
+  backgroundRepeat: 'no-repeat'
 })
 
 watermark.create() // add watermark

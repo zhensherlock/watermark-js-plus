@@ -57,6 +57,7 @@ onMounted(() => {
     // imageHeight: 20,
     width: 300,
     height: 300,
+    filter: 'grayscale(100%)',
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
         appendTo: '#app',
@@ -83,8 +84,7 @@ onMounted(() => {
     parent: '.parent-element',
     width: 200,
     height: 200,
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: '100% 100%',
+    backgroundRepeat: 'no-repeat'
   });
 });
 
@@ -139,6 +139,13 @@ const watermark = new Watermark({
   content: 'hello my watermark',
   width: 200,
   height: 200,
+  layout: 'grid',
+  gridLayoutOptions: {
+    rows: 2,
+    cols: 2,
+    gap: [0, 0],
+    matrix: [[1, 0], [0, 1]]
+  },
   onSuccess: () => {
     // success callback
   }
@@ -190,6 +197,7 @@ const watermark = new Watermark({
   height: 300,
   imageWidth: 100, // 图片宽度
   // imageHeight: 20, // 图片高度
+  filter: 'grayscale(100%)', // 灰阶
   onSuccess: () => {
     // success callback
   }
@@ -237,8 +245,7 @@ const watermark = new Watermark({
   parent: '.parent-element',
   width: 200,
   height: 200,
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: '100% 100%',
+  backgroundRepeat: 'no-repeat'
 })
 
 watermark.create() // 添加水印

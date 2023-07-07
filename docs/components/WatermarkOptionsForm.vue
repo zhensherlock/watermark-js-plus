@@ -168,7 +168,10 @@
         </el-select>
       </el-descriptions-item>
       <el-descriptions-item label="Filter">
-        <el-input v-model="form.data.filter" :disabled="!form.style.enabled" placeholder="please input filter" @input="handleChange" />
+<!--        <el-input v-model="form.data.filter" :disabled="!form.style.enabled" placeholder="please input filter" @input="handleChange" />-->
+        <el-select v-model="filterValue" :disabled="!form.style.enabled" multiple filterable allow-create :reserve-keyword="false" placeholder="please input filter" @change="handleFilterChange">
+          <el-option v-for="item in filterOptions" :key="item.value" :label="item.label" :value="item.value" />
+        </el-select>
       </el-descriptions-item>
       <el-descriptions-item label="TextRowMaxWidth">
         <el-input-number v-model="form.data.textRowMaxWidth" :disabled="!form.style.enabled" @input="handleChange" />
@@ -288,6 +291,9 @@
       <el-descriptions-item label="Auxiliary Line">
         <el-switch v-model="form.data.auxiliaryLine" :disabled="!form.extra.enabled" active-text="Yes" inactive-text="No" @change="handleChange" />
       </el-descriptions-item>
+      <el-descriptions-item label="Movable">
+        <el-switch v-model="form.data.movable" :disabled="!form.extra.enabled" active-text="Yes" inactive-text="No" @change="handleChange" />
+      </el-descriptions-item>
     </el-descriptions>
   </div>
 </template>
@@ -348,6 +354,44 @@ const form = reactive({
     enabled: false
   }
 })
+
+const filterValue = ref<string[]>([])
+
+const filterOptions = [{
+  value: 'blur(2px)',
+  label: '高斯模糊-blur(2px)',
+}, {
+  value: 'brightness(30%)',
+  label: '调节亮度-brightness(30%)',
+}, {
+  value: 'brightness(30%)',
+  label: '调节对比度-contrast(30%)',
+}, {
+  value: 'grayscale(100%)',
+  label: '灰阶-grayscale(100%)',
+}, {
+  value: 'hue-rotate(100deg)',
+  label: '色彩旋转-hue-rotate(100deg)',
+}, {
+  value: 'invert(100%)',
+  label: '反色图像-invert(100%)',
+}, {
+  value: 'opacity(50%)',
+  label: '调节透明度-opacity(50%)',
+}, {
+  value: 'saturate(10%)',
+  label: '调节饱和度-saturate(10%)',
+}, {
+  value: 'sepia(100%)',
+  label: '深褐色处理-sepia(100%)',
+}, {
+  value: 'drop-shadow(0px 0px 10px crimson)',
+  label: '阴影-drop-shadow(0px 0px 10px crimson)',
+}]
+
+const handleFilterChange = (val) => {
+  form.data.filter = val.join(' ')
+}
 
 const uploadPatternImage = ref<UploadInstance>()
 const uploadImage = ref<UploadInstance>()
