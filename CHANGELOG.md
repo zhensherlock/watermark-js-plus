@@ -1,3 +1,18 @@
+# [0.12.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.11.3...v0.12.0) (2023-07-07)
+
+
+### ✨ Features | 新功能
+
+* add style files ([660d34f](https://github.com/zhensherlock/watermark-js-plus/commit/660d34f92ae92e099534231a888cbd37fbe0c320))
+* add watermark movable logic ([0967a4f](https://github.com/zhensherlock/watermark-js-plus/commit/0967a4fbf61ee7a05a00a828e1b9faadb061f52a))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([7e093ef](https://github.com/zhensherlock/watermark-js-plus/commit/7e093ef21fa6a3c55d0edc83908b31d843266f54))
+
+
+
 ## [0.11.3](https://github.com/zhensherlock/watermark-js-plus/compare/v0.11.2...v0.11.3) (2023-07-05)
 
 
