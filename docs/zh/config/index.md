@@ -45,6 +45,13 @@ layout: doc
 
 水印辅助线可见性。
 
+## movable
+
+- **Type:** `boolean`
+- **Default:** `false`
+
+水印是否可移动。
+
 ## translatePlacement
 
 - **Type:** `string`

@@ -45,6 +45,13 @@ Watermark grid layout options.
 
 Watermark auxiliary line visible.
 
+## movable
+
+- **Type:** `boolean`
+- **Default:** `false`
+
+Watermark movable.
+
 ## translatePlacement
 
 - **Type:** `string`
