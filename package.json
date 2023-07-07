@@ -1,6 +1,6 @@
 {
   "name": "watermark-js-plus",
-  "version": "0.11.3",
+  "version": "0.12.0",
   "description": "watermark for the browser",
   "scripts": {
     "clean:dist": "rimraf dist",
@@ -60,10 +60,10 @@
     "README.md"
   ],
   "devDependencies": {
-    "@babel/core": "^7.22.6",
-    "@babel/eslint-parser": "^7.22.6",
-    "@babel/plugin-transform-runtime": "^7.22.6",
-    "@babel/preset-env": "^7.22.6",
+    "@babel/core": "^7.22.8",
+    "@babel/eslint-parser": "^7.22.7",
+    "@babel/plugin-transform-runtime": "^7.22.7",
+    "@babel/preset-env": "^7.22.7",
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
     "@element-plus/icons-vue": "^2.1.0",
@@ -78,10 +78,12 @@
     "@types/markdown-it": "^12.2.3",
     "@typescript-eslint/parser": "^5.61.0",
     "@vue/theme": "^2.2.3",
+    "autoprefixer": "^10.4.14",
     "concurrently": "^8.2.0",
     "conventional-changelog-angular": "^6.0.0",
     "conventional-changelog-cli": "^3.0.0",
-    "core-js": "^3.31.0",
+    "core-js": "^3.31.1",
+    "cssnano": "^6.0.1",
     "element-plus": "^2.3.7",
     "eslint": "^8.44.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -92,12 +94,14 @@
     "lodash": "^4.17.21",
     "markdown-it": "^13.0.1",
     "rimraf": "^5.0.1",
-    "rollup": "^3.26.0",
+    "rollup": "^3.26.2",
     "rollup-plugin-filesize": "^10.0.0",
-    "rollup-plugin-your-function": "^0.5.2",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-sass": "^1.12.19",
+    "rollup-plugin-your-function": "^0.5.3",
     "terser": "^5.18.2",
     "typescript": "^5.1.6",
-    "unplugin-element-plus": "^0.7.1",
+    "unplugin-element-plus": "^0.7.2",
     "vitepress": "^1.0.0-beta.5"
   }
 }
