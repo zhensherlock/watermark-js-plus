@@ -7,6 +7,9 @@ import eslint from '@rollup/plugin-eslint'
 import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
 import strip from '@rollup/plugin-strip'
+import postcss from 'rollup-plugin-postcss'
+import autoprefixer from 'autoprefixer'
+import cssnano from 'cssnano'
 
 const output = [
   {
@@ -65,7 +68,6 @@ export default [
     input: 'src/index.ts',
     output,
     plugins: [
-      typescript(),
       eslint({
         throwOnError: true,
         throwOnWarning: true,
@@ -74,6 +76,13 @@ export default [
       }),
       resolve(),
       strip(),
+      typescript(),
+      postcss({
+        plugins: [
+          autoprefixer(),
+          cssnano()
+        ]
+      }),
       commonjs(),
       filesize(),
       babel({ babelHelpers: 'runtime', exclude: ['node_modules/**'] })
