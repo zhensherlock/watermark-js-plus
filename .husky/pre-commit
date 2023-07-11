@@ -1,4 +1,13 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+REQUIRED_NODE_VERSION="16.0.0"
+
+CURRENT_NODE_VERSION=$(node -v | cut -dv -f2)
+
+if [ "$(printf '%s\n' "$REQUIRED_NODE_VERSION" "$CURRENT_NODE_VERSION" | sort -V | head -n1)" != "$REQUIRED_NODE_VERSION" ]; then
+  echo "Error: 请使用Node $REQUIRED_NODE_VERSION 或更高版本提交代码"
+  exit 1
+fi
+
 npm run lint-changelog
