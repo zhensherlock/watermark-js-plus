@@ -1,6 +1,6 @@
 {
   "name": "watermark-js-plus",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "description": "watermark for the browser",
   "scripts": {
     "clean:dist": "rimraf dist",
@@ -59,6 +59,9 @@
     "LICENSE",
     "README.md"
   ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.22.8",
     "@babel/eslint-parser": "^7.22.7",
@@ -76,7 +79,7 @@
     "@rollup/plugin-terser": "0.4.3",
     "@rollup/plugin-typescript": "^11.1.2",
     "@types/markdown-it": "^12.2.3",
-    "@typescript-eslint/parser": "^5.61.0",
+    "@typescript-eslint/parser": "^6.0.0",
     "@vue/theme": "^2.2.3",
     "autoprefixer": "^10.4.14",
     "concurrently": "^8.2.0",
