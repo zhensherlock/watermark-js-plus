@@ -1,3 +1,13 @@
+## [0.12.1](https://github.com/zhensherlock/watermark-js-plus/compare/v0.12.0...v0.12.1) (2023-07-11)
+
+
+### 🎫 Chores | 其他更新
+
+* the node version is upgraded to 16 ([2179703](https://github.com/zhensherlock/watermark-js-plus/commit/21797032a6ddfa3cbcc1482c340e14f271fa35e6))
+* update dependencies ([3ef7c4a](https://github.com/zhensherlock/watermark-js-plus/commit/3ef7c4a2c681f630d65f8879b18bcd326770916e))
+
+
+
 # [0.12.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.11.3...v0.12.0) (2023-07-07)
 
 
