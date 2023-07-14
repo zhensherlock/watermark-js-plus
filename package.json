@@ -1,6 +1,6 @@
 {
   "name": "watermark-js-plus",
-  "version": "0.12.1",
+  "version": "0.12.3",
   "description": "watermark for the browser",
   "scripts": {
     "clean:dist": "rimraf dist",
@@ -63,10 +63,10 @@
     "node": ">=16.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.8",
-    "@babel/eslint-parser": "^7.22.7",
-    "@babel/plugin-transform-runtime": "^7.22.7",
-    "@babel/preset-env": "^7.22.7",
+    "@babel/core": "^7.22.9",
+    "@babel/eslint-parser": "^7.22.9",
+    "@babel/plugin-transform-runtime": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
     "@element-plus/icons-vue": "^2.1.0",
@@ -87,7 +87,7 @@
     "conventional-changelog-cli": "^3.0.0",
     "core-js": "^3.31.1",
     "cssnano": "^6.0.1",
-    "element-plus": "^2.3.7",
+    "element-plus": "^2.3.8",
     "eslint": "^8.44.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-semistandard": "^17.0.0",
@@ -102,7 +102,7 @@
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-sass": "^1.12.19",
     "rollup-plugin-your-function": "^0.5.3",
-    "terser": "^5.18.2",
+    "terser": "^5.19.0",
     "typescript": "^5.1.6",
     "unplugin-element-plus": "^0.7.2",
     "vitepress": "^1.0.0-beta.5"
