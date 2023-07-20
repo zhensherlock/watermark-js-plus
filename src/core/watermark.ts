@@ -111,16 +111,16 @@ class Watermark {
   }
 
   private initConfigData (args: Partial<WatermarkOptions>, mode: ChangeOptionsMode = 'overwrite') {
-    this.props = args
-    if (mode === 'overwrite') {
-      this.options = Object.assign({}, initialOptions, args)
-    } else {
+    if (mode === 'append') {
       Object.keys(args).forEach(key => {
-        this.options[key as keyof WatermarkOptions] = <never> args[key as keyof WatermarkOptions]
+        this.props && (this.props[key as keyof WatermarkOptions] = <never> args[key as keyof WatermarkOptions])
       })
+    } else {
+      this.props = args
     }
+    this.options = Object.assign({}, initialOptions, this.props)
     this.changeParentElement(this.options.parent)
-    this.watermarkCanvas = new WatermarkCanvas(this.props, this.options)
+    this.watermarkCanvas = new WatermarkCanvas(<Partial<WatermarkOptions>> this.props, this.options)
   }
 
   private changeParentElement (parent: Element | string) {
