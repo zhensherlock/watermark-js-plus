@@ -1,3 +1,22 @@
+# [0.13.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.12.3...v0.13.0) (2023-07-20)
+
+
+### ♻ Code Refactoring | 代码重构
+
+* change initConfigData logic ([5b2b60c](https://github.com/zhensherlock/watermark-js-plus/commit/5b2b60c5776955aea5a906ec99e25dd61d6f2b17))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([8b11c91](https://github.com/zhensherlock/watermark-js-plus/commit/8b11c91549f1be96a9c8469136b6aeabe7a3fdd6))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* redraw after execute changeOptions ([8c89b8a](https://github.com/zhensherlock/watermark-js-plus/commit/8c89b8af8dc6999670847572853d0d2efa721015))
+
+
+
 ## [0.12.3](https://github.com/zhensherlock/watermark-js-plus/compare/v0.12.2...v0.12.3) (2023-07-17)
 
 
