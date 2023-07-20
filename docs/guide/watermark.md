@@ -8,6 +8,7 @@ import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vu
 import { ref, getCurrentInstance, onMounted } from 'vue';
 import { Watermark } from '../../src';
 import { useData } from 'vitepress';
+import dayjs from 'dayjs';
 
 const { isDark } = useData();
 const decodeBlindImage = ref('');
@@ -27,6 +28,7 @@ onMounted(() => {
     width: 200,
     height: 200,
     layout: 'grid',
+		// mutationObserve: false,
     gridLayoutOptions: {
       rows: 2,
       cols: 2,
@@ -149,6 +151,11 @@ const handleAddTextWatermark = () => {
 const handleRemoveTextWatermark = () => {
   textWatermark.destroy();
 };
+const handleUpdateTextWatermark = () => {
+	textWatermark.changeOptions({
+		content: 'update my text watermark at ' + dayjs().format('HH:mm:ss')
+	}, 'append')
+};
 
 const handleAddMultiLineTextWatermark = () => {
   if (isDark.value) {
@@ -209,6 +216,7 @@ watermark.destroy() // remove watermark
 ```
 <el-space>
   <VPButton text="Add Text Watermark" @click="handleAddTextWatermark"></VPButton>
+  <VPButton text="Update Text Watermark" @click="handleUpdateTextWatermark"></VPButton>
   <VPButton text="Remove Text Watermark" @click="handleRemoveTextWatermark"></VPButton>
 </el-space>
 
