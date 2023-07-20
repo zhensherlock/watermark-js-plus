@@ -31,8 +31,12 @@ class Watermark {
     bootstrap()
   }
 
-  changeOptions (args: Partial<WatermarkOptions> = {}, mode: ChangeOptionsMode = 'overwrite') {
+  async changeOptions (args: Partial<WatermarkOptions> = {}, mode: ChangeOptionsMode = 'overwrite', redraw: boolean = true) {
     this.initConfigData(args, mode)
+    if (redraw) {
+      this.remove()
+      await this.create()
+    }
   }
 
   /**
