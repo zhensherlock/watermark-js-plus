@@ -143,18 +143,20 @@ onMounted(() => {
 })
 
 const handleAddTextWatermark = () => {
-  if (isDark.value) {
-    textWatermark.options.fontColor = '#fff'
-  }
+	textWatermark.changeOptions({
+		content: 'hello my text watermark',
+		fontColor: isDark.value ? '#fff' : '#000'
+	}, 'append', false)
   textWatermark.create();
-};
-const handleRemoveTextWatermark = () => {
-  textWatermark.destroy();
 };
 const handleUpdateTextWatermark = () => {
 	textWatermark.changeOptions({
-		content: 'update my text watermark at ' + dayjs().format('HH:mm:ss')
+		content: 'update my text watermark at ' + dayjs().format('HH:mm:ss'),
+		fontColor: isDark.value ? '#fff' : '#000'
 	}, 'append')
+};
+const handleRemoveTextWatermark = () => {
+  textWatermark.destroy();
 };
 
 const handleAddMultiLineTextWatermark = () => {

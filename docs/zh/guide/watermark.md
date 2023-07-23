@@ -8,6 +8,7 @@ import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vu
 import { ref, getCurrentInstance, onMounted } from 'vue';
 import { Watermark } from '../../../src';
 import { useData } from 'vitepress';
+import dayjs from 'dayjs';
 
 const { isDark } = useData();
 const decodeBlindImage = ref('');
@@ -26,6 +27,14 @@ onMounted(() => {
     content: 'hello my watermark',
     width: 200,
     height: 200,
+    layout: 'grid',
+		// mutationObserve: false,
+    gridLayoutOptions: {
+      rows: 2,
+      cols: 2,
+      gap: [0, 0],
+      matrix: [[1, 0], [0, 1]]
+    },
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
         appendTo: '#app',
@@ -89,10 +98,17 @@ onMounted(() => {
 });
 
 const handleAddTextWatermark = () => {
-  if (isDark.value) {
-    textWatermark.options.fontColor = '#fff'
-  }
+	textWatermark.changeOptions({
+		content: 'hello my text watermark',
+		fontColor: isDark.value ? '#fff' : '#000'
+	}, 'append', false)
   textWatermark.create();
+};
+const handleUpdateTextWatermark = () => {
+	textWatermark.changeOptions({
+		content: 'update my text watermark at ' + dayjs().format('HH:mm:ss'),
+		fontColor: isDark.value ? '#fff' : '#000'
+	}, 'append')
 };
 const handleRemoveTextWatermark = () => {
   textWatermark.destroy();
@@ -157,6 +173,7 @@ watermark.destroy() // 删除水印
 ```
 <el-space>
   <VPButton text="添加文本水印" @click="handleAddTextWatermark"></VPButton>
+  <VPButton text="修改文本水印" @click="handleUpdateTextWatermark"></VPButton>
   <VPButton text="删除文本水印" @click="handleRemoveTextWatermark"></VPButton>
 </el-space>
 
