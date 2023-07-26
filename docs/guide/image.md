@@ -28,14 +28,7 @@ onMounted(() => {
       height: imgDom.height,
       dom: imgDom,
       rotate: 0,
-      lineHeight: 50,
-      translatePlacement: 'bottom-end',
-      shadowStyle: {
-        "shadowBlur": 10,
-        "shadowColor": "#FFFFFFFF",
-        "shadowOffsetX": 0,
-        "shadowOffsetY": 0
-      }
+      translatePlacement: 'bottom-end'
     });
     isFirst.value = false
   });
@@ -48,8 +41,33 @@ const handleRemoveWatermark = () => {
   watermark.destroy();
 };
 </script>
+```html
+<img class="image">
+```
+
+```js
+import { ImageWatermark } from 'watermark-js-plus' // 引入水印插件
+
+const imgDom = document.querySelector('.image');
+
+const watermark = new ImageWatermark({
+  // content: 'my watermark',
+  contentType: 'image',
+  image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
+  imageWidth: 200,
+  width: imgDom.width,
+  height: imgDom.height,
+  dom: imgDom,
+  rotate: 0,
+  translatePlacement: 'bottom-end'
+})
+
+watermark.create() // 添加水印
+
+watermark.destroy() // 删除水印
+```
 <div>
-  <img class="image" :src="imageSrc" >
+  <img class="image" :src="imageSrc">
 </div>
 <el-space style="margin-top: 10px;">
   <VPButton text="Add Watermark" @click="handleAddWatermark"></VPButton>

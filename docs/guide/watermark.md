@@ -27,6 +27,7 @@ onMounted(() => {
     content: 'hello my text watermark',
     width: 200,
     height: 200,
+		rotate: 22,
     layout: 'grid',
 		// mutationObserve: false,
     gridLayoutOptions: {
@@ -200,6 +201,7 @@ const watermark = new Watermark({
   content: 'hello my watermark',
   width: 200,
   height: 200,
+  rotate: 22,
   layout: 'grid',
   gridLayoutOptions: {
     rows: 2,
