@@ -52,7 +52,7 @@ onMounted(() => {
   // 图片暗水印
   imageBlindWatermark = new BlindWatermark({
     contentType: 'image',
-    image: 'http://upic-service.test.upcdn.net/uPic/github-JxMIKf.png',
+    image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
     imageWidth: 200,
     // imageHeight: 20,
     width: 300,
@@ -136,7 +136,11 @@ const handleSuccessByDark = (uploadFile) => {
 }
 </script>
 
+<el-backtop></el-backtop>
+
 ## 文本暗水印
+
+<div class="text-blind-watermark">
 
 ```js
 import { BlindWatermark } from 'watermark-js-plus' // 引入水印插件
@@ -155,12 +159,17 @@ watermark.create() // 添加水印
 watermark.destroy() // 删除水印
 ```
 👉 深色背景请添加参数：`fontColor: '#fff'`
-<el-space>
-  <VPButton text="添加文本暗水印" @click="handleAddTextBlindWatermark"></VPButton>
-  <VPButton text="删除文本暗水印" @click="handleRemoveTextBlindWatermark"></VPButton>
-</el-space>
+<el-affix target=".text-blind-watermark" position="bottom" :offset="0">
+  <el-space class="block-operation">
+    <VPButton text="添加文本暗水印" @click="handleAddTextBlindWatermark"></VPButton>
+    <VPButton text="删除文本暗水印" @click="handleRemoveTextBlindWatermark"></VPButton>
+  </el-space>
+</el-affix>
+</div>
 
 ## 多行文本暗水印
+
+<div class="multiline-text-blind-watermark">
 
 ```js
 import { BlindWatermark } from 'watermark-js-plus' // 引入水印插件
@@ -181,19 +190,24 @@ watermark.create() // 添加水印
 watermark.destroy() // 删除水印
 ```
 👉 深色背景请添加参数：`fontColor: '#fff'`
-<el-space>
-  <VPButton text="添加多行文本暗水印" @click="handleAddMultiLineTextBlindWatermark"></VPButton>
-  <VPButton text="删除多行文本暗水印" @click="handleRemoveMultiLineTextBlindWatermark"></VPButton>
-</el-space>
+<el-affix target=".multiline-text-blind-watermark" position="bottom" :offset="0">
+  <el-space class="block-operation">
+    <VPButton text="添加多行文本暗水印" @click="handleAddMultiLineTextBlindWatermark"></VPButton>
+    <VPButton text="删除多行文本暗水印" @click="handleRemoveMultiLineTextBlindWatermark"></VPButton>
+  </el-space>
+</el-affix>
+</div>
 
 ## 图片暗水印
+
+<div class="image-blind-watermark">
 
 ```js
 import { BlindWatermark } from 'watermark-js-plus' // 引入水印插件
 
 const watermark = new BlindWatermark({
   contentType: 'image',
-  content: 'http://upic-service.test.upcdn.net/uPic/github-JxMIKf.png',
+  content: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
   width: 300,
   height: 300,
   imageWidth: 100, // 图片宽度
@@ -207,12 +221,18 @@ watermark.create() // 添加水印
 
 watermark.destroy() // 删除水印
 ```
-<el-space>
-  <VPButton text="添加图片暗水印" @click="handleAddImageBlindWatermark"></VPButton>
-  <VPButton text="删除图片暗水印" @click="handleRemoveImageBlindWatermark"></VPButton>
-</el-space>
+<el-affix target=".image-blind-watermark" position="bottom" :offset="0">
+  <el-space class="block-operation">
+    <VPButton text="添加图片暗水印" @click="handleAddImageBlindWatermark"></VPButton>
+    <VPButton text="删除图片暗水印" @click="handleRemoveImageBlindWatermark"></VPButton>
+  </el-space>
+</el-affix>
+</div>
+
 
 ## 富文本水印
+
+<div class="rich-text-blind-watermark">
 
 ```js
 import { BlindWatermark } from 'watermark-js-plus' // 引入水印插件
@@ -231,10 +251,13 @@ watermark.create() // 添加水印
 
 watermark.destroy() // 删除水印
 ```
-<el-space>
-  <VPButton text="添加富文本暗水印" @click="handleAddRichTextBlindWatermark"></VPButton>
-  <VPButton text="删除富文本暗水印" @click="handleRemoveRichTextBlindWatermark"></VPButton>
-</el-space>
+<el-affix target=".rich-text-blind-watermark" position="bottom" :offset="0">
+  <el-space class="block-operation">
+    <VPButton text="添加富文本暗水印" @click="handleAddRichTextBlindWatermark"></VPButton>
+    <VPButton text="删除富文本暗水印" @click="handleRemoveRichTextBlindWatermark"></VPButton>
+  </el-space>
+</el-affix>
+</div>
 
 ## 解析暗水印
 

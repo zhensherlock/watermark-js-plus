@@ -136,7 +136,11 @@ const handleSuccessByDark = (uploadFile) => {
 }
 </script>
 
+<el-backtop></el-backtop>
+
 ## Text Blind Watermark
+
+<div class="text-blind-watermark">
 
 ```js
 import { BlindWatermark } from 'watermark-js-plus' // import watermark plugin
@@ -155,12 +159,17 @@ watermark.create() // add watermark
 watermark.destroy() // remove watermark
 ```
 👉 Add parameters for dark background：`fontColor: '#fff'`
-<el-space>
-  <VPButton text="Add Text Blind Watermark" @click="handleAddTextBlindWatermark"></VPButton>
-  <VPButton text="Remove Text Blind Watermark" @click="handleRemoveTextBlindWatermark"></VPButton>
-</el-space>
+<el-affix target=".text-blind-watermark" position="bottom" :offset="0">
+  <el-space class="block-operation">
+    <VPButton text="Add Text Blind Watermark" @click="handleAddTextBlindWatermark"></VPButton>
+    <VPButton text="Remove Text Blind Watermark" @click="handleRemoveTextBlindWatermark"></VPButton>
+  </el-space>
+</el-affix>
+</div>
 
 ## Multiline Text Blind Watermark
+
+<div class="multiline-text-blind-watermark">
 
 ```js
 import { BlindWatermark } from 'watermark-js-plus' // import watermark plugin
@@ -181,12 +190,17 @@ watermark.create() // add watermark
 watermark.destroy() // remove watermark
 ```
 👉 Add parameters for dark background：`fontColor: '#fff'`
-<el-space>
-  <VPButton text="Add Multiline Text Blind Watermark" @click="handleAddMultiLineTextBlindWatermark"></VPButton>
-  <VPButton text="Remove Multiline Text Blind Watermark" @click="handleRemoveMultiLineTextBlindWatermark"></VPButton>
-</el-space>
+<el-affix target=".multiline-text-blind-watermark" position="bottom" :offset="0">
+  <el-space class="block-operation">
+    <VPButton text="Add Multiline Text Blind Watermark" @click="handleAddMultiLineTextBlindWatermark"></VPButton>
+    <VPButton text="Remove Multiline Text Blind Watermark" @click="handleRemoveMultiLineTextBlindWatermark"></VPButton>
+  </el-space>
+</el-affix>
+</div>
 
 ## Image Blind Watermark
+
+<div class="image-blind-watermark">
 
 ```js
 import { BlindWatermark } from 'watermark-js-plus' // import watermark plugin
@@ -207,12 +221,17 @@ watermark.create() // add watermark
 
 watermark.destroy() // remove watermark
 ```
-<el-space>
-  <VPButton text="Add Image Blind Watermark" @click="handleAddImageBlindWatermark"></VPButton>
-  <VPButton text="Remove Image Blind Watermark" @click="handleRemoveImageBlindWatermark"></VPButton>
-</el-space>
+<el-affix target=".image-blind-watermark" position="bottom" :offset="0">
+  <el-space class="block-operation">
+    <VPButton text="Add Image Blind Watermark" @click="handleAddImageBlindWatermark"></VPButton>
+    <VPButton text="Remove Image Blind Watermark" @click="handleRemoveImageBlindWatermark"></VPButton>
+  </el-space>
+</el-affix>
+</div>
 
 ## Rich Text Blind Watermark
+
+<div class="rich-text-blind-watermark">
 
 ```js
 import { BlindWatermark } from 'watermark-js-plus' // import watermark plugin
@@ -231,10 +250,13 @@ watermark.create() // add watermark
 
 watermark.destroy() // remove watermark
 ```
-<el-space>
-  <VPButton text="Add RichText Blind Watermark" @click="handleAddRichTextBlindWatermark"></VPButton>
-  <VPButton text="Remove Rich Text Blind Watermark" @click="handleRemoveRichTextBlindWatermark"></VPButton>
-</el-space>
+<el-affix target=".rich-text-blind-watermark" position="bottom" :offset="0">
+  <el-space class="block-operation">
+    <VPButton text="Add RichText Blind Watermark" @click="handleAddRichTextBlindWatermark"></VPButton>
+    <VPButton text="Remove Rich Text Blind Watermark" @click="handleRemoveRichTextBlindWatermark"></VPButton>
+  </el-space>
+</el-affix>
+</div>
 
 ## Decode Blind Watermark
 

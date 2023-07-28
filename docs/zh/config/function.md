@@ -2,6 +2,8 @@
 layout: doc
 ---
 
+<el-backtop></el-backtop>
+
 # 基础方法
 
 ## create

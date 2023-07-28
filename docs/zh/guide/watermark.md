@@ -48,7 +48,7 @@ onMounted(() => {
   multiLineTextWatermark = new Watermark({
     contentType: 'multi-line-text',
     content: 'hello my watermark watermark',
-    fontSize: 30,
+    fontSize: '30px',
     width: 200,
     height: 200,
     onSuccess: () => {
@@ -62,7 +62,7 @@ onMounted(() => {
   // 图片水印
   imageWatermark = new Watermark({
     contentType: 'image',
-    image: 'http://upic-service.test.upcdn.net/uPic/github-JxMIKf.png',
+    image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
     imageWidth: 200,
     // imageHeight: 20,
     width: 300,
@@ -77,7 +77,7 @@ onMounted(() => {
     }
   });
   // 富文本水印
-  const richTextWatermark = new Watermark({
+  richTextWatermark = new Watermark({
     contentType: 'rich-text',
     content: '<div style="background: #ccc;">富文本水印 <span style="color: #f00">good</span></div>',
     width: 300,
@@ -90,11 +90,13 @@ onMounted(() => {
       });
     }
   });
+  // 子元素水印
   childElementWatermark = new Watermark({
     parent: '.parent-element',
-    width: 200,
-    height: 200,
-    backgroundRepeat: 'no-repeat'
+    width: 400,
+    height: 400,
+    backgroundRepeat: 'no-repeat',
+    zIndex: 900
   });
 });
 
@@ -147,7 +149,11 @@ const handleRemoveChildElementWatermark = () => {
 };
 </script>
 
+<el-backtop></el-backtop>
+
 ## 文本水印
+
+<div class="text-watermark">
 
 ```js
 import { Watermark } from 'watermark-js-plus' // 引入水印插件
@@ -173,13 +179,18 @@ watermark.create() // 添加水印
 
 watermark.destroy() // 删除水印
 ```
-<el-space>
-  <VPButton text="添加文本水印" @click="handleAddTextWatermark"></VPButton>
-  <VPButton text="修改文本水印" @click="handleUpdateTextWatermark"></VPButton>
-  <VPButton text="删除文本水印" @click="handleRemoveTextWatermark"></VPButton>
-</el-space>
+<el-affix target=".text-watermark" position="bottom" :offset="0">
+  <el-space class="block-operation">
+    <VPButton text="添加文本水印" @click="handleAddTextWatermark"></VPButton>
+    <VPButton text="修改文本水印" @click="handleUpdateTextWatermark"></VPButton>
+    <VPButton text="删除文本水印" @click="handleRemoveTextWatermark"></VPButton>
+  </el-space>
+</el-affix>
+</div>
 
 ## 多行文本水印
+
+<div class="multiline-text-watermark">
 
 ```js
 import { Watermark } from 'watermark-js-plus' // 引入水印插件
@@ -187,7 +198,7 @@ import { Watermark } from 'watermark-js-plus' // 引入水印插件
 const watermark = new Watermark({
   contentType: 'multi-line-text',
   content: 'hello my watermark watermark',
-  fontSize: 30,
+  fontSize: '30px',
   width: 200,
   height: 200,
   onSuccess: () => {
@@ -199,12 +210,17 @@ watermark.create() // 添加水印
 
 watermark.destroy() // 删除水印
 ```
-<el-space>
-  <VPButton text="添加多行文本水印" @click="handleAddMultiLineTextWatermark"></VPButton>
-  <VPButton text="删除多行文本水印" @click="handleRemoveMultiLineTextWatermark"></VPButton>
-</el-space>
+<el-affix target=".multiline-text-watermark" position="bottom" :offset="0">
+  <el-space class="block-operation">
+    <VPButton text="添加多行文本水印" @click="handleAddMultiLineTextWatermark"></VPButton>
+    <VPButton text="删除多行文本水印" @click="handleRemoveMultiLineTextWatermark"></VPButton>
+  </el-space>
+</el-affix>
+</div>
 
 ## 图片水印
+
+<div class="image-watermark">
 
 ```js
 import { Watermark } from 'watermark-js-plus' // 引入水印插件
@@ -226,12 +242,17 @@ watermark.create() // 添加水印
 
 watermark.destroy() // 删除水印
 ```
-<el-space>
-  <VPButton text="添加图片水印" @click="handleAddImageWatermark"></VPButton>
-  <VPButton text="删除图片水印" @click="handleRemoveImageWatermark"></VPButton>
-</el-space>
+<el-affix target=".image-watermark" position="bottom" :offset="0">
+  <el-space class="block-operation">
+    <VPButton text="添加图片水印" @click="handleAddImageWatermark"></VPButton>
+    <VPButton text="删除图片水印" @click="handleRemoveImageWatermark"></VPButton>
+  </el-space>
+</el-affix>
+</div>
 
 ## 富文本水印
+
+<div class="rich-text-watermark">
 
 ```js
 import { Watermark } from 'watermark-js-plus' // 引入水印插件
@@ -250,30 +271,39 @@ watermark.create() // 添加水印
 
 watermark.destroy() // 删除水印
 ```
-<el-space>
-  <VPButton text="添加富文本水印" @click="handleAddRichTextWatermark"></VPButton>
-  <VPButton text="删除富文本水印" @click="handleRemoveRichTextWatermark"></VPButton>
-</el-space>
+<el-affix target=".rich-text-watermark" position="bottom" :offset="0">
+  <el-space class="block-operation">
+    <VPButton text="添加富文本水印" @click="handleAddRichTextWatermark"></VPButton>
+    <VPButton text="删除富文本水印" @click="handleRemoveRichTextWatermark"></VPButton>
+  </el-space>
+</el-affix>
+</div>
 
 ## 子元素水印
+
+<div class="child-element-watermark">
 
 ```js
 import { Watermark } from 'watermark-js-plus' // 引入水印插件
 
 const watermark = new Watermark({
   parent: '.parent-element',
-  width: 200,
-  height: 200,
-  backgroundRepeat: 'no-repeat'
+  width: 400,
+  height: 400,
+  backgroundRepeat: 'no-repeat',
+  zIndex: 900
 })
 
 watermark.create() // 添加水印
 
 watermark.destroy() // 删除水印
 ```
-<el-space>
-  <VPButton text="添加子元素水印" @click="handleAddChildElementWatermark"></VPButton>
-  <VPButton text="删除子元素水印" @click="handleRemoveChildElementWatermark"></VPButton>
-</el-space>
 <div class="parent-element" style="width: 400px;height: 400px;border: 1px solid #333;margin-top: 10px;position: relative;">
+</div>
+<el-affix target=".child-element-watermark" position="bottom" :offset="0" z-index="1000">
+  <el-space class="block-operation">
+    <VPButton text="添加子元素水印" @click="handleAddChildElementWatermark"></VPButton>
+    <VPButton text="删除子元素水印" @click="handleRemoveChildElementWatermark"></VPButton>
+  </el-space>
+</el-affix>
 </div>

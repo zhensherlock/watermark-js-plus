@@ -2,6 +2,8 @@
 layout: doc
 ---
 
+<el-backtop></el-backtop>
+
 # Getting Started
 
 ## Installing

@@ -2,6 +2,8 @@
 layout: doc
 ---
 
+<el-backtop></el-backtop>
+
 # 这是什么?
 这是一个基于 *canvas* 画布的水印库，作用于浏览器中。
 

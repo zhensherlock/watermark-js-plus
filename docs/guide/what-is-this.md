@@ -2,6 +2,8 @@
 layout: doc
 ---
 
+<el-backtop></el-backtop>
+
 # What is this?
 This is a *canvas-based* watermark for browser.
 

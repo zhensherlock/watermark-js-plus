@@ -1,6 +1,9 @@
 ---
 layout: doc
 ---
+
+<el-backtop></el-backtop>
+
 # 基础配置项
 
 ## width
@@ -162,8 +165,8 @@ background-repeat
 
 ## fontSize
 
-- **Type:** `number`
-- **Default:** `20`
+- **Type:** `string`
+- **Default:** `'20px'`
 
 水印内容的字体大小。
 

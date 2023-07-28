@@ -1,13 +1,13 @@
 ---
 layout: doc
 ---
-# Custom Configs
+# 自定义配置
 
 <script setup lang="ts">
 import { reactive, getCurrentInstance, onMounted } from 'vue';
-import { Watermark } from '../../../src';
+import { Watermark } from '../../../../src';
 import { useData } from 'vitepress';
-import WatermarkOptionsForm from '../../components/WatermarkOptionsForm.vue';
+import WatermarkOptionsForm from '../../../components/WatermarkOptionsForm.vue';
 // import { cloneDeep } from 'lodash';
 import cloneDeep from 'lodash/cloneDeep';
 
@@ -65,8 +65,8 @@ watermark.destroy() // remove watermark
 
 <el-affix position="bottom" :offset="0">
   <el-space class="block-operation">
-    <el-button round type="primary" @click="handleAddWatermark">Add Watermark</el-button>
-    <el-button round type="danger" @click="handleRemoveWatermark">Remove Watermark</el-button>
+    <el-button round type="primary" @click="handleAddWatermark">添加水印</el-button>
+    <el-button round type="danger" @click="handleRemoveWatermark">删除水印</el-button>
   </el-space>
 </el-affix>
 

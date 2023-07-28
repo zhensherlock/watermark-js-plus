@@ -1,6 +1,9 @@
 ---
 layout: doc
 ---
+
+<el-backtop></el-backtop>
+
 # Blind Watermark Config
 
 ## globalAlpha

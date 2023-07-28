@@ -1,6 +1,9 @@
 ---
 layout: doc
 ---
+
+<el-backtop></el-backtop>
+
 # Basic Config
 
 ## width
@@ -162,8 +165,8 @@ background-repeat
 
 ## fontSize
 
-- **Type:** `number`
-- **Default:** `20`
+- **Type:** `string`
+- **Default:** `'20px'`
 
 The font size of the watermark content.
 

@@ -1,6 +1,9 @@
 ---
 layout: doc
 ---
+
+<el-backtop></el-backtop>
+
 # 暗水印
 
 ## globalAlpha
