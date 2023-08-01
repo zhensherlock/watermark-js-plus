@@ -17,4 +17,4 @@ jobs:
           # GitHub 源仓库地址
           source-repo: git@github.com:zhensherlock/watermark-js-plus.git
           # Gitee 目标仓库地址
-          destination-repo: git@gitee.com:zhensherlock/watermark-js-plus.git
+          destination-repo: git@gitee.com:cs_huayi_zhensherlock/watermark-js-plus.git
