@@ -1,3 +1,17 @@
+# [1.0.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.13.3...v1.0.0) (2023-08-01)
+
+
+### ✨ Features | 新功能
+
+* update auxiliary line logic ([964bf43](https://github.com/zhensherlock/watermark-js-plus/commit/964bf43c7434625f3c31e0760897ab3f0a85ff72))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([c445712](https://github.com/zhensherlock/watermark-js-plus/commit/c445712b279abc05fc61dec2efd02727631bf3d5))
+
+
+
 ## [0.13.3](https://github.com/zhensherlock/watermark-js-plus/compare/v0.13.2...v0.13.3) (2023-07-28)
 
 
