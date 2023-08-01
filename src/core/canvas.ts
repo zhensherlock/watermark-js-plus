@@ -59,7 +59,7 @@ class WatermarkCanvas {
 
     if (this.options.auxiliaryLine) {
       ctx.beginPath()
-      ctx.rect(1, 1, this.options.width, this.options.height)
+      ctx.rect(0, 0, this.options.width, this.options.height)
       ctx.lineWidth = 1
       ctx.strokeStyle = '#000'
       ctx.stroke()
