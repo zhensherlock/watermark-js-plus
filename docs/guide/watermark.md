@@ -30,10 +30,11 @@ onMounted(() => {
 		rotate: 22,
     layout: 'grid',
 		// mutationObserve: false,
+    // auxiliaryLine: true,
     gridLayoutOptions: {
       rows: 2,
       cols: 2,
-      gap: [0, 0],
+      gap: [20, 20],
       matrix: [[1, 0], [0, 1]]
     },
     onSuccess: () => {
@@ -212,7 +213,7 @@ const watermark = new Watermark({
   gridLayoutOptions: {
     rows: 2,
     cols: 2,
-    gap: [0, 0],
+    gap: [20, 20],
     matrix: [[1, 0], [0, 1]]
   },
   onSuccess: () => {

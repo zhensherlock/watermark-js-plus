@@ -145,7 +145,7 @@ layout: doc
 ## zIndex
 
 - **Type:** `number`
-- **Default:** `10000`
+- **Default:** `2147483647`
 
 z-index
 
