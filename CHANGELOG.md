@@ -1,3 +1,17 @@
+## [1.0.1](https://github.com/zhensherlock/watermark-js-plus/compare/v1.0.0...v1.0.1) (2023-08-04)
+
+
+### ✨ Features | 新功能
+
+* add changeOptions annotation ([d394d74](https://github.com/zhensherlock/watermark-js-plus/commit/d394d74f347fa1f16e221c15a0d807f0fdf1f368))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([73a95da](https://github.com/zhensherlock/watermark-js-plus/commit/73a95da88b39b47c178efa10dfdb41da8456635c))
+
+
+
 # [1.0.0](https://github.com/zhensherlock/watermark-js-plus/compare/v0.13.3...v1.0.0) (2023-08-01)
 
 
