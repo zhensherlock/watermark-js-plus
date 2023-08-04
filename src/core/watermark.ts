@@ -31,6 +31,12 @@ class Watermark {
     bootstrap()
   }
 
+  /**
+   * Change watermark options
+   * @param args
+   * @param mode
+   * @param redraw
+   */
   async changeOptions (args: Partial<WatermarkOptions> = {}, mode: ChangeOptionsMode = 'overwrite', redraw: boolean = true) {
     this.initConfigData(args, mode)
     if (redraw) {
