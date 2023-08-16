@@ -246,8 +246,8 @@ class WatermarkCanvas {
         image,
         imagePosition.x,
         imagePosition.y,
-        ctx.canvas.width,
-        ctx.canvas.height
+        image.width,
+        image.height
       )
       resolve(ctx.canvas)
     })

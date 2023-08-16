@@ -61,6 +61,8 @@ export const createCustomContentSVG = (ctx: CanvasRenderingContext2D, options: W
   document.body.removeChild(bodyElement)
   const width = options.richTextWidth || offsetWidth || options.width
   const height = options.richTextHeight || offsetHeight || options.height
+  svgElement.setAttribute('width', width.toString())
+  svgElement.setAttribute('height', height.toString())
   const foreignObjectElement = createSVGElement('foreignObject', {
     width: width.toString(),
     height: height.toString()
