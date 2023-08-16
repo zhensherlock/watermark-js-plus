@@ -1,3 +1,17 @@
+# [1.1.0](https://github.com/zhensherlock/watermark-js-plus/compare/v1.0.4...v1.1.0) (2023-08-16)
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([b8e3954](https://github.com/zhensherlock/watermark-js-plus/commit/b8e3954cf25fa47c45c5b30423bbd6ebaadc2243))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* Rich text watermark not working in firefox ([#17](https://github.com/zhensherlock/watermark-js-plus/issues/17)) ([d6bf066](https://github.com/zhensherlock/watermark-js-plus/commit/d6bf066f827e6bc84610e4802a4872681537b912))
+
+
+
 ## [1.0.4](https://github.com/zhensherlock/watermark-js-plus/compare/v1.0.3...v1.0.4) (2023-08-13)
 
 

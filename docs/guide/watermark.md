@@ -83,6 +83,8 @@ onMounted(() => {
     content: '<div style="background: #ccc;">The watermark is so <span style="color: #f00">nice</span>.</div>',
     width: 300,
     height: 300,
+    // backgroundRepeat: 'no-repeat',
+// auxiliaryLine: true,
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
         appendTo: '#app',
@@ -181,6 +183,15 @@ const handleRemoveImageWatermark = () => {
 };
 
 const handleAddRichTextWatermark = () => {
+// var image = new Image()
+//   image.setAttribute('crossOrigin', 'Anonymous')
+// image.src='data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><foreignObject width="228" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="text-align: center; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; font: 20px sans-serif; color: rgb(0, 0, 0);"><div class="rich-text-content"><div style="background: %23ccc;">The watermark is so <span style="color: %23f00">nice</span>.</div></div></div></foreignObject></svg>'
+// image.onload=() => {debugger}
+//   const p = document.createElement('p')
+//   document.body.appendChild(p)
+// setTimeout(() => {
+// debugger
+// })
   richTextWatermark.create();
 };
 const handleRemoveRichTextWatermark = () => {
