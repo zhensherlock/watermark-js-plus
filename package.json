@@ -1,6 +1,6 @@
 {
   "name": "watermark-js-plus",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "watermark for the browser",
   "scripts": {
     "clean:dist": "rimraf dist",
@@ -79,9 +79,9 @@
     "@rollup/plugin-terser": "0.4.3",
     "@rollup/plugin-typescript": "^11.1.2",
     "@types/markdown-it": "^13.0.0",
-    "@typescript-eslint/parser": "^6.3.0",
+    "@typescript-eslint/parser": "^6.4.0",
     "@vue/theme": "^2.2.4",
-    "autoprefixer": "^10.4.14",
+    "autoprefixer": "^10.4.15",
     "concurrently": "^8.2.0",
     "conventional-changelog-angular": "^6.0.0",
     "conventional-changelog-cli": "^3.0.0",
@@ -93,7 +93,7 @@
     "eslint-config-semistandard": "^17.0.0",
     "eslint-plugin-import": "^2.28.0",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.3",
+    "lint-staged": "^13.3.0",
     "lodash": "^4.17.21",
     "markdown-it": "^13.0.1",
     "rimraf": "^5.0.1",
