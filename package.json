@@ -1,6 +1,6 @@
 {
   "name": "watermark-js-plus",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "watermark for the browser",
   "scripts": {
     "clean:dist": "rimraf dist",
@@ -73,7 +73,7 @@
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-eslint": "^9.0.4",
-    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.0",
     "@rollup/plugin-replace": "^5.0.2",
     "@rollup/plugin-strip": "^3.0.2",
     "@rollup/plugin-terser": "0.4.3",
