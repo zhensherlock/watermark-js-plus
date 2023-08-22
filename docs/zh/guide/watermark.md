@@ -37,6 +37,19 @@ onMounted(() => {
       gap: [20, 20],
       matrix: [[1, 0], [0, 1]]
     },
+    advancedStyle: {
+      type: 'linear',
+      colorStops: [
+        {
+          offset: 0,
+          color: 'red'
+        },
+        {
+          offset: 1,
+          color: 'blue'
+        }
+      ]
+    },
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
         appendTo: '#app',
@@ -48,10 +61,16 @@ onMounted(() => {
   // 多行文本水印
   multiLineTextWatermark = new Watermark({
     contentType: 'multi-line-text',
-    content: 'hello my watermark watermark',
+    content: 'multi text watermark',
     fontSize: '30px',
     width: 200,
     height: 200,
+    shadowStyle: {
+      shadowBlur: 10,
+      shadowColor: '#000000FF',
+      shadowOffsetX: 0,
+      shadowOffsetY: 0
+    },
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
         appendTo: '#app',
@@ -83,6 +102,8 @@ onMounted(() => {
     content: '<div style="background: #ccc;">富文本水印 <span style="color: #f00">good</span></div>',
     width: 300,
     height: 300,
+    filter: 'blur(2px)',
+    movable: true,
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
         appendTo: '#app',
@@ -171,6 +192,19 @@ const watermark = new Watermark({
     gap: [20, 20],
     matrix: [[1, 0], [0, 1]]
   },
+  advancedStyle: {
+    type: 'linear',
+    colorStops: [
+      {
+        offset: 0,
+        color: 'red'
+      },
+      {
+        offset: 1,
+        color: 'blue'
+      }
+    ]
+  },
   onSuccess: () => {
     // success callback
   }
@@ -198,10 +232,16 @@ import { Watermark } from 'watermark-js-plus' // 引入水印插件
 
 const watermark = new Watermark({
   contentType: 'multi-line-text',
-  content: 'hello my watermark watermark',
+  content: 'multi text watermark',
   fontSize: '30px',
   width: 200,
   height: 200,
+  shadowStyle: {
+    shadowBlur: 10,
+    shadowColor: '#000000FF',
+    shadowOffsetX: 0,
+    shadowOffsetY: 0
+  },
   onSuccess: () => {
     // success callback
   }
@@ -263,6 +303,8 @@ const watermark = new Watermark({
   content: '<div style="background: #ccc;">富文本水印超级 <span style="color: #f00">棒</span></div>',
   width: 300,
   height: 300,
+  filter: 'blur(2px)',
+  movable: true,
   onSuccess: () => {
     // success callback
   }

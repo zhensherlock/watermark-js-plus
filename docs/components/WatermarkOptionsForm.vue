@@ -364,7 +364,7 @@ const filterOptions = [{
   value: 'brightness(30%)',
   label: '调节亮度-brightness(30%)',
 }, {
-  value: 'brightness(30%)',
+  value: 'contrast(30%)',
   label: '调节对比度-contrast(30%)',
 }, {
   value: 'grayscale(100%)',

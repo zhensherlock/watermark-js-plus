@@ -37,6 +37,19 @@ onMounted(() => {
       gap: [20, 20],
       matrix: [[1, 0], [0, 1]]
     },
+    advancedStyle: {
+      type: 'linear',
+      colorStops: [
+        {
+          offset: 0,
+          color: 'red'
+        },
+        {
+          offset: 1,
+          color: 'blue'
+        }
+      ]
+    },
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
         appendTo: '#app',
@@ -48,10 +61,16 @@ onMounted(() => {
   // multiline text watermark
   multiLineTextWatermark = new Watermark({
     contentType: 'multi-line-text',
-    content: 'hello my multi text watermark',
+    content: 'multi text watermark',
     fontSize: '30px',
     width: 200,
     height: 200,
+    shadowStyle: {
+      shadowBlur: 10,
+      shadowColor: '#000000FF',
+      shadowOffsetX: 0,
+      shadowOffsetY: 0
+    },
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
         appendTo: '#app',
@@ -83,8 +102,8 @@ onMounted(() => {
     content: '<div style="background: #ccc;">The watermark is so <span style="color: #f00">nice</span>.</div>',
     width: 300,
     height: 300,
-    // backgroundRepeat: 'no-repeat',
-// auxiliaryLine: true,
+    filter: 'blur(2px)',
+    movable: true,
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
         appendTo: '#app',
@@ -227,6 +246,19 @@ const watermark = new Watermark({
     gap: [20, 20],
     matrix: [[1, 0], [0, 1]]
   },
+  advancedStyle: {
+    type: 'linear',
+    colorStops: [
+      {
+        offset: 0,
+        color: 'red'
+      },
+      {
+        offset: 1,
+        color: 'blue'
+      }
+    ]
+  },
   onSuccess: () => {
     // success callback
   }
@@ -254,10 +286,16 @@ import { Watermark } from 'watermark-js-plus' // import watermark plugin
 
 const watermark = new Watermark({
   contentType: 'multi-line-text',
-  content: 'hello my watermark watermark',
-  fontSize: 30,
+  content: 'multi text watermark',
+  fontSize: '30px',
   width: 200,
   height: 200,
+  shadowStyle: {
+    shadowBlur: 10,
+    shadowColor: '#000000FF',
+    shadowOffsetX: 0,
+    shadowOffsetY: 0
+  },
   onSuccess: () => {
     // success callback
   }
@@ -319,6 +357,8 @@ const watermark = new Watermark({
   content: '<div style="background: #ccc;">Rich text watermark is so <span style="color: #f00">nice</span></div>',
   width: 300,
   height: 300,
+  filter: 'blur(2px)',
+  movable: true,
   onSuccess: () => {
     // success callback
   }
