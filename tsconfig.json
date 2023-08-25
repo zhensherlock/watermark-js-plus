@@ -5,7 +5,7 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "./dist/types",
-    "moduleResolution": "Node16",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "strict": true,
     "skipLibCheck": true,
