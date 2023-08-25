@@ -9,6 +9,7 @@
 * **deps:** update dependency lint-staged to v14 ([097ba91](https://github.com/zhensherlock/watermark-js-plus/commit/097ba91a5f2f8d644ce27aaa038342793c03d3f6))
 * **deps:** update dependency rollup to v3.28.1 ([6397284](https://github.com/zhensherlock/watermark-js-plus/commit/6397284955e0f0b69c1431ba737ed8725d64751f))
 * **deps:** update dependency typescript to v5.2.2 ([60f5e5f](https://github.com/zhensherlock/watermark-js-plus/commit/60f5e5f9262ebc8e592b06813e3b8e5ce6f25950))
+* update dependencies ([69fd10b](https://github.com/zhensherlock/watermark-js-plus/commit/69fd10bdd2cd09bae359447bb17e656f488f5545))
 
 
 
