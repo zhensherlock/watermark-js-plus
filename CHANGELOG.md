@@ -1,3 +1,17 @@
+# [1.2.0](https://github.com/zhensherlock/watermark-js-plus/compare/v1.1.2...v1.2.0) (2023-08-25)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update babel monorepo to v7.22.11 ([3ebb984](https://github.com/zhensherlock/watermark-js-plus/commit/3ebb98489cbee3b6c88a08f4aa6b7fb7d25ff3d8))
+* **deps:** update dependency @rollup/plugin-node-resolve to v15.2.1 ([5a5ed7d](https://github.com/zhensherlock/watermark-js-plus/commit/5a5ed7d5a2a23af63db405346e838d8cfd2c3b8b))
+* **deps:** update dependency concurrently to v8.2.1 ([a230f99](https://github.com/zhensherlock/watermark-js-plus/commit/a230f997c386999f1faff3a05f95cfbce9fda7bc))
+* **deps:** update dependency lint-staged to v14 ([097ba91](https://github.com/zhensherlock/watermark-js-plus/commit/097ba91a5f2f8d644ce27aaa038342793c03d3f6))
+* **deps:** update dependency rollup to v3.28.1 ([6397284](https://github.com/zhensherlock/watermark-js-plus/commit/6397284955e0f0b69c1431ba737ed8725d64751f))
+* **deps:** update dependency typescript to v5.2.2 ([60f5e5f](https://github.com/zhensherlock/watermark-js-plus/commit/60f5e5f9262ebc8e592b06813e3b8e5ce6f25950))
+
+
+
 ## [1.1.2](https://github.com/zhensherlock/watermark-js-plus/compare/v1.1.1...v1.1.2) (2023-08-22)
 
 
