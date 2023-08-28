@@ -84,7 +84,7 @@
     "autoprefixer": "^10.4.15",
     "concurrently": "^8.2.1",
     "conventional-changelog-angular": "^7.0.0",
-    "conventional-changelog-cli": "^3.0.0",
+    "conventional-changelog-cli": "^4.0.0",
     "core-js": "^3.32.1",
     "cssnano": "^6.0.1",
     "element-plus": "^2.3.9",
