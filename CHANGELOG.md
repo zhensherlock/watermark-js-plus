@@ -1,3 +1,19 @@
+## [1.2.1](https://github.com/zhensherlock/watermark-js-plus/compare/v1.2.0...v1.2.1) (2023-08-28)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency @rollup/plugin-typescript to v11.1.3 ([2c1fe8b](https://github.com/zhensherlock/watermark-js-plus/commit/2c1fe8b6ddffe7f1cd68fdee227b8d2a1c86b635))
+* **deps:** update dependency @types/markdown-it to v13.0.1 ([cee1561](https://github.com/zhensherlock/watermark-js-plus/commit/cee1561347980efafb8c6facd35bad0fe28baa0b))
+* **deps:** update dependency conventional-changelog-angular to v7 ([cafb3b8](https://github.com/zhensherlock/watermark-js-plus/commit/cafb3b88a30fb9e166ffa0394c32a9ea2777eee1))
+* **deps:** update dependency conventional-changelog-cli to v4 ([03d05d1](https://github.com/zhensherlock/watermark-js-plus/commit/03d05d1738ca63af98cfd4fe4a37f601813f5c28))
+* **deps:** update dependency element-plus to v2.3.12 ([be9278b](https://github.com/zhensherlock/watermark-js-plus/commit/be9278b1773cd58bdddefdf55abbbdd7e4c4baf5))
+* **deps:** update dependency eslint to v8.48.0 ([f7a3122](https://github.com/zhensherlock/watermark-js-plus/commit/f7a3122f6eeabef164b93af5d7983524893ef940))
+* **deps:** update dependency vitepress to v1.0.0-rc.7 ([f35b486](https://github.com/zhensherlock/watermark-js-plus/commit/f35b486c01bec676165b46acbcb23c44eadab5c4))
+* update dependencies ([6977c41](https://github.com/zhensherlock/watermark-js-plus/commit/6977c4168dd0950c46469d659b3c4c0ef8b3fe48))
+
+
+
 # [1.2.0](https://github.com/zhensherlock/watermark-js-plus/compare/v1.1.2...v1.2.0) (2023-08-25)
 
 
