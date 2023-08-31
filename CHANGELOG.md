@@ -1,3 +1,27 @@
+# [1.3.0](https://github.com/zhensherlock/watermark-js-plus/compare/v1.2.1...v1.3.0) (2023-08-31)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update actions/checkout action to v3 ([25812bc](https://github.com/zhensherlock/watermark-js-plus/commit/25812bcdd42f9adf276e82f7439e3128bc454f6f))
+* **deps:** update dependency @babel/preset-env to v7.22.14 ([44ea9c6](https://github.com/zhensherlock/watermark-js-plus/commit/44ea9c698b985da9d672f1da76da3518d86c17e1))
+* **deps:** update dependency @typescript-eslint/parser to v6.5.0 ([efe1fb6](https://github.com/zhensherlock/watermark-js-plus/commit/efe1fb6c10b26bc1dc7889a749d202aa97c336a4))
+* **deps:** update dependency terser to v5.19.3 ([3a365ad](https://github.com/zhensherlock/watermark-js-plus/commit/3a365ad6140d9a810009ef39e2bf1f22e38b3c42))
+* **deps:** update dependency vitepress to v1.0.0-rc.10 ([2653a1b](https://github.com/zhensherlock/watermark-js-plus/commit/2653a1bef8e92f5fca4db4309e8ea05717db7cfc))
+* update dependencies ([edea1ab](https://github.com/zhensherlock/watermark-js-plus/commit/edea1abbebd081c94171443b625f89d2b08abd48))
+
+
+### 👷‍ Build System | 构建
+
+* add visualizer ([9e635dc](https://github.com/zhensherlock/watermark-js-plus/commit/9e635dc6404415846ee5e9fc2b87fd0c38c62a38))
+
+
+### 💄 Styles | 风格
+
+* add banner ([507a232](https://github.com/zhensherlock/watermark-js-plus/commit/507a2323e2d2c3c93e8e98fb3e1ed7443aa985d7))
+
+
+
 ## [1.2.1](https://github.com/zhensherlock/watermark-js-plus/compare/v1.2.0...v1.2.1) (2023-08-28)
 
 
