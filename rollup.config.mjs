@@ -7,6 +7,7 @@ import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
 import strip from '@rollup/plugin-strip'
 import postcss from 'rollup-plugin-postcss'
+import { visualizer } from 'rollup-plugin-visualizer'
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
 import { banner } from './build/banner.mjs'
@@ -89,7 +90,8 @@ export default [
       }),
       commonjs(),
       filesize(),
-      babel({ babelHelpers: 'runtime', exclude: ['node_modules/**'] })
+      babel({ babelHelpers: 'runtime', exclude: ['node_modules/**'] }),
+      visualizer(),
     ]
   }
 ]

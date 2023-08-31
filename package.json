@@ -101,6 +101,7 @@
     "rollup-plugin-filesize": "^10.0.0",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-sass": "^1.12.20",
+    "rollup-plugin-visualizer": "^5.9.2",
     "rollup-plugin-your-function": "^0.5.3",
     "terser": "^5.19.3",
     "typescript": "^5.2.2",
