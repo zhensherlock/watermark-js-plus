@@ -106,3 +106,5 @@ dist
 .tern-port
 
 /docs/.vitepress/cache/
+
+stats.html
