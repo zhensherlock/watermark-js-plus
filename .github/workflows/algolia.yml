@@ -7,7 +7,7 @@ jobs:
   algolia:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Get the content of algolia.json as config
         id: algolia_config
         run: echo "config=$(cat crawlerConfig.json | jq -r tostring)" >> $GITHUB_OUTPUT
