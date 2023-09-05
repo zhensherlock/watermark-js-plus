@@ -1,3 +1,16 @@
+## [1.3.1](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.0...v1.3.1) (2023-09-05)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update actions/checkout action to v4 ([279ec71](https://github.com/zhensherlock/watermark-js-plus/commit/279ec71649642c02c4e894064aa127573344e5cc))
+* **deps:** update babel monorepo to v7.22.15 ([c9c9537](https://github.com/zhensherlock/watermark-js-plus/commit/c9c9537fa42efd1f689490a58ad45d92b41d0811))
+* **deps:** update dependency @typescript-eslint/parser to v6.6.0 ([0d3b236](https://github.com/zhensherlock/watermark-js-plus/commit/0d3b236d4df0ab8a2bc100a43fd4a679cb34a895))
+* **deps:** update dependency terser to v5.19.4 ([b72fc9d](https://github.com/zhensherlock/watermark-js-plus/commit/b72fc9d55bde66df7fed759efd0674055ac13a86))
+* update dependencies ([376fd7a](https://github.com/zhensherlock/watermark-js-plus/commit/376fd7a283f63d2d81a5f3f7d14a9942d3541910))
+
+
+
 # [1.3.0](https://github.com/zhensherlock/watermark-js-plus/compare/v1.2.1...v1.3.0) (2023-08-31)
 
 
