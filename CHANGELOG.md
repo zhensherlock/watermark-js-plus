@@ -1,3 +1,13 @@
+## [1.3.2](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.1...v1.3.2) (2023-09-08)
+
+
+### 🎫 Chores | 其他更新
+
+* update dependency core-js to v3.32.2 ([#46](https://github.com/zhensherlock/watermark-js-plus/issues/46)) ([d3d808d](https://github.com/zhensherlock/watermark-js-plus/commit/d3d808d7ac8e6dec377f6e1b0c18565bc6ee6b14))
+* update dependency rollup to v3.29.0 ([#47](https://github.com/zhensherlock/watermark-js-plus/issues/47)) ([bc07b83](https://github.com/zhensherlock/watermark-js-plus/commit/bc07b835f0b0fbc524862997b39cdad5d41f6051))
+
+
+
 ## [1.3.1](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.0...v1.3.1) (2023-09-05)
 
 
