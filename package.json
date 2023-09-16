@@ -106,6 +106,6 @@
     "terser": "^5.19.4",
     "typescript": "^5.2.2",
     "unplugin-element-plus": "^0.8.0",
-    "vitepress": "^1.0.0-rc.12"
+    "vitepress": "^1.0.0-rc.13"
   }
 }
