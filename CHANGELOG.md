@@ -1,3 +1,17 @@
+## [1.3.5](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.4...v1.3.5) (2023-09-19)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update babel monorepo to v7.22.20 ([9152356](https://github.com/zhensherlock/watermark-js-plus/commit/915235623a4b86733bb51848f7e4ea529955dfbc))
+* **deps:** update dependency @typescript-eslint/parser to v6.7.2 ([4d791a4](https://github.com/zhensherlock/watermark-js-plus/commit/4d791a46c9c11415ed8b9563642a093e1b46bad2))
+* **deps:** update dependency vitepress to v1.0.0-rc.14 ([4f80bf9](https://github.com/zhensherlock/watermark-js-plus/commit/4f80bf9fd048a0f3e252d7373fa62914968857e6))
+* update babel monorepo to v7.22.20 (@babel/core, @babel/preset-env) ([#70](https://github.com/zhensherlock/watermark-js-plus/issues/70)) ([ce5be97](https://github.com/zhensherlock/watermark-js-plus/commit/ce5be970a0ce5ea78751c1e33fe6ea43d3c9c472))
+* update dependency @typescript-eslint/parser to v6.7.2 ([#71](https://github.com/zhensherlock/watermark-js-plus/issues/71)) ([e0ebb6d](https://github.com/zhensherlock/watermark-js-plus/commit/e0ebb6d1ab10d5221327e2109ae8a15f318a9b90))
+* update dependency vitepress to v1.0.0-rc.14 ([#72](https://github.com/zhensherlock/watermark-js-plus/issues/72)) ([8240c6e](https://github.com/zhensherlock/watermark-js-plus/commit/8240c6e0e3c07347e91f8e33c60bcb1641a04b3f))
+
+
+
 ## [1.3.4](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.3...v1.3.4) (2023-09-16)
 
 
