@@ -1,3 +1,13 @@
+## [1.3.6](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.5...v1.3.6) (2023-09-21)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency terser to v5.20.0 ([308fbaf](https://github.com/zhensherlock/watermark-js-plus/commit/308fbafb97f4ac542d19381c8c42f38c271b0b3a))
+* update dependency terser to v5.20.0 ([#76](https://github.com/zhensherlock/watermark-js-plus/issues/76)) ([3a22519](https://github.com/zhensherlock/watermark-js-plus/commit/3a22519a10899411cc720bcbd9b3a26e8829510f))
+
+
+
 ## [1.3.5](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.4...v1.3.5) (2023-09-19)
 
 
