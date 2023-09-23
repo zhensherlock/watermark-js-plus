@@ -1,3 +1,15 @@
+## [1.3.7](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.6...v1.3.7) (2023-09-23)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency autoprefixer to v10.4.16 ([4432e58](https://github.com/zhensherlock/watermark-js-plus/commit/4432e588d3d0f7b86a459c660e9a0186021e86e7))
+* **deps:** update dependency eslint to v8.50.0 ([1460ed0](https://github.com/zhensherlock/watermark-js-plus/commit/1460ed05e3e86b4b25499403603152e4b4e227a6))
+* update dependency autoprefixer to v10.4.16 ([#79](https://github.com/zhensherlock/watermark-js-plus/issues/79)) ([d320d2e](https://github.com/zhensherlock/watermark-js-plus/commit/d320d2e0cce9f212156d275c2b5b378030a815ea))
+* update dependency eslint to v8.50.0 ([#78](https://github.com/zhensherlock/watermark-js-plus/issues/78)) ([fa66778](https://github.com/zhensherlock/watermark-js-plus/commit/fa6677863db64cdcd95cacea197f925a62f29683))
+
+
+
 ## [1.3.6](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.5...v1.3.6) (2023-09-21)
 
 
