@@ -1,3 +1,19 @@
+## [1.3.9](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.8...v1.3.9) (2023-10-01)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency @commitlint/cli to v17.7.2 ([88e297a](https://github.com/zhensherlock/watermark-js-plus/commit/88e297a0181715e87d20f648ae1cc0881f7ddf8e))
+* **deps:** update dependency @typescript-eslint/parser to v6.7.3 ([9a9787e](https://github.com/zhensherlock/watermark-js-plus/commit/9a9787eae9433c9dad50a65ec73661bec2506b24))
+* **deps:** update dependency markdown-it to v13.0.2 ([5354921](https://github.com/zhensherlock/watermark-js-plus/commit/53549219337c3483f75846b258d5d2720b2eba4f))
+* **deps:** update dependency rollup to v3.29.4 ([8ba73c8](https://github.com/zhensherlock/watermark-js-plus/commit/8ba73c86e064795830210ecc6a6f77522b6d44ef))
+* update dependency @commitlint/cli to v17.7.2 ([#97](https://github.com/zhensherlock/watermark-js-plus/issues/97)) ([b5ed88e](https://github.com/zhensherlock/watermark-js-plus/commit/b5ed88e7f90e0bdff624f15b69fda21e06c3603c))
+* update dependency @typescript-eslint/parser to v6.7.3 ([#96](https://github.com/zhensherlock/watermark-js-plus/issues/96)) ([fb77d48](https://github.com/zhensherlock/watermark-js-plus/commit/fb77d48eb2ea40cd23ea838294054dbc7bd6451b))
+* update dependency markdown-it to v13.0.2 (markdown-it, @types/markdown-it) ([#95](https://github.com/zhensherlock/watermark-js-plus/issues/95)) ([e65f3cb](https://github.com/zhensherlock/watermark-js-plus/commit/e65f3cb96b57d62b3330bdaf2ddfb0b1c91f728d))
+* update dependency rollup to v3.29.4 ([#94](https://github.com/zhensherlock/watermark-js-plus/issues/94)) ([54bd1db](https://github.com/zhensherlock/watermark-js-plus/commit/54bd1db36dffc56a277359cc1edf03f606ff53a7))
+
+
+
 ## [1.3.8](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.7...v1.3.8) (2023-09-28)
 
 
