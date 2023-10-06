@@ -103,7 +103,7 @@
     "rollup-plugin-sass": "^1.12.20",
     "rollup-plugin-visualizer": "^5.9.2",
     "rollup-plugin-your-function": "^0.5.3",
-    "terser": "^5.20.0",
+    "terser": "^5.21.0",
     "typescript": "^5.2.2",
     "unplugin-element-plus": "^0.8.0",
     "vitepress": "^1.0.0-rc.20"
