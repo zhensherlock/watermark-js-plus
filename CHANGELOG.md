@@ -1,3 +1,24 @@
+## [1.3.10](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.9...v1.3.10) (2023-10-06)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency @rollup/plugin-replace to v5.0.3 ([b227fdb](https://github.com/zhensherlock/watermark-js-plus/commit/b227fdbc0cdd389dd5216aca58d79de954880d47))
+* **deps:** update dependency @rollup/plugin-strip to v3.0.3 ([d532eb6](https://github.com/zhensherlock/watermark-js-plus/commit/d532eb6f30c6307fd55d524cdc2de0f03ff6b4fc))
+* **deps:** update dependency @rollup/plugin-terser to v0.4.4 ([04d084a](https://github.com/zhensherlock/watermark-js-plus/commit/04d084aa581a74e99f9cf6740d62df084b193c18))
+* **deps:** update dependency @rollup/plugin-typescript to v11.1.5 ([1578255](https://github.com/zhensherlock/watermark-js-plus/commit/1578255b8d664ee93f9be9d7a45743351aca68f9))
+* **deps:** update dependency @typescript-eslint/parser to v6.7.4 ([3d99647](https://github.com/zhensherlock/watermark-js-plus/commit/3d99647ceae29ded07f5c59eaf9d90b8cfa25960))
+* **deps:** update dependency core-js to v3.33.0 ([122ce72](https://github.com/zhensherlock/watermark-js-plus/commit/122ce729d8b839cdefe9db8bb7791736c0746291))
+* **deps:** update dependency terser to v5.21.0 ([d5188f0](https://github.com/zhensherlock/watermark-js-plus/commit/d5188f0cc0acb233a9d33a199371e5d00c505516))
+* update dependency @rollup/plugin-replace to v5.0.3 ([#113](https://github.com/zhensherlock/watermark-js-plus/issues/113)) ([5313615](https://github.com/zhensherlock/watermark-js-plus/commit/5313615d0d3f6bb699a04dfce39f28e6f0ff12d7))
+* update dependency @rollup/plugin-strip to v3.0.3 ([#112](https://github.com/zhensherlock/watermark-js-plus/issues/112)) ([17b066a](https://github.com/zhensherlock/watermark-js-plus/commit/17b066a23aff124ff36de66f76f675aed4fe420e))
+* update dependency @rollup/plugin-typescript to v11.1.5 ([#116](https://github.com/zhensherlock/watermark-js-plus/issues/116)) ([67b6f8d](https://github.com/zhensherlock/watermark-js-plus/commit/67b6f8d72c06a133d55e09f77eafbaeb70325369))
+* update dependency @typescript-eslint/parser to v6.7.4 ([#110](https://github.com/zhensherlock/watermark-js-plus/issues/110)) ([7e1f97a](https://github.com/zhensherlock/watermark-js-plus/commit/7e1f97ad8e4a107d9276884a73c4ca968ff92d74))
+* update dependency core-js to v3.33.0 ([#109](https://github.com/zhensherlock/watermark-js-plus/issues/109)) ([f307604](https://github.com/zhensherlock/watermark-js-plus/commit/f30760465956f81803a7e756b0084d479a55d017))
+* update dependency terser to v5.21.0 ([#108](https://github.com/zhensherlock/watermark-js-plus/issues/108)) ([c8f90f7](https://github.com/zhensherlock/watermark-js-plus/commit/c8f90f795b106ec8c31b9e6537fd82c36e39d2b0))
+
+
+
 ## [1.3.9](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.8...v1.3.9) (2023-10-01)
 
 
