@@ -1,3 +1,25 @@
+## [1.3.11](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.10...v1.3.11) (2023-10-10)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency @rollup/plugin-babel to v6.0.4 ([69bc33f](https://github.com/zhensherlock/watermark-js-plus/commit/69bc33f67baa7b296135ff679e585dfa58b2e35e))
+* **deps:** update dependency @rollup/plugin-commonjs to v25.0.5 ([cc3707f](https://github.com/zhensherlock/watermark-js-plus/commit/cc3707fc755527898305459349e95c9980dd791a))
+* **deps:** update dependency @rollup/plugin-eslint to v9.0.5 ([15c10a2](https://github.com/zhensherlock/watermark-js-plus/commit/15c10a25a3bc67a2b3b68c2269e589ddc0ea4389))
+* **deps:** update dependency @rollup/plugin-node-resolve to v15.2.3 ([12cc16f](https://github.com/zhensherlock/watermark-js-plus/commit/12cc16f80ae7b4c47aba221fe5eca9f524bc415d))
+* **deps:** update dependency @typescript-eslint/parser to v6.7.5 ([628f43a](https://github.com/zhensherlock/watermark-js-plus/commit/628f43aa8b491384f3a42d3732c4632ee3bbf3ed))
+* **deps:** update dependency eslint to v8.51.0 ([10bcfe2](https://github.com/zhensherlock/watermark-js-plus/commit/10bcfe2f73b90fbd1c71b082409f90236eb3cd3b))
+* **deps:** update dependency rollup-plugin-sass to v1.12.21 ([6b1654c](https://github.com/zhensherlock/watermark-js-plus/commit/6b1654c15c3672cc7b5b602c1db8879a088491e1))
+* update dependency @rollup/plugin-babel to v6.0.4 ([#122](https://github.com/zhensherlock/watermark-js-plus/issues/122)) ([73e1014](https://github.com/zhensherlock/watermark-js-plus/commit/73e10142c9100a243eaf2eade8d4630d3c13228f))
+* update dependency @rollup/plugin-commonjs to v25.0.5 ([#123](https://github.com/zhensherlock/watermark-js-plus/issues/123)) ([7dd1213](https://github.com/zhensherlock/watermark-js-plus/commit/7dd1213378f94d99b0afbeef55e9dc93924fda54))
+* update dependency @rollup/plugin-eslint to v9.0.5 ([#124](https://github.com/zhensherlock/watermark-js-plus/issues/124)) ([1540f4f](https://github.com/zhensherlock/watermark-js-plus/commit/1540f4f21838ec6718a9ea1f82a29c9aa5886095))
+* update dependency @rollup/plugin-node-resolve to v15.2.3 ([#125](https://github.com/zhensherlock/watermark-js-plus/issues/125)) ([ed7da9c](https://github.com/zhensherlock/watermark-js-plus/commit/ed7da9ce57eedf087d1378d152195e80747be8d2))
+* update dependency @typescript-eslint/parser to v6.7.5 ([#126](https://github.com/zhensherlock/watermark-js-plus/issues/126)) ([26790e7](https://github.com/zhensherlock/watermark-js-plus/commit/26790e73d3f5e0472221e07497267921812d485e))
+* update dependency eslint to v8.51.0 ([#128](https://github.com/zhensherlock/watermark-js-plus/issues/128)) ([63835e3](https://github.com/zhensherlock/watermark-js-plus/commit/63835e375cfabaf2cd77a5e2a77c7a8bb3461a89))
+* update dependency rollup-plugin-sass to v1.12.21 ([#127](https://github.com/zhensherlock/watermark-js-plus/issues/127)) ([f56d649](https://github.com/zhensherlock/watermark-js-plus/commit/f56d6499ed8e3cb35cf125f640111ac890399e2b))
+
+
+
 ## [1.3.10](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.9...v1.3.10) (2023-10-06)
 
 
