@@ -5,11 +5,13 @@ layout: doc
 
 <script setup lang="ts">
 import { reactive, getCurrentInstance, onMounted } from 'vue';
-import { Watermark } from '../../../src';
 import { useData } from 'vitepress';
 import WatermarkOptionsForm from '../../components/WatermarkOptionsForm.vue';
 // import { cloneDeep } from 'lodash';
 import cloneDeep from 'lodash/cloneDeep';
+import { useAppStore } from '../../.vitepress/stores/app';
+
+const appStore = useAppStore();
 
 const { isDark } = useData();
 const app = getCurrentInstance();
@@ -23,26 +25,21 @@ let outputWatermarkOptions = reactive(
   cloneDeep(initialWatermarkOptions)
 )
 
-let watermark = null;
 onMounted(() => {
-  watermark = new Watermark(initialWatermarkOptions);
 });
 
 const handleAddWatermark = () => {
-  // if (isDark.value) {
-  //   watermark.options.fontColor = '#fff'
-  // }
-  watermark.create();
+  appStore.createWatermark(outputWatermarkOptions)
 };
 const handleRemoveWatermark = () => {
-  watermark.destroy();
+  appStore.removeWatermark()
 };
 const handleChangeOptions = (options) => {
   Object.keys(outputWatermarkOptions).forEach(key => {
     delete outputWatermarkOptions[key]
   })
   outputWatermarkOptions = Object.assign(outputWatermarkOptions, options)
-  watermark.changeOptions(options);
+  appStore.changeWatermark(options);
 };
 </script>
 

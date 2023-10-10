@@ -9,21 +9,21 @@ import { ref, getCurrentInstance, onMounted } from 'vue';
 import { Plus, Warning } from '@element-plus/icons-vue';
 import { BlindWatermark } from '../../src';
 import { useData } from 'vitepress';
+import { useAppStore } from '../.vitepress/stores/app';
 
+const appStore = useAppStore();
 const { isDark } = useData();
 const app = getCurrentInstance();
 const decodeBlindImageByLight = ref('');
 const decodeBlindImageByDark = ref('');
 
-let textBlindWatermark = null;
-let multiLineTextBlindWatermark = null;
-let imageBlindWatermark = null;
-let richTextBlindWatermark = null;
-
 onMounted(() => {
-  // text blind watermark
-  textBlindWatermark = new BlindWatermark({
+});
+
+const handleAddTextBlindWatermark = () => {
+  appStore.createWatermark({
     content: 'hello my watermark',
+    fontColor: isDark.value ? '#fff' : '#000',
     width: 200,
     height: 200,
     onSuccess: () => {
@@ -33,11 +33,17 @@ onMounted(() => {
         type: 'success'
       });
     }
-  });
-  // multiline blind text watermark
-  multiLineTextBlindWatermark = new BlindWatermark({
+  }, 'blind')
+};
+const handleRemoveTextBlindWatermark = () => {
+  appStore.removeWatermark();
+};
+
+const handleAddMultiLineTextBlindWatermark = () => {
+  appStore.createWatermark({
     contentType: 'multi-line-text',
     content: 'hello my multiline blind watermark',
+    fontColor: isDark.value ? '#fff' : '#000',
     fontSize: 30,
     width: 200,
     height: 200,
@@ -48,9 +54,14 @@ onMounted(() => {
         type: 'success'
       });
     }
-  });
-  // image blind watermark
-  imageBlindWatermark = new BlindWatermark({
+  }, 'blind')
+};
+const handleRemoveMultiLineTextBlindWatermark = () => {
+  appStore.removeWatermark();
+};
+
+const handleAddImageBlindWatermark = () => {
+  appStore.createWatermark({
     contentType: 'image',
     image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
     imageWidth: 200,
@@ -60,15 +71,20 @@ onMounted(() => {
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
         appendTo: '#app',
-        message: '!The image blind watermark added successfully',
+        message: 'The image blind watermark added successfully!',
         type: 'success'
       });
     }
-  });
-  // rich text blind watermark
-  richTextBlindWatermark = new BlindWatermark({
+  }, 'blind')
+};
+const handleRemoveImageBlindWatermark = () => {
+  appStore.removeWatermark();
+};
+
+const handleAddRichTextBlindWatermark = () => {
+  appStore.createWatermark({
     contentType: 'rich-text',
-    content: '<div style="background: #ccc;">The watermark is so <span style="color: #f00">good</span>.</div>',
+    content: '<div><span style="color: #f00">good</span> watermark</div>',
     width: 300,
     height: 300,
     onSuccess: () => {
@@ -78,41 +94,10 @@ onMounted(() => {
         type: 'success'
       });
     }
-  });
-})
-
-const handleAddTextBlindWatermark = () => {
-  if (isDark.value) {
-    textBlindWatermark.options.fontColor = '#fff'
-  }
-  textBlindWatermark.create();
-};
-const handleRemoveTextBlindWatermark = () => {
-  textBlindWatermark.destroy();
-};
-
-const handleAddMultiLineTextBlindWatermark = () => {
-  if (isDark.value) {
-    multiLineTextBlindWatermark.options.fontColor = '#fff'
-  }
-  multiLineTextBlindWatermark.create();
-};
-const handleRemoveMultiLineTextBlindWatermark = () => {
-  multiLineTextBlindWatermark.destroy();
-};
-
-const handleAddImageBlindWatermark = () => {
-  imageBlindWatermark.create();
-};
-const handleRemoveImageBlindWatermark = () => {
-  imageBlindWatermark.destroy();
-};
-
-const handleAddRichTextBlindWatermark = () => {
-  richTextBlindWatermark.create();
+  }, 'blind')
 };
 const handleRemoveRichTextBlindWatermark = () => {
-  richTextBlindWatermark.destroy();
+  appStore.removeWatermark();
 };
 
 // decode blind watermark
@@ -238,7 +223,7 @@ import { BlindWatermark } from 'watermark-js-plus' // import watermark plugin
 
 const watermark = new BlindWatermark({
   contentType: 'rich-text',
-  content: '<div style="background: #ccc;">The watermark is so <span style="color: #f00">good</span>.</div>',
+  content: '<div><span style="color: #f00">good</span> watermark</div>',
   width: 300,
   height: 300,
   onSuccess: () => {
