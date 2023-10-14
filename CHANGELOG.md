@@ -13,6 +13,11 @@
 * update dependency vitepress to v1.0.0-rc.21 ([#134](https://github.com/zhensherlock/watermark-js-plus/issues/134)) ([4f2cba8](https://github.com/zhensherlock/watermark-js-plus/commit/4f2cba8c04295815ac99f748690f02c195b50c23))
 
 
+### 🐛 Bug Fixes | Bug 修复
+
+* compile failure ([115c6ec](https://github.com/zhensherlock/watermark-js-plus/commit/115c6ece154255f78b9f0b7945226a7f56c35bb1))
+
+
 
 ## [1.3.11](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.10...v1.3.11) (2023-10-10)
 
