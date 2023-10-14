@@ -1,3 +1,19 @@
+## [1.3.12](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.11...v1.3.12) (2023-10-14)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update babel monorepo to v7.23.2 ([1ebf8c4](https://github.com/zhensherlock/watermark-js-plus/commit/1ebf8c4396eaa428c38c8081b9a24e5064c04f90))
+* **deps:** update dependency element-plus to v2.4.0 ([a7a156f](https://github.com/zhensherlock/watermark-js-plus/commit/a7a156fd5f389a50b8b21d45c01ab2eb9f4bc0dd))
+* **deps:** update dependency pinia to v2.1.7 ([2ce6d54](https://github.com/zhensherlock/watermark-js-plus/commit/2ce6d540cc617107ac96e3360d07c6a2788e498d))
+* **deps:** update dependency vitepress to v1.0.0-rc.21 ([4b96534](https://github.com/zhensherlock/watermark-js-plus/commit/4b965345f4a940f5ec11182c69c11d10ce87d680))
+* update babel monorepo to v7.23.2 ([#136](https://github.com/zhensherlock/watermark-js-plus/issues/136)) ([bd23a4e](https://github.com/zhensherlock/watermark-js-plus/commit/bd23a4e9dad549b300c03a00047e3762183fc49e))
+* update dependency element-plus to v2.4.0 ([#133](https://github.com/zhensherlock/watermark-js-plus/issues/133)) ([a134a00](https://github.com/zhensherlock/watermark-js-plus/commit/a134a00ce3d222940c3123c441d73b81fd6db886))
+* update dependency pinia to v2.1.7 ([#135](https://github.com/zhensherlock/watermark-js-plus/issues/135)) ([4b821bf](https://github.com/zhensherlock/watermark-js-plus/commit/4b821bf86f7b566cbe1ed27488c3bd26515c94dc))
+* update dependency vitepress to v1.0.0-rc.21 ([#134](https://github.com/zhensherlock/watermark-js-plus/issues/134)) ([4f2cba8](https://github.com/zhensherlock/watermark-js-plus/commit/4f2cba8c04295815ac99f748690f02c195b50c23))
+
+
+
 ## [1.3.11](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.10...v1.3.11) (2023-10-10)
 
 
