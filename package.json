@@ -75,7 +75,7 @@
     "@rollup/plugin-eslint": "^9.0.5",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-replace": "^5.0.3",
-    "@rollup/plugin-strip": "^3.0.3",
+    "@rollup/plugin-strip": "^3.0.4",
     "@rollup/plugin-terser": "0.4.4",
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/markdown-it": "^13.0.2",
