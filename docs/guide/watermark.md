@@ -380,7 +380,10 @@ watermark.create() // add watermark
 
 watermark.destroy() // remove watermark
 ```
-<div class="parent-element" style="width: 400px;height: 400px;border: 1px solid #333;margin-top: 10px;position: relative;">
+<div class="parent-element" style="border: 1px solid #333;width: 400px;height: 400px;margin-top: 10px;position: relative;overflow: hidden;">
+  <div class="scroll-list" style="overflow: auto;width: 400px;height: 400px;">
+    <div v-for="(item, index) in Array.from({length: 100})">{{index + 1}}</div>
+  </div>
 </div>
 <el-affix target=".child-element-watermark" position="bottom" :offset="0" z-index="1000">
   <el-space class="block-operation">
