@@ -82,7 +82,7 @@
     "@typescript-eslint/parser": "^6.8.0",
     "@vue/theme": "^2.2.4",
     "autoprefixer": "^10.4.16",
-    "concurrently": "^8.2.1",
+    "concurrently": "^8.2.2",
     "conventional-changelog-angular": "^7.0.0",
     "conventional-changelog-cli": "^4.1.0",
     "core-js": "^3.33.1",
