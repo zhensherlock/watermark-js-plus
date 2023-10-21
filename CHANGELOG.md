@@ -1,3 +1,27 @@
+## [1.3.14](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.13...v1.3.14) (2023-10-21)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update commitlint monorepo to v17.8.1 ([ece2e37](https://github.com/zhensherlock/watermark-js-plus/commit/ece2e3738a4ad018b5fb9f0b190535b248d23699))
+* **deps:** update commitlint monorepo to v18 ([6c12217](https://github.com/zhensherlock/watermark-js-plus/commit/6c122176c055dcc97c87656c2a146f282362df9f))
+* **deps:** update dependency @types/markdown-it to v13.0.4 ([7d4d487](https://github.com/zhensherlock/watermark-js-plus/commit/7d4d48787e73c2ae394f8ceb3baf1c79ad5581fc))
+* **deps:** update dependency concurrently to v8.2.2 ([d24e2f4](https://github.com/zhensherlock/watermark-js-plus/commit/d24e2f48b30caf8fe9c41bba9ee803c5567c7cc8))
+* **deps:** update dependency core-js to v3.33.1 ([5a22ff2](https://github.com/zhensherlock/watermark-js-plus/commit/5a22ff22780f0f40ca6d3c77c9db1670dd704b06))
+* **deps:** update dependency element-plus to v2.4.1 ([1d43407](https://github.com/zhensherlock/watermark-js-plus/commit/1d43407b001b60409e628150cb80d5307e8ee933))
+* **deps:** update dependency eslint to v8.52.0 ([d49c7a5](https://github.com/zhensherlock/watermark-js-plus/commit/d49c7a59f52015b90beaa499702bce29d0225d93))
+* **deps:** update dependency lint-staged to v15.0.2 ([ac3e3ee](https://github.com/zhensherlock/watermark-js-plus/commit/ac3e3ee40a43890c831d52c11d49d61df7fc8ec4))
+* **deps:** update dependency vue to v3.3.6 ([147d086](https://github.com/zhensherlock/watermark-js-plus/commit/147d086e4f1a1b9aaafe87465ae69283e768d1fa))
+* update dependency @types/markdown-it to v13.0.4 ([#169](https://github.com/zhensherlock/watermark-js-plus/issues/169)) ([a38fbc7](https://github.com/zhensherlock/watermark-js-plus/commit/a38fbc79ea13b087457845bbe3f77700133c97ff))
+* update dependency concurrently to v8.2.2 ([#168](https://github.com/zhensherlock/watermark-js-plus/issues/168)) ([abad478](https://github.com/zhensherlock/watermark-js-plus/commit/abad478c7458dfb0b1472bd0c17730af29fa922a))
+* update dependency core-js to v3.33.1 ([#167](https://github.com/zhensherlock/watermark-js-plus/issues/167)) ([082aac9](https://github.com/zhensherlock/watermark-js-plus/commit/082aac952e0fb1f9741cef6851efd2fa9a7e799f))
+* update dependency element-plus to v2.4.1 ([#166](https://github.com/zhensherlock/watermark-js-plus/issues/166)) ([f4bde14](https://github.com/zhensherlock/watermark-js-plus/commit/f4bde1434b503d61a91990f95455c169d5f2bf81))
+* update dependency eslint to v8.52.0 ([#163](https://github.com/zhensherlock/watermark-js-plus/issues/163)) ([0ca0076](https://github.com/zhensherlock/watermark-js-plus/commit/0ca00766e7d33df4c9df530b50de3c521203a684))
+* update dependency lint-staged to v15.0.2 ([#165](https://github.com/zhensherlock/watermark-js-plus/issues/165)) ([7dc793f](https://github.com/zhensherlock/watermark-js-plus/commit/7dc793f927fee3c214d1b817e26f8f5eb9c4a078))
+* update dependency vue to v3.3.6 ([#164](https://github.com/zhensherlock/watermark-js-plus/issues/164)) ([602eb2d](https://github.com/zhensherlock/watermark-js-plus/commit/602eb2dc0517f7d28c20f81be0421f3df4375a5b))
+
+
+
 ## [1.3.13](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.12...v1.3.13) (2023-10-18)
 
 
