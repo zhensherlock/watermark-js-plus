@@ -1,3 +1,24 @@
+## [1.3.15](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.14...v1.3.15) (2023-10-26)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update actions/setup-node action to v4 ([191c8d6](https://github.com/zhensherlock/watermark-js-plus/commit/191c8d6c6ff380c9fc77d0d17b9a5ea8e2ae81ae))
+* **deps:** update commitlint monorepo to v18.1.0 ([b8867f4](https://github.com/zhensherlock/watermark-js-plus/commit/b8867f4f5a3a089fc685b4319d9862b286d45d80))
+* **deps:** update dependency @types/markdown-it to v13.0.5 ([6b8c78c](https://github.com/zhensherlock/watermark-js-plus/commit/6b8c78cacbffde709571e26843442ac23526e372))
+* **deps:** update dependency @typescript-eslint/parser to v6.9.0 ([17a6939](https://github.com/zhensherlock/watermark-js-plus/commit/17a69398530f7d0839fe2401f363d82248a0953b))
+* **deps:** update dependency eslint-plugin-import to v2.29.0 ([7fd11b3](https://github.com/zhensherlock/watermark-js-plus/commit/7fd11b3edd361b12bcc87f7a3342c943b9f554a0))
+* **deps:** update dependency vitepress to v1.0.0-rc.24 ([ff9652f](https://github.com/zhensherlock/watermark-js-plus/commit/ff9652f87503d6f57219e1c5bd309c3f3d63d820))
+* **deps:** update dependency vue to v3.3.7 ([78a5a65](https://github.com/zhensherlock/watermark-js-plus/commit/78a5a652a6336e3fcf5789b19b7cc4ad23780872))
+* update commitlint monorepo to v18.1.0 ([#177](https://github.com/zhensherlock/watermark-js-plus/issues/177)) ([e93bf55](https://github.com/zhensherlock/watermark-js-plus/commit/e93bf557934eac5468deb390665b96da8b9bf7fb))
+* update dependency @types/markdown-it to v13.0.5 ([#179](https://github.com/zhensherlock/watermark-js-plus/issues/179)) ([d0a88ed](https://github.com/zhensherlock/watermark-js-plus/commit/d0a88ed043f7b1ff7ea7503a6f90e179d3528cf8))
+* update dependency @typescript-eslint/parser to v6.9.0 ([387552e](https://github.com/zhensherlock/watermark-js-plus/commit/387552e4767deb30cbcdbf551b68b4add92b9b77))
+* update dependency eslint-plugin-import to v2.29.0 ([95d8563](https://github.com/zhensherlock/watermark-js-plus/commit/95d856390c58602e4ed63f49483c42c9aac32602))
+* update dependency rollup to v4.1.4 ([443baa7](https://github.com/zhensherlock/watermark-js-plus/commit/443baa79b3d50e98dacfc3f7577d591f676054a2))
+* update dependency vue to v3.3.7 ([#178](https://github.com/zhensherlock/watermark-js-plus/issues/178)) ([13df3b4](https://github.com/zhensherlock/watermark-js-plus/commit/13df3b4d4aca43e6b54b31ee6f8bb6dc113e1ca2))
+
+
+
 ## [1.3.14](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.13...v1.3.14) (2023-10-21)
 
 
