@@ -1,3 +1,17 @@
+## [1.3.16](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.15...v1.3.16) (2023-10-30)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency @commitlint/cli to v18.2.0 ([060625a](https://github.com/zhensherlock/watermark-js-plus/commit/060625a92c28e7d222fd449288a62743462b4af1))
+* **deps:** update dependency @rollup/plugin-replace to v5.0.5 ([9a13852](https://github.com/zhensherlock/watermark-js-plus/commit/9a13852ce7b106a73de134272b13a78fe139ff6b))
+* **deps:** update dependency @vue/theme to v2.2.5 ([e18cae9](https://github.com/zhensherlock/watermark-js-plus/commit/e18cae9c37b240eb2fb2829ff13596df011d3cac))
+* update dependency @commitlint/cli to v18.2.0 ([#183](https://github.com/zhensherlock/watermark-js-plus/issues/183)) ([ed6630a](https://github.com/zhensherlock/watermark-js-plus/commit/ed6630ab95d403ee29f4240e0a204ee52dd7debb))
+* update dependency @rollup/plugin-replace to v5.0.5 ([#185](https://github.com/zhensherlock/watermark-js-plus/issues/185)) ([bc50698](https://github.com/zhensherlock/watermark-js-plus/commit/bc50698d283c0d09dc3511275715169a8eb68c0d))
+* update dependency @vue/theme to v2.2.5 ([#84](https://github.com/zhensherlock/watermark-js-plus/issues/84)) ([2564e14](https://github.com/zhensherlock/watermark-js-plus/commit/2564e14c3e9386248d88eb87c09f407da2577bd5))
+
+
+
 ## [1.3.15](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.14...v1.3.15) (2023-10-26)
 
 
