@@ -1,3 +1,21 @@
+## [1.3.18](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.17...v1.3.18) (2023-11-07)
+
+
+### 🎫 Chores | 其他更新
+
+* update dependency @typescript-eslint/parser to v6.10.0 ([#199](https://github.com/zhensherlock/watermark-js-plus/issues/199)) ([b2af10e](https://github.com/zhensherlock/watermark-js-plus/commit/b2af10ecbe484a57a83485db17d8bf17243bdc1e))
+* update dependency element-plus to v2.4.2 ([#202](https://github.com/zhensherlock/watermark-js-plus/issues/202)) ([e1ae3b9](https://github.com/zhensherlock/watermark-js-plus/commit/e1ae3b9475dcf92038006caabcfffe4dd928ed49))
+* update dependency eslint to v8.53.0 ([#198](https://github.com/zhensherlock/watermark-js-plus/issues/198)) ([1195571](https://github.com/zhensherlock/watermark-js-plus/commit/1195571abc9a5ac9aaf3a1e931cd669dd17199de))
+* update dependency vitepress to v1.0.0-rc.25 ([#201](https://github.com/zhensherlock/watermark-js-plus/issues/201)) ([fbd72bb](https://github.com/zhensherlock/watermark-js-plus/commit/fbd72bbc2d623c5868e8fd4c410110944913ae97))
+* update dependency vue to v3.3.8 ([#200](https://github.com/zhensherlock/watermark-js-plus/issues/200)) ([0af57d5](https://github.com/zhensherlock/watermark-js-plus/commit/0af57d5a221c03d4ba5f44af15d71b845198ee51))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* decode blind watermark does not support dark mode ([#195](https://github.com/zhensherlock/watermark-js-plus/issues/195)) ([efc73a1](https://github.com/zhensherlock/watermark-js-plus/commit/efc73a15cdea8c9a03f0c48c48f34a58ab957095))
+
+
+
 ## [1.3.17](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.16...v1.3.17) (2023-11-03)
 
 
