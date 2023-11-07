@@ -125,6 +125,7 @@ export interface DecodeBlindWatermarkOptions {
   fillColor: string;
   compositeOperation: string;
   mode: DecodeBlindWatermarkModeType;
+  compositeTimes: number;
   onSuccess: Function;
 }
 

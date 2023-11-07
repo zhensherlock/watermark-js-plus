@@ -104,6 +104,7 @@ const handleRemoveRichTextBlindWatermark = () => {
 const handleSuccessByLight = (uploadFile) => {
   BlindWatermark.decode({
     url: uploadFile.url,
+    compositeTimes: 3,
     onSuccess: (imageBase64) => {
       decodeBlindImageByLight.value = imageBase64
     }
@@ -114,6 +115,7 @@ const handleSuccessByDark = (uploadFile) => {
     compositeOperation: 'overlay',
     fillColor: '#fff',
     url: uploadFile.url,
+    compositeTimes: 3,
     onSuccess: (imageBase64) => {
       decodeBlindImageByDark.value = imageBase64
     }

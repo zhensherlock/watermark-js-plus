@@ -26,7 +26,8 @@ class BlindWatermark extends Watermark {
       url: '',
       fillColor: '#000',
       compositeOperation: 'color-burn',
-      mode: 'canvas'
+      mode: 'canvas',
+      compositeTimes: 3
     }, props)
     if (!options.url) {
       return
@@ -44,7 +45,9 @@ class BlindWatermark extends Watermark {
         ctx.drawImage(img, 0, 0, width, height)
         ctx.globalCompositeOperation = options.compositeOperation as any
         ctx.fillStyle = options.fillColor
-        ctx.fillRect(0, 0, width, height)
+        for (let i = 0; i < options.compositeTimes; i++) {
+          ctx.fillRect(0, 0, width, height)
+        }
         const resultImage = convertImage(canvas)
         if (options.onSuccess && isFunction(options.onSuccess)) {
           options.onSuccess?.(resultImage)
