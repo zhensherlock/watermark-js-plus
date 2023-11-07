@@ -107,7 +107,7 @@
     "terser": "^5.24.0",
     "typescript": "^5.2.2",
     "unplugin-element-plus": "^0.8.0",
-    "vitepress": "1.0.0-rc.24",
+    "vitepress": "1.0.0-rc.25",
     "vue": "^3.3.8"
   }
 }
