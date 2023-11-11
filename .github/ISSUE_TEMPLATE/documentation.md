@@ -1,6 +1,6 @@
 ---
 name: "📝 Documentation (文档相关)"
-about: 修复或补充文档
+about: 'Repair or supplement documentation（修复或补充文档）'
 labels: '📝 Documentation'
 ---
 

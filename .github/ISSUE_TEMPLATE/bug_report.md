@@ -1,6 +1,6 @@
 ---
 name: "🐛 Bug Report (缺陷反馈)"
-about: '报告错误以帮助我们改进'
+about: 'Report errors to help us improve（报告错误以帮助我们改进）'
 labels: '🐛 Bug'
 ---
 

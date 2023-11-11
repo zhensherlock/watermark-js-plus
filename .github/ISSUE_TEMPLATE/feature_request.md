@@ -1,6 +1,6 @@
 ---
 name: '✨ Feature request（新需求）'
-about: '提出新的功能需求'
+about: 'Propose new functional requirements（提出新的功能需求）'
 labels: '✨ Feature Request'
 ---
 

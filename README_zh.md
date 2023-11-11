@@ -82,6 +82,24 @@ BlindWatermark.decode({
 
 要了解更多，请查看[文档](https://zhensherlock.github.io/watermark-js-plus)
 
-## License
+## 维护者
 
-[MIT](LICENSE).
+[@zhensherlock](https://github.com/zhensherlock)。
+
+## 如何贡献
+
+非常欢迎你的加入！[提一个 Issue](https://github.com/zhensherlock/watermark-js-plus/issues/new/choose) 或者提交一个 Pull Request。
+
+标准 Readme 遵循 [Contributor Covenant](http://contributor-covenant.org/version/1/3/0/) 行为规范。
+
+### 贡献者
+
+感谢以下参与项目的人：
+
+<a href="https://github.com/zhensherlock/watermark-js-plus/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=zhensherlock/watermark-js-plus" />
+</a>
+
+## 使用许可
+
+[MIT](LICENSE) © MichaelSun
