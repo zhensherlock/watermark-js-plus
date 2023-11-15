@@ -93,7 +93,7 @@
     "eslint-config-semistandard": "^17.0.0",
     "eslint-plugin-import": "^2.29.0",
     "husky": "^8.0.3",
-    "lint-staged": "^15.0.2",
+    "lint-staged": "^15.1.0",
     "lodash": "^4.17.21",
     "markdown-it": "^13.0.2",
     "pinia": "^2.1.7",
