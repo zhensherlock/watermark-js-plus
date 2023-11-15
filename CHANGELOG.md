@@ -1,3 +1,17 @@
+## [1.3.20](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.19...v1.3.20) (2023-11-15)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency @commitlint/cli to v18.4.1 ([cf6294c](https://github.com/zhensherlock/watermark-js-plus/commit/cf6294cd826c942bb1a650c51d7e81e6c413c03a))
+* **deps:** update dependency @typescript-eslint/parser to v6.11.0 ([44856dc](https://github.com/zhensherlock/watermark-js-plus/commit/44856dc7226c74c0a2cde21c712d88078a10620f))
+* **deps:** update dependency lint-staged to v15.1.0 ([0ddd824](https://github.com/zhensherlock/watermark-js-plus/commit/0ddd8243fafbbaa31ae787852bc8a20788072b4e))
+* update dependency @commitlint/cli to v18.4.1 ([#215](https://github.com/zhensherlock/watermark-js-plus/issues/215)) ([aaf2f18](https://github.com/zhensherlock/watermark-js-plus/commit/aaf2f1806df27a63bfa6968a4270d0e704c5adfb))
+* update dependency @typescript-eslint/parser to v6.11.0 ([#214](https://github.com/zhensherlock/watermark-js-plus/issues/214)) ([2125f6b](https://github.com/zhensherlock/watermark-js-plus/commit/2125f6bd741d938040e5fcd5b52656060fa16060))
+* update dependency lint-staged to v15.1.0 ([#213](https://github.com/zhensherlock/watermark-js-plus/issues/213)) ([25e8d9d](https://github.com/zhensherlock/watermark-js-plus/commit/25e8d9df4674c8eb9de4a24dbc057add0c981304))
+
+
+
 ## [1.3.19](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.18...v1.3.19) (2023-11-11)
 
 
