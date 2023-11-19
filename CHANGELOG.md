@@ -1,3 +1,16 @@
+## [1.3.21](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.20...v1.3.21) (2023-11-19)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update commitlint monorepo to v18.4.2 ([b4db3f8](https://github.com/zhensherlock/watermark-js-plus/commit/b4db3f8b6eca24d5818c2bb2e9ad0ead49941be5))
+* **deps:** update dependency eslint to v8.54.0 ([93f95ec](https://github.com/zhensherlock/watermark-js-plus/commit/93f95ec776c42f75729e54f3ad977c0e7d989fa4))
+* **deps:** update dependency vitepress to v1.0.0-rc.28 ([c7850c1](https://github.com/zhensherlock/watermark-js-plus/commit/c7850c1c00027358e14b682290856a9e0e2cdd43))
+* update commitlint monorepo to v18.4.2 ([#221](https://github.com/zhensherlock/watermark-js-plus/issues/221)) ([05b3497](https://github.com/zhensherlock/watermark-js-plus/commit/05b3497e67cb0eb801f3b51929e4688b8f5b56e7))
+* update dependency eslint to v8.54.0 ([#219](https://github.com/zhensherlock/watermark-js-plus/issues/219)) ([385c2c7](https://github.com/zhensherlock/watermark-js-plus/commit/385c2c7b711da445abd96b89d185494348b4744c))
+
+
+
 ## [1.3.20](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.19...v1.3.20) (2023-11-15)
 
 
