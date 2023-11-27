@@ -1,3 +1,16 @@
+## [1.3.23](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.22...v1.3.23) (2023-11-27)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency rollup-plugin-visualizer to v5.9.3 ([6167df7](https://github.com/zhensherlock/watermark-js-plus/commit/6167df79c1667ad95f740154fc35b5bcfcda89f9))
+* **deps:** update dependency vitepress to v1.0.0-rc.31 ([f985c4b](https://github.com/zhensherlock/watermark-js-plus/commit/f985c4b4d5f9ce9329a9a67a16d06228f7130f40))
+* **deps:** update dependency vue to v3.3.9 ([b219512](https://github.com/zhensherlock/watermark-js-plus/commit/b219512b22d2c4aaf9e6b33058f7d9a4bb07845f))
+* update dependency rollup-plugin-visualizer to v5.9.3 ([#242](https://github.com/zhensherlock/watermark-js-plus/issues/242)) ([2058e46](https://github.com/zhensherlock/watermark-js-plus/commit/2058e463f4cf585d1144417cfb88a4be22f2a77c))
+* update dependency vue to v3.3.9 ([#240](https://github.com/zhensherlock/watermark-js-plus/issues/240)) ([2c35792](https://github.com/zhensherlock/watermark-js-plus/commit/2c35792c32296f2d3a4578947e2d05805a1dc13e))
+
+
+
 ## [1.3.22](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.21...v1.3.22) (2023-11-23)
 
 
