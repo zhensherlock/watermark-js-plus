@@ -1,3 +1,19 @@
+## [1.3.24](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.23...v1.3.24) (2023-12-01)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update babel monorepo to v7.23.5 ([81cab37](https://github.com/zhensherlock/watermark-js-plus/commit/81cab37ba1d827ef18958a4e1f01f63e569fc092))
+* **deps:** update dependency @element-plus/icons-vue to v2.3.1 ([3a146a0](https://github.com/zhensherlock/watermark-js-plus/commit/3a146a079fd8c15743c253bf0fdb53e98d0fe557))
+* **deps:** update dependency @typescript-eslint/parser to v6.13.1 ([47bc061](https://github.com/zhensherlock/watermark-js-plus/commit/47bc0610d112adefcaca1e3518a73b22ea38b392))
+* **deps:** update dependency element-plus to v2.4.3 ([4166c0c](https://github.com/zhensherlock/watermark-js-plus/commit/4166c0c9816991587f10a3d95a43cc7f614297a3))
+* update babel monorepo to v7.23.5 ([#250](https://github.com/zhensherlock/watermark-js-plus/issues/250)) ([689e76b](https://github.com/zhensherlock/watermark-js-plus/commit/689e76b420773ca8dea5c73d45c318e11fbe5617))
+* update dependency @element-plus/icons-vue to v2.3.1 ([#248](https://github.com/zhensherlock/watermark-js-plus/issues/248)) ([ee81592](https://github.com/zhensherlock/watermark-js-plus/commit/ee8159274ba5a39808f66f2af2ed47d79383d7bf))
+* update dependency @typescript-eslint/parser to v6.13.1 ([#247](https://github.com/zhensherlock/watermark-js-plus/issues/247)) ([d3c61a5](https://github.com/zhensherlock/watermark-js-plus/commit/d3c61a5062861bdc4fc8a526d38f6ef0fcb7a672))
+* update dependency element-plus to v2.4.3 ([#249](https://github.com/zhensherlock/watermark-js-plus/issues/249)) ([f4cbbe4](https://github.com/zhensherlock/watermark-js-plus/commit/f4cbbe491e53848957a5a7f08a266c103b74d62d))
+
+
+
 ## [1.3.23](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.22...v1.3.23) (2023-11-27)
 
 
