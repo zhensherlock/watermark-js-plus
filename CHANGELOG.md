@@ -1,3 +1,23 @@
+## [1.3.25](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.24...v1.3.25) (2023-12-05)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency @typescript-eslint/parser to v6.13.2 ([4e4cd52](https://github.com/zhensherlock/watermark-js-plus/commit/4e4cd52a38b08e47ad5f892f9279e6ed38584d77))
+* **deps:** update dependency eslint to v8.55.0 ([141e186](https://github.com/zhensherlock/watermark-js-plus/commit/141e186e99bdecdefc554a467ffc2659c541c2a8))
+* **deps:** update dependency lint-staged to v15.2.0 ([4528ea6](https://github.com/zhensherlock/watermark-js-plus/commit/4528ea68199f3156e3126230141d0988eb10d22a))
+* **deps:** update dependency rollup-plugin-visualizer to v5.10.0 ([792090f](https://github.com/zhensherlock/watermark-js-plus/commit/792090f74d8029d777a712cdbec1b3ff6a18dbe7))
+* **deps:** update dependency terser to v5.25.0 ([a7825d9](https://github.com/zhensherlock/watermark-js-plus/commit/a7825d935041280e5ea3ea0f702753a80ed0cb0c))
+* **deps:** update dependency vue to v3.3.10 ([7b69c6f](https://github.com/zhensherlock/watermark-js-plus/commit/7b69c6f26ebef2aa48627317703fd48acf6490b8))
+* update dependency @typescript-eslint/parser to v6.13.2 ([#262](https://github.com/zhensherlock/watermark-js-plus/issues/262)) ([fbc4a2a](https://github.com/zhensherlock/watermark-js-plus/commit/fbc4a2acdf541b594acc65706b9b63158c10d490))
+* update dependency eslint to v8.55.0 ([#260](https://github.com/zhensherlock/watermark-js-plus/issues/260)) ([591512b](https://github.com/zhensherlock/watermark-js-plus/commit/591512b03cb640bdd75676f05f5f308e5ee81070))
+* update dependency lint-staged to v15.2.0 ([#259](https://github.com/zhensherlock/watermark-js-plus/issues/259)) ([8ee8ce8](https://github.com/zhensherlock/watermark-js-plus/commit/8ee8ce8fc13fd0f3c1321f75de6d7537c21097ff))
+* update dependency rollup-plugin-visualizer to v5.10.0 ([#258](https://github.com/zhensherlock/watermark-js-plus/issues/258)) ([14dc7f8](https://github.com/zhensherlock/watermark-js-plus/commit/14dc7f89906a06258ce3ee62b3258da5a94298ee))
+* update dependency terser to v5.25.0 ([#257](https://github.com/zhensherlock/watermark-js-plus/issues/257)) ([26d8320](https://github.com/zhensherlock/watermark-js-plus/commit/26d832055e981f6b9f87a027441c00e0fa92d02d))
+* update dependency vue to v3.3.10 ([#261](https://github.com/zhensherlock/watermark-js-plus/issues/261)) ([0e4a35f](https://github.com/zhensherlock/watermark-js-plus/commit/0e4a35f30d0ed94823afd299582a41726af03292))
+
+
+
 ## [1.3.24](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.23...v1.3.24) (2023-12-01)
 
 
