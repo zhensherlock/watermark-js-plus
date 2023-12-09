@@ -1,3 +1,20 @@
+## [1.3.26](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.25...v1.3.26) (2023-12-09)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency core-js to v3.34.0 ([b273e58](https://github.com/zhensherlock/watermark-js-plus/commit/b273e58a667c9aea4f94a68f93331dfc5ebc7f2f))
+* **deps:** update dependency markdown-it to v14 ([1f46f16](https://github.com/zhensherlock/watermark-js-plus/commit/1f46f16441881e7e1be5756ce8bfe0afab1cb6df))
+* **deps:** update dependency terser to v5.26.0 ([f5ca12f](https://github.com/zhensherlock/watermark-js-plus/commit/f5ca12f37d7f30d90eb1b82a426fcc92208f4c96))
+* **deps:** update dependency typescript to v5.3.3 ([201b4aa](https://github.com/zhensherlock/watermark-js-plus/commit/201b4aa5bfc8427d895fe150bdb7d5532fac05a9))
+* **deps:** update dependency vue to v3.3.11 ([4588fd5](https://github.com/zhensherlock/watermark-js-plus/commit/4588fd5d0c523a6dfa9b2aab0fc32be09175f3bc))
+* update dependency core-js to v3.34.0 ([#269](https://github.com/zhensherlock/watermark-js-plus/issues/269)) ([6315e0b](https://github.com/zhensherlock/watermark-js-plus/commit/6315e0bf6f81b7ee71917f8bff14a5e288a3e1db))
+* update dependency terser to v5.26.0 ([#268](https://github.com/zhensherlock/watermark-js-plus/issues/268)) ([f375d8f](https://github.com/zhensherlock/watermark-js-plus/commit/f375d8fa640a4f49274e9bc9dd7b1d31f5b2557e))
+* update dependency typescript to v5.3.3 ([#271](https://github.com/zhensherlock/watermark-js-plus/issues/271)) ([4138ec2](https://github.com/zhensherlock/watermark-js-plus/commit/4138ec28dfc2bb78cae81b50e8741a21c476dc35))
+* update dependency vue to v3.3.11 ([#270](https://github.com/zhensherlock/watermark-js-plus/issues/270)) ([8f9afc8](https://github.com/zhensherlock/watermark-js-plus/commit/8f9afc87cc8158ce4c5f15d4beebcdc86fbd2376))
+
+
+
 ## [1.3.25](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.24...v1.3.25) (2023-12-05)
 
 
