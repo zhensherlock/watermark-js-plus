@@ -1,3 +1,17 @@
+## [1.3.27](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.26...v1.3.27) (2023-12-13)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update babel monorepo to v7.23.6 ([a7eec02](https://github.com/zhensherlock/watermark-js-plus/commit/a7eec02b895e30b30c82497bde1bfbcc4ab33ccc))
+* **deps:** update dependency @typescript-eslint/parser to v6.14.0 ([0674e53](https://github.com/zhensherlock/watermark-js-plus/commit/0674e5351fb575d196cb17b0bfd92e9a0bc8fbf1))
+* **deps:** update dependency rollup-plugin-visualizer to v5.11.0 ([b4d678a](https://github.com/zhensherlock/watermark-js-plus/commit/b4d678a80f58c3b516891fc8aa91c6f9e2c972ef))
+* update babel monorepo to v7.23.6 ([#277](https://github.com/zhensherlock/watermark-js-plus/issues/277)) ([66265cf](https://github.com/zhensherlock/watermark-js-plus/commit/66265cfd77f919798a4a79337de655857c025e7e))
+* update dependency @typescript-eslint/parser to v6.14.0 ([#276](https://github.com/zhensherlock/watermark-js-plus/issues/276)) ([e1f27b7](https://github.com/zhensherlock/watermark-js-plus/commit/e1f27b783ac720d844626f95a0fb2fc390c8a7e6))
+* update dependency rollup-plugin-visualizer to v5.11.0 ([#275](https://github.com/zhensherlock/watermark-js-plus/issues/275)) ([88fc01a](https://github.com/zhensherlock/watermark-js-plus/commit/88fc01af7a6d637c926b44a4c86a05683b1dfddb))
+
+
+
 ## [1.3.26](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.25...v1.3.26) (2023-12-09)
 
 
