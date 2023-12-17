@@ -1,3 +1,22 @@
+## [1.3.28](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.27...v1.3.28) (2023-12-17)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency cssnano to v6.0.2 ([0dcf148](https://github.com/zhensherlock/watermark-js-plus/commit/0dcf148d0ae5533096cbc888658e1867112023b3))
+* **deps:** update dependency element-plus to v2.4.4 ([9a016f8](https://github.com/zhensherlock/watermark-js-plus/commit/9a016f82446419d5e56fa2a13c716ba092b55105))
+* **deps:** update dependency eslint to v8.56.0 ([b89d6aa](https://github.com/zhensherlock/watermark-js-plus/commit/b89d6aa593b195a0da7c9ac7290e0a815d095956))
+* **deps:** update dependency eslint-plugin-import to v2.29.1 ([ddd19ac](https://github.com/zhensherlock/watermark-js-plus/commit/ddd19ac0497667a790c74762f0af2d02ab7d01cd))
+* **deps:** update dependency vitepress to v1.0.0-rc.32 ([1d12f90](https://github.com/zhensherlock/watermark-js-plus/commit/1d12f90c01a597804fc6d70af1021cdc8dab4183))
+* **deps:** update dependency vue to v3.3.12 ([e019ee0](https://github.com/zhensherlock/watermark-js-plus/commit/e019ee032951866d27356dbc358579b6936a2b7c))
+* update dependency cssnano to v6.0.2 ([#289](https://github.com/zhensherlock/watermark-js-plus/issues/289)) ([8a1604e](https://github.com/zhensherlock/watermark-js-plus/commit/8a1604e3640cf9ea8e16865b7b47fed964e10854))
+* update dependency element-plus to v2.4.4 ([#288](https://github.com/zhensherlock/watermark-js-plus/issues/288)) ([0a97761](https://github.com/zhensherlock/watermark-js-plus/commit/0a9776137999b0117ca524936a887cf4642d2f59))
+* update dependency eslint to v8.56.0 ([#284](https://github.com/zhensherlock/watermark-js-plus/issues/284)) ([30fe3a3](https://github.com/zhensherlock/watermark-js-plus/commit/30fe3a3b8f9992b948ff12c917884fc0075cdc93))
+* update dependency eslint-plugin-import to v2.29.1 ([#287](https://github.com/zhensherlock/watermark-js-plus/issues/287)) ([a2d6c78](https://github.com/zhensherlock/watermark-js-plus/commit/a2d6c78e185a5eb547f8b0faa992b90b885d487a))
+* update dependency vue to v3.3.12 ([#285](https://github.com/zhensherlock/watermark-js-plus/issues/285)) ([fa8de09](https://github.com/zhensherlock/watermark-js-plus/commit/fa8de09202845412d51080521c58ae66f9cc5804))
+
+
+
 ## [1.3.27](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.26...v1.3.27) (2023-12-13)
 
 
