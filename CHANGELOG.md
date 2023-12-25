@@ -1,3 +1,12 @@
+## [1.3.30](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.29...v1.3.30) (2023-12-25)
+
+
+### 🎫 Chores | 其他更新
+
+* update dependency rollup to v4 ([4be9b49](https://github.com/zhensherlock/watermark-js-plus/commit/4be9b49d536b1b4fae8898319ca8ab2e77891ccc))
+
+
+
 ## [1.3.29](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.28...v1.3.29) (2023-12-21)
 
 
