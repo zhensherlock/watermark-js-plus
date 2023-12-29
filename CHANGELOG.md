@@ -1,3 +1,18 @@
+## [1.3.31](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.30...v1.3.31) (2023-12-29)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency @typescript-eslint/parser to v6.16.0 ([33d89ad](https://github.com/zhensherlock/watermark-js-plus/commit/33d89ad92ff67fd69af27a358d836c7e3ae96a43))
+* **deps:** update dependency core-js to v3.35.0 ([141e302](https://github.com/zhensherlock/watermark-js-plus/commit/141e302bf4577c578afbae84b5f7698c363253ea))
+* **deps:** update dependency rollup-plugin-visualizer to v5.12.0 ([7372957](https://github.com/zhensherlock/watermark-js-plus/commit/7372957ff14299510bbf918dd4c559337e673fcd))
+* **deps:** update dependency vitepress to v1.0.0-rc.33 ([3b8d186](https://github.com/zhensherlock/watermark-js-plus/commit/3b8d186330c1fb53ca2fda83c19a8d4e8b18e716))
+* update dependency @typescript-eslint/parser to v6.16.0 ([#300](https://github.com/zhensherlock/watermark-js-plus/issues/300)) ([72332fb](https://github.com/zhensherlock/watermark-js-plus/commit/72332fb4a5b2814eb51475bc08aa860de22c126d))
+* update dependency core-js to v3.35.0 ([#299](https://github.com/zhensherlock/watermark-js-plus/issues/299)) ([7aeeeab](https://github.com/zhensherlock/watermark-js-plus/commit/7aeeeab00e981e3b117372160da340beb8227d45))
+* update dependency rollup-plugin-visualizer to v5.12.0 ([#298](https://github.com/zhensherlock/watermark-js-plus/issues/298)) ([fe70712](https://github.com/zhensherlock/watermark-js-plus/commit/fe70712c21dcbf037b6e1d627b5b2ec50b9c6d7a))
+
+
+
 ## [1.3.30](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.29...v1.3.30) (2023-12-25)
 
 
