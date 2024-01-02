@@ -1,3 +1,18 @@
+## [1.3.32](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.31...v1.3.32) (2024-01-02)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update babel monorepo to v7.23.7 ([77d53ce](https://github.com/zhensherlock/watermark-js-plus/commit/77d53ce90941af2d4ded1eadb2f07eafafd6e4eb))
+* **deps:** update dependency @typescript-eslint/parser to v6.17.0 ([9ab485a](https://github.com/zhensherlock/watermark-js-plus/commit/9ab485a8f4a3fed67a5cdec79f61d4899dbc4ee0))
+* **deps:** update dependency rollup to v4.9.2 ([91967fc](https://github.com/zhensherlock/watermark-js-plus/commit/91967fc63ed6f9254ba5abf5741add71a7b73aaa))
+* **deps:** update dependency vitepress to v1.0.0-rc.34 ([8ef087e](https://github.com/zhensherlock/watermark-js-plus/commit/8ef087e64819c6ada28f0525da7f1b392add9f7a))
+* update babel monorepo to v7.23.7 ([#310](https://github.com/zhensherlock/watermark-js-plus/issues/310)) ([93ac76f](https://github.com/zhensherlock/watermark-js-plus/commit/93ac76f18a1f390dd0489009d3759b950ced1461))
+* update dependency rollup to v4.9.2 ([#309](https://github.com/zhensherlock/watermark-js-plus/issues/309)) ([a16f464](https://github.com/zhensherlock/watermark-js-plus/commit/a16f464539272c69d47f26492a409883e2355daa))
+* update dependency vue to v3.4.3 ([#307](https://github.com/zhensherlock/watermark-js-plus/issues/307)) ([feb0b65](https://github.com/zhensherlock/watermark-js-plus/commit/feb0b65db574b1110176e216a7e51ed71dbc859f))
+
+
+
 ## [1.3.31](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.30...v1.3.31) (2023-12-29)
 
 
