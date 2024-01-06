@@ -1,3 +1,21 @@
+## [1.3.33](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.32...v1.3.33) (2024-01-06)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update commitlint monorepo to v18.4.4 ([dd139f7](https://github.com/zhensherlock/watermark-js-plus/commit/dd139f7c7525b8ef3797a20b8b058a0f31025686))
+* **deps:** update dependency cssnano to v6.0.3 ([df9f61d](https://github.com/zhensherlock/watermark-js-plus/commit/df9f61d0b6414c4f6082486437e941982be5ab77))
+* **deps:** update dependency rollup to v4.9.3 ([6222787](https://github.com/zhensherlock/watermark-js-plus/commit/622278714ee64160d709a262a65438fe4487e47a))
+* **deps:** update dependency vitepress to v1.0.0-rc.35 ([efe9dda](https://github.com/zhensherlock/watermark-js-plus/commit/efe9dda80bd1c23c8e387bb8b246ebd181aa1fb9))
+* **deps:** update dependency vue to v3.4.5 ([8c09a28](https://github.com/zhensherlock/watermark-js-plus/commit/8c09a28c07c8ee555b6d487083b3220cf4cc5fc7))
+* update commitlint monorepo to v18.4.4 ([#319](https://github.com/zhensherlock/watermark-js-plus/issues/319)) ([24bc43b](https://github.com/zhensherlock/watermark-js-plus/commit/24bc43b386e17d1462f5cd80526338cb1f9ad3ed))
+* update dependency cssnano to v6.0.3 ([#318](https://github.com/zhensherlock/watermark-js-plus/issues/318)) ([e7218ea](https://github.com/zhensherlock/watermark-js-plus/commit/e7218ea8cd6f32c6cf78c929810478d25b28168d))
+* update dependency rollup to v4.9.3 ([#317](https://github.com/zhensherlock/watermark-js-plus/issues/317)) ([db96c46](https://github.com/zhensherlock/watermark-js-plus/commit/db96c460910c978442b0c0a2ae8ce46cb885d8ff))
+* update dependency vitepress to v1.0.0-rc.35 ([#316](https://github.com/zhensherlock/watermark-js-plus/issues/316)) ([31892b1](https://github.com/zhensherlock/watermark-js-plus/commit/31892b128d982018c7ad2a0e3a9578fdc86c194d))
+* update dependency vue to v3.4.5 ([#315](https://github.com/zhensherlock/watermark-js-plus/issues/315)) ([31d8ff9](https://github.com/zhensherlock/watermark-js-plus/commit/31d8ff95283b26dd9745b9912a11f837dff47f25))
+
+
+
 ## [1.3.32](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.31...v1.3.32) (2024-01-02)
 
 
