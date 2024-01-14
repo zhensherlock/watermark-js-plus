@@ -1,3 +1,17 @@
+## [1.3.35](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.34...v1.3.35) (2024-01-14)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency element-plus to v2.5.1 ([646abc1](https://github.com/zhensherlock/watermark-js-plus/commit/646abc1e158f1d5705c37fc6a2cff32b985b697d))
+* **deps:** update dependency rollup to v4.9.5 ([f49d45f](https://github.com/zhensherlock/watermark-js-plus/commit/f49d45f017681547425e728e61d75c4eab4dc9bd))
+* **deps:** update dependency vue to v3.4.13 ([c2cec1d](https://github.com/zhensherlock/watermark-js-plus/commit/c2cec1d72aee098122dfe82d4d976952f9eb692e))
+* update dependency element-plus to v2.5.1 ([#336](https://github.com/zhensherlock/watermark-js-plus/issues/336)) ([9ed0e42](https://github.com/zhensherlock/watermark-js-plus/commit/9ed0e42f7b5ee8cc7b7b4a8ec412b2f637270009))
+* update dependency rollup to v4.9.5 ([#338](https://github.com/zhensherlock/watermark-js-plus/issues/338)) ([6dc5ee6](https://github.com/zhensherlock/watermark-js-plus/commit/6dc5ee67654be12745be2a3ef677e7db8f761cfc))
+* update dependency vue to v3.4.13 ([#337](https://github.com/zhensherlock/watermark-js-plus/issues/337)) ([f5c0f1c](https://github.com/zhensherlock/watermark-js-plus/commit/f5c0f1c0aa299e27fb8c3eaf846b9c19e64cb2c5))
+
+
+
 ## [1.3.34](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.33...v1.3.34) (2024-01-10)
 
 

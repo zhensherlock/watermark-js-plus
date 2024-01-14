@@ -1,6 +1,6 @@
 {
   "name": "watermark-js-plus",
-  "version": "1.3.34",
+  "version": "1.3.35",
   "description": "watermark for the browser",
   "scripts": {
     "clean:dist": "rimraf dist",
