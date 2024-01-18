@@ -1,3 +1,21 @@
+## [1.3.36](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.35...v1.3.36) (2024-01-18)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency @typescript-eslint/parser to v6.19.0 ([dba5008](https://github.com/zhensherlock/watermark-js-plus/commit/dba5008e57d569eeb1978c746baaf808e472141c))
+* **deps:** update dependency autoprefixer to v10.4.17 ([f1f3a79](https://github.com/zhensherlock/watermark-js-plus/commit/f1f3a795a38f7c42da5f87aa37654b91332499e4))
+* **deps:** update dependency terser to v5.27.0 ([7882a0c](https://github.com/zhensherlock/watermark-js-plus/commit/7882a0c4098eed3c258be89a5dee097a53876fb7))
+* **deps:** update dependency vitepress to v1.0.0-rc.39 ([f0be8ba](https://github.com/zhensherlock/watermark-js-plus/commit/f0be8ba02140ac5d122fd7d24c6bc964e12c8bf2))
+* **deps:** update dependency vue to v3.4.14 ([552ef90](https://github.com/zhensherlock/watermark-js-plus/commit/552ef90defd01a9ef33e510f2485c3347647be1f))
+* update dependency @typescript-eslint/parser to v6.19.0 ([#345](https://github.com/zhensherlock/watermark-js-plus/issues/345)) ([b0b9250](https://github.com/zhensherlock/watermark-js-plus/commit/b0b9250a28c699db09978bd3708788463c88349d))
+* update dependency autoprefixer to v10.4.17 ([#348](https://github.com/zhensherlock/watermark-js-plus/issues/348)) ([47abcf8](https://github.com/zhensherlock/watermark-js-plus/commit/47abcf83e2cb86a2349fb061f5e23910665d20aa))
+* update dependency terser to v5.27.0 ([#344](https://github.com/zhensherlock/watermark-js-plus/issues/344)) ([a5b2016](https://github.com/zhensherlock/watermark-js-plus/commit/a5b201616ecab0a8a81967703d7babe52b407950))
+* update dependency vitepress to v1.0.0-rc.39 ([#347](https://github.com/zhensherlock/watermark-js-plus/issues/347)) ([809b49e](https://github.com/zhensherlock/watermark-js-plus/commit/809b49e927458d5adcffcb6396588dc35578f428))
+* update dependency vue to v3.4.14 ([#346](https://github.com/zhensherlock/watermark-js-plus/issues/346)) ([9c32135](https://github.com/zhensherlock/watermark-js-plus/commit/9c3213597dd3112fc5d05ff025fa8af9dffaef0e))
+
+
+
 ## [1.3.35](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.34...v1.3.35) (2024-01-14)
 
 
