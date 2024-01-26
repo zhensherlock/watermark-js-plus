@@ -1,6 +1,3 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
 REQUIRED_NODE_VERSION="16.0.0"
 
 CURRENT_NODE_VERSION=$(node -v | cut -dv -f2)

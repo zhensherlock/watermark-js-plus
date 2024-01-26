@@ -1,3 +1,22 @@
+## [1.3.38](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.37...v1.3.38) (2024-01-26)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update babel monorepo to v7.23.9 ([c3a734c](https://github.com/zhensherlock/watermark-js-plus/commit/c3a734c75ecdfd647cf7a1b62cd79128b5d90c43))
+* **deps:** update commitlint monorepo to v18.6.0 ([adcf2af](https://github.com/zhensherlock/watermark-js-plus/commit/adcf2af812369a5f7651b39ccd9769abd78762b0))
+* **deps:** update dependency @typescript-eslint/parser to v6.19.1 ([a7c17e5](https://github.com/zhensherlock/watermark-js-plus/commit/a7c17e5bf9a7c4e9a4766b6cd01c79025f19204f))
+* **deps:** update dependency element-plus to v2.5.3 ([994fa8a](https://github.com/zhensherlock/watermark-js-plus/commit/994fa8ac361f6f62ab78f07b19d386efe89f1321))
+* **deps:** update dependency husky to v9 ([b6e298d](https://github.com/zhensherlock/watermark-js-plus/commit/b6e298d98585e4abcd285afae64893705265f46a))
+* **deps:** update dependency vitepress to v1.0.0-rc.40 ([32d0452](https://github.com/zhensherlock/watermark-js-plus/commit/32d04520b79dee288b29e96ce1fb74c55717902b))
+* update babel monorepo to v7.23.9 ([#368](https://github.com/zhensherlock/watermark-js-plus/issues/368)) ([338c87d](https://github.com/zhensherlock/watermark-js-plus/commit/338c87d4f68f8ac1652ac1a1d501fefa1838a412))
+* update commitlint monorepo to v18.6.0 ([#364](https://github.com/zhensherlock/watermark-js-plus/issues/364)) ([d106ed8](https://github.com/zhensherlock/watermark-js-plus/commit/d106ed893e166778010aed1c14322f77fbf2724f))
+* update dependency @typescript-eslint/parser to v6.19.1 ([#367](https://github.com/zhensherlock/watermark-js-plus/issues/367)) ([5eb7c4b](https://github.com/zhensherlock/watermark-js-plus/commit/5eb7c4be145eddf7b56e5886937eefd30e7f05d8))
+* update dependency element-plus to v2.5.3 ([#366](https://github.com/zhensherlock/watermark-js-plus/issues/366)) ([75336d3](https://github.com/zhensherlock/watermark-js-plus/commit/75336d378b5d92e768a03a46a031f5f3f9eb9fe4))
+* update dependency vitepress to v1.0.0-rc.40 ([#365](https://github.com/zhensherlock/watermark-js-plus/issues/365)) ([f63a671](https://github.com/zhensherlock/watermark-js-plus/commit/f63a671e9db5d4a5f356906899d6e48e3567d1cb))
+
+
+
 ## [1.3.37](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.36...v1.3.37) (2024-01-22)
 
 
