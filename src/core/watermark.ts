@@ -68,7 +68,7 @@ class Watermark {
     this.watermarkDom.__WATERMARK__INSTANCE__ = this
     const parentElementType = this.checkParentElementType()
     this.watermarkDom.style.cssText = `
-      z-index: ${this.options.zIndex}!important;display:block!important;visibility:visible!important;transform:none!important;scale:none!important;
+      z-index:${this.options.zIndex}!important;display:block!important;visibility:visible!important;transform:none!important;scale:none!important;
       ${parentElementType === 'custom' ? 'top:0!important;bottom:0!important;left:0!important;right:0!important;height:100%!important;pointer-events:none!important;position:absolute!important;' : 'position:relative!important;'}
     `
     const backgroundSize = generateBackgroundSize(this.options)
