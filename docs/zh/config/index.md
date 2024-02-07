@@ -234,6 +234,13 @@ background-repeat
 
 水印内容的滤镜。
 
+## letterSpacing
+
+- **Type:** `string`
+- **Default:** `'0px'`
+
+指定绘制文本时字母之间的间距
+
 ## mode
 
 - **Type:** `string`

@@ -176,6 +176,9 @@
       <el-descriptions-item label="TextRowMaxWidth">
         <el-input-number v-model="form.data.textRowMaxWidth" :disabled="!form.style.enabled" @input="handleChange" />
       </el-descriptions-item>
+      <el-descriptions-item label="Letter Spacing">
+        <el-input v-model="form.data.letterSpacing" :disabled="!form.style.enabled" placeholder="please input letter spacing" @input="handleChange" />
+      </el-descriptions-item>
     </el-descriptions>
 
     <el-descriptions title="Shadow" :column="2" border v-if="form.data.shadowStyle">

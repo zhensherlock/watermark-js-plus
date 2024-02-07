@@ -35,6 +35,7 @@ export const defaultConfig = {
   textAlign: undefined,
   textBaseline: undefined,
   filter: 'none',
+  letterSpacing: '0px',
   richTextWidth: undefined,
   richTextHeight: undefined,
   image: '',
@@ -128,7 +129,8 @@ export const styleOptionKeys = [
   'textAlign',
   'textBaseline',
   'filter',
-  'textRowMaxWidth'
+  'textRowMaxWidth',
+  'letterSpacing'
 ]
 
 export const shadowOptionKeys = [

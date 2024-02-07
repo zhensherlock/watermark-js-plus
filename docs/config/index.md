@@ -234,6 +234,13 @@ Watermark content font weight.
 
 The filter of the watermark content.
 
+## letterSpacing
+
+- **Type:** `string`
+- **Default:** `'0px'`
+
+The letterSpacing property of the Canvas API specifies the spacing between letters when drawing text.
+
 ## mode
 
 - **Type:** `string`

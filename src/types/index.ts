@@ -105,6 +105,7 @@ export interface WatermarkOptions {
   textAlign?: TextAlignType;
   textBaseline?: TextBaselineType;
   filter: string;
+  letterSpacing: string;
   textRowMaxWidth?: number;
   richTextWidth?: number;
   richTextHeight?: number;

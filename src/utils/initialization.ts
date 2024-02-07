@@ -24,6 +24,7 @@ export const initialOptions: WatermarkOptions = {
   fontColor: '#000',
   fontWeight: 'normal',
   filter: 'none',
+  letterSpacing: '0px',
   globalAlpha: 0.5,
   mode: 'default',
   mutationObserve: true,
@@ -42,6 +43,8 @@ export const generateRecommendOptions = (canvas: HTMLCanvasElement, options: Wat
   }
   ctx.font = `${options.fontStyle} ${options.fontVariant} ${options.fontWeight} ${options.fontSize} ${options.fontFamily}`
   ctx.filter = options.filter
+  // @ts-ignore
+  ctx.letterSpacing = options.letterSpacing
   if (options?.rotate) {
     options.rotate = (360 - options.rotate % 360) * (Math.PI / 180)
   }
