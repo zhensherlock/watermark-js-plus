@@ -1,3 +1,15 @@
+## [1.4.1](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.0...v1.4.1) (2024-02-12)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency rollup to v4.10.0 ([70a464d](https://github.com/zhensherlock/watermark-js-plus/commit/70a464d7199d6be4963d661a9302291c3dff88dc))
+* **deps:** update dependency vue to v3.4.18 ([042d1de](https://github.com/zhensherlock/watermark-js-plus/commit/042d1de394d8d0afc3af4c22a8e11bfb65cb1601))
+* update dependency rollup to v4.10.0 ([#393](https://github.com/zhensherlock/watermark-js-plus/issues/393)) ([05690f6](https://github.com/zhensherlock/watermark-js-plus/commit/05690f67cc818a4e5c5c702df4d9849ce4d3eea0))
+* update dependency vue to v3.4.18 ([#394](https://github.com/zhensherlock/watermark-js-plus/issues/394)) ([c887745](https://github.com/zhensherlock/watermark-js-plus/commit/c88774554cd26b573ea6dd63724ef0ff9cc61594))
+
+
+
 # [1.4.0](https://github.com/zhensherlock/watermark-js-plus/compare/v1.3.40...v1.4.0) (2024-02-07)
 
 
