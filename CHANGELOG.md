@@ -1,3 +1,20 @@
+## [1.4.2](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.1...v1.4.2) (2024-02-14)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update commitlint monorepo to v18.6.1 ([3529791](https://github.com/zhensherlock/watermark-js-plus/commit/35297912785dc7385e0570840b3b0ffa28657d60))
+* **deps:** update dependency @typescript-eslint/parser to v7 ([df9f389](https://github.com/zhensherlock/watermark-js-plus/commit/df9f389ca39379d1b170475d17863ee1f4afffa6))
+* **deps:** update dependency core-js to v3.36.0 ([d4fcc81](https://github.com/zhensherlock/watermark-js-plus/commit/d4fcc81cdef7fc4c9cb8616fa21bd23b958d0e15))
+* **deps:** update dependency husky to v9.0.11 ([1c761fa](https://github.com/zhensherlock/watermark-js-plus/commit/1c761faeb1dce7c5e19500d278d6f40b06dc3c42))
+* **deps:** update dependency vue to v3.4.19 ([dce96ad](https://github.com/zhensherlock/watermark-js-plus/commit/dce96ad77580aea512698c48c40ef561e4cd5083))
+* update commitlint monorepo to v18.6.1 ([#404](https://github.com/zhensherlock/watermark-js-plus/issues/404)) ([32f856f](https://github.com/zhensherlock/watermark-js-plus/commit/32f856f91067fd64beac84b4fb73c4d3cc7232ea))
+* update dependency core-js to v3.36.0 ([#401](https://github.com/zhensherlock/watermark-js-plus/issues/401)) ([bbb1f79](https://github.com/zhensherlock/watermark-js-plus/commit/bbb1f79145fe0f2db58faea7884708caa3688d6e))
+* update dependency husky to v9.0.11 ([#403](https://github.com/zhensherlock/watermark-js-plus/issues/403)) ([ad5da5a](https://github.com/zhensherlock/watermark-js-plus/commit/ad5da5a88aaf144164ea753c353a1a263c96a155))
+* update dependency vue to v3.4.19 ([#402](https://github.com/zhensherlock/watermark-js-plus/issues/402)) ([fab1542](https://github.com/zhensherlock/watermark-js-plus/commit/fab15426f45ae89f928d6e2f36bac78ce683054d))
+
+
+
 ## [1.4.1](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.0...v1.4.1) (2024-02-12)
 
 
