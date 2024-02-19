@@ -1,3 +1,19 @@
+## [1.4.3](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.2...v1.4.3) (2024-02-19)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency element-plus to v2.5.6 ([60b78c0](https://github.com/zhensherlock/watermark-js-plus/commit/60b78c0622d485d8ab48a6d64f80d0169b2415eb))
+* **deps:** update dependency rollup to v4.12.0 ([a36fb0e](https://github.com/zhensherlock/watermark-js-plus/commit/a36fb0e7984a9c3989243a91cdd2c2c0c3e3046e))
+* **deps:** update dependency terser to v5.27.1 ([9c4f83e](https://github.com/zhensherlock/watermark-js-plus/commit/9c4f83e59dc9544f486c4b9e440390758f8411e5))
+* **deps:** update dependency vitepress to v1.0.0-rc.43 ([5b6319d](https://github.com/zhensherlock/watermark-js-plus/commit/5b6319dc9ff55d6b958e4d8ceb074b69095736dd))
+* update dependency element-plus to v2.5.6 ([#412](https://github.com/zhensherlock/watermark-js-plus/issues/412)) ([d525a77](https://github.com/zhensherlock/watermark-js-plus/commit/d525a77c23e4b21df32e4523a3a21e0f30af22fc))
+* update dependency rollup to v4.12.0 ([#409](https://github.com/zhensherlock/watermark-js-plus/issues/409)) ([229cb2c](https://github.com/zhensherlock/watermark-js-plus/commit/229cb2c92c43d200608fe0bb5857a7fbc989fd5a))
+* update dependency terser to v5.27.1 ([#411](https://github.com/zhensherlock/watermark-js-plus/issues/411)) ([2300244](https://github.com/zhensherlock/watermark-js-plus/commit/230024406b55cb7d6c89ae1e9ca27a2e99544c3d))
+* update dependency vitepress to v1.0.0-rc.43 ([#410](https://github.com/zhensherlock/watermark-js-plus/issues/410)) ([8c0a2f3](https://github.com/zhensherlock/watermark-js-plus/commit/8c0a2f3e19ee74820510e7dcd5966b7f403b28da))
+
+
+
 ## [1.4.2](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.1...v1.4.2) (2024-02-14)
 
 
