@@ -1,3 +1,19 @@
+## [1.4.4](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.3...v1.4.4) (2024-02-23)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency @typescript-eslint/parser to v7.0.2 ([4a6a2e4](https://github.com/zhensherlock/watermark-js-plus/commit/4a6a2e4434ee687559d8ec70ca2f248ebbd92719))
+* **deps:** update dependency cssnano to v6.0.4 ([403a52b](https://github.com/zhensherlock/watermark-js-plus/commit/403a52b940341dae55ab3d5fc9bafd69cd805272))
+* **deps:** update dependency terser to v5.27.2 ([7ae1eb8](https://github.com/zhensherlock/watermark-js-plus/commit/7ae1eb83772f2a6d9e61f8924d2da27bc656e634))
+* **deps:** update dependency vitepress to v1.0.0-rc.44 ([2236f27](https://github.com/zhensherlock/watermark-js-plus/commit/2236f27a0b5be06da22d4e02e197c1863934d880))
+* update dependency @typescript-eslint/parser to v7.0.2 ([#418](https://github.com/zhensherlock/watermark-js-plus/issues/418)) ([6681cf0](https://github.com/zhensherlock/watermark-js-plus/commit/6681cf08059f6f24261b69c1c38d216006fd01fa))
+* update dependency cssnano to v6.0.4 ([#420](https://github.com/zhensherlock/watermark-js-plus/issues/420)) ([4621ca6](https://github.com/zhensherlock/watermark-js-plus/commit/4621ca6a5d98c2201cfc33ef7fc58ddce563b0bc))
+* update dependency terser to v5.27.2 ([#417](https://github.com/zhensherlock/watermark-js-plus/issues/417)) ([47f0e38](https://github.com/zhensherlock/watermark-js-plus/commit/47f0e382f7f09c98e2564b480d70625cdc901b35))
+* update dependency vitepress to v1.0.0-rc.44 ([#416](https://github.com/zhensherlock/watermark-js-plus/issues/416)) ([8335d12](https://github.com/zhensherlock/watermark-js-plus/commit/8335d12e8a4854c0be78c105e4a8d2068951d6bc))
+
+
+
 ## [1.4.3](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.2...v1.4.3) (2024-02-19)
 
 
