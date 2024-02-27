@@ -1,3 +1,21 @@
+## [1.4.5](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.4...v1.4.5) (2024-02-27)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency @typescript-eslint/parser to v7.1.0 ([2ec0549](https://github.com/zhensherlock/watermark-js-plus/commit/2ec054938453e8b97c7d3f52b78dc97631b319d3))
+* **deps:** update dependency cssnano to v6.0.5 ([9021a43](https://github.com/zhensherlock/watermark-js-plus/commit/9021a43d601ee94abe384632ddfbab84ade365c3))
+* **deps:** update dependency eslint to v8.57.0 ([a9c42d4](https://github.com/zhensherlock/watermark-js-plus/commit/a9c42d4ca14c27ed6b1be54bb5b3a98bea2eef0b))
+* **deps:** update dependency terser to v5.28.1 ([f34cc4c](https://github.com/zhensherlock/watermark-js-plus/commit/f34cc4c47ce5a611e18f4825a78120d6dfcf84b6))
+* **deps:** update dependency vue to v3.4.20 ([ad730c7](https://github.com/zhensherlock/watermark-js-plus/commit/ad730c7dc2c99b492288da3f115022bf23539b40))
+* update dependency @typescript-eslint/parser to v7.1.0 ([#428](https://github.com/zhensherlock/watermark-js-plus/issues/428)) ([f8ba941](https://github.com/zhensherlock/watermark-js-plus/commit/f8ba9416f02d20ea26159cf2eebbe44c0976b717))
+* update dependency cssnano to v6.0.5 ([#430](https://github.com/zhensherlock/watermark-js-plus/issues/430)) ([03b8491](https://github.com/zhensherlock/watermark-js-plus/commit/03b8491b68e1de385876d3274bb7ab50781a8cc7))
+* update dependency eslint to v8.57.0 ([#427](https://github.com/zhensherlock/watermark-js-plus/issues/427)) ([f46362c](https://github.com/zhensherlock/watermark-js-plus/commit/f46362cdfa38eee4f055fc8c7c36f893b8f64bd6))
+* update dependency terser to v5.28.1 ([#426](https://github.com/zhensherlock/watermark-js-plus/issues/426)) ([173a540](https://github.com/zhensherlock/watermark-js-plus/commit/173a540254625248c7eec0816d3b4ba90c90d691))
+* update dependency vue to v3.4.20 ([#429](https://github.com/zhensherlock/watermark-js-plus/issues/429)) ([3c6a4db](https://github.com/zhensherlock/watermark-js-plus/commit/3c6a4db27b9a1380f9f7acddd1b26fc7a8c74427))
+
+
+
 ## [1.4.4](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.3...v1.4.4) (2024-02-23)
 
 
