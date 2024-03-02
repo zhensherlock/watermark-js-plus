@@ -1,3 +1,22 @@
+## [1.4.6](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.5...v1.4.6) (2024-03-02)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update babel monorepo to v7.24.0 ([887fa3c](https://github.com/zhensherlock/watermark-js-plus/commit/887fa3c6a335144db0beff7e489fffcd83d3fa50))
+* **deps:** update commitlint monorepo to v19 ([13492b0](https://github.com/zhensherlock/watermark-js-plus/commit/13492b092de5339a4ce7f29eab47e54292ee134e))
+* **deps:** update commitlint monorepo to v19.0.3 ([3188bd6](https://github.com/zhensherlock/watermark-js-plus/commit/3188bd695f509072fe05b5aa6976f3f239de7e5f))
+* **deps:** update dependency autoprefixer to v10.4.18 ([c48ece6](https://github.com/zhensherlock/watermark-js-plus/commit/c48ece68315756564d1220312c7a196e6093e4bc))
+* **deps:** update dependency element-plus to v2.6.0 ([46cc041](https://github.com/zhensherlock/watermark-js-plus/commit/46cc041956d14e8d883650bee9b582c81820d937))
+* **deps:** update dependency vue to v3.4.21 ([2db8ded](https://github.com/zhensherlock/watermark-js-plus/commit/2db8ded23e1f905b90528015084809f8405c1150))
+* update babel monorepo to v7.24.0 ([#438](https://github.com/zhensherlock/watermark-js-plus/issues/438)) ([6600a82](https://github.com/zhensherlock/watermark-js-plus/commit/6600a82c993616c48b679f2b9bf579c5f80aa9ca))
+* update commitlint monorepo to v19.0.3 ([#441](https://github.com/zhensherlock/watermark-js-plus/issues/441)) ([caa5a22](https://github.com/zhensherlock/watermark-js-plus/commit/caa5a22e73bc12c81bbb62db3715016782273b20))
+* update dependency autoprefixer to v10.4.18 ([#440](https://github.com/zhensherlock/watermark-js-plus/issues/440)) ([e647856](https://github.com/zhensherlock/watermark-js-plus/commit/e6478565f8d05d42ff33e2b2c3ece4ff6e5cb5b0))
+* update dependency element-plus to v2.6.0 ([#437](https://github.com/zhensherlock/watermark-js-plus/issues/437)) ([1c495f4](https://github.com/zhensherlock/watermark-js-plus/commit/1c495f4d2a869c86b4798ceeac51d2a3c157dd44))
+* update dependency vue to v3.4.21 ([#439](https://github.com/zhensherlock/watermark-js-plus/issues/439)) ([598cd08](https://github.com/zhensherlock/watermark-js-plus/commit/598cd08443eb3aaf37c68e728897d40a43405af0))
+
+
+
 ## [1.4.5](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.4...v1.4.5) (2024-02-27)
 
 
