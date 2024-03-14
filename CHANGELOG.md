@@ -1,3 +1,17 @@
+## [1.4.9](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.8...v1.4.9) (2024-03-14)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update commitlint monorepo to v19.1.0 ([a98b793](https://github.com/zhensherlock/watermark-js-plus/commit/a98b793d4ff7a689722017ffca865ce8f365fa70))
+* **deps:** update dependency @typescript-eslint/parser to v7.2.0 ([3159af7](https://github.com/zhensherlock/watermark-js-plus/commit/3159af76a7fe3159b10eca463215d7cb6901fcf2))
+* **deps:** update dependency rollup to v4.13.0 ([04ebc54](https://github.com/zhensherlock/watermark-js-plus/commit/04ebc541ce7004c9f2fa5506cceb81fdb209d4d2))
+* update commitlint monorepo to v19.1.0 ([#461](https://github.com/zhensherlock/watermark-js-plus/issues/461)) ([438974b](https://github.com/zhensherlock/watermark-js-plus/commit/438974b06dfc479c552f03353146d74cfc72b2b8))
+* update dependency @typescript-eslint/parser to v7.2.0 ([#462](https://github.com/zhensherlock/watermark-js-plus/issues/462)) ([82f2126](https://github.com/zhensherlock/watermark-js-plus/commit/82f21262f951e816a16daeca4c7fed85a54c8ba3))
+* update dependency rollup to v4.13.0 ([#463](https://github.com/zhensherlock/watermark-js-plus/issues/463)) ([f2102db](https://github.com/zhensherlock/watermark-js-plus/commit/f2102db6adbc9547c4bbfa2bead5f0e5a03c0c6f))
+
+
+
 ## [1.4.8](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.7...v1.4.8) (2024-03-09)
 
 
