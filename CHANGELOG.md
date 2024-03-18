@@ -1,3 +1,15 @@
+## [1.4.10](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.9...v1.4.10) (2024-03-18)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency @commitlint/cli to v19.2.0 ([75e7042](https://github.com/zhensherlock/watermark-js-plus/commit/75e7042142b6cff128aaa113d36f3f606d1c35b7))
+* **deps:** update dependency terser to v5.29.2 ([4438e59](https://github.com/zhensherlock/watermark-js-plus/commit/4438e5964dd64c93cc37e5d7a78e63a87f8cc0a1))
+* update dependency @commitlint/cli to v19.2.0 ([#467](https://github.com/zhensherlock/watermark-js-plus/issues/467)) ([b24f910](https://github.com/zhensherlock/watermark-js-plus/commit/b24f910de8ae69104a38a6a8b7797c6ad77e78d5))
+* update dependency terser to v5.29.2 ([#466](https://github.com/zhensherlock/watermark-js-plus/issues/466)) ([fdae290](https://github.com/zhensherlock/watermark-js-plus/commit/fdae2902d57aea7529daf0837a48915342300b32))
+
+
+
 ## [1.4.9](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.8...v1.4.9) (2024-03-14)
 
 
