@@ -1,3 +1,29 @@
+## [1.4.11](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.10...v1.4.11) (2024-03-22)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update babel monorepo ([97b18d2](https://github.com/zhensherlock/watermark-js-plus/commit/97b18d277be6932c34dfdcae1b92b45cd46496a6))
+* **deps:** update dependency @commitlint/cli to v19.2.1 ([671590c](https://github.com/zhensherlock/watermark-js-plus/commit/671590cd8e4f054c18bdffe657ce152397d1ba45))
+* **deps:** update dependency @typescript-eslint/parser to v7.3.1 ([20ec64c](https://github.com/zhensherlock/watermark-js-plus/commit/20ec64ce7a2ff5e05d4f9126aa7e79e65f46560a))
+* **deps:** update dependency autoprefixer to v10.4.19 ([c27a88f](https://github.com/zhensherlock/watermark-js-plus/commit/c27a88f56317667e4fef1a1d55a3f463a3723464))
+* **deps:** update dependency core-js to v3.36.1 ([0d4a6d9](https://github.com/zhensherlock/watermark-js-plus/commit/0d4a6d9d25880b5edf6d6402d34bb4129fe45dc1))
+* **deps:** update dependency cssnano to v6.1.1 ([3aa7e5e](https://github.com/zhensherlock/watermark-js-plus/commit/3aa7e5e83bf6800752223ad54c09090801a65f1c))
+* **deps:** update dependency markdown-it to v14.1.0 ([0758bb9](https://github.com/zhensherlock/watermark-js-plus/commit/0758bb9729bbd5e094a0acceb9ad9ea98279ab92))
+* **deps:** update dependency typescript to v5.4.3 ([b1ac729](https://github.com/zhensherlock/watermark-js-plus/commit/b1ac729a9ecc865da7313559134f05babde5c970))
+* **deps:** update dependency vitepress to v1.0.0 ([3f04f17](https://github.com/zhensherlock/watermark-js-plus/commit/3f04f177aa25046a770559cfa08a4f35e0dd0dd5))
+* update babel monorepo ([#477](https://github.com/zhensherlock/watermark-js-plus/issues/477)) ([fe19f69](https://github.com/zhensherlock/watermark-js-plus/commit/fe19f69cf29598eb1932f69be58d5fd14b83740a))
+* update dependency @commitlint/cli to v19.2.1 ([#478](https://github.com/zhensherlock/watermark-js-plus/issues/478)) ([844dc70](https://github.com/zhensherlock/watermark-js-plus/commit/844dc70a3af647ed698230a18a851f63467fb3e8))
+* update dependency @typescript-eslint/parser to v7.3.1 ([#484](https://github.com/zhensherlock/watermark-js-plus/issues/484)) ([131ff4d](https://github.com/zhensherlock/watermark-js-plus/commit/131ff4d325fa26d25491a87c480abda90d2d37cf))
+* update dependency autoprefixer to v10.4.19 ([#479](https://github.com/zhensherlock/watermark-js-plus/issues/479)) ([b29f448](https://github.com/zhensherlock/watermark-js-plus/commit/b29f448eb1c9654cdabefeff2218fc14451d7a3f))
+* update dependency core-js to v3.36.1 ([#480](https://github.com/zhensherlock/watermark-js-plus/issues/480)) ([f5f031f](https://github.com/zhensherlock/watermark-js-plus/commit/f5f031f8854293d90dc40a2f2f5dc85e72843a1d))
+* update dependency cssnano to v6.1.1 ([#481](https://github.com/zhensherlock/watermark-js-plus/issues/481)) ([8227837](https://github.com/zhensherlock/watermark-js-plus/commit/822783700af5906dc86380dfdbafbaae816d7057))
+* update dependency markdown-it to v14.1.0 ([#485](https://github.com/zhensherlock/watermark-js-plus/issues/485)) ([db99e7f](https://github.com/zhensherlock/watermark-js-plus/commit/db99e7f24bc9e5238133737df524c17c994c672b))
+* update dependency typescript to v5.4.3 ([#482](https://github.com/zhensherlock/watermark-js-plus/issues/482)) ([00f68f5](https://github.com/zhensherlock/watermark-js-plus/commit/00f68f542d6c7ef6878a5c9c2191096e366f00e8))
+* update dependency vitepress to v1.0.0 ([#483](https://github.com/zhensherlock/watermark-js-plus/issues/483)) ([8006ab1](https://github.com/zhensherlock/watermark-js-plus/commit/8006ab1bdd8d889fcfdfd83695daf96a4d34a521))
+
+
+
 ## [1.4.10](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.9...v1.4.10) (2024-03-18)
 
 
