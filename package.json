@@ -87,7 +87,7 @@
     "conventional-changelog-cli": "^4.1.0",
     "core-js": "^3.36.1",
     "cssnano": "^6.1.1",
-    "element-plus": "^2.6.1",
+    "element-plus": "^2.6.2",
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-semistandard": "^17.0.0",
