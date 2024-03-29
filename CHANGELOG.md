@@ -1,3 +1,17 @@
+## [1.4.13](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.12...v1.4.13) (2024-03-29)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency element-plus to v2.6.3 ([0a8b038](https://github.com/zhensherlock/watermark-js-plus/commit/0a8b0382170be9b1b8ba39f604598fe0b520ec75))
+* **deps:** update dependency rollup to v4.13.2 ([d6e947b](https://github.com/zhensherlock/watermark-js-plus/commit/d6e947b0cd46bc8e2d0f3501b4ae19fa4b7431ec))
+* **deps:** update dependency terser to v5.30.0 ([73728a1](https://github.com/zhensherlock/watermark-js-plus/commit/73728a156cce3dc0d6fa388bb4858f3913cbe0ce))
+* update dependency element-plus to v2.6.3 ([#497](https://github.com/zhensherlock/watermark-js-plus/issues/497)) ([c6d1c1f](https://github.com/zhensherlock/watermark-js-plus/commit/c6d1c1f6d443dd2c4a0771c7a01cd0a60005ae8c))
+* update dependency rollup to v4.13.2 ([#498](https://github.com/zhensherlock/watermark-js-plus/issues/498)) ([11a7756](https://github.com/zhensherlock/watermark-js-plus/commit/11a7756cb6208be6a1d936e96d08e0d77d2d9484))
+* update dependency terser to v5.30.0 ([#500](https://github.com/zhensherlock/watermark-js-plus/issues/500)) ([3bfaf99](https://github.com/zhensherlock/watermark-js-plus/commit/3bfaf99a30dd06b0236c29856b93587d80c1cb37))
+
+
+
 ## [1.4.12](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.11...v1.4.12) (2024-03-26)
 
 
