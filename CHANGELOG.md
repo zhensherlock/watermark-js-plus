@@ -1,3 +1,20 @@
+## [1.4.15](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.14...v1.4.15) (2024-04-07)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update babel monorepo to v7.24.4 ([f01e570](https://github.com/zhensherlock/watermark-js-plus/commit/f01e570d371ad233c86c1b849920b4b84fbc5fdb))
+* **deps:** update dependency @types/markdown-it to v14 ([2426ed6](https://github.com/zhensherlock/watermark-js-plus/commit/2426ed63c799c7228d587babff7cb291555afeef))
+* **deps:** update dependency rollup to v4.14.0 ([c3d31cb](https://github.com/zhensherlock/watermark-js-plus/commit/c3d31cb7d176e54706e4d1fabd80f5b3a338e6e2))
+* **deps:** update dependency terser to v5.30.3 ([b3d4e1c](https://github.com/zhensherlock/watermark-js-plus/commit/b3d4e1c1bdf97946c841ea659d3a1d76194709c1))
+* **deps:** update dependency typescript to v5.4.4 ([2a93661](https://github.com/zhensherlock/watermark-js-plus/commit/2a93661d9e3820be5007f0af1f6385adf06e8e7d))
+* update babel monorepo to v7.24.4 ([#511](https://github.com/zhensherlock/watermark-js-plus/issues/511)) ([4ba975a](https://github.com/zhensherlock/watermark-js-plus/commit/4ba975ae85e93a59f5023e1e694f057bbcf9102b))
+* update dependency rollup to v4.14.0 ([#514](https://github.com/zhensherlock/watermark-js-plus/issues/514)) ([bcddada](https://github.com/zhensherlock/watermark-js-plus/commit/bcddadabb5ec4106c86f323886da9f7007751664))
+* update dependency terser to v5.30.3 ([#512](https://github.com/zhensherlock/watermark-js-plus/issues/512)) ([8888774](https://github.com/zhensherlock/watermark-js-plus/commit/88887745de2eb4cdb94dd7073c149261b85bf28b))
+* update dependency typescript to v5.4.4 ([#513](https://github.com/zhensherlock/watermark-js-plus/issues/513)) ([f99b700](https://github.com/zhensherlock/watermark-js-plus/commit/f99b700789375401ea406bd68e8ddeafc3af67fe))
+
+
+
 ## [1.4.14](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.13...v1.4.14) (2024-04-03)
 
 
