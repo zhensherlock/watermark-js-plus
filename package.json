@@ -79,7 +79,7 @@
     "@rollup/plugin-terser": "0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/markdown-it": "^14.0.0",
-    "@typescript-eslint/parser": "^7.5.0",
+    "@typescript-eslint/parser": "^7.6.0",
     "@vue/theme": "^2.2.5",
     "autoprefixer": "^10.4.19",
     "concurrently": "^8.2.2",
