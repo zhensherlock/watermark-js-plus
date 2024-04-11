@@ -1,3 +1,20 @@
+## [1.4.16](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.15...v1.4.16) (2024-04-11)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency @typescript-eslint/parser to v7.6.0 ([28efea9](https://github.com/zhensherlock/watermark-js-plus/commit/28efea983058a8fe0209498b34e828ae27ce7033))
+* **deps:** update dependency rollup to v4.14.1 ([ec8f4e2](https://github.com/zhensherlock/watermark-js-plus/commit/ec8f4e2a9fa3bf15e6573c7492c379fc34d15d51))
+* **deps:** update dependency typescript to v5.4.5 ([aa81869](https://github.com/zhensherlock/watermark-js-plus/commit/aa818691f393efe0ca71b6016943fcda0f53e43f))
+* **deps:** update dependency vitepress to v1.1.0 ([9a893b1](https://github.com/zhensherlock/watermark-js-plus/commit/9a893b1dcce4ed73a8e38e1cf1c4612c2bd794f8))
+* **deps:** update peaceiris/actions-gh-pages action to v4 ([e3bc0a4](https://github.com/zhensherlock/watermark-js-plus/commit/e3bc0a4b5b3d30bb7282da08b17061d431514b91))
+* update dependency @typescript-eslint/parser to v7.6.0 ([#525](https://github.com/zhensherlock/watermark-js-plus/issues/525)) ([9ec9312](https://github.com/zhensherlock/watermark-js-plus/commit/9ec9312ec9f97b8862a0cb7d04eecf58fb610690))
+* update dependency rollup to v4.14.1 ([#523](https://github.com/zhensherlock/watermark-js-plus/issues/523)) ([f036f47](https://github.com/zhensherlock/watermark-js-plus/commit/f036f47f1fbd32fee9dcd5e6240f4219a0833024))
+* update dependency typescript to v5.4.5 ([#524](https://github.com/zhensherlock/watermark-js-plus/issues/524)) ([5b7dfea](https://github.com/zhensherlock/watermark-js-plus/commit/5b7dfead6178d1a6f9076e01be47bcc26a9b961d))
+* update dependency vitepress to v1.1.0 ([#526](https://github.com/zhensherlock/watermark-js-plus/issues/526)) ([3b9f3bb](https://github.com/zhensherlock/watermark-js-plus/commit/3b9f3bbc243f3e30eb972746ef49d07efd462eef))
+
+
+
 ## [1.4.15](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.14...v1.4.15) (2024-04-07)
 
 
