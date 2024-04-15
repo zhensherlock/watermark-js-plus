@@ -1,3 +1,23 @@
+## [1.4.17](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.16...v1.4.17) (2024-04-15)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update commitlint monorepo to v19.2.2 ([be826ab](https://github.com/zhensherlock/watermark-js-plus/commit/be826ab36767f1d69b9af09b2cd7f3bc278d53ad))
+* **deps:** update dependency @types/markdown-it to v14.0.1 ([a3add01](https://github.com/zhensherlock/watermark-js-plus/commit/a3add018421e12dddd9de03f7d23abdc5af0989a))
+* **deps:** update dependency element-plus to v2.7.0 ([76d822e](https://github.com/zhensherlock/watermark-js-plus/commit/76d822e41c0b607236fe7c943a28fbd6059f5e04))
+* update commitlint monorepo to v19.2.2 ([#533](https://github.com/zhensherlock/watermark-js-plus/issues/533)) ([6dbaaeb](https://github.com/zhensherlock/watermark-js-plus/commit/6dbaaeb5e7363d9f940eaccd76031a8a63787c50))
+* update dependency @types/markdown-it to v14.0.1 ([#534](https://github.com/zhensherlock/watermark-js-plus/issues/534)) ([3793071](https://github.com/zhensherlock/watermark-js-plus/commit/3793071eec17bd0e89fe51a31e84cfef066a103e))
+* update dependency element-plus to v2.7.0 ([#530](https://github.com/zhensherlock/watermark-js-plus/issues/530)) ([2d01e47](https://github.com/zhensherlock/watermark-js-plus/commit/2d01e4729bc2f8ab552cd3d31ce26bb10d0f080c))
+* update dependency rollup to v4.14.2 ([#529](https://github.com/zhensherlock/watermark-js-plus/issues/529)) ([93d67ec](https://github.com/zhensherlock/watermark-js-plus/commit/93d67ecf59d37e90eac7a4d1ce57a2af77135ef4))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* rich text watermark added to image not working ([#518](https://github.com/zhensherlock/watermark-js-plus/issues/518)) ([5cbdb30](https://github.com/zhensherlock/watermark-js-plus/commit/5cbdb30cb354209bfda6d4976cd313f07bd14d84))
+
+
+
 ## [1.4.16](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.15...v1.4.16) (2024-04-11)
 
 
