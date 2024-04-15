@@ -130,7 +130,7 @@ const handleRemoveImageWatermark = () => {
 const handleAddRichTextWatermark = () => {
   appStore.createWatermark({
     contentType: 'rich-text',
-    content: '<div style="background: #ccc;">富文本水印 <span style="color: #f00">good</span></div>',
+    content: '<div style="background: #ccc;display: flex;flex-direction: column;"><div>太<span style="color: #f00">棒</span>了</div><img src="https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png" width="100px"></div>',
     width: 300,
     height: 300,
     filter: 'blur(2px)',

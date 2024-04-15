@@ -39,7 +39,7 @@ export const getMultiLineData = (ctx: CanvasRenderingContext2D, text: string, ma
   return result
 }
 
-export const createCustomContentSVG = (ctx: CanvasRenderingContext2D, options: WatermarkOptions): CustomContentSVGType => {
+export const createCustomContentSVG = async (ctx: CanvasRenderingContext2D, options: WatermarkOptions): Promise<CustomContentSVGType> => {
   const svgElement = createSVGElement('svg', {
     xmlns: 'http://www.w3.org/2000/svg'
   })
@@ -55,8 +55,10 @@ export const createCustomContentSVG = (ctx: CanvasRenderingContext2D, options: W
   font: ${ctx.font};
   color: ${options.fontColor};
 `
-  bodyElement.innerHTML = `<div class="rich-text-content">${options.content}</div>`
+  bodyElement.innerHTML = `<div class='rich-text-content'>${options.content}</div>`
   document.body.appendChild(bodyElement)
+  // convert all images to base64
+  await convertImgToBase64(bodyElement)
   const { offsetHeight, offsetWidth } = <HTMLElement>bodyElement.querySelector('.rich-text-content')
   document.body.removeChild(bodyElement)
   const width = options.richTextWidth || offsetWidth || options.width
@@ -76,8 +78,33 @@ export const createCustomContentSVG = (ctx: CanvasRenderingContext2D, options: W
   }
 }
 
+async function convertImgToBase64 (bodyElement: HTMLElement) {
+  const imgElements = bodyElement.querySelectorAll('img')
+
+  for (const img of Array.from(imgElements)) {
+    const src = img.getAttribute('src')
+    if (src) {
+      try {
+        const response = await fetch(src)
+        const blob = await response.blob()
+        const imgData = await new Promise((resolve, reject) => {
+          const reader = new FileReader()
+          reader.onloadend = () => resolve(reader.result)
+          reader.onerror = reject
+          reader.readAsDataURL(blob)
+        })
+        if (isString(imgData)) {
+          img.setAttribute('src', imgData as string)
+        }
+      } catch (error) {
+        console.error(`Error converting ${src} to base64:`, error)
+      }
+    }
+  }
+}
+
 export const convertSVGToImage = (svg: Element): string => {
-  const richContent = svg.outerHTML.replace(/\n/g, '').replace(/\t/g, '').replace(/#/g, '%23')
+  const richContent = svg.outerHTML.replace(/<img(.*?)>/g, '<img$1/>').replace(/\n/g, '').replace(/\t/g, '').replace(/#/g, '%23')
   return `data:image/svg+xml;charset=utf-8,${richContent}`
 }
 
