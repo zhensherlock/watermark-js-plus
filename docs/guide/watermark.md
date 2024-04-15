@@ -339,7 +339,7 @@ import { Watermark } from 'watermark-js-plus' // import watermark plugin
 
 const watermark = new Watermark({
   contentType: 'rich-text',
-  content: '<div style="background: #ccc;"><img src="https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png">Rich text watermark is so <span style="color: #f00">nice</span></div>',
+  content: '<div style="background: #ccc;display: flex;flex-direction: column;"><div>how <span style="color: #f00;margin-left: 5px;">nice</span></div><img src="https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png" width="100px"></div>',
   width: 300,
   height: 300,
   filter: 'blur(2px)',
