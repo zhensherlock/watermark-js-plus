@@ -104,7 +104,7 @@
     "rollup-plugin-sass": "^1.12.22",
     "rollup-plugin-visualizer": "^5.12.0",
     "rollup-plugin-your-function": "^0.5.3",
-    "terser": "^5.30.3",
+    "terser": "^5.30.4",
     "typescript": "^5.4.5",
     "unplugin-element-plus": "^0.8.0",
     "vitepress": "^1.1.3",
