@@ -67,7 +67,7 @@
     "@babel/eslint-parser": "^7.24.1",
     "@babel/plugin-transform-runtime": "^7.24.3",
     "@babel/preset-env": "^7.24.4",
-    "@commitlint/cli": "^19.2.2",
+    "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@element-plus/icons-vue": "^2.3.1",
     "@rollup/plugin-babel": "^6.0.4",
