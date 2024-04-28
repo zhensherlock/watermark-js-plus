@@ -1,3 +1,21 @@
+## [1.4.20](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.19...v1.4.20) (2024-04-28)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency cssnano to v7 ([fcc6e71](https://github.com/zhensherlock/watermark-js-plus/commit/fcc6e71627907857a77567c8d8f9f772fb2d0816))
+* **deps:** update dependency cssnano to v7.0.1 ([2b8a471](https://github.com/zhensherlock/watermark-js-plus/commit/2b8a471f4d33eb3594e88e0121aa19ac8e3c10ae))
+* **deps:** update dependency element-plus to v2.7.2 ([63980bb](https://github.com/zhensherlock/watermark-js-plus/commit/63980bb9a5b4c110e4fb04b9176b1c4a2b1d0039))
+* **deps:** update dependency rollup to v4.17.0 ([d13b831](https://github.com/zhensherlock/watermark-js-plus/commit/d13b831efd61b247d173c6a5164878ca82cf5be2))
+* **deps:** update dependency vitepress to v1.1.4 ([f7b233a](https://github.com/zhensherlock/watermark-js-plus/commit/f7b233aa03cb66a97a3c64e6515488a831c3480b))
+* **deps:** update dependency vue to v3.4.25 ([65748b2](https://github.com/zhensherlock/watermark-js-plus/commit/65748b2507704ecfbac9c83a483d13a3fb9cb710))
+* update dependency element-plus to v2.7.2 ([#562](https://github.com/zhensherlock/watermark-js-plus/issues/562)) ([5606901](https://github.com/zhensherlock/watermark-js-plus/commit/56069012bdc2ae78936d5c26a6876330334d1927))
+* update dependency rollup to v4.17.0 ([#565](https://github.com/zhensherlock/watermark-js-plus/issues/565)) ([99e425b](https://github.com/zhensherlock/watermark-js-plus/commit/99e425b7fd94fce5095955d71ac1f33246b0349a))
+* update dependency vitepress to v1.1.4 ([#563](https://github.com/zhensherlock/watermark-js-plus/issues/563)) ([dfdfc90](https://github.com/zhensherlock/watermark-js-plus/commit/dfdfc906a6874f34707391018dc0fc9f2af75560))
+* update dependency vue to v3.4.25 ([#564](https://github.com/zhensherlock/watermark-js-plus/issues/564)) ([d12f002](https://github.com/zhensherlock/watermark-js-plus/commit/d12f0027f53619d313648f95250b6b85446b620b))
+
+
+
 ## [1.4.19](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.18...v1.4.19) (2024-04-24)
 
 
