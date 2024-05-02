@@ -1,3 +1,23 @@
+## [1.4.21](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.20...v1.4.21) (2024-05-02)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update babel monorepo to v7.24.5 ([58b5944](https://github.com/zhensherlock/watermark-js-plus/commit/58b5944d9c6266abf44628b6ab4c1401e1af561e))
+* **deps:** update dependency @types/markdown-it to v14.1.1 ([aae7918](https://github.com/zhensherlock/watermark-js-plus/commit/aae7918a0a3cd98bc7f433720ebea822a913d51b))
+* **deps:** update dependency @typescript-eslint/parser to v7.8.0 ([7035a48](https://github.com/zhensherlock/watermark-js-plus/commit/7035a48bc8ea47a75b574dade587e2a5744906aa))
+* **deps:** update dependency rollup to v4.17.2 ([8165f5a](https://github.com/zhensherlock/watermark-js-plus/commit/8165f5aa01b5b046fab86601c0ab405c11144b5e))
+* **deps:** update dependency terser to v5.31.0 ([b5b143f](https://github.com/zhensherlock/watermark-js-plus/commit/b5b143fcffcf78f9fff9cd47ddc62228d356c3b2))
+* **deps:** update dependency vue to v3.4.26 ([1302bd6](https://github.com/zhensherlock/watermark-js-plus/commit/1302bd6b02ca91c812580114f6941b15cb44f02b))
+* update babel monorepo to v7.24.5 ([#573](https://github.com/zhensherlock/watermark-js-plus/issues/573)) ([f632070](https://github.com/zhensherlock/watermark-js-plus/commit/f632070a7ac894d4ba9225e86be959d92663f5f9))
+* update dependency @types/markdown-it to v14.1.1 ([#576](https://github.com/zhensherlock/watermark-js-plus/issues/576)) ([55f45df](https://github.com/zhensherlock/watermark-js-plus/commit/55f45df0a493c01cb39ef269826139c7eb456374))
+* update dependency @typescript-eslint/parser to v7.8.0 ([#577](https://github.com/zhensherlock/watermark-js-plus/issues/577)) ([72988af](https://github.com/zhensherlock/watermark-js-plus/commit/72988af866d6fb55bf62cc02b7646f26cd1329de))
+* update dependency rollup to v4.17.2 ([#574](https://github.com/zhensherlock/watermark-js-plus/issues/574)) ([76ede24](https://github.com/zhensherlock/watermark-js-plus/commit/76ede24c4566350e19ee8758592658119d98971a))
+* update dependency terser to v5.31.0 ([#578](https://github.com/zhensherlock/watermark-js-plus/issues/578)) ([a432642](https://github.com/zhensherlock/watermark-js-plus/commit/a43264274111a377c36e4d711ba387d82f90ca26))
+* update dependency vue to v3.4.26 ([#575](https://github.com/zhensherlock/watermark-js-plus/issues/575)) ([0ba2bcc](https://github.com/zhensherlock/watermark-js-plus/commit/0ba2bcc310adfa5cc45ba663e3d5dbbfeb156c04))
+
+
+
 ## [1.4.20](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.19...v1.4.20) (2024-04-28)
 
 
