@@ -1,3 +1,12 @@
+## [1.4.22](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.21...v1.4.22) (2024-05-06)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* exports import error ([#579](https://github.com/zhensherlock/watermark-js-plus/issues/579)) ([96f3cf4](https://github.com/zhensherlock/watermark-js-plus/commit/96f3cf40da1cba5d56fff011b4b56ce82eb9411f))
+
+
+
 ## [1.4.21](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.20...v1.4.21) (2024-05-02)
 
 
