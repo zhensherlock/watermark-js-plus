@@ -58,6 +58,7 @@
   "files": [
     "dist",
     "index.js",
+    "index.mjs",
     "index.cjs",
     "LICENSE",
     "README.md"
