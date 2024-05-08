@@ -1,3 +1,17 @@
+## [1.4.23](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.22...v1.4.23) (2024-05-08)
+
+
+### ✨ Features | 新功能
+
+* export types ([b97e864](https://github.com/zhensherlock/watermark-js-plus/commit/b97e864297ee8eaaa0f32b12c2cc0c6368323dde))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* SyntaxError: Unexpected token 'export' ([#583](https://github.com/zhensherlock/watermark-js-plus/issues/583)) ([39e39d4](https://github.com/zhensherlock/watermark-js-plus/commit/39e39d4e771149fdb2f1b95f4f6a77c6205dea0a))
+
+
+
 ## [1.4.22](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.21...v1.4.22) (2024-05-06)
 
 
