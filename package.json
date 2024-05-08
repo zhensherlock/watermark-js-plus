@@ -46,7 +46,10 @@
   "exports": {
     ".": {
       "types": "./dist/types/src/index.d.ts",
-      "import": "./dist/index.esm.js",
+      "import": {
+        "node": "./index.mjs",
+        "default": "./dist/index.esm.js"
+      },
       "require": "./dist/index.cjs.js"
     },
     "./package.json": "./package.json",
