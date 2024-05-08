@@ -1,3 +1,12 @@
+## [1.4.24](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.23...v1.4.24) (2024-05-08)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* SyntaxError: Unexpected token 'export' ([#583](https://github.com/zhensherlock/watermark-js-plus/issues/583)) ([53d474e](https://github.com/zhensherlock/watermark-js-plus/commit/53d474ecd5809a3b6dedf36906e0d96727cfe15b))
+
+
+
 ## [1.4.23](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.22...v1.4.23) (2024-05-08)
 
 
