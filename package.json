@@ -112,6 +112,6 @@
     "typescript": "^5.4.5",
     "unplugin-element-plus": "^0.8.0",
     "vitepress": "^1.1.4",
-    "vue": "^3.4.26"
+    "vue": "^3.4.27"
   }
 }
