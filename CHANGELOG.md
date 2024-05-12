@@ -1,3 +1,15 @@
+## [1.4.25](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.24...v1.4.25) (2024-05-12)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency rimraf to v5.0.6 ([771c9ae](https://github.com/zhensherlock/watermark-js-plus/commit/771c9ae642f319c1c2cf103edb9c2df55e93ed21))
+* **deps:** update dependency vue to v3.4.27 ([bf98864](https://github.com/zhensherlock/watermark-js-plus/commit/bf98864aafe326ee536e6ea7b59f05296ffdb784))
+* update dependency rimraf to v5.0.6 ([#588](https://github.com/zhensherlock/watermark-js-plus/issues/588)) ([9d94310](https://github.com/zhensherlock/watermark-js-plus/commit/9d94310b0546f4db3a672d1feec039aa94ab3acc))
+* update dependency vue to v3.4.27 ([#589](https://github.com/zhensherlock/watermark-js-plus/issues/589)) ([091107d](https://github.com/zhensherlock/watermark-js-plus/commit/091107d19dcd3230cd44bf4a6d0f9b6e3978d612))
+
+
+
 ## [1.4.24](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.23...v1.4.24) (2024-05-08)
 
 
