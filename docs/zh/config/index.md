@@ -241,6 +241,13 @@ background-repeat
 
 指定绘制文本时字母之间的间距
 
+## wordSpacing
+
+- **Type:** `string`
+- **Default:** `'0px'`
+
+指定绘制文本时单词之间的间距
+
 ## mode
 
 - **Type:** `string`

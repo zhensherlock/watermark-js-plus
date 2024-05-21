@@ -241,6 +241,13 @@ The filter of the watermark content.
 
 The letterSpacing property of the Canvas API specifies the spacing between letters when drawing text.
 
+## wordSpacing
+
+- **Type:** `string`
+- **Default:** `'0px'`
+
+The wordSpacing property of the Canvas API specifies the spacing between words when drawing text.
+
 ## mode
 
 - **Type:** `string`

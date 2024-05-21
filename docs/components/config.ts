@@ -130,7 +130,8 @@ export const styleOptionKeys = [
   'textBaseline',
   'filter',
   'textRowMaxWidth',
-  'letterSpacing'
+  'letterSpacing',
+  'wordSpacing'
 ]
 
 export const shadowOptionKeys = [
