@@ -1,3 +1,26 @@
+# [1.5.0](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.25...v1.5.0) (2024-05-21)
+
+
+### ✨ Features | 新功能
+
+* add wordSpacing ([6205bfc](https://github.com/zhensherlock/watermark-js-plus/commit/6205bfc2992364d977ee2d227c90779aeba588e7))
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency @typescript-eslint/parser to v7.10.0 ([504c91f](https://github.com/zhensherlock/watermark-js-plus/commit/504c91f139fe5f5c72b37a6e9a86e1e4799340fd))
+* **deps:** update dependency @vue/theme to v2.2.11 ([4013cce](https://github.com/zhensherlock/watermark-js-plus/commit/4013cce4fcd8214cf1619550d7a4623d04a5667d))
+* **deps:** update dependency @vue/theme to v2.2.8 ([a728b9e](https://github.com/zhensherlock/watermark-js-plus/commit/a728b9e52c9163f898fe4d35d4f015bdefb86a74))
+* **deps:** update dependency core-js to v3.37.1 ([ddf912f](https://github.com/zhensherlock/watermark-js-plus/commit/ddf912f2441422532e1a13344e0fb70492b24770))
+* **deps:** update dependency element-plus to v2.7.3 ([7ce768e](https://github.com/zhensherlock/watermark-js-plus/commit/7ce768ec842f40ea8358a4332b94d394aadff59d))
+* **deps:** update dependency rimraf to v5.0.7 ([aced50e](https://github.com/zhensherlock/watermark-js-plus/commit/aced50e5b519b2dbf477e9ff0e1c681d86c1a59c))
+* **deps:** update dependency vitepress to v1.2.2 ([a2b3327](https://github.com/zhensherlock/watermark-js-plus/commit/a2b3327714eaca489cab251cf07d0b26ada4548d))
+* update dependencies ([#597](https://github.com/zhensherlock/watermark-js-plus/issues/597), [#598](https://github.com/zhensherlock/watermark-js-plus/issues/598), [#599](https://github.com/zhensherlock/watermark-js-plus/issues/599), [#600](https://github.com/zhensherlock/watermark-js-plus/issues/600)) ([796ff79](https://github.com/zhensherlock/watermark-js-plus/commit/796ff79794372b34f4d75e789aed3f35cee546bc))
+* update dependencies ([#604](https://github.com/zhensherlock/watermark-js-plus/issues/604)) ([1465712](https://github.com/zhensherlock/watermark-js-plus/commit/14657129b273d4923c0f6bd17052fb9e3ac811b8))
+* update dependency vitepress to v1.2.0 ([#601](https://github.com/zhensherlock/watermark-js-plus/issues/601)) ([10f3cfd](https://github.com/zhensherlock/watermark-js-plus/commit/10f3cfd9f122e0b740c24441b303376180d39b94))
+
+
+
 ## [1.4.25](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.24...v1.4.25) (2024-05-12)
 
 
