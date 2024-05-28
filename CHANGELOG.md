@@ -1,3 +1,18 @@
+## [1.5.1](https://github.com/zhensherlock/watermark-js-plus/compare/v1.5.0...v1.5.1) (2024-05-28)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update babel monorepo to v7.24.6 ([71fabf3](https://github.com/zhensherlock/watermark-js-plus/commit/71fabf3388d8613009c50469e1267c01e9ab0bd5))
+* **deps:** update dependency @rollup/plugin-commonjs to v25.0.8 ([edc8652](https://github.com/zhensherlock/watermark-js-plus/commit/edc8652a0252242a0feadd30468ffed5fc8c0410))
+* **deps:** update dependency @typescript-eslint/parser to v7.11.0 ([43e8387](https://github.com/zhensherlock/watermark-js-plus/commit/43e8387fb002df5e1c000666945cd7dff58fc2ef))
+* **deps:** update dependency @vue/theme to v2.2.12 ([7fe3569](https://github.com/zhensherlock/watermark-js-plus/commit/7fe356956eb973f09e60c37a86695560b4e78f9c))
+* **deps:** update dependency lint-staged to v15.2.5 ([33803b4](https://github.com/zhensherlock/watermark-js-plus/commit/33803b4cd2c280a4a8e7616148eac1ecc69b8476))
+* **deps:** update dependency rollup to v4.18.0 ([ca4d903](https://github.com/zhensherlock/watermark-js-plus/commit/ca4d9036104a47e4f8c13b60081b8cd284fafe43))
+* update dependencies ([#613](https://github.com/zhensherlock/watermark-js-plus/issues/613), [#614](https://github.com/zhensherlock/watermark-js-plus/issues/614), [#615](https://github.com/zhensherlock/watermark-js-plus/issues/615), [#616](https://github.com/zhensherlock/watermark-js-plus/issues/616), [#617](https://github.com/zhensherlock/watermark-js-plus/issues/617), [#619](https://github.com/zhensherlock/watermark-js-plus/issues/619)) ([ae5c8e3](https://github.com/zhensherlock/watermark-js-plus/commit/ae5c8e3b5622d544ede00c1a9c623953736c8d63))
+
+
+
 # [1.5.0](https://github.com/zhensherlock/watermark-js-plus/compare/v1.4.25...v1.5.0) (2024-05-21)
 
 
