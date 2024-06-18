@@ -13,7 +13,12 @@
     "lvl3": ".content h3",
     "lvl4": ".content h4",
     "lvl5": ".content h5",
-    "content": ".content p, .content li"
+    "content": ".content p, .content li",
+    "lang": {
+      "selector": "/html/@lang",
+      "type": "xpath",
+      "global": true
+    }
   },
   "selectors_exclude": [
     "aside",
@@ -21,5 +26,8 @@
     ".next-and-prev-link",
     ".table-of-contents"
   ],
+  "custom_settings": {
+    "attributesForFaceting": ["lang", "tags"]
+  },
   "js_render": true
 }
