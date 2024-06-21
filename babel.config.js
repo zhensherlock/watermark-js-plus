@@ -11,9 +11,10 @@ const presets = [
         'maintained node versions',
         'not dead',
         'safari >= 7'
-      ],
-    },
+      ]
+    }
   ],
+  '@babel/preset-typescript'
 ]
 
 const plugins = [
