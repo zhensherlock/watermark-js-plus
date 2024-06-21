@@ -3,14 +3,24 @@
     <img width="300" src="https://zhensherlock.github.io/watermark-js-plus/hero-image.png" alt="watermark logo">
   </a>
 </p>
-<p align="center">
-  <a href="https://npmjs.com/package/watermark-js-plus"><img src="https://badgen.net/npm/v/watermark-js-plus" alt="npm package"></a>
-  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/zhensherlock/watermark-js-plus/deploy.yml?branch=main">
-  <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/watermark-js-plus">
-  <img alt="npm download week" src="https://img.shields.io/npm/dw/watermark-js-plus">
-  <img alt="GitHub" src="https://img.shields.io/github/license/zhensherlock/watermark-js-plus">
-  <a href="https://gitter.im/china-hy/watermark-js-plus?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"><img src="https://badges.gitter.im/china-hy/watermark-js-plus.svg" alt="Join the chat at https://gitter.im/china-hy/watermark-js-plus"></a>
-</p>
+
+[![][npm-release-shield]][npm-release-link] [![][npm-downloads-shield]][npm-downloads-link] [![][github-release-date-shield]][github-release-date-link] [![][github-action-build-shield]][github-action-build-link] [![][package-size-shield]][package-size-link] [![][github-license-shield]][github-license-link] [![][gitter-shield]][gitter-link]
+
+[//]: # (<p align="center">)
+
+[//]: # (  <a href="https://npmjs.com/package/watermark-js-plus"><img src="https://badgen.net/npm/v/watermark-js-plus" alt="npm package"></a>)
+
+[//]: # (  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/zhensherlock/watermark-js-plus/deploy.yml?branch=main">)
+
+[//]: # (  <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/watermark-js-plus">)
+
+[//]: # (  <img alt="npm download week" src="https://img.shields.io/npm/dw/watermark-js-plus">)
+
+[//]: # (  <img alt="GitHub" src="https://img.shields.io/github/license/zhensherlock/watermark-js-plus">)
+
+[//]: # (  <a href="https://gitter.im/china-hy/watermark-js-plus?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"><img src="https://badges.gitter.im/china-hy/watermark-js-plus.svg" alt="Join the chat at https://gitter.im/china-hy/watermark-js-plus"></a>)
+
+[//]: # (</p>)
 
 # Watermark
 
@@ -107,3 +117,18 @@ This project exists thanks to all the people who contribute.
 ## License
 
 [MIT](LICENSE) © MichaelSun
+
+[npm-release-link]: https://www.npmjs.com/package/zhensherlock/watermark-js-plus
+[npm-release-shield]: https://img.shields.io/npm/v/watermark-js-plus?color=1677FF&labelColor=black&logo=npm&logoColor=white&style=flat-square
+[npm-downloads-link]: https://www.npmjs.com/package/zhensherlock/watermark-js-plus
+[npm-downloads-shield]: https://img.shields.io/npm/dw/watermark-js-plus.svg?labelColor=black&style=flat-square&color=1677FF
+[package-size-link]: https://github.com/zhensherlock/watermark-js-plus
+[package-size-shield]: https://img.shields.io/bundlephobia/minzip/watermark-js-plus?color=1677FF&label=build&labelColor=black&logo=rollupdotjs&logoColor=white&style=flat-square
+[github-release-date-link]: https://github.com/zhensherlock/watermark-js-plus/releases
+[github-release-date-shield]: https://img.shields.io/github/release-date/zhensherlock/watermark-js-plus?color=1677FF&labelColor=black&style=flat-square
+[github-action-build-link]: https://github.com/zhensherlock/watermark-js-plus/actions/workflows/deploy.yml
+[github-action-build-shield]: https://img.shields.io/github/actions/workflow/status/zhensherlock/watermark-js-plus/deploy.yml?branch=main&color=1677FF&label=build&labelColor=black&logo=githubactions&logoColor=white&style=flat-square
+[github-license-link]: https://github.com/zhensherlock/watermark-js-plus/blob/main/LICENSE
+[github-license-shield]: https://img.shields.io/github/license/zhensherlock/watermark-js-plus?color=1677FF&labelColor=black&style=flat-square
+[gitter-link]: https://gitter.im/china-hy/watermark-js-plus?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+[gitter-shield]: https://img.shields.io/gitter/room/china-hy/watermark-js-plus?color=1677FF&labelColor=black&logo=gitter&logoColor=white&style=flat-square
