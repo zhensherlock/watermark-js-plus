@@ -6,7 +6,14 @@
 
 <div align="center">
 
-[![][npm-release-shield]][npm-release-link] [![][npm-downloads-shield]][npm-downloads-link] [![][github-release-date-shield]][github-release-date-link] [![][github-action-build-shield]][github-action-build-link] [![][package-size-shield]][package-size-link] [![][github-license-shield]][github-license-link] [![][gitter-shield]][gitter-link]
+[![][npm-release-shield]][npm-release-link]
+[![][npm-downloads-shield]][npm-downloads-link]
+[![][package-size-shield]][package-size-link]
+[![][codecov-shield]][codecov-link] <br/>
+[![][github-release-date-shield]][github-release-date-link]
+[![][github-action-build-shield]][github-action-build-link]
+[![][github-license-shield]][github-license-link]
+[![][gitter-shield]][gitter-link]
 
 [//]: # (  <a href="https://npmjs.com/package/watermark-js-plus"><img src="https://badgen.net/npm/v/watermark-js-plus" alt="npm package"></a>)
 [//]: # (  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/zhensherlock/watermark-js-plus/deploy.yml?branch=main">)
@@ -119,6 +126,8 @@ This project exists thanks to all the people who contribute.
 [npm-downloads-shield]: https://img.shields.io/npm/dw/watermark-js-plus.svg?labelColor=black&style=flat-square&color=1677FF
 [package-size-link]: https://github.com/zhensherlock/watermark-js-plus
 [package-size-shield]: https://img.shields.io/bundlephobia/minzip/watermark-js-plus?color=1677FF&label=build&labelColor=black&logo=rollupdotjs&logoColor=white&style=flat-square
+[codecov-link]: https://codecov.io/gh/zhensherlock/watermark-js-plus
+[codecov-shield]: https://img.shields.io/codecov/c/github/zhensherlock/watermark-js-plus?color=1677FF&labelColor=black&style=flat-square&logo=codecov&logoColor=white
 [github-release-date-link]: https://github.com/zhensherlock/watermark-js-plus/releases
 [github-release-date-shield]: https://img.shields.io/github/release-date/zhensherlock/watermark-js-plus?color=1677FF&labelColor=black&style=flat-square
 [github-action-build-link]: https://github.com/zhensherlock/watermark-js-plus/actions/workflows/deploy.yml
