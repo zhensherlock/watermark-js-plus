@@ -21,4 +21,8 @@ describe('utils index module', () => {
   test('isString expected false', () => {
     expect(utils.isString(1)).toBe(false)
   })
+
+  // test('createSVGElement expected false', () => {
+  //   expect(utils.createSVGElement('svg'))
+  // })
 })
