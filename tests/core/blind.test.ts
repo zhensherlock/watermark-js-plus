@@ -1,10 +1,10 @@
 import { describe, expect, test } from '@jest/globals'
-import { Watermark } from '../../src/core/watermark'
+import { BlindWatermark } from '../../src/core/blind'
 import $ from 'jquery'
 
-describe('core watermark module', () => {
-  test('Watermark create expected true', async () => {
-    const watermark = new Watermark({
+describe('core blind module', () => {
+  test('blind-watermark create expected true', async () => {
+    const watermark = new BlindWatermark({
       content: 'hello my watermark',
       width: 200,
       height: 200,
@@ -28,6 +28,8 @@ describe('core watermark module', () => {
             color: 'blue'
           }
         ]
+      },
+      onSuccess: () => {
       },
       zIndex: 2147483646
     })
