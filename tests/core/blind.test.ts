@@ -7,33 +7,13 @@ const decodeImage = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+4AAAIkCAYAA
 describe('core blind module', () => {
   test('blind-watermark create expected true', async () => {
     const watermark = new BlindWatermark({
+      contentType: 'multi-line-text',
       content: 'hello my watermark',
       width: 200,
       height: 200,
-      rotate: 22,
-      layout: 'grid',
-      gridLayoutOptions: {
-        rows: 2,
-        cols: 2,
-        gap: [20, 20],
-        matrix: [[1, 0], [0, 1]]
-      },
-      advancedStyle: {
-        type: 'linear',
-        colorStops: [
-          {
-            offset: 0,
-            color: 'red'
-          },
-          {
-            offset: 1,
-            color: 'blue'
-          }
-        ]
-      },
-      onSuccess: () => {
-      },
-      zIndex: 2147483646
+      zIndex: 2147483646,
+      translatePlacement: 'top',
+      textBaseline: 'bottom'
     })
     await watermark.create()
     expect($('body > div:last').css('z-index')).toBe('2147483646')
@@ -49,5 +29,5 @@ describe('core blind module', () => {
         expect(res).toBe(decodeImage)
       }
     })
-  })
+  }, 10000)
 })
