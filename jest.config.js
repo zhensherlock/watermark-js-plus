@@ -7,5 +7,8 @@ module.exports = {
   },
   collectCoverage: true,
   coverageDirectory: 'coverage',
-  coverageReporters: ['json', 'lcov', 'text', 'clover']
+  coverageReporters: ['json', 'lcov', 'text', 'clover'],
+  transform: {
+    '\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/tests/transformer/image.transformer.ts'
+  }
 }
