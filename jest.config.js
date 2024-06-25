@@ -9,6 +9,6 @@ module.exports = {
   coverageDirectory: 'coverage',
   coverageReporters: ['json', 'lcov', 'text', 'clover'],
   transform: {
-    '\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/tests/transformer/image.transformer.ts'
+    '\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/tests/transformer/image.transformer.js'
   }
 }
