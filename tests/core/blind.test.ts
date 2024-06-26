@@ -1,6 +1,6 @@
+import $ from 'jquery'
 import { describe, expect, test } from '@jest/globals'
 import { BlindWatermark } from '../../src/core/blind'
-import $ from 'jquery'
 import decodeImage from '../assets/blind-watermark-decode-result.png'
 
 describe('core blind module', () => {

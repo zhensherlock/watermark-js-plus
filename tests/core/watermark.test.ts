@@ -1,6 +1,6 @@
+import $ from 'jquery'
 import { describe, expect, test } from '@jest/globals'
 import { Watermark } from '../../src/core/watermark'
-import $ from 'jquery'
 
 describe('core watermark module', () => {
   test('Watermark create expected true', async () => {
