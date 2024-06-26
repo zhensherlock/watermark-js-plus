@@ -22,7 +22,7 @@ describe('core blind module', () => {
 
   test('blind-watermark decode expected true', (done) => {
     BlindWatermark.decode({
-      url: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/blind-watermark-X9D8to.png',
+      url: 'https://upic-1258271354.cos.ap-shanghai.myqcloud.com//uPic/blind-watermark-7xVnIB.png',
       onSuccess: (res: any) => {
         done()
         expect(res).toBe(decodeImage)

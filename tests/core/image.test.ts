@@ -26,6 +26,6 @@ describe('core image module', () => {
       expect($('.text-watermark-image').attr('src')).toBe(imageWatermarkTextResult)
       watermark.destroy()
       expect($('.text-watermark-image').attr('src')).toBe(imageWatermarkOriginal)
-    }, 1000)
+    }, 5000)
   }, 10000)
 })
