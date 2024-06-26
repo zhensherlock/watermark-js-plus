@@ -1,8 +1,9 @@
 import $ from 'jquery'
 import { describe, expect, test } from '@jest/globals'
 import { ImageWatermark } from '../../src/core/image'
-import imageWatermarkOriginal from '../assets/image-watermark-original.jpg'
 import imageWatermarkTextResult from '../assets/image-watermark-text-result.png'
+
+const imageWatermarkOriginal = 'https://upic-1258271354.cos.ap-shanghai.myqcloud.com//uPic/image-watermark-original-tuxD08.jpg'
 
 describe('core image module', () => {
   test('image-watermark create expected true', (done) => {
