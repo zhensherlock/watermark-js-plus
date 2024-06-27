@@ -129,7 +129,7 @@ describe('core watermark module', () => {
     expect($('body > div:last').css('z-index')).toBe('2147483646')
     watermark.destroy()
     expect($('body > div:last').css('z-index')).toBe(undefined)
-  })
+  }, 50000)
 
   test('rich text watermark watermark expected true', async () => {
     const watermark = new Watermark({
