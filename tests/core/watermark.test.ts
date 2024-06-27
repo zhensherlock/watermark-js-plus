@@ -5,6 +5,7 @@ import { Watermark } from '../../src/core/watermark'
 describe('core watermark module', () => {
   test('text watermark expected true', async () => {
     const watermark = new Watermark({
+      translatePlacement: 'top',
       contentType: 'text',
       content: 'hello my watermark',
       textType: 'stroke',
@@ -93,7 +94,7 @@ describe('core watermark module', () => {
 
   test('image watermark expected true', async () => {
     const watermark = new Watermark({
-      translatePlacement: 'bottom-start',
+      translatePlacement: 'top',
       contentType: 'image',
       image: 'https://upic-1258271354.cos.ap-shanghai.myqcloud.com//uPic/github-XQkjmL.png',
       width: 200,
@@ -103,6 +104,27 @@ describe('core watermark module', () => {
       filter: 'grayscale(100%)'
     })
     await watermark.create()
+    await watermark.changeOptions({
+      translatePlacement: 'top-start'
+    })
+    await watermark.changeOptions({
+      translatePlacement: 'top-end'
+    })
+    await watermark.changeOptions({
+      translatePlacement: 'bottom'
+    })
+    await watermark.changeOptions({
+      translatePlacement: 'bottom-start'
+    })
+    await watermark.changeOptions({
+      translatePlacement: 'bottom-end'
+    })
+    await watermark.changeOptions({
+      translatePlacement: 'left'
+    })
+    await watermark.changeOptions({
+      translatePlacement: 'right'
+    })
 
     expect($('body > div:last').css('z-index')).toBe('2147483646')
     watermark.destroy()
