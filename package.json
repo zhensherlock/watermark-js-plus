@@ -96,6 +96,7 @@
     "conventional-changelog-angular": "^7.0.0",
     "conventional-changelog-cli": "^4.1.0",
     "core-js": "^3.37.1",
+    "cross-fetch": "^4.0.0",
     "cssnano": "^7.0.3",
     "element-plus": "^2.7.6",
     "eslint": "^8.57.0",
