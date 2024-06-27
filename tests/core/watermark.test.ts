@@ -106,25 +106,25 @@ describe('core watermark module', () => {
     await watermark.create()
     await watermark.changeOptions({
       translatePlacement: 'top-start'
-    })
+    }, 'append')
     await watermark.changeOptions({
       translatePlacement: 'top-end'
-    })
+    }, 'append')
     await watermark.changeOptions({
       translatePlacement: 'bottom'
-    })
+    }, 'append')
     await watermark.changeOptions({
       translatePlacement: 'bottom-start'
-    })
+    }, 'append')
     await watermark.changeOptions({
       translatePlacement: 'bottom-end'
-    })
+    }, 'append')
     await watermark.changeOptions({
       translatePlacement: 'left'
-    })
+    }, 'append')
     await watermark.changeOptions({
       translatePlacement: 'right'
-    })
+    }, 'append')
 
     expect($('body > div:last').css('z-index')).toBe('2147483646')
     watermark.destroy()
