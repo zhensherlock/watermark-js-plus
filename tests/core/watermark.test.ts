@@ -5,6 +5,7 @@ import { Watermark } from '../../src/core/watermark'
 describe('core watermark module', () => {
   test('text watermark expected true', async () => {
     const watermark = new Watermark({
+      textBaseline: 'middle',
       translatePlacement: 'top',
       contentType: 'text',
       content: 'hello my watermark',
@@ -100,15 +101,16 @@ describe('core watermark module', () => {
       width: 200,
       height: 200,
       zIndex: 2147483646,
-      imageWidth: 100,
       filter: 'grayscale(100%)'
     })
     await watermark.create()
     await watermark.changeOptions({
-      translatePlacement: 'top-start'
+      translatePlacement: 'top-start',
+      imageWidth: 100
     }, 'append')
     await watermark.changeOptions({
-      translatePlacement: 'top-end'
+      translatePlacement: 'top-end',
+      imageHeight: 100
     }, 'append')
     await watermark.changeOptions({
       translatePlacement: 'bottom'
