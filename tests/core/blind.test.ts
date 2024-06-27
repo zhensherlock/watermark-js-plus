@@ -11,7 +11,7 @@ describe('core blind module', () => {
       width: 200,
       height: 200,
       zIndex: 2147483646,
-      translatePlacement: 'top',
+      translatePlacement: 'right',
       textBaseline: 'bottom'
     })
     await watermark.create()
