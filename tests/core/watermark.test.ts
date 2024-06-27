@@ -16,6 +16,8 @@ describe('core watermark module', () => {
     await watermark.create()
 
     await watermark.changeOptions({
+      textBaseline: 'top',
+      translatePlacement: 'top-start',
       auxiliaryLine: true,
       layout: 'grid',
       gridLayoutOptions: {
@@ -53,6 +55,7 @@ describe('core watermark module', () => {
 
   test('multi-line-text watermark expected true', async () => {
     const watermark = new Watermark({
+      translatePlacement: 'top-end',
       contentType: 'multi-line-text',
       content: 'multi text watermark',
       textType: 'stroke',
@@ -63,6 +66,7 @@ describe('core watermark module', () => {
     })
     await watermark.create()
     await watermark.changeOptions({
+      translatePlacement: 'bottom',
       advancedStyle: {
         type: 'radial',
         params: {
@@ -89,6 +93,7 @@ describe('core watermark module', () => {
 
   test('image watermark expected true', async () => {
     const watermark = new Watermark({
+      translatePlacement: 'bottom-start',
       contentType: 'image',
       image: 'https://upic-1258271354.cos.ap-shanghai.myqcloud.com//uPic/github-XQkjmL.png',
       width: 200,
@@ -106,8 +111,9 @@ describe('core watermark module', () => {
 
   test('rich text watermark watermark expected true', async () => {
     const watermark = new Watermark({
+      translatePlacement: 'left',
       contentType: 'rich-text',
-      content: '<div style="background: #ccc;display: flex;flex-direction: column;"><div>how <span style="color: #f00;margin-left: 5px;">nice</span></div></div>',
+      content: '<div style="background: #ccc;display: flex;flex-direction: column;"><div>how <span style="color: #f00;margin-left: 5px;">nice</span></div><img src="https://upic-1258271354.cos.ap-shanghai.myqcloud.com//uPic/github-XQkjmL.png" width="100px"></div>',
       width: 300,
       height: 300,
       filter: 'blur(2px)',
