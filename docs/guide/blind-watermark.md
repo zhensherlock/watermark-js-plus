@@ -103,9 +103,9 @@ const handleRemoveRichTextBlindWatermark = () => {
 // decode blind watermark
 const handleSuccessByLight = (uploadFile) => {
   BlindWatermark.decode({
+    compositeTimes: 4,
     compositeOperation: 'overlay',
     url: uploadFile.url,
-    compositeTimes: 4,
     onSuccess: (imageBase64) => {
       decodeBlindImageByLight.value = imageBase64
     }
@@ -113,10 +113,10 @@ const handleSuccessByLight = (uploadFile) => {
 }
 const handleSuccessByDark = (uploadFile) => {
   BlindWatermark.decode({
-    compositeOperation: 'overlay',
     fillColor: '#fff',
-    url: uploadFile.url,
     compositeTimes: 3,
+    compositeOperation: 'overlay',
+    url: uploadFile.url,
     onSuccess: (imageBase64) => {
       decodeBlindImageByDark.value = imageBase64
     }
