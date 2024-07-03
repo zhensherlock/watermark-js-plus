@@ -103,8 +103,9 @@ const handleRemoveRichTextBlindWatermark = () => {
 // decode blind watermark
 const handleSuccessByLight = (uploadFile) => {
   BlindWatermark.decode({
+    compositeOperation: 'overlay',
     url: uploadFile.url,
-    compositeTimes: 3,
+    compositeTimes: 4,
     onSuccess: (imageBase64) => {
       decodeBlindImageByLight.value = imageBase64
     }
@@ -251,6 +252,8 @@ watermark.destroy() // remove watermark
 import { BlindWatermark } from 'watermark-js-plus' // import watermark plugin
 
 BlindWatermark.decode({
+  compositeOperation: 'overlay',
+  compositeTimes: 4,
   url: uploadFile.url, // image url
   onSuccess: (imageBase64) => {
     // success callback
