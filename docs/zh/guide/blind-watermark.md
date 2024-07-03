@@ -103,6 +103,8 @@ const handleRemoveRichTextBlindWatermark = () => {
 // 解析暗水印
 const handleSuccessByLight = (uploadFile) => {
   BlindWatermark.decode({
+    compositeTimes: 4,
+    compositeOperation: 'overlay',
     url: uploadFile.url,
     onSuccess: (imageBase64) => {
       decodeBlindImageByLight.value = imageBase64
@@ -111,8 +113,9 @@ const handleSuccessByLight = (uploadFile) => {
 }
 const handleSuccessByDark = (uploadFile) => {
   BlindWatermark.decode({
-    compositeOperation: 'overlay',
     fillColor: '#fff',
+    compositeTimes: 3,
+    compositeOperation: 'overlay',
     url: uploadFile.url,
     onSuccess: (imageBase64) => {
       decodeBlindImageByDark.value = imageBase64
@@ -250,6 +253,8 @@ watermark.destroy() // 删除水印
 import { BlindWatermark } from 'watermark-js-plus' // 引入水印插件
 
 BlindWatermark.decode({
+  compositeOperation: 'overlay',
+  compositeTimes: 4,
   url: uploadFile.url, // 需要解析暗水印图片的URL
   onSuccess: (imageBase64) => {
     // 解析成功后的回调事件，返回的是解析后图片的base64
