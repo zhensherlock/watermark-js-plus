@@ -105,6 +105,8 @@ const handleSuccessByLight = (uploadFile) => {
   BlindWatermark.decode({
     compositeTimes: 4,
     compositeOperation: 'overlay',
+    // compositeTimes: 5,
+    // compositeOperation: 'soft-light',
     url: uploadFile.url,
     onSuccess: (imageBase64) => {
       decodeBlindImageByLight.value = imageBase64
