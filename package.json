@@ -87,7 +87,7 @@
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/jquery": "^3.5.30",
     "@types/markdown-it": "^14.1.1",
-    "@typescript-eslint/parser": "^7.14.1",
+    "@typescript-eslint/parser": "^7.15.0",
     "@vue/theme": "^2.2.12",
     "autoprefixer": "^10.4.19",
     "canvas": "^2.11.2",
@@ -115,14 +115,14 @@
     "rollup": "^4.18.0",
     "rollup-plugin-filesize": "^10.0.0",
     "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-sass": "^1.13.0",
+    "rollup-plugin-sass": "^1.13.1",
     "rollup-plugin-visualizer": "^5.12.0",
     "rollup-plugin-your-function": "^0.5.3",
     "terser": "^5.31.1",
     "ts-jest": "^29.1.5",
-    "typescript": "^5.5.2",
+    "typescript": "^5.5.3",
     "unplugin-element-plus": "^0.8.0",
     "vitepress": "^1.2.3",
-    "vue": "^3.4.30"
+    "vue": "^3.4.31"
   }
 }
