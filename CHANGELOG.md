@@ -1,3 +1,68 @@
+## [1.5.2](https://github.com/zhensherlock/watermark-js-plus/compare/v1.5.1...v1.5.2) (2024-07-05)
+
+
+### ✅ Tests | 测试
+
+* add create BlindWatermark test ([a430f69](https://github.com/zhensherlock/watermark-js-plus/commit/a430f692ae831a9d398adf270365eadeff4ee434))
+* add create Watermark test ([c0cfdcc](https://github.com/zhensherlock/watermark-js-plus/commit/c0cfdccd5ff6862ab82614e1a10186902633c626))
+* add image watermark test ([c132c74](https://github.com/zhensherlock/watermark-js-plus/commit/c132c7453c5a39a0dc38e12189b5c989045539c6))
+* add jest ([b2c5869](https://github.com/zhensherlock/watermark-js-plus/commit/b2c58696b586adeb4a2f632e0c4e7c89987bcbf7))
+* add jest image transformer ([1b75aec](https://github.com/zhensherlock/watermark-js-plus/commit/1b75aeca1a4b963e20042c0c9389f10191b6548d))
+* add jest image transformer ([2fabc30](https://github.com/zhensherlock/watermark-js-plus/commit/2fabc30f4871f001bb3fa1905b7ddd9b860bc492))
+* update create BlindWatermark test ([bd599f2](https://github.com/zhensherlock/watermark-js-plus/commit/bd599f24f9d634eec7a63bf825b7f402a6b73693))
+* update create BlindWatermark test ([50ece22](https://github.com/zhensherlock/watermark-js-plus/commit/50ece22d877807318dd1f56335874ca21f9f0ae2))
+* update image watermark test ([9185222](https://github.com/zhensherlock/watermark-js-plus/commit/91852225ac4b61e2676a50c5dafc1d8de179b7fe))
+* update image watermark test ([69727f3](https://github.com/zhensherlock/watermark-js-plus/commit/69727f3404c53b5f5ed16a4d2ec00eff7ca30480))
+* update image watermark test ([013eea4](https://github.com/zhensherlock/watermark-js-plus/commit/013eea47c24437472f77cded6b24354fbf13617b))
+* update image watermark test ([940a6ba](https://github.com/zhensherlock/watermark-js-plus/commit/940a6ba18e9b4ca1b256c0d4c2a4af78c4a58310))
+* update image watermark test ([a0c8f95](https://github.com/zhensherlock/watermark-js-plus/commit/a0c8f9513ec83b64a932d7b1edcdb63c57a48054))
+* update jest image transformer ([5e9549d](https://github.com/zhensherlock/watermark-js-plus/commit/5e9549dc9b04a3c1d04a4a38e9c5feac1c2b9281))
+* update watermark test ([46f8d66](https://github.com/zhensherlock/watermark-js-plus/commit/46f8d666d238cbef5224b73ed1db4057fbc2ba19))
+* update watermark test ([2e138af](https://github.com/zhensherlock/watermark-js-plus/commit/2e138af111a2715ae00e06ac5467d13adcb8d8c4))
+* update watermark test ([c282dde](https://github.com/zhensherlock/watermark-js-plus/commit/c282ddee0f2bc15b6ef6197b81fb2c38feee1570))
+* update watermark test ([70fb32a](https://github.com/zhensherlock/watermark-js-plus/commit/70fb32a7f968c27463867783d2a890654ad6475b))
+* update watermark test ([067fb0a](https://github.com/zhensherlock/watermark-js-plus/commit/067fb0a89730ddd16cc9640a77444a0ccfd16173))
+* update watermark test ([b88bb84](https://github.com/zhensherlock/watermark-js-plus/commit/b88bb84f1f0359a2fe2d3cbb152c53f5d610d45a))
+* update watermark test ([337a953](https://github.com/zhensherlock/watermark-js-plus/commit/337a9536b9d8932564cc1891eab1ef85f6b1c44e))
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update babel monorepo to v7.24.7 ([48599e3](https://github.com/zhensherlock/watermark-js-plus/commit/48599e344a6fe3647f1cde1b2c9385831bcf1d6c))
+* **deps:** update dependency @rollup/plugin-commonjs to v26 ([1f36c7c](https://github.com/zhensherlock/watermark-js-plus/commit/1f36c7c3046ca8bf21355248e00a92f1bf51b2c3))
+* **deps:** update dependency @rollup/plugin-commonjs to v26 ([150a32e](https://github.com/zhensherlock/watermark-js-plus/commit/150a32e3c6cb2824987b1bf7644665cab5ee2710))
+* **deps:** update dependency @rollup/plugin-replace to v5.0.7 ([4897dcd](https://github.com/zhensherlock/watermark-js-plus/commit/4897dcdebd04ea6d06c98f3f77e107887798a51d))
+* **deps:** update dependency @typescript-eslint/parser to v7.13.0 ([7e58c59](https://github.com/zhensherlock/watermark-js-plus/commit/7e58c59c54af7afb9f8c2e412496a7e6a09c06bb))
+* **deps:** update dependency @typescript-eslint/parser to v7.13.1 ([68d5173](https://github.com/zhensherlock/watermark-js-plus/commit/68d5173c3b54374b1d49c79acba4da54f37f2bdf))
+* **deps:** update dependency @typescript-eslint/parser to v7.14.1 ([c6300f5](https://github.com/zhensherlock/watermark-js-plus/commit/c6300f5f883cb4e1b4ce49d8bc0a36eaf78a41ab))
+* **deps:** update dependency @typescript-eslint/parser to v7.15.0 ([7d6959d](https://github.com/zhensherlock/watermark-js-plus/commit/7d6959d77ffe253a8507d8fa9bf534b5061f7d48))
+* **deps:** update dependency cssnano to v7.0.2 ([e04eb1c](https://github.com/zhensherlock/watermark-js-plus/commit/e04eb1c15ff33d6c4801c0b67b0d3324d5960b03))
+* **deps:** update dependency cssnano to v7.0.3 ([5a2694b](https://github.com/zhensherlock/watermark-js-plus/commit/5a2694bee2146de6938e0c85f9e531e6dbe1590b))
+* **deps:** update dependency element-plus to v2.7.5 ([b6ddb01](https://github.com/zhensherlock/watermark-js-plus/commit/b6ddb0179f376e57a77028f30c1ae482cfe01665))
+* **deps:** update dependency element-plus to v2.7.6 ([ae927e9](https://github.com/zhensherlock/watermark-js-plus/commit/ae927e9719805e25da5ce54ada22fa73eeabba58))
+* **deps:** update dependency lint-staged to v15.2.7 ([a6b43db](https://github.com/zhensherlock/watermark-js-plus/commit/a6b43dbe3d594b61b4b2d2774802680d96574879))
+* **deps:** update dependency rollup-plugin-sass to v1.13.0 ([6d14720](https://github.com/zhensherlock/watermark-js-plus/commit/6d147208a9ba92ac5834e9ae13507856cb2a37fe))
+* **deps:** update dependency rollup-plugin-sass to v1.13.1 ([a19577e](https://github.com/zhensherlock/watermark-js-plus/commit/a19577ec9878ad36075f2c50fd4666a24a421d98))
+* **deps:** update dependency terser to v5.31.1 ([bac73c2](https://github.com/zhensherlock/watermark-js-plus/commit/bac73c282ab03d42eba89ee42efe682edb34c98e))
+* **deps:** update dependency typescript to v5.5.2 ([a0d4d4f](https://github.com/zhensherlock/watermark-js-plus/commit/a0d4d4f14964aeb6a9ac710b5b5a952f9d052a37))
+* **deps:** update dependency typescript to v5.5.3 ([62c6c5c](https://github.com/zhensherlock/watermark-js-plus/commit/62c6c5cf800f774dd63b06b854544327ed6b8ca6))
+* **deps:** update dependency vitepress to v1.2.3 ([ce925c1](https://github.com/zhensherlock/watermark-js-plus/commit/ce925c1c204fdfe020f629610414c569033e1bb1))
+* **deps:** update dependency vue to v3.4.28 ([b73e8a8](https://github.com/zhensherlock/watermark-js-plus/commit/b73e8a8d5d06cc208d6180b115c0d9e04ce586bc))
+* **deps:** update dependency vue to v3.4.30 ([246a7a6](https://github.com/zhensherlock/watermark-js-plus/commit/246a7a6b7e84be67717099ca711765fbebad8872))
+* **deps:** update dependency vue to v3.4.31 ([2ee6010](https://github.com/zhensherlock/watermark-js-plus/commit/2ee60106fa97972fac260c608bb925d352ab9b2a))
+* update dependencies ([56bf411](https://github.com/zhensherlock/watermark-js-plus/commit/56bf411dea1377d2943818bb3f0f4a98cbc7ca4a))
+* update dependencies ([46b6a3e](https://github.com/zhensherlock/watermark-js-plus/commit/46b6a3e87fd70f503b827df1633730a3b52c1c93))
+* update dependencies ([08a2caa](https://github.com/zhensherlock/watermark-js-plus/commit/08a2caaf09f960f2fcab102ba4673327df594672))
+* update dependencies ([79a4420](https://github.com/zhensherlock/watermark-js-plus/commit/79a4420532822967de53c8131274930d2f37e6e7))
+* update dependencies ([39da558](https://github.com/zhensherlock/watermark-js-plus/commit/39da558e5590196733bb69444083af93fa8add10))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复富文本元素宽高不正确的问题 ([ac21394](https://github.com/zhensherlock/watermark-js-plus/commit/ac21394fcfc8c61f485724a667fb0f028e4f4719))
+
+
+
 ## [1.5.1](https://github.com/zhensherlock/watermark-js-plus/compare/v1.5.0...v1.5.1) (2024-05-28)
 
 
