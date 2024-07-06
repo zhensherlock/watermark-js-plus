@@ -56,6 +56,7 @@ export default {
           text: 'Custom',
           items: [
             { text: 'Configs', link: '/guide/custom/configs' },
+            { text: 'Decode', link: '/guide/custom/decode' },
           ]
         }
       ],

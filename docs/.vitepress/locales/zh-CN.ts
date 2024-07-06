@@ -38,6 +38,7 @@ export default {
         text: '自定义',
         items: [
           { text: '配置', link: '/zh/guide/custom/configs' },
+          { text: '解析', link: '/zh/guide/custom/decode' },
         ]
       }
     ],
