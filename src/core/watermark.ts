@@ -136,6 +136,10 @@ class Watermark {
     } else {
       this.parentElement = parent
     }
+
+    if (!this.parentElement) {
+      console.error('[WatermarkJsPlus]: please pass a valid parent element.')
+    }
   }
 
   private validateUnique (): boolean {
