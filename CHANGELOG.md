@@ -121,6 +121,7 @@
 
 ### 🐛 Bug Fixes | Bug 修复
 
+* test error ([e4a342f](https://github.com/zhensherlock/watermark-js-plus/commit/e4a342f95a9d523621ea4abcfedad35381495970))
 * the create method executed multiple times ([#815](https://github.com/zhensherlock/watermark-js-plus/issues/815)) ([00f2fc5](https://github.com/zhensherlock/watermark-js-plus/commit/00f2fc5f696a0dc54fbaa3f1d847955bca997e7c))
 * 修复富文本元素宽高不正确的问题 ([ac21394](https://github.com/zhensherlock/watermark-js-plus/commit/ac21394fcfc8c61f485724a667fb0f028e4f4719))
 
