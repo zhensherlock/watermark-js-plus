@@ -233,7 +233,7 @@ class WatermarkCanvas {
     const lines = this.recommendOptions.textLine.data
     const yOffsetValue = this.recommendOptions.textLine.yOffsetValue
     lines.forEach((text, index) => {
-      this.setText(ctx, { text, x: 0, y: this.options.lineHeight * index - yOffsetValue })
+      this.setText(ctx, { text, x: 0, y: this.options.lineHeight * index - yOffsetValue, maxWidth: this.options.textRowMaxWidth || this.options.width })
     })
     resolve(ctx.canvas)
   }

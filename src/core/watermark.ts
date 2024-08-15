@@ -26,7 +26,10 @@ class Watermark {
    */
   constructor (args: Partial<WatermarkOptions> = {}) {
     this.props = args
-    this.options = Object.assign({}, initialOptions, args)
+    this.options = {
+      ...initialOptions,
+      ...args
+    }
     this.changeParentElement(this.options.parent)
     this.watermarkCanvas = new WatermarkCanvas(this.props, this.options)
     bootstrap()
@@ -86,7 +89,7 @@ class Watermark {
       background-size:${backgroundSize[0]}px ${backgroundSize[1]}px!important;background-position:${this.options.backgroundPosition};
       ${this.options.movable ? 'animation: 200s ease 0s infinite normal none running watermark !important;' : ''}
     `
-    this.watermarkDom.append(watermarkInnerDom)
+    this.watermarkDom.appendChild(watermarkInnerDom)
     this.parentElement.appendChild(this.watermarkDom)
 
     if (this.options.mutationObserve) {
@@ -120,7 +123,7 @@ class Watermark {
     this.observer?.disconnect()
     this.parentObserve?.disconnect()
     this.unbindCheckWatermarkElementEvent()
-    this.watermarkDom?.remove()
+    this.watermarkDom?.parentNode?.removeChild(this.watermarkDom)
     this.options.onDestroyed?.()
   }
 
@@ -132,7 +135,10 @@ class Watermark {
     } else {
       this.props = args
     }
-    this.options = Object.assign({}, initialOptions, this.props)
+    this.options = {
+      ...initialOptions,
+      ...this.props
+    }
     this.changeParentElement(this.options.parent)
     this.watermarkCanvas = new WatermarkCanvas(<Partial<WatermarkOptions>> this.props, this.options)
   }
@@ -152,7 +158,8 @@ class Watermark {
 
   private validateUnique (): boolean {
     let result = true
-    this.parentElement.childNodes.forEach(node => {
+
+    Array.from(this.parentElement.childNodes).forEach(node => {
       if (!result) {
         return
       }
