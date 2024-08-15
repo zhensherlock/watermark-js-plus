@@ -14,5 +14,5 @@
     "jsx": "preserve",
     "lib": ["ES5", "DOM"]
   },
-  "exclude": ["**/node_modules/**", "**/dist/**"]
+  "include": ["src/**/*.ts"]
 }

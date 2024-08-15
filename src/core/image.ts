@@ -22,7 +22,10 @@ class ImageWatermark {
    */
   constructor (args: Partial<ImageWatermarkOptions> = {}) {
     this.props = args
-    this.options = Object.assign({}, initialOptions, args)
+    this.options = {
+      ...initialOptions,
+      ...args
+    }
     this.watermarkCanvas = new WatermarkCanvas(this.props, this.options)
     this.originalSrc = this.props.dom?.src
     this.backgroundImage = this.getBackgroundImage()

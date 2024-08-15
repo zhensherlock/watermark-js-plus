@@ -5,6 +5,7 @@ const presets = [
       useBuiltIns: 'usage',
       corejs: { version: 3 },
       targets: [
+        'ie >= 11',
         '> 1%',
         'Firefox ESR',
         'last 4 versions',
