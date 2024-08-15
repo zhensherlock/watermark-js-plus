@@ -43,10 +43,10 @@
   "browser": "dist/index.esm.js",
   "unpkg": "dist/index.iife.js",
   "jsdelivr": "dist/index.iife.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/types/src/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
+      "types": "./dist/types/src/index.d.ts",
       "import": {
         "node": "./index.mjs",
         "default": "./dist/index.esm.js"
@@ -54,7 +54,7 @@
       "require": "./dist/index.cjs.js"
     },
     "./ie": {
-      "types": "./dist/ie/types/index.d.ts",
+      "types": "./dist/ie/types/src/index.d.ts",
       "import": {
         "node": "./index.mjs",
         "default": "./dist/ie/index.esm.js"
