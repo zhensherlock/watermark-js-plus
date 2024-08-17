@@ -58,6 +58,12 @@ export default {
             { text: 'Configs', link: '/guide/custom/configs' },
             { text: 'Decode', link: '/guide/custom/decode' },
           ]
+        },
+        {
+          text: 'Extra',
+          items: [
+            { text: 'Internet Explorer', link: '/guide/extra/ie' },
+          ]
         }
       ],
       '/config': [

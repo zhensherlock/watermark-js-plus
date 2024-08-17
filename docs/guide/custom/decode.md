@@ -1,6 +1,9 @@
 ---
 layout: doc
 ---
+
+<el-backtop></el-backtop>
+
 # Decode Configs
 
 <script setup lang="ts">
@@ -140,8 +143,6 @@ const handleDecode = () => {
     fit="cover"
   />
 </div>
-
-<el-backtop></el-backtop>
 
 <style scoped>
 .title {

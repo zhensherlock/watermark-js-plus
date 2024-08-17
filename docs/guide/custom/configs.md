@@ -1,6 +1,9 @@
 ---
 layout: doc
 ---
+
+<el-backtop></el-backtop>
+
 # Custom Configs
 
 <script setup lang="ts">
@@ -66,5 +69,3 @@ watermark.destroy() // remove watermark
     <el-button round type="danger" @click="handleRemoveWatermark">Remove Watermark</el-button>
   </el-space>
 </el-affix>
-
-<el-backtop></el-backtop>

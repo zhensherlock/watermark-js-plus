@@ -1,4 +1,4 @@
-## [1.5.3](https://github.com/zhensherlock/watermark-js-plus/compare/v1.5.2...v1.5.3) (2024-08-15)
+## [1.5.3](https://github.com/zhensherlock/watermark-js-plus/compare/v1.5.2...v1.5.3) (2024-08-17)
 
 
 ### ✅ Tests | 测试

@@ -40,6 +40,12 @@ export default {
           { text: '配置', link: '/zh/guide/custom/configs' },
           { text: '解析', link: '/zh/guide/custom/decode' },
         ]
+      },
+      {
+        text: '扩展',
+        items: [
+          { text: 'Internet Explorer', link: '/zh/guide/extra/ie' },
+        ]
       }
     ],
     '/zh/config': [
