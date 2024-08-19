@@ -5,7 +5,7 @@ layout: doc
 <el-backtop></el-backtop>
 
 # Internet Explorer
-支持e11，部分支持e10和e9。
+支持IE11，部分支持IE10和IE9。
 
 ## NPM
 ```ts
