@@ -21,4 +21,4 @@ layout: doc
 |                                             Latest ✔                                              |                                               Latest ✔                                               |                                             Latest ✔                                              |                                            Latest ✔                                            |                                          Latest ✔                                           |                                                                  11 ✔                                                                   |
 
 ## [Internet Explorer :rocket:](extra/ie.html)
-支持e11，部分支持e10和e9。
+支持IE11，部分支持IE10和IE9。
