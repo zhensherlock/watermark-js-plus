@@ -309,6 +309,8 @@ watermark.destroy() // 删除水印
 
 ## 子元素水印
 
+> 你需要**手动设置父级DOM元素的 `position` 样式**，例如：`position: relative`。
+
 <div class="child-element-watermark">
 
 ```js
