@@ -363,6 +363,8 @@ watermark.destroy() // remove watermark
 
 ## Child Element Watermark
 
+> You need to **manually set the `position` style** for the parent DOM element, for example: `position: relative`.
+
 <div class="child-element-watermark">
 
 ```js

@@ -27,8 +27,15 @@ export const createSVGElement = (tagName: string, attrs: {[key: string]: string}
 export const getMultiLineData = (ctx: CanvasRenderingContext2D, text: string, maxWidth: number) => {
   const result = []
   let str = ''
+  let word = ''
   for (let i = 0, len = text.length; i < len; i++) {
-    str += text.charAt(i)
+    word = text.charAt(i)
+    if (word === '\n') {
+      result.push(str)
+      str = ''
+      continue
+    }
+    str += word
     if (ctx.measureText(str).width > maxWidth) {
       result.push(str.substring(0, str.length - 1))
       str = ''
@@ -106,7 +113,10 @@ async function convertImgToBase64 (bodyElement: HTMLElement) {
 }
 
 export const convertSVGToImage = (svg: Element): string => {
-  const richContent = svg.outerHTML.replace(/<img(.*?)>/g, '<img$1/>').replace(/\n/g, '').replace(/\t/g, '').replace(/#/g, '%23')
+  const richContent = svg.outerHTML
+    .replace(/<(img|br|input|hr|embed)(.*?)>/g, '<$1$2/>')
+    .replace(/\n/g, '').replace(/\t/g, '')
+    .replace(/#/g, '%23')
   return `data:image/svg+xml;charset=utf-8,${richContent}`
 }
 
