@@ -1,3 +1,34 @@
+## [1.5.4](https://github.com/zhensherlock/watermark-js-plus/compare/v1.5.3...v1.5.4) (2024-08-30)
+
+
+### ✨ Features | 新功能
+
+* add multiline text support with \n line breaks ([51d5144](https://github.com/zhensherlock/watermark-js-plus/commit/51d51441223a419df65e905c30cd527309101c1b))
+* add rich text support with <br> tags ([5470c57](https://github.com/zhensherlock/watermark-js-plus/commit/5470c57f49623c3b3815dce4880c761e2f9d073f))
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update babel monorepo to v7.25.4 ([548921a](https://github.com/zhensherlock/watermark-js-plus/commit/548921af9c930c1954131ace0c9d1e5ab739aefe))
+* **deps:** update commitlint monorepo to v19.4.1 ([e9f3744](https://github.com/zhensherlock/watermark-js-plus/commit/e9f3744808a7d84ad36e9878e4c78524d82750a5))
+* **deps:** update dependency @typescript-eslint/parser to v8 ([9c16286](https://github.com/zhensherlock/watermark-js-plus/commit/9c162866e7901997a53e9087b52d69299a65e130))
+* **deps:** update dependency @typescript-eslint/parser to v8.2.0 ([797f76e](https://github.com/zhensherlock/watermark-js-plus/commit/797f76ee285fec632d93d03eb0c3156d8ceea522))
+* **deps:** update dependency @typescript-eslint/parser to v8.3.0 ([59e881b](https://github.com/zhensherlock/watermark-js-plus/commit/59e881b641fd59838abe012011f453b7dbccef6b))
+* **deps:** update dependency core-js to v3.38.1 ([87ebade](https://github.com/zhensherlock/watermark-js-plus/commit/87ebadee34f6c0ef13622ad4a941365f1957fc96))
+* **deps:** update dependency element-plus to v2.8.1 ([10a062e](https://github.com/zhensherlock/watermark-js-plus/commit/10a062e9d258a4091dfe7c4d9f183d31f1e375a2))
+* **deps:** update dependency husky to v9.1.5 ([99b7605](https://github.com/zhensherlock/watermark-js-plus/commit/99b7605629d6e6f4af8ff0cb1025f8d64e712e00))
+* **deps:** update dependency pinia to v2.2.2 ([0c093c0](https://github.com/zhensherlock/watermark-js-plus/commit/0c093c06a9a95cfa9c1eab4fa23513f22a13041f))
+* **deps:** update dependency rollup to v4.21.0 ([bc2ee31](https://github.com/zhensherlock/watermark-js-plus/commit/bc2ee3121b87223cf39fd8a0c15814541b080157))
+* **deps:** update dependency rollup to v4.21.1 ([b7a4d20](https://github.com/zhensherlock/watermark-js-plus/commit/b7a4d20ac540ba7031179f1bcfdf3bb9143c2d33))
+* **deps:** update dependency rollup-plugin-sass to v1.13.2 ([eb8a8d5](https://github.com/zhensherlock/watermark-js-plus/commit/eb8a8d51eaeeb40e0302e6b11a0c21e5576765a8))
+* **deps:** update dependency ts-jest to v29.2.5 ([bccbac2](https://github.com/zhensherlock/watermark-js-plus/commit/bccbac2a5c5c237d2d009f363ab5ebdabce1cdee))
+* **deps:** update dependency vitepress to v1.3.3 ([7cfb0c6](https://github.com/zhensherlock/watermark-js-plus/commit/7cfb0c69f303c4d1bc678706bd543250a569ada1))
+* **deps:** update dependency vitepress to v1.3.4 ([08c98e1](https://github.com/zhensherlock/watermark-js-plus/commit/08c98e19ac0602ba631d879b80078dfe52ef70d1))
+* **docs:** typo ([75b9a4e](https://github.com/zhensherlock/watermark-js-plus/commit/75b9a4e32be323133cc9ff7e5ce5d55f2e938334))
+* update dependencies ([7db04df](https://github.com/zhensherlock/watermark-js-plus/commit/7db04dfb6abb1bbbaf7cd89addabe333d83f843c))
+
+
+
 ## [1.5.3](https://github.com/zhensherlock/watermark-js-plus/compare/v1.5.2...v1.5.3) (2024-08-17)
 
 
