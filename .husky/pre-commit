@@ -7,4 +7,4 @@ if [ "$(printf '%s\n' "$REQUIRED_NODE_VERSION" "$CURRENT_NODE_VERSION" | sort -V
   exit 1
 fi
 
-npm run lint-changelog
+npm run lint
