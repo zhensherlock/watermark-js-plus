@@ -13,7 +13,8 @@ describe('core watermark module', () => {
       width: 200,
       height: 200,
       rotate: 22,
-      zIndex: 2147483646
+      zIndex: 2147483646,
+      monitorProtection: true
     })
     await watermark.create()
 

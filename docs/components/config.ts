@@ -14,6 +14,7 @@ export const defaultConfig = {
   globalAlpha: 0.5,
   zIndex: 10000,
   mutationObserve: true,
+  monitorProtection: true,
   auxiliaryLine: false,
   movable: false,
   mode: 'default',
@@ -144,6 +145,7 @@ export const advancedStyleOptionKeys = [
 
 export const extraOptionKeys = [
   'mutationObserve',
+  'monitorProtection',
   'auxiliaryLine',
   'movable'
 ]

@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { isUndefined } from 'lodash'
 import { Watermark, BlindWatermark } from '../../../src';
 import type { WatermarkOptions, ChangeOptionsMode } from '../../../src/types'
 
@@ -14,12 +15,18 @@ const useAppStore = defineStore('app', {
       if (this.watermark) {
         this.watermark.destroy()
       }
+      if (isUndefined(args.monitorProtection)) {
+        args.monitorProtection = true
+      }
       this.watermark = mode === 'default' ? new Watermark(args) : new BlindWatermark(args)
       this.watermark.create()
     },
     changeWatermark(args: Partial<WatermarkOptions> = {}, mode: ChangeOptionsMode = 'overwrite', redraw: boolean = true) {
       if (!this.watermark) {
         return
+      }
+      if (isUndefined(args.monitorProtection)) {
+        args.monitorProtection = true
       }
       this.watermark.changeOptions(args, mode, redraw)
     },

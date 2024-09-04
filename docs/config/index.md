@@ -263,6 +263,15 @@ Watermark mode
 
 Enable listening for watermark dom changes.
 
+## monitorProtection
+
+- **Type:** `boolean`
+- **Default:** `false`
+
+Enable protection for `MutationObserver` and `requestAnimationFrame` to prevent malicious tampering.
+> **Note:**  
+> **Once protection is enabled, it cannot be disabled.**
+
 ## parent
 
 - **Type:** `Element | string`
