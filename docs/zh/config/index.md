@@ -263,6 +263,15 @@ background-repeat
 
 启用侦听水印dom更改。
 
+## monitorProtection
+
+- **Type:** `boolean`
+- **Default:** `false`
+
+启用对 `MutationObserver` 和 `requestAnimationFrame` 的保护，以防止恶意篡改。
+> **注意：**  
+> **一旦开启，无法关闭保护。**
+
 ## parent
 
 - **Type:** `Element | string`

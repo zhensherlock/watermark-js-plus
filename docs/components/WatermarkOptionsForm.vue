@@ -294,6 +294,9 @@
       <el-descriptions-item label="Mutation Observe">
         <el-switch v-model="form.data.mutationObserve" :disabled="!form.extra.enabled" active-text="Open" inactive-text="Close" @input="handleChange" />
       </el-descriptions-item>
+      <el-descriptions-item label="Monitor Protection">
+        <el-switch v-model="form.data.monitorProtection" :disabled="!form.extra.enabled" active-text="Yes" inactive-text="No" @input="handleChange" />
+      </el-descriptions-item>
       <el-descriptions-item label="Auxiliary Line">
         <el-switch v-model="form.data.auxiliaryLine" :disabled="!form.extra.enabled" active-text="Yes" inactive-text="No" @change="handleChange" />
       </el-descriptions-item>
