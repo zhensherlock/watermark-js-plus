@@ -1,3 +1,27 @@
+## [1.5.5](https://github.com/zhensherlock/watermark-js-plus/compare/v1.5.4...v1.5.5) (2024-09-04)
+
+
+### ✨ Features | 新功能
+
+* add monitorProtection [#863](https://github.com/zhensherlock/watermark-js-plus/issues/863) ([80addaf](https://github.com/zhensherlock/watermark-js-plus/commit/80addaf635397508ac30d650bb8294b993a6b87c))
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency @typescript-eslint/parser to v8.4.0 ([3ab3df4](https://github.com/zhensherlock/watermark-js-plus/commit/3ab3df45e0bd0d3a778386890382c86620b1defa))
+* **deps:** update dependency eslint-plugin-import to v2.30.0 ([34882e4](https://github.com/zhensherlock/watermark-js-plus/commit/34882e45543c0104b04457062c6b697834d5d37d))
+* **deps:** update dependency lint-staged to v15.2.10 ([0725212](https://github.com/zhensherlock/watermark-js-plus/commit/0725212560a06215497862af92c04ee5c7c9fa7f))
+* **deps:** update dependency rollup to v4.21.2 ([06d0a3d](https://github.com/zhensherlock/watermark-js-plus/commit/06d0a3d38db610d7c1dd68074bc6433af2b0fc36))
+* **deps:** update dependency vue to v3.5.1 ([40d3998](https://github.com/zhensherlock/watermark-js-plus/commit/40d39981eaa3930685f926e9654c68d031459d7f))
+* update dependencies ([2fe33a1](https://github.com/zhensherlock/watermark-js-plus/commit/2fe33a1b90e37870dd08cc5daa9bd27969a6fa00))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* watermark check function ([b58002e](https://github.com/zhensherlock/watermark-js-plus/commit/b58002eee89c77a89f6c8af4f1892e6a47854c83))
+
+
+
 ## [1.5.4](https://github.com/zhensherlock/watermark-js-plus/compare/v1.5.3...v1.5.4) (2024-08-30)
 
 
