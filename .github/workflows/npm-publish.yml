@@ -10,8 +10,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      NPM_PUBLISH_FLAGS: --provenance
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,6 +33,6 @@ jobs:
         run: npm run build
 
       - name: Publish NPM Package
-        run: npm publish $NPM_PUBLISH_FLAGS
+        run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
