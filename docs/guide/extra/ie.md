@@ -18,7 +18,7 @@ import { Watermark } from 'watermark-js-plus/ie'
 ## CDN
 ```html
 <!-- import JavaScript -->
-<script src="https://www.unpkg.com/watermark-js-plus@1.5.5/dist/ie/index.iife.min.js"></script>
+<script src="https://www.unpkg.com/watermark-js-plus@1.5.6/dist/ie/index.iife.min.js"></script>
 ```
 
 > We recommend our users to lock version when using CDN. Please refer to [unpkg.com](https://unpkg.com/) for more information.
