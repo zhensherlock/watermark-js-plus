@@ -29,25 +29,17 @@ Using yarn:
 $ yarn add watermark-js-plus
 ```
 
-[//]: # ()
-[//]: # (Using jsDelivr CDN:)
+Using jsDelivr CDN:
 
-[//]: # ()
-[//]: # (```html)
+```html
+<script src="https://cdn.jsdelivr.net/npm/watermark-js-plus/dist/index.iife.min.js"></script>
+```
 
-[//]: # (<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>)
+Using unpkg CDN:
 
-[//]: # (```)
-
-[//]: # ()
-[//]: # (Using unpkg CDN:)
-
-[//]: # ()
-[//]: # (```html)
-
-[//]: # (<script src="https://unpkg.com/axios/dist/axios.min.js"></script>)
-
-[//]: # (```)
+```html
+<script src="https://unpkg.com/watermark-js-plus/dist/index.iife.min.js"></script>
+```
 
 ## Usage
 

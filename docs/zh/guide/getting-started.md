@@ -20,6 +20,19 @@ $ npm install watermark-js-plus
 $ yarn add watermark-js-plus
 ```
 
+jsDelivr CDN:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/watermark-js-plus/dist/index.iife.min.js"></script>
+```
+
+unpkg CDN:
+
+```html
+<script src="https://unpkg.com/watermark-js-plus/dist/index.iife.min.js"></script>
+```
+
+
 ## 用法
 
 1. 引入水印插件

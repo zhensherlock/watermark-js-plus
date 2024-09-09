@@ -1,3 +1,20 @@
+## [1.5.6](https://github.com/zhensherlock/watermark-js-plus/compare/v1.5.5...v1.5.6) (2024-09-09)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency cssnano to v7.0.6 ([1b0176b](https://github.com/zhensherlock/watermark-js-plus/commit/1b0176b0b13157e6e3a240ecdfd34241c52e48d2))
+* **deps:** update dependency element-plus to v2.8.2 ([1c4f2f5](https://github.com/zhensherlock/watermark-js-plus/commit/1c4f2f594da2611dfece218f8de33ba8def08141))
+* **deps:** update dependency vue to v3.5.3 ([3767160](https://github.com/zhensherlock/watermark-js-plus/commit/3767160f58afd98e6dff5929703a32d4b1bcd809))
+* update dependencies ([38914f9](https://github.com/zhensherlock/watermark-js-plus/commit/38914f9e950a97d144a77ac92a29f3fc3df6be9d))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* correct clearCanvas method to handle devicePixelRatio scaling ([#848](https://github.com/zhensherlock/watermark-js-plus/issues/848)) ([38ef3fa](https://github.com/zhensherlock/watermark-js-plus/commit/38ef3fa9ae52964dfcde07dd60e5062e64604ab3))
+
+
+
 ## [1.5.5](https://github.com/zhensherlock/watermark-js-plus/compare/v1.5.4...v1.5.5) (2024-09-04)
 
 
