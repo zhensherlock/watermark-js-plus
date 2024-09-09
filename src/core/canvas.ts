@@ -40,7 +40,10 @@ class WatermarkCanvas {
       throw new Error('get context error')
     }
     ctx.restore()
+    ctx.resetTransform()
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    const ratio = window.devicePixelRatio || 1
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0)
   }
 
   getCanvas (): HTMLCanvasElement {
