@@ -85,25 +85,26 @@ const handleAddTextWatermark = () => {
     layout: 'grid',
     // mutationObserve: false,
     // auxiliaryLine: true,
+    globalAlpha: 0.06,
     gridLayoutOptions: {
       rows: 2,
       cols: 2,
       gap: [20, 20],
       matrix: [[1, 0], [0, 1]]
     },
-    advancedStyle: {
-      type: 'linear',
-      colorStops: [
-        {
-          offset: 0,
-          color: 'red'
-        },
-        {
-          offset: 1,
-          color: 'blue'
-        }
-      ]
-    },
+    // advancedStyle: {
+    //   type: 'linear',
+    //   colorStops: [
+    //     {
+    //       offset: 0,
+    //       color: 'red'
+    //     },
+    //     {
+    //       offset: 1,
+    //       color: 'blue'
+    //     }
+    //   ]
+    // },
     onSuccess: () => {
       app.appContext.config.globalProperties.$message({
         appendTo: '#app',
