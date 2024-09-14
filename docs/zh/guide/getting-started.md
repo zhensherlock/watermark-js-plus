@@ -20,18 +20,6 @@ $ npm install watermark-js-plus
 $ yarn add watermark-js-plus
 ```
 
-jsDelivr CDN:
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/watermark-js-plus/dist/index.iife.min.js"></script>
-```
-
-unpkg CDN:
-
-```html
-<script src="https://unpkg.com/watermark-js-plus/dist/index.iife.min.js"></script>
-```
-
 
 ## 用法
 
@@ -53,4 +41,29 @@ const watermark = new Watermark({
 3. 添加水印
 ```ts
 watermark.create()
+```
+
+## CDN
+
+使用 jsDelivr CDN:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/watermark-js-plus/dist/index.iife.min.js"></script>
+```
+
+使用 unpkg CDN:
+
+```html
+<script src="https://unpkg.com/watermark-js-plus/dist/index.iife.min.js"></script>
+```
+
+用法
+
+```ts
+const watermark = new WatermarkPlus.Watermark({
+  content: 'hello my watermark',
+  width: 200,
+  height: 200
+})
+watermark.create();
 ```

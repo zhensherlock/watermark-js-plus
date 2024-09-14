@@ -14,31 +14,10 @@ Using npm:
 $ npm install watermark-js-plus
 ```
 
-[//]: # (Using bower:)
-
-[//]: # ()
-[//]: # (```bash)
-
-[//]: # ($ bower install watermark-js-plus)
-
-[//]: # (```)
-
 Using yarn:
 
 ```bash
 $ yarn add watermark-js-plus
-```
-
-Using jsDelivr CDN:
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/watermark-js-plus/dist/index.iife.min.js"></script>
-```
-
-Using unpkg CDN:
-
-```html
-<script src="https://unpkg.com/watermark-js-plus/dist/index.iife.min.js"></script>
 ```
 
 ## Usage
@@ -61,4 +40,29 @@ const watermark = new Watermark({
 3. Add a watermark to the web page
 ```ts
 watermark.create()
+```
+
+## CDN
+
+Using jsDelivr CDN:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/watermark-js-plus/dist/index.iife.min.js"></script>
+```
+
+Using unpkg CDN:
+
+```html
+<script src="https://unpkg.com/watermark-js-plus/dist/index.iife.min.js"></script>
+```
+
+Usage
+
+```ts
+const watermark = new WatermarkPlus.Watermark({
+  content: 'hello my watermark',
+  width: 200,
+  height: 200
+})
+watermark.create();
 ```
