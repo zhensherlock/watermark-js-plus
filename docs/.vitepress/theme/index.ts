@@ -1,5 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
 import { createPinia } from 'pinia'
+import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import 'element-plus/theme-chalk/dark/css-vars.css'
 import '../styles/index.css'
@@ -11,8 +12,9 @@ export default {
     // custom router. `siteData`` is a `ref`` of current site-level metadata.
     const store = createPinia()
     app.use(store)
-    import('element-plus').then((module) => {
-      app.use(module)
-    })
+    app.use(ElementPlus)
+    // import('element-plus').then((module) => {
+    //   app.use(module)
+    // })
   }
 }
