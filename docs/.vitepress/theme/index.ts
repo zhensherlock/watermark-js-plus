@@ -13,8 +13,5 @@ export default {
     const store = createPinia()
     app.use(store)
     app.use(ElementPlus)
-    // import('element-plus').then((module) => {
-    //   app.use(module)
-    // })
   }
 }
