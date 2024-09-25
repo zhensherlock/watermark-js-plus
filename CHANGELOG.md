@@ -1,3 +1,37 @@
+## [1.5.7](https://github.com/zhensherlock/watermark-js-plus/compare/v1.5.6...v1.5.7) (2024-09-25)
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update commitlint monorepo to v19.5.0 ([c78f058](https://github.com/zhensherlock/watermark-js-plus/commit/c78f058c42752b9fc68edda7db935a1b90ee6364))
+* **deps:** update dependency @rollup/plugin-commonjs to v26.0.3 ([11da597](https://github.com/zhensherlock/watermark-js-plus/commit/11da59705f52b7e89e7b6f7d26f87d640319cda3))
+* **deps:** update dependency @rollup/plugin-node-resolve to v15.3.0 ([99ee234](https://github.com/zhensherlock/watermark-js-plus/commit/99ee234b7a25da1e5e8432c8af16c312b2d4d099))
+* **deps:** update dependency @typescript-eslint/parser to v8.5.0 ([11276a2](https://github.com/zhensherlock/watermark-js-plus/commit/11276a2b1a842f4cd8e6e489aa9a511f1df642a2))
+* **deps:** update dependency @typescript-eslint/parser to v8.6.0 ([1caa1c5](https://github.com/zhensherlock/watermark-js-plus/commit/1caa1c5675492c5ab62423b93dd8af135f136719))
+* **deps:** update dependency @typescript-eslint/parser to v8.7.0 ([e1bb690](https://github.com/zhensherlock/watermark-js-plus/commit/e1bb6909c0a39c98f58e7f1bb69c88c34dd005f0))
+* **deps:** update dependency @vue/theme to v2.3.0 ([b3e8313](https://github.com/zhensherlock/watermark-js-plus/commit/b3e8313a2033352834cca07caddf0d69be7a6730))
+* **deps:** update dependency element-plus to v2.8.3 ([421ec54](https://github.com/zhensherlock/watermark-js-plus/commit/421ec546393e55feb70afd19d0347c227c6fa0f7))
+* **deps:** update dependency eslint to v8.57.1 ([8298b9e](https://github.com/zhensherlock/watermark-js-plus/commit/8298b9eb51ea64253856b8f573d27b0f2572a1a4))
+* **deps:** update dependency husky to v9.1.6 ([880c96c](https://github.com/zhensherlock/watermark-js-plus/commit/880c96cfd18b2dbc25c204d5d8fc2b61733db4f2))
+* **deps:** update dependency rollup to v4.21.3 ([250679e](https://github.com/zhensherlock/watermark-js-plus/commit/250679e6215f22c4e1e0d1109feceedc0b310a16))
+* **deps:** update dependency rollup to v4.22.2 ([3b75ffb](https://github.com/zhensherlock/watermark-js-plus/commit/3b75ffba5b74b6d9792c073612b2305416268d53))
+* **deps:** update dependency rollup to v4.22.4 ([a0d5bb9](https://github.com/zhensherlock/watermark-js-plus/commit/a0d5bb9fd843073d3be2ef0b331255ea86b0c871))
+* **deps:** update dependency terser to v5.32.0 ([e632bdb](https://github.com/zhensherlock/watermark-js-plus/commit/e632bdb59e711fd56bf82ad9f8fc197e5f1e2c64))
+* **deps:** update dependency terser to v5.33.0 ([75404d7](https://github.com/zhensherlock/watermark-js-plus/commit/75404d7aa848ebb86b97537edb2e247082b0e30d))
+* **deps:** update dependency typescript to v5.6.2 ([588e06e](https://github.com/zhensherlock/watermark-js-plus/commit/588e06ede40000ba962e28f08ac90a7f943392ec))
+* **deps:** update dependency vue to v3.5.4 ([497bbfe](https://github.com/zhensherlock/watermark-js-plus/commit/497bbfe8729e911b8b8b88c6ec611e52954c0b10))
+* **deps:** update dependency vue to v3.5.6 ([4419cf6](https://github.com/zhensherlock/watermark-js-plus/commit/4419cf658ef76ece1fb404682ba745386181a02c))
+* **deps:** update dependency vue to v3.5.7 ([ed3da91](https://github.com/zhensherlock/watermark-js-plus/commit/ed3da91729cf055b7fb5706fda251165642041b5))
+* **deps:** update dependency vue to v3.5.8 ([9bb1b01](https://github.com/zhensherlock/watermark-js-plus/commit/9bb1b01762554cb8b9c4bbc055d562a115d7c3e5))
+* update dependencies ([83283ba](https://github.com/zhensherlock/watermark-js-plus/commit/83283ba32613edaaf07225b6ecae2fe85d0b1760))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* resetTransform support ie ([#935](https://github.com/zhensherlock/watermark-js-plus/issues/935)) ([e221e1b](https://github.com/zhensherlock/watermark-js-plus/commit/e221e1bba6d4a7e335803d53b7eb9d75331c5f06))
+
+
+
 ## [1.5.6](https://github.com/zhensherlock/watermark-js-plus/compare/v1.5.5...v1.5.6) (2024-09-09)
 
 
