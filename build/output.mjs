@@ -2,7 +2,7 @@ import terser from '@rollup/plugin-terser'
 import { banner } from './banner.mjs'
 
 export const generateOutputs = (section = '') => {
-  const path = section === ''? 'dist' : `dist/${section}`
+  const path = section === '' ? 'dist' : `dist/${section}`
   return [
     {
       name: 'WatermarkPlus',

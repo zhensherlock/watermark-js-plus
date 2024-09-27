@@ -30,7 +30,7 @@ const plugins = [
   commonjs(),
   filesize(),
   babel({ babelHelpers: 'runtime', exclude: ['node_modules/**'] }),
-  visualizer(),
+  visualizer()
 ]
 
 export default [

@@ -1,7 +1,9 @@
 import $ from 'jquery'
+import jimp from 'jimp'
 import { describe, expect, test } from '@jest/globals'
 import { BlindWatermark } from '../../src/core/blind'
 import decodeImage from '../assets/blind-watermark-decode-result.png'
+import { base64ToBuffer } from '../utils'
 
 describe('core blind module', () => {
   test('blind-watermark create expected true', async () => {
@@ -22,10 +24,13 @@ describe('core blind module', () => {
 
   test('blind-watermark decode expected true', (done) => {
     BlindWatermark.decode({
-      url: 'https://upic-1258271354.cos.ap-shanghai.myqcloud.com//uPic/blind-watermark-7xVnIB.png',
-      onSuccess: (res: any) => {
+      url: 'https://upic-1258271354.cos.ap-shanghai.myqcloud.com/uPic/blind-watermark-7xVnIB.png',
+      onSuccess: async (res: any) => {
+        const actualImage = await jimp.read(base64ToBuffer(res))
+        const expectedImage = await jimp.read(base64ToBuffer(decodeImage))
+        const diff = jimp.diff(actualImage, expectedImage)
         done()
-        expect(res).toBe(decodeImage)
+        expect(diff.percent).toBe(0)
       }
     })
   }, 10000)

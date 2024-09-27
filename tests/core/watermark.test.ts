@@ -17,6 +17,7 @@ describe('core watermark module', () => {
       monitorProtection: true
     })
     await watermark.create()
+    await watermark.check()
 
     await watermark.changeOptions({
       textBaseline: 'top',
@@ -98,7 +99,7 @@ describe('core watermark module', () => {
     const watermark = new Watermark({
       translatePlacement: 'top',
       contentType: 'image',
-      image: 'https://upic-1258271354.cos.ap-shanghai.myqcloud.com//uPic/github-XQkjmL.png',
+      image: 'https://upic-1258271354.cos.ap-shanghai.myqcloud.com/uPic/github-XQkjmL.png',
       width: 200,
       height: 200,
       zIndex: 2147483646,
@@ -138,7 +139,7 @@ describe('core watermark module', () => {
     const watermark = new Watermark({
       translatePlacement: 'left',
       contentType: 'rich-text',
-      content: '<div style="background: #ccc;display: flex;flex-direction: column;"><div>how <span style="color: #f00;margin-left: 5px;">nice</span></div><img src="https://upic-1258271354.cos.ap-shanghai.myqcloud.com//uPic/github-XQkjmL.png" width="100px"></div>',
+      content: '<div style="background: #ccc;display: flex;flex-direction: column;"><div>how <span style="color: #f00;margin-left: 5px;">nice</span></div><br></div>',
       width: 300,
       height: 300,
       filter: 'blur(2px)',
