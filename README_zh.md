@@ -43,6 +43,8 @@ npm install watermark-js-plus
 
 ## 用法
 
+[Demo Collection](https://github.com/zhensherlock/watermark-js-plus/discussions/590)
+
 ### 普通水印
 
 ```ts
