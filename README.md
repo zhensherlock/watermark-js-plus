@@ -47,7 +47,7 @@ npm install watermark-js-plus
 
 ## Usage
 
-[Demo Collection](discussions/590)
+[Demo Collection](https://github.com/zhensherlock/watermark-js-plus/discussions/590)
 
 ### Watermark
 
