@@ -47,6 +47,8 @@ npm install watermark-js-plus
 
 ## Usage
 
+[Demo Collection](discussions/590)
+
 ### Watermark
 
 ```ts
