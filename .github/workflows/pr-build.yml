@@ -1,0 +1,31 @@
+name: PR Build
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install Package
+        run: npm ci
+
+      - name: Build Package
+        run: npm run build
+
+      - name: Test Package
+        run: npm run test
