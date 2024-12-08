@@ -29,3 +29,6 @@ jobs:
 
       - name: Test Package
         run: npm run test
+
+      - name: Build Docs Package
+        run: npm run docs:build
