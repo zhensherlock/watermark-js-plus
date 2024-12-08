@@ -72,9 +72,6 @@
     "LICENSE",
     "README.md"
   ],
-  "engines": {
-    "node": ">=20.0.0"
-  },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/eslint-parser": "^7.25.1",
