@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    if: github.repository == 'zhensherlock/watermark-js-plus'
     runs-on: ubuntu-latest
     permissions:
       contents: read
