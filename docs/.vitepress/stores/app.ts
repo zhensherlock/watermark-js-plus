@@ -6,7 +6,7 @@ import type { WatermarkOptions, ChangeOptionsMode } from '../../../src/types'
 const useAppStore = defineStore('app', {
   state: () => {
     return {
-      watermark: null as Watermark | BlindWatermark,
+      watermark: null as unknown as Watermark | BlindWatermark,
     }
   },
   getters: {},
