@@ -17,6 +17,7 @@ describe('core blind module', () => {
       textBaseline: 'bottom'
     })
     await watermark.create()
+    await watermark.changeOptions()
     expect($('body > div:last').css('z-index')).toBe('2147483646')
     watermark.destroy()
     expect($('body > div:last').css('z-index')).toBe(undefined)
