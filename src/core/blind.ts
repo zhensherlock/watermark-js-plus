@@ -1,7 +1,8 @@
-import type { DecodeBlindWatermarkOptions, WatermarkOptions } from '../types'
+import type { ChangeOptionsMode, DecodeBlindWatermarkOptions, WatermarkOptions } from '../types'
 import { convertImage, isFunction } from '../utils'
 import { Watermark } from './watermark'
 import { WatermarkCanvas } from './canvas'
+import protection from '../utils/protection'
 
 /**
  * BlindWatermark class
@@ -17,6 +18,17 @@ class BlindWatermark extends Watermark {
       mode: 'blind'
     }
     super({ ...props, ...defaultProps })
+  }
+
+  async changeOptions (args: Partial<WatermarkOptions> = {}, mode: ChangeOptionsMode = 'overwrite', redraw: boolean = true) {
+    args.globalAlpha = 0.005
+    args.mode = 'blind'
+    this.initConfigData(args, mode)
+    protection(this.options.monitorProtection)
+    if (redraw) {
+      this.remove()
+      await this.create()
+    }
   }
 
   /**

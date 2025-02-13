@@ -6,9 +6,10 @@ layout: doc
 <script setup lang="ts">
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
 import { ref, getCurrentInstance, onMounted } from 'vue';
+import dayjs from 'dayjs';
 import { Plus, Warning } from '@element-plus/icons-vue';
-import { BlindWatermark } from '../../src';
 import { useData } from 'vitepress';
+import { BlindWatermark } from '../../src';
 import { useAppStore } from '../.vitepress/stores/app';
 
 const appStore = useAppStore();
@@ -34,6 +35,12 @@ const handleAddTextBlindWatermark = () => {
       });
     }
   }, 'blind')
+};
+const handleUpdateTextBlindWatermark = () => {
+  appStore.changeWatermark({
+    content: 'update my text blind watermark at ' + dayjs().format('HH:mm:ss'),
+    fontColor: isDark.value ? '#fff' : '#000'
+  });
 };
 const handleRemoveTextBlindWatermark = () => {
   appStore.removeWatermark();
@@ -152,6 +159,7 @@ watermark.destroy() // remove watermark
 <el-affix target=".text-blind-watermark" position="bottom" :offset="0">
   <el-space class="block-operation">
     <VPButton text="Add Text Blind Watermark" @click="handleAddTextBlindWatermark"></VPButton>
+    <VPButton text="Update Text Blind Watermark" @click="handleUpdateTextBlindWatermark"></VPButton>
     <VPButton text="Remove Text Blind Watermark" @click="handleRemoveTextBlindWatermark"></VPButton>
   </el-space>
 </el-affix>

@@ -18,6 +18,11 @@ const useAppStore = defineStore('app', {
       if (_.isUndefined(args.monitorProtection)) {
         args.monitorProtection = true
       }
+      // if (mode === 'blind') {
+      //   args.globalAlpha = 0.015560149680823086824
+      //   args.mode = 'blind'
+      // }
+      // this.watermark = new Watermark(args)
       this.watermark = mode === 'default' ? new Watermark(args) : new BlindWatermark(args)
       this.watermark.create()
     },

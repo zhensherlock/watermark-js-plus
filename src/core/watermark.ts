@@ -9,7 +9,7 @@ import { WatermarkCanvas } from './canvas'
  * Watermark class
  */
 class Watermark {
-  private options: WatermarkOptions
+  protected options: WatermarkOptions
   private parentElement: Element = document.body
   private observer?: MutationObserver
   private parentObserve?: MutationObserver
@@ -116,7 +116,7 @@ class Watermark {
     return this.parentElement.contains(<Node> this.watermarkDom)
   }
 
-  private remove () {
+  protected remove () {
     this.options.onBeforeDestroy?.()
     this.observer?.disconnect()
     this.parentObserve?.disconnect()
@@ -125,7 +125,7 @@ class Watermark {
     this.options.onDestroyed?.()
   }
 
-  private initConfigData (args: Partial<WatermarkOptions>, mode: ChangeOptionsMode = 'overwrite') {
+  protected initConfigData (args: Partial<WatermarkOptions>, mode: ChangeOptionsMode = 'overwrite') {
     if (mode === 'append') {
       Object.keys(args).forEach(key => {
         this.props && (this.props[key as keyof WatermarkOptions] = <never> args[key as keyof WatermarkOptions])
