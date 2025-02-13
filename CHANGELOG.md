@@ -1,3 +1,27 @@
+## [1.5.8](https://github.com/zhensherlock/watermark-js-plus/compare/v1.5.7...v1.5.8) (2025-02-13)
+
+
+### ✅ Tests | 测试
+
+* update test function ([cb6f728](https://github.com/zhensherlock/watermark-js-plus/commit/cb6f7283b4f51139830c5d17e78486fba11aa7a1))
+
+
+### ✨ Features | 新功能
+
+* override blind watermark changeOptions ([#1170](https://github.com/zhensherlock/watermark-js-plus/issues/1170)) ([32cbd2e](https://github.com/zhensherlock/watermark-js-plus/commit/32cbd2e95e6c106767d926751a42d94eb9f70dcc))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([c072677](https://github.com/zhensherlock/watermark-js-plus/commit/c07267767740f72e996706a8ace6d89f0cf683d7))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* update watermark type to use unknown for better type safety ([7535c41](https://github.com/zhensherlock/watermark-js-plus/commit/7535c4153fe900e1d73ccc124445a9ff4195d525))
+
+
+
 ## [1.5.7](https://github.com/zhensherlock/watermark-js-plus/compare/v1.5.6...v1.5.7) (2024-09-25)
 
 
