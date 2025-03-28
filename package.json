@@ -99,7 +99,7 @@
     "codecov": "^3.8.3",
     "concurrently": "^8.2.2",
     "conventional-changelog-angular": "^7.0.0",
-    "conventional-changelog-cli": "^4.1.0",
+    "conventional-changelog-cli": "^5.0.0",
     "core-js": "^3.40.0",
     "cross-fetch": "^4.1.0",
     "cssnano": "^7.0.6",
