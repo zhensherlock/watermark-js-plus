@@ -16,32 +16,29 @@ const plugins = [
     throwOnError: true,
     throwOnWarning: true,
     include: ['src/**'],
-    exclude: ['node_modules/**', 'src/style/**']
+    exclude: ['node_modules/**', 'src/style/**'],
   }),
   resolve(),
   strip(),
   typescript(),
   postcss({
-    plugins: [
-      autoprefixer(),
-      cssnano()
-    ]
+    plugins: [autoprefixer(), cssnano()],
   }),
   commonjs(),
   filesize(),
   babel({ babelHelpers: 'runtime', exclude: ['node_modules/**'] }),
-  visualizer()
+  visualizer(),
 ]
 
 export default [
   {
     input: 'src/index.ts',
     output: generateOutputs(),
-    plugins
+    plugins,
   },
   {
     input: 'src/index.ie.ts',
     output: generateOutputs('ie'),
-    plugins
-  }
+    plugins,
+  },
 ]

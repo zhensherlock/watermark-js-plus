@@ -16,7 +16,11 @@ export const isString = (value: any): boolean => {
   return typeof value === 'string'
 }
 
-export const createSVGElement = (tagName: string, attrs: {[key: string]: string} = {}, namespaceURI = 'http://www.w3.org/2000/svg'): Element => {
+export const createSVGElement = (
+  tagName: string,
+  attrs: { [key: string]: string } = {},
+  namespaceURI = 'http://www.w3.org/2000/svg',
+): Element => {
   const element = document.createElementNS(namespaceURI, tagName)
   for (const attr in attrs) {
     element.setAttribute(attr, attrs[attr])
@@ -46,9 +50,12 @@ export const getMultiLineData = (ctx: CanvasRenderingContext2D, text: string, ma
   return result
 }
 
-export const createCustomContentSVG = async (ctx: CanvasRenderingContext2D, options: WatermarkOptions): Promise<CustomContentSVGType> => {
+export const createCustomContentSVG = async (
+  ctx: CanvasRenderingContext2D,
+  options: WatermarkOptions,
+): Promise<CustomContentSVGType> => {
   const svgElement = createSVGElement('svg', {
-    xmlns: 'http://www.w3.org/2000/svg'
+    xmlns: 'http://www.w3.org/2000/svg',
   })
   const bodyElement = document.createElement('div')
   bodyElement.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml')
@@ -76,18 +83,18 @@ export const createCustomContentSVG = async (ctx: CanvasRenderingContext2D, opti
   svgElement.setAttribute('height', height.toString())
   const foreignObjectElement = createSVGElement('foreignObject', {
     width: width.toString(),
-    height: height.toString()
+    height: height.toString(),
   })
   foreignObjectElement.appendChild(bodyElement)
   svgElement.appendChild(foreignObjectElement)
   return {
     element: svgElement,
     width,
-    height
+    height,
   }
 }
 
-async function convertImgToBase64 (bodyElement: HTMLElement) {
+async function convertImgToBase64(bodyElement: HTMLElement) {
   const imgElements = bodyElement.querySelectorAll('img')
 
   for (const img of Array.from(imgElements)) {
@@ -115,7 +122,8 @@ async function convertImgToBase64 (bodyElement: HTMLElement) {
 export const convertSVGToImage = (svg: Element): string => {
   const richContent = svg.outerHTML
     .replace(/<(img|br|input|hr|embed)(.*?)>/g, '<$1$2/>')
-    .replace(/\n/g, '').replace(/\t/g, '')
+    .replace(/\n/g, '')
+    .replace(/\t/g, '')
     .replace(/#/g, '%23')
   return `data:image/svg+xml;charset=utf-8,${richContent}`
 }
@@ -128,11 +136,15 @@ export const getValue = (v1: any, v2: any) => {
   }
 }
 
-export const loadImage = (url: string, width: number | undefined = undefined, height: number | undefined = undefined): Promise<HTMLImageElement> => {
+export const loadImage = (
+  url: string,
+  width: number | undefined = undefined,
+  height: number | undefined = undefined,
+): Promise<HTMLImageElement> => {
   const image = new Image()
   image.setAttribute('crossOrigin', 'Anonymous')
-  !isUndefined(width) && (image.width = <number> width)
-  !isUndefined(height) && (image.height = <number> height)
+  !isUndefined(width) && (image.width = <number>width)
+  !isUndefined(height) && (image.height = <number>height)
   image.src = url
   return new Promise(resolve => {
     image.onload = () => {

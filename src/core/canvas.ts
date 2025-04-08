@@ -7,7 +7,7 @@ class WatermarkCanvas {
   private readonly canvas: HTMLCanvasElement
   public recommendOptions
 
-  constructor (args: Partial<WatermarkOptions>, options: WatermarkOptions) {
+  constructor(args: Partial<WatermarkOptions>, options: WatermarkOptions) {
     this.props = args
     this.options = options
     this.canvas = WatermarkCanvas.createCanvas(this.options.width, this.options.height)
@@ -19,7 +19,7 @@ class WatermarkCanvas {
    * @param width - width of canvas
    * @param height - height of canvas
    */
-  static createCanvas (width: number, height: number): HTMLCanvasElement {
+  static createCanvas(width: number, height: number): HTMLCanvasElement {
     const ratio = window.devicePixelRatio || 1
     const canvas = document.createElement('canvas')
     canvas.width = width * ratio // actual rendered pixel
@@ -34,7 +34,7 @@ class WatermarkCanvas {
    * Clean the canvas
    * @param canvas
    */
-  static clearCanvas (canvas: HTMLCanvasElement) {
+  static clearCanvas(canvas: HTMLCanvasElement) {
     const ctx = canvas.getContext('2d')
     if (ctx === null) {
       throw new Error('get context error')
@@ -46,15 +46,15 @@ class WatermarkCanvas {
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0)
   }
 
-  getCanvas (): HTMLCanvasElement {
+  getCanvas(): HTMLCanvasElement {
     return this.canvas
   }
 
-  clear () {
+  clear() {
     WatermarkCanvas.clearCanvas(this.canvas)
   }
 
-  draw (): Promise<HTMLCanvasElement> {
+  draw(): Promise<HTMLCanvasElement> {
     const ctx = this.canvas.getContext('2d')
     if (ctx === null) {
       throw new Error('get context error')
@@ -80,7 +80,7 @@ class WatermarkCanvas {
     ctx.save()
     ctx.translate(this.options.translateX as number, this.options.translateY as number)
     ctx.rotate(this.options.rotate)
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       switch (this.options.contentType) {
         case 'text':
           this.drawText(ctx, resolve)
@@ -98,7 +98,7 @@ class WatermarkCanvas {
     })
   }
 
-  private setStyle (ctx: CanvasRenderingContext2D) {
+  private setStyle(ctx: CanvasRenderingContext2D) {
     let propName: 'fillStyle' | 'strokeStyle' = 'fillStyle'
     if (this.options.textType === 'stroke') {
       propName = 'strokeStyle'
@@ -131,17 +131,21 @@ class WatermarkCanvas {
       ctx.shadowOffsetX = getValue(this.options.shadowStyle.shadowOffsetX, 0)
       ctx.shadowOffsetY = getValue(this.options.shadowStyle.shadowOffsetY, 0)
     }
-    if (isFunction(<Function> this.options.extraDrawFunc)) {
-      (<Function> this.options.extraDrawFunc)(ctx)
+    if (isFunction(<Function>this.options.extraDrawFunc)) {
+      ;(<Function>this.options.extraDrawFunc)(ctx)
     }
   }
 
-  private createLinearGradient (ctx: CanvasRenderingContext2D): CanvasGradient {
+  private createLinearGradient(ctx: CanvasRenderingContext2D): CanvasGradient {
     const gradient = ctx.createLinearGradient(
-      <number> getValue(this.options.advancedStyle?.params?.linear?.x0, this.recommendOptions.advancedStyleParams.linear.x0),
-      <number> getValue(this.options.advancedStyle?.params?.linear?.y0, 0),
-      <number> getValue(this.options.advancedStyle?.params?.linear?.x1, this.recommendOptions.advancedStyleParams.linear.x1),
-      <number> getValue(this.options.advancedStyle?.params?.linear?.y1, 0)
+      <number>(
+        getValue(this.options.advancedStyle?.params?.linear?.x0, this.recommendOptions.advancedStyleParams.linear.x0)
+      ),
+      <number>getValue(this.options.advancedStyle?.params?.linear?.y0, 0),
+      <number>(
+        getValue(this.options.advancedStyle?.params?.linear?.x1, this.recommendOptions.advancedStyleParams.linear.x1)
+      ),
+      <number>getValue(this.options.advancedStyle?.params?.linear?.y1, 0),
     )
     this.options?.advancedStyle?.colorStops?.forEach(item => {
       gradient.addColorStop(item.offset, item.color)
@@ -149,11 +153,15 @@ class WatermarkCanvas {
     return gradient
   }
 
-  private createConicGradient (ctx: CanvasRenderingContext2D): CanvasGradient {
+  private createConicGradient(ctx: CanvasRenderingContext2D): CanvasGradient {
     const gradient = ctx.createConicGradient(
-      <number> getValue(this.options?.advancedStyle?.params?.conic?.startAngle, 0),
-      <number> getValue(this.options?.advancedStyle?.params?.conic?.x, this.recommendOptions.advancedStyleParams.conic.x),
-      <number> getValue(this.options?.advancedStyle?.params?.conic?.y, this.recommendOptions.advancedStyleParams.conic.y)
+      <number>getValue(this.options?.advancedStyle?.params?.conic?.startAngle, 0),
+      <number>(
+        getValue(this.options?.advancedStyle?.params?.conic?.x, this.recommendOptions.advancedStyleParams.conic.x)
+      ),
+      <number>(
+        getValue(this.options?.advancedStyle?.params?.conic?.y, this.recommendOptions.advancedStyleParams.conic.y)
+      ),
     )
     this.options?.advancedStyle?.colorStops?.forEach(item => {
       gradient.addColorStop(item.offset, item.color)
@@ -161,14 +169,26 @@ class WatermarkCanvas {
     return gradient
   }
 
-  private createRadialGradient (ctx: CanvasRenderingContext2D): CanvasGradient {
+  private createRadialGradient(ctx: CanvasRenderingContext2D): CanvasGradient {
     const gradient = ctx.createRadialGradient(
-      <number> getValue(this.options?.advancedStyle?.params?.radial?.x0, this.recommendOptions.advancedStyleParams.radial.x0),
-      <number> getValue(this.options?.advancedStyle?.params?.radial?.y0, this.recommendOptions.advancedStyleParams.radial.y0),
-      <number> getValue(this.options?.advancedStyle?.params?.radial?.r0, this.recommendOptions.advancedStyleParams.radial.r0),
-      <number> getValue(this.options?.advancedStyle?.params?.radial?.x1, this.recommendOptions.advancedStyleParams.radial.x1),
-      <number> getValue(this.options?.advancedStyle?.params?.radial?.y1, this.recommendOptions.advancedStyleParams.radial.y1),
-      <number> getValue(this.options?.advancedStyle?.params?.radial?.r1, this.recommendOptions.advancedStyleParams.radial.r1)
+      <number>(
+        getValue(this.options?.advancedStyle?.params?.radial?.x0, this.recommendOptions.advancedStyleParams.radial.x0)
+      ),
+      <number>(
+        getValue(this.options?.advancedStyle?.params?.radial?.y0, this.recommendOptions.advancedStyleParams.radial.y0)
+      ),
+      <number>(
+        getValue(this.options?.advancedStyle?.params?.radial?.r0, this.recommendOptions.advancedStyleParams.radial.r0)
+      ),
+      <number>(
+        getValue(this.options?.advancedStyle?.params?.radial?.x1, this.recommendOptions.advancedStyleParams.radial.x1)
+      ),
+      <number>(
+        getValue(this.options?.advancedStyle?.params?.radial?.y1, this.recommendOptions.advancedStyleParams.radial.y1)
+      ),
+      <number>(
+        getValue(this.options?.advancedStyle?.params?.radial?.r1, this.recommendOptions.advancedStyleParams.radial.r1)
+      ),
     )
     this.options?.advancedStyle?.colorStops?.forEach(item => {
       gradient.addColorStop(item.offset, item.color)
@@ -176,14 +196,16 @@ class WatermarkCanvas {
     return gradient
   }
 
-  private createPattern (ctx: CanvasRenderingContext2D): CanvasPattern | null {
+  private createPattern(ctx: CanvasRenderingContext2D): CanvasPattern | null {
     return ctx.createPattern(
-      <HTMLImageElement | SVGImageElement | HTMLVideoElement | HTMLCanvasElement | ImageBitmap | OffscreenCanvas> this.options?.advancedStyle?.params?.pattern?.image,
-      this.options?.advancedStyle?.params?.pattern?.repetition || ''
+      <HTMLImageElement | SVGImageElement | HTMLVideoElement | HTMLCanvasElement | ImageBitmap | OffscreenCanvas>(
+        this.options?.advancedStyle?.params?.pattern?.image
+      ),
+      this.options?.advancedStyle?.params?.pattern?.repetition || '',
     )
   }
 
-  private setText (ctx: CanvasRenderingContext2D, params: { text: string; x: number; y: number; maxWidth?: number }) {
+  private setText(ctx: CanvasRenderingContext2D, params: { text: string; x: number; y: number; maxWidth?: number }) {
     let methodName: 'fillText' | 'strokeText' = 'fillText'
     if (this.options.textType === 'stroke') {
       methodName = 'strokeText'
@@ -191,32 +213,26 @@ class WatermarkCanvas {
     ctx[methodName] && ctx[methodName](params.text, params.x, params.y, params.maxWidth)
   }
 
-  private drawText (ctx: CanvasRenderingContext2D, resolve: Function) {
+  private drawText(ctx: CanvasRenderingContext2D, resolve: Function) {
     this.setText(ctx, {
       text: this.options.content,
       x: 0,
       y: 0 - this.recommendOptions.textLine.yOffsetValue,
-      maxWidth: this.options.textRowMaxWidth || this.options.width
+      maxWidth: this.options.textRowMaxWidth || this.options.width,
     })
     resolve(ctx.canvas)
   }
 
-  private drawImage (ctx: CanvasRenderingContext2D, resolve: Function) {
-    loadImage(<string> this.options.image).then(image => {
+  private drawImage(ctx: CanvasRenderingContext2D, resolve: Function) {
+    loadImage(<string>this.options.image).then(image => {
       const { width: imageWidth, height: imageHeight } = this.getImageRect(image)
       const imagePosition = this.getDrawImagePosition(imageWidth, imageHeight)
-      ctx.drawImage(
-        image,
-        imagePosition.x,
-        imagePosition.y,
-        imageWidth,
-        imageHeight
-      )
+      ctx.drawImage(image, imagePosition.x, imagePosition.y, imageWidth, imageHeight)
       resolve(ctx.canvas)
     })
   }
 
-  private drawMultiLineText (ctx: CanvasRenderingContext2D, resolve: Function) {
+  private drawMultiLineText(ctx: CanvasRenderingContext2D, resolve: Function) {
     // image.width = this.options.width
     // image.height = this.options.height
     // const element = createCustomContentSvg(context, this.options)
@@ -236,34 +252,33 @@ class WatermarkCanvas {
     const lines = this.recommendOptions.textLine.data
     const yOffsetValue = this.recommendOptions.textLine.yOffsetValue
     lines.forEach((text, index) => {
-      this.setText(ctx, { text, x: 0, y: this.options.lineHeight * index - yOffsetValue, maxWidth: this.options.textRowMaxWidth || this.options.width })
+      this.setText(ctx, {
+        text,
+        x: 0,
+        y: this.options.lineHeight * index - yOffsetValue,
+        maxWidth: this.options.textRowMaxWidth || this.options.width,
+      })
     })
     resolve(ctx.canvas)
   }
 
-  private async drawRichText (ctx: CanvasRenderingContext2D, resolve: Function) {
+  private async drawRichText(ctx: CanvasRenderingContext2D, resolve: Function) {
     const obj = await createCustomContentSVG(ctx, this.options)
     loadImage(convertSVGToImage(obj.element), obj.width, obj.height).then(image => {
       const imagePosition = this.getDrawImagePosition(image.width, image.height)
-      ctx.drawImage(
-        image,
-        imagePosition.x,
-        imagePosition.y,
-        image.width,
-        image.height
-      )
+      ctx.drawImage(image, imagePosition.x, imagePosition.y, image.width, image.height)
       resolve(ctx.canvas)
     })
   }
 
-  private getImageRect (image: HTMLImageElement) {
+  private getImageRect(image: HTMLImageElement) {
     const rect = { width: this.options.imageWidth || 0, height: this.options.imageHeight || 0 }
     switch (true) {
       case rect.width !== 0 && rect.height === 0:
-        rect.height = rect.width * image.height / image.width
+        rect.height = (rect.width * image.height) / image.width
         break
       case rect.width === 0 && rect.height !== 0:
-        rect.width = rect.height * image.width / image.height
+        rect.width = (rect.height * image.width) / image.height
         break
       case rect.width === 0 && rect.height === 0:
         rect.width = image.width
@@ -273,10 +288,10 @@ class WatermarkCanvas {
     return rect
   }
 
-  private getDrawImagePosition (imageWidth: number, imageHeight: number) {
+  private getDrawImagePosition(imageWidth: number, imageHeight: number) {
     const result = {
       x: -imageWidth / 2,
-      y: -imageHeight / 2
+      y: -imageHeight / 2,
     }
     switch (this.options.translatePlacement) {
       case 'top':
@@ -318,6 +333,4 @@ class WatermarkCanvas {
   }
 }
 
-export {
-  WatermarkCanvas
-}
+export { WatermarkCanvas }

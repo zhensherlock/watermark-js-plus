@@ -35,10 +35,14 @@ export const initialOptions: WatermarkOptions = {
   onSuccess: () => {},
   onBeforeDestroy: () => {},
   onDestroyed: () => {},
-  onObserveError: () => {}
+  onObserveError: () => {},
 }
 
-export const generateRecommendOptions = (canvas: HTMLCanvasElement, options: WatermarkOptions, args: Partial<WatermarkOptions>) => {
+export const generateRecommendOptions = (
+  canvas: HTMLCanvasElement,
+  options: WatermarkOptions,
+  args: Partial<WatermarkOptions>,
+) => {
   const ctx = canvas.getContext('2d')
   if (ctx === null) {
     throw new Error('get context error')
@@ -49,7 +53,7 @@ export const generateRecommendOptions = (canvas: HTMLCanvasElement, options: Wat
   ctx.letterSpacing = options.letterSpacing
   ctx.wordSpacing = options.wordSpacing
   if (options?.rotate) {
-    options.rotate = (360 - options.rotate % 360) * (Math.PI / 180)
+    options.rotate = (360 - (options.rotate % 360)) * (Math.PI / 180)
   }
   if (isUndefined(args.textRowMaxWidth)) {
     options.textRowMaxWidth = options.width
@@ -58,21 +62,21 @@ export const generateRecommendOptions = (canvas: HTMLCanvasElement, options: Wat
     image: {
       rect: {
         width: options.imageWidth,
-        height: options.imageHeight
+        height: options.imageHeight,
       },
       position: {
         x: 0,
-        y: 0
-      }
+        y: 0,
+      },
     },
     textLine: {
       data: [] as string[],
-      yOffsetValue: 0
+      yOffsetValue: 0,
     },
     advancedStyleParams: {
       linear: {
         x0: 0,
-        x1: 0
+        x1: 0,
       },
       radial: {
         x0: 0,
@@ -80,22 +84,22 @@ export const generateRecommendOptions = (canvas: HTMLCanvasElement, options: Wat
         r0: 0,
         x1: 0,
         y1: 0,
-        r1: 0
+        r1: 0,
       },
       conic: {
         x: 0,
         y: 0,
-        startAngle: 0
+        startAngle: 0,
       },
-      pattern: {}
-    } as AdvancedStyleParamsType
+      pattern: {},
+    } as AdvancedStyleParamsType,
   }
   switch (options.contentType) {
     case 'text':
       result.textLine.data = [options.content]
       break
     case 'multi-line-text':
-      result.textLine.data = getMultiLineData(ctx, options.content, <number> options.textRowMaxWidth)
+      result.textLine.data = getMultiLineData(ctx, options.content, <number>options.textRowMaxWidth)
       break
     // case 'image':
     //   break
@@ -108,8 +112,8 @@ export const generateRecommendOptions = (canvas: HTMLCanvasElement, options: Wat
   let textAlign: TextAlignType = 'center'
 
   if (!isUndefined(args?.translateX) && !isUndefined(args?.translateY)) {
-    translateX = <number> args?.translateX
-    translateY = <number> args?.translateY
+    translateX = <number>args?.translateX
+    translateY = <number>args?.translateY
     textBaseline = 'top'
     textAlign = 'left'
   } else {
@@ -138,14 +142,14 @@ export const generateRecommendOptions = (canvas: HTMLCanvasElement, options: Wat
       result.advancedStyleParams.linear.x0 = -options.width / 2
       result.advancedStyleParams.linear.x1 = options.width / 2
       // result.advancedStyleParams.radial.x0 = 0
-      result.advancedStyleParams.radial.y0 = result.textLine.data.length * options.lineHeight / 2
+      result.advancedStyleParams.radial.y0 = (result.textLine.data.length * options.lineHeight) / 2
       // result.advancedStyleParams.radial.r0 = 0
       // result.advancedStyleParams.radial.x1 = 0
       // result.advancedStyleParams.radial.y1 = 0
-      result.advancedStyleParams.radial.y1 = result.textLine.data.length * options.lineHeight / 2
+      result.advancedStyleParams.radial.y1 = (result.textLine.data.length * options.lineHeight) / 2
       // result.advancedStyleParams.radial.r1 = options.width / 2
       // result.advancedStyleParams.conic.x = 0
-      result.advancedStyleParams.conic.y = result.textLine.data.length * options.lineHeight / 2
+      result.advancedStyleParams.conic.y = (result.textLine.data.length * options.lineHeight) / 2
       break
     case 'top-start':
       translateX = 0
@@ -155,13 +159,13 @@ export const generateRecommendOptions = (canvas: HTMLCanvasElement, options: Wat
       result.advancedStyleParams.linear.x0 = 0
       result.advancedStyleParams.linear.x1 = options.width
       result.advancedStyleParams.radial.x0 = options.width / 2
-      result.advancedStyleParams.radial.y0 = result.textLine.data.length * options.lineHeight / 2
+      result.advancedStyleParams.radial.y0 = (result.textLine.data.length * options.lineHeight) / 2
       // result.advancedStyleParams.radial.r0 = 0
       result.advancedStyleParams.radial.x1 = options.width / 2
-      result.advancedStyleParams.radial.y1 = result.textLine.data.length * options.lineHeight / 2
+      result.advancedStyleParams.radial.y1 = (result.textLine.data.length * options.lineHeight) / 2
       // result.advancedStyleParams.radial.r1 = options.width / 2
       result.advancedStyleParams.conic.x = options.width / 2
-      result.advancedStyleParams.conic.y = result.textLine.data.length * options.lineHeight / 2
+      result.advancedStyleParams.conic.y = (result.textLine.data.length * options.lineHeight) / 2
       break
     case 'top-end':
       translateX = options.width
@@ -171,13 +175,13 @@ export const generateRecommendOptions = (canvas: HTMLCanvasElement, options: Wat
       result.advancedStyleParams.linear.x0 = 0
       result.advancedStyleParams.linear.x1 = -options.width
       result.advancedStyleParams.radial.x0 = -options.width / 2
-      result.advancedStyleParams.radial.y0 = result.textLine.data.length * options.lineHeight / 2
+      result.advancedStyleParams.radial.y0 = (result.textLine.data.length * options.lineHeight) / 2
       // result.advancedStyleParams.radial.r0 = 0
       result.advancedStyleParams.radial.x1 = -options.width / 2
-      result.advancedStyleParams.radial.y1 = result.textLine.data.length * options.lineHeight / 2
+      result.advancedStyleParams.radial.y1 = (result.textLine.data.length * options.lineHeight) / 2
       // result.advancedStyleParams.radial.r1 = options.width / 2
       result.advancedStyleParams.conic.x = -options.width / 2
-      result.advancedStyleParams.conic.y = result.textLine.data.length * options.lineHeight / 2
+      result.advancedStyleParams.conic.y = (result.textLine.data.length * options.lineHeight) / 2
       break
     case 'bottom':
       translateX = options.width / 2
@@ -187,13 +191,13 @@ export const generateRecommendOptions = (canvas: HTMLCanvasElement, options: Wat
       result.advancedStyleParams.linear.x0 = -options.width / 2
       result.advancedStyleParams.linear.x1 = options.width / 2
       // result.advancedStyleParams.radial.x0 = 0
-      result.advancedStyleParams.radial.y0 = -result.textLine.data.length * options.lineHeight / 2
+      result.advancedStyleParams.radial.y0 = (-result.textLine.data.length * options.lineHeight) / 2
       // result.advancedStyleParams.radial.r0 = 0
       // result.advancedStyleParams.radial.x1 = 0
-      result.advancedStyleParams.radial.y1 = -result.textLine.data.length * options.lineHeight / 2
+      result.advancedStyleParams.radial.y1 = (-result.textLine.data.length * options.lineHeight) / 2
       // result.advancedStyleParams.radial.r1 = options.width / 2
       result.advancedStyleParams.conic.x = 0
-      result.advancedStyleParams.conic.y = -result.textLine.data.length * options.lineHeight / 2
+      result.advancedStyleParams.conic.y = (-result.textLine.data.length * options.lineHeight) / 2
       break
     case 'bottom-start':
       translateX = 0
@@ -203,13 +207,13 @@ export const generateRecommendOptions = (canvas: HTMLCanvasElement, options: Wat
       result.advancedStyleParams.linear.x0 = 0
       result.advancedStyleParams.linear.x1 = options.width
       result.advancedStyleParams.radial.x0 = options.width / 2
-      result.advancedStyleParams.radial.y0 = -result.textLine.data.length * options.lineHeight / 2
+      result.advancedStyleParams.radial.y0 = (-result.textLine.data.length * options.lineHeight) / 2
       // result.advancedStyleParams.radial.r0 = 0
       result.advancedStyleParams.radial.x1 = options.width / 2
-      result.advancedStyleParams.radial.y1 = -result.textLine.data.length * options.lineHeight / 2
+      result.advancedStyleParams.radial.y1 = (-result.textLine.data.length * options.lineHeight) / 2
       // result.advancedStyleParams.radial.r1 = options.width / 2
       result.advancedStyleParams.conic.x = options.width / 2
-      result.advancedStyleParams.conic.y = -result.textLine.data.length * options.lineHeight / 2
+      result.advancedStyleParams.conic.y = (-result.textLine.data.length * options.lineHeight) / 2
       break
     case 'bottom-end':
       translateX = options.width
@@ -219,13 +223,13 @@ export const generateRecommendOptions = (canvas: HTMLCanvasElement, options: Wat
       result.advancedStyleParams.linear.x0 = 0
       result.advancedStyleParams.linear.x1 = -options.width
       result.advancedStyleParams.radial.x0 = -options.width / 2
-      result.advancedStyleParams.radial.y0 = -result.textLine.data.length * options.lineHeight / 2
+      result.advancedStyleParams.radial.y0 = (-result.textLine.data.length * options.lineHeight) / 2
       // result.advancedStyleParams.radial.r0 = 0
       result.advancedStyleParams.radial.x1 = -options.width / 2
-      result.advancedStyleParams.radial.y1 = -result.textLine.data.length * options.lineHeight / 2
+      result.advancedStyleParams.radial.y1 = (-result.textLine.data.length * options.lineHeight) / 2
       // result.advancedStyleParams.radial.r1 = options.width / 2
       result.advancedStyleParams.conic.x = -options.width / 2
-      result.advancedStyleParams.conic.y = -result.textLine.data.length * options.lineHeight / 2
+      result.advancedStyleParams.conic.y = (-result.textLine.data.length * options.lineHeight) / 2
       break
     case 'left':
       translateX = 0
@@ -268,12 +272,13 @@ export const generateRecommendOptions = (canvas: HTMLCanvasElement, options: Wat
   if (['text', 'multi-line-text'].includes(options.contentType)) {
     switch (options.textBaseline) {
       case 'middle':
-        result.textLine.yOffsetValue = (result.textLine.data.length - 1) * options.lineHeight / 2
+        result.textLine.yOffsetValue = ((result.textLine.data.length - 1) * options.lineHeight) / 2
         break
       case 'bottom':
       case 'alphabetic':
       case 'ideographic':
-        result.textLine.yOffsetValue = (result.textLine.data.length - 1) * options.lineHeight + (options.lineHeight - parseInt(options.fontSize)) / 2
+        result.textLine.yOffsetValue =
+          (result.textLine.data.length - 1) * options.lineHeight + (options.lineHeight - parseInt(options.fontSize)) / 2
         break
       case 'top':
       case 'hanging':

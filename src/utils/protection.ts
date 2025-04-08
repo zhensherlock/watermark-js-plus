@@ -5,11 +5,11 @@ export default (need: boolean) => {
   if (need) {
     Object.defineProperty(window, 'MutationObserver', {
       writable: false,
-      configurable: false
+      configurable: false,
     })
     Object.defineProperty(window, 'requestAnimationFrame', {
       writable: false,
-      configurable: false
+      configurable: false,
     })
   }
 }

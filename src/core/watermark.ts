@@ -24,11 +24,11 @@ class Watermark {
    * Watermark constructor
    * @param args - watermark args
    */
-  constructor (args: Partial<WatermarkOptions> = {}) {
+  constructor(args: Partial<WatermarkOptions> = {}) {
     this.props = args
     this.options = {
       ...initialOptions,
-      ...args
+      ...args,
     }
     this.changeParentElement(this.options.parent)
     this.watermarkCanvas = new WatermarkCanvas(this.props, this.options)
@@ -41,7 +41,11 @@ class Watermark {
    * @param mode
    * @param redraw
    */
-  async changeOptions (args: Partial<WatermarkOptions> = {}, mode: ChangeOptionsMode = 'overwrite', redraw: boolean = true) {
+  async changeOptions(
+    args: Partial<WatermarkOptions> = {},
+    mode: ChangeOptionsMode = 'overwrite',
+    redraw: boolean = true,
+  ) {
     this.initConfigData(args, mode)
     protection(this.options.monitorProtection)
     if (redraw) {
@@ -53,7 +57,7 @@ class Watermark {
   /**
    * Creating a watermark.
    */
-  async create () {
+  async create() {
     if (this.isCreating) {
       return
     }
@@ -70,7 +74,7 @@ class Watermark {
     const firstDraw = isUndefined(this.watermarkDom)
 
     await this.watermarkCanvas?.draw()
-    this.layoutCanvas = renderLayout(this.options, <HTMLCanvasElement> this.watermarkCanvas?.getCanvas())
+    this.layoutCanvas = renderLayout(this.options, <HTMLCanvasElement>this.watermarkCanvas?.getCanvas())
     const image = convertImage(this.layoutCanvas)
     this.watermarkCanvas?.clear()
     this.watermarkDom = document.createElement('div')
@@ -107,16 +111,16 @@ class Watermark {
   /**
    * Delete this watermark.
    */
-  destroy () {
+  destroy() {
     this.remove()
     this.watermarkDom = undefined
   }
 
-  async check () {
-    return this.parentElement.contains(<Node> this.watermarkDom)
+  async check() {
+    return this.parentElement.contains(<Node>this.watermarkDom)
   }
 
-  protected remove () {
+  protected remove() {
     this.options.onBeforeDestroy?.()
     this.observer?.disconnect()
     this.parentObserve?.disconnect()
@@ -125,23 +129,23 @@ class Watermark {
     this.options.onDestroyed?.()
   }
 
-  protected initConfigData (args: Partial<WatermarkOptions>, mode: ChangeOptionsMode = 'overwrite') {
+  protected initConfigData(args: Partial<WatermarkOptions>, mode: ChangeOptionsMode = 'overwrite') {
     if (mode === 'append') {
       Object.keys(args).forEach(key => {
-        this.props && (this.props[key as keyof WatermarkOptions] = <never> args[key as keyof WatermarkOptions])
+        this.props && (this.props[key as keyof WatermarkOptions] = <never>args[key as keyof WatermarkOptions])
       })
     } else {
       this.props = args
     }
     this.options = {
       ...initialOptions,
-      ...this.props
+      ...this.props,
     }
     this.changeParentElement(this.options.parent)
-    this.watermarkCanvas = new WatermarkCanvas(<Partial<WatermarkOptions>> this.props, this.options)
+    this.watermarkCanvas = new WatermarkCanvas(<Partial<WatermarkOptions>>this.props, this.options)
   }
 
-  private changeParentElement (parent: Element | string) {
+  private changeParentElement(parent: Element | string) {
     if (typeof parent === 'string') {
       const parentElement = document.querySelector(parent)
       parentElement && (this.parentElement = parentElement)
@@ -154,7 +158,7 @@ class Watermark {
     }
   }
 
-  private validateUnique (): boolean {
+  private validateUnique(): boolean {
     let result = true
 
     Array.from(this.parentElement.childNodes).forEach(node => {
@@ -169,7 +173,7 @@ class Watermark {
     return result
   }
 
-  private validateContent (): boolean {
+  private validateContent(): boolean {
     switch (this.options.contentType) {
       case 'image':
         return Object.hasOwnProperty.call(this.options, 'image')
@@ -180,22 +184,22 @@ class Watermark {
     }
   }
 
-  private checkParentElementType () {
+  private checkParentElementType() {
     if (['html', 'body'].includes(this.parentElement.tagName.toLocaleLowerCase())) {
       return 'root'
     }
     return 'custom'
   }
 
-  private async checkWatermarkElement () {
-    if (!this.parentElement.contains(<Node> this.watermarkDom)) {
+  private async checkWatermarkElement() {
+    if (!this.parentElement.contains(<Node>this.watermarkDom)) {
       this.remove()
       await this.create()
     }
     this.bindCheckWatermarkElementEvent()
   }
 
-  private bindMutationObserve (): void {
+  private bindMutationObserve(): void {
     if (!this.watermarkDom) {
       return
     }
@@ -210,14 +214,16 @@ class Watermark {
       attributes: true, // 属性的变动
       childList: true, // 子节点的变动（指新增，删除或者更改）
       subtree: true, // 布尔值，表示是否将该观察器应用于该节点的所有后代节点。
-      characterData: true // 节点内容或节点文本的变动。
+      characterData: true, // 节点内容或节点文本的变动。
     })
     this.parentObserve = new MutationObserver(async (mutationsList: MutationRecord[]) => {
       for (const item of mutationsList) {
         if (
           item?.target === this.watermarkDom ||
           item?.removedNodes?.[0] === this.watermarkDom ||
-          (item.type === 'childList' && item.target === this.parentElement && item.target.lastChild !== this.watermarkDom)
+          (item.type === 'childList' &&
+            item.target === this.parentElement &&
+            item.target.lastChild !== this.watermarkDom)
         ) {
           this.remove()
           await this.create()
@@ -228,22 +234,20 @@ class Watermark {
       attributes: true, // 属性的变动
       childList: true, // 子节点的变动（指新增，删除或者更改）
       subtree: true, // 布尔值，表示是否将该观察器应用于该节点的所有后代节点。
-      characterData: true // 节点内容或节点文本的变动。
+      characterData: true, // 节点内容或节点文本的变动。
     })
   }
 
-  private bindCheckWatermarkElementEvent (): void {
+  private bindCheckWatermarkElementEvent(): void {
     this.unbindCheckWatermarkElementEvent()
     this.checkWatermarkElementRequestID = requestAnimationFrame(this.checkWatermarkElement.bind(this))
   }
 
-  private unbindCheckWatermarkElementEvent (): void {
+  private unbindCheckWatermarkElementEvent(): void {
     if (!isUndefined(this.checkWatermarkElementRequestID)) {
-      cancelAnimationFrame(<number> this.checkWatermarkElementRequestID)
+      cancelAnimationFrame(<number>this.checkWatermarkElementRequestID)
     }
   }
 }
 
-export {
-  Watermark
-}
+export { Watermark }

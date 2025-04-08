@@ -12,15 +12,19 @@ class BlindWatermark extends Watermark {
    * BlindWatermark constructor
    * @param props - blind watermark options
    */
-  constructor (props: Partial<WatermarkOptions> = {}) {
+  constructor(props: Partial<WatermarkOptions> = {}) {
     const defaultProps: Partial<WatermarkOptions> = {
       globalAlpha: 0.005,
-      mode: 'blind'
+      mode: 'blind',
     }
     super({ ...props, ...defaultProps })
   }
 
-  async changeOptions (args: Partial<WatermarkOptions> = {}, mode: ChangeOptionsMode = 'overwrite', redraw: boolean = true) {
+  async changeOptions(
+    args: Partial<WatermarkOptions> = {},
+    mode: ChangeOptionsMode = 'overwrite',
+    redraw: boolean = true,
+  ) {
     args.globalAlpha = 0.005
     args.mode = 'blind'
     this.initConfigData(args, mode)
@@ -35,14 +39,14 @@ class BlindWatermark extends Watermark {
    * Decode blind watermark.
    * @param props - decode options
    */
-  static decode (props: Partial<DecodeBlindWatermarkOptions>) {
+  static decode(props: Partial<DecodeBlindWatermarkOptions>) {
     const {
       url = '',
       fillColor = '#000',
       compositeOperation = 'color-burn',
       mode = 'canvas',
       compositeTimes = 3,
-      onSuccess
+      onSuccess,
     } = props
     if (!url) {
       return
@@ -72,6 +76,4 @@ class BlindWatermark extends Watermark {
   }
 }
 
-export {
-  BlindWatermark
-}
+export { BlindWatermark }
