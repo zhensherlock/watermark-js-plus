@@ -104,7 +104,7 @@
     "cross-fetch": "^4.1.0",
     "cssnano": "^7.0.6",
     "element-plus": "^2.9.7",
-    "eslint": "^8.57.1",
+    "eslint": "^9.0.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^10.1.1",
     "eslint-config-semistandard": "^17.0.0",
