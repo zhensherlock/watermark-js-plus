@@ -7,7 +7,7 @@
     "prepare": "husky",
     "lint": "npx eslint \"src/*.{ts,js}\"",
     "dev": "concurrently \"npm run src:dev\" \"npm run docs:dev\"",
-    "src:dev": "rollup -c --watch",
+    "src:dev": "rollup -c --bundleConfigAsCjs --watch",
     "test": "jest --no-cache",
     "build:types": "tsc",
     "build": "npm run clean:dist && npm run build:types && rollup -c --bundleConfigAsCjs --environment NODE_ENV:production",
@@ -43,10 +43,10 @@
   "browser": "dist/index.esm.js",
   "unpkg": "dist/index.iife.js",
   "jsdelivr": "dist/index.iife.js",
-  "types": "dist/types/src/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/types/src/index.d.ts",
+      "types": "./dist/types/index.d.ts",
       "import": {
         "node": "./index.mjs",
         "default": "./dist/index.esm.js"
@@ -54,7 +54,7 @@
       "require": "./dist/index.cjs.js"
     },
     "./ie": {
-      "types": "./dist/ie/types/src/index.d.ts",
+      "types": "./dist/types/index.d.ts",
       "import": {
         "node": "./index.mjs",
         "default": "./dist/ie/index.esm.js"
@@ -89,7 +89,7 @@
     "@rollup/plugin-replace": "^6.0.2",
     "@rollup/plugin-strip": "^3.0.4",
     "@rollup/plugin-terser": "0.4.4",
-    "@rollup/plugin-typescript": "^11.1.6",
+    "@rollup/plugin-typescript": "^12.1.2",
     "@types/jquery": "^3.5.32",
     "@types/markdown-it": "^14.1.2",
     "@typescript-eslint/parser": "^8.29.1",
@@ -118,7 +118,7 @@
     "lint-staged": "^15.5.0",
     "lodash": "^4.17.21",
     "markdown-it": "^14.1.0",
-    "pinia": "^2.3.1",
+    "pinia": "^3.0.1",
     "rimraf": "^6.0.1",
     "rollup": "^4.39.0",
     "rollup-plugin-filesize": "^10.0.0",

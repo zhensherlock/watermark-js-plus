@@ -9,36 +9,45 @@ import postcss from 'rollup-plugin-postcss'
 import { visualizer } from 'rollup-plugin-visualizer'
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
-import { generateOutputs } from './build/index.mjs'
+import { generateOutputs } from './tools/output'
 
-const plugins = [
-  eslint({
-    throwOnError: true,
-    throwOnWarning: true,
-    include: ['src/**'],
-    exclude: ['node_modules/**', 'src/style/**'],
-  }),
-  resolve(),
-  strip(),
-  typescript(),
-  postcss({
-    plugins: [autoprefixer(), cssnano()],
-  }),
-  commonjs(),
-  filesize(),
-  babel({ babelHelpers: 'runtime', exclude: ['node_modules/**'] }),
-  visualizer(),
-]
+const generatePlugins = (typescriptOptions = {}) => {
+  return [
+    eslint({
+      throwOnError: true,
+      throwOnWarning: true,
+      include: ['src/**'],
+      exclude: ['node_modules/**', 'src/style/**'],
+    }),
+    resolve(),
+    strip(),
+    typescript(typescriptOptions),
+    postcss({
+      plugins: [autoprefixer(), cssnano()],
+    }),
+    commonjs(),
+    filesize(),
+    babel({ babelHelpers: 'runtime', exclude: ['node_modules/**'] }),
+    visualizer(),
+  ]
+}
 
 export default [
   {
     input: 'src/index.ts',
     output: generateOutputs(),
-    plugins,
+    plugins: generatePlugins({
+      declaration: true,
+      declarationDir: './dist/types',
+      outDir: './dist',
+    }),
   },
   {
     input: 'src/index.ie.ts',
     output: generateOutputs('ie'),
-    plugins,
+    plugins: generatePlugins({
+      declaration: false,
+      outDir: null,
+    }),
   },
 ]
