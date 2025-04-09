@@ -14,43 +14,49 @@ describe('core watermark module', () => {
       height: 200,
       rotate: 22,
       zIndex: 2147483646,
-      monitorProtection: true
+      monitorProtection: true,
     })
     await watermark.create()
     await watermark.check()
 
-    await watermark.changeOptions({
-      textBaseline: 'top',
-      translatePlacement: 'top-start',
-      auxiliaryLine: true,
-      layout: 'grid',
-      gridLayoutOptions: {
-        rows: 2,
-        cols: 2,
-        gap: [20, 20],
-        matrix: [[1, 0], [0, 1]]
+    await watermark.changeOptions(
+      {
+        textBaseline: 'top',
+        translatePlacement: 'top-start',
+        auxiliaryLine: true,
+        layout: 'grid',
+        gridLayoutOptions: {
+          rows: 2,
+          cols: 2,
+          gap: [20, 20],
+          matrix: [
+            [1, 0],
+            [0, 1],
+          ],
+        },
+        advancedStyle: {
+          type: 'linear',
+          colorStops: [
+            {
+              offset: 0,
+              color: 'red',
+            },
+            {
+              offset: 1,
+              color: 'blue',
+            },
+          ],
+        },
+        shadowStyle: {
+          shadowBlur: 10,
+          shadowColor: '#000000FF',
+          shadowOffsetX: 0,
+          shadowOffsetY: 0,
+        },
+        extraDrawFunc: () => {},
       },
-      advancedStyle: {
-        type: 'linear',
-        colorStops: [
-          {
-            offset: 0,
-            color: 'red'
-          },
-          {
-            offset: 1,
-            color: 'blue'
-          }
-        ]
-      },
-      shadowStyle: {
-        shadowBlur: 10,
-        shadowColor: '#000000FF',
-        shadowOffsetX: 0,
-        shadowOffsetY: 0
-      },
-      extraDrawFunc: () => {}
-    }, 'append')
+      'append',
+    )
 
     expect($('body > div:last').css('z-index')).toBe('2147483646')
     watermark.destroy()
@@ -66,30 +72,33 @@ describe('core watermark module', () => {
       width: 200,
       height: 200,
       rotate: 22,
-      zIndex: 2147483646
+      zIndex: 2147483646,
     })
     await watermark.create()
-    await watermark.changeOptions({
-      translatePlacement: 'bottom',
-      advancedStyle: {
-        type: 'radial',
-        params: {
-          radial: {
-            x0: 0,
-            y0: 0,
-            r0: 0,
-            x1: 0,
-            y1: 0,
-            r1: 0
-          }
+    await watermark.changeOptions(
+      {
+        translatePlacement: 'bottom',
+        advancedStyle: {
+          type: 'radial',
+          params: {
+            radial: {
+              x0: 0,
+              y0: 0,
+              r0: 0,
+              x1: 0,
+              y1: 0,
+              r1: 0,
+            },
+          },
+          colorStops: [
+            { offset: 0, color: 'red' },
+            { offset: 0.5, color: 'green' },
+            { offset: 1, color: 'blue' },
+          ],
         },
-        colorStops: [
-          { offset: 0, color: 'red' },
-          { offset: 0.5, color: 'green' },
-          { offset: 1, color: 'blue' }
-        ]
-      }
-    }, 'append')
+      },
+      'append',
+    )
     expect($('body > div:last').css('z-index')).toBe('2147483646')
     watermark.destroy()
     expect($('body > div:last').css('z-index')).toBe(undefined)
@@ -103,32 +112,53 @@ describe('core watermark module', () => {
       width: 200,
       height: 200,
       zIndex: 2147483646,
-      filter: 'grayscale(100%)'
+      filter: 'grayscale(100%)',
     })
     await watermark.create()
-    await watermark.changeOptions({
-      translatePlacement: 'top-start',
-      imageWidth: 100
-    }, 'append')
-    await watermark.changeOptions({
-      translatePlacement: 'top-end',
-      imageHeight: 100
-    }, 'append')
-    await watermark.changeOptions({
-      translatePlacement: 'bottom'
-    }, 'append')
-    await watermark.changeOptions({
-      translatePlacement: 'bottom-start'
-    }, 'append')
-    await watermark.changeOptions({
-      translatePlacement: 'bottom-end'
-    }, 'append')
-    await watermark.changeOptions({
-      translatePlacement: 'left'
-    }, 'append')
-    await watermark.changeOptions({
-      translatePlacement: 'right'
-    }, 'append')
+    await watermark.changeOptions(
+      {
+        translatePlacement: 'top-start',
+        imageWidth: 100,
+      },
+      'append',
+    )
+    await watermark.changeOptions(
+      {
+        translatePlacement: 'top-end',
+        imageHeight: 100,
+      },
+      'append',
+    )
+    await watermark.changeOptions(
+      {
+        translatePlacement: 'bottom',
+      },
+      'append',
+    )
+    await watermark.changeOptions(
+      {
+        translatePlacement: 'bottom-start',
+      },
+      'append',
+    )
+    await watermark.changeOptions(
+      {
+        translatePlacement: 'bottom-end',
+      },
+      'append',
+    )
+    await watermark.changeOptions(
+      {
+        translatePlacement: 'left',
+      },
+      'append',
+    )
+    await watermark.changeOptions(
+      {
+        translatePlacement: 'right',
+      },
+      'append',
+    )
 
     expect($('body > div:last').css('z-index')).toBe('2147483646')
     watermark.destroy()
@@ -139,12 +169,13 @@ describe('core watermark module', () => {
     const watermark = new Watermark({
       translatePlacement: 'left',
       contentType: 'rich-text',
-      content: '<div style="background: #ccc;display: flex;flex-direction: column;"><div>how <span style="color: #f00;margin-left: 5px;">nice</span></div><br></div>',
+      content:
+        '<div style="background: #ccc;display: flex;flex-direction: column;"><div>how <span style="color: #f00;margin-left: 5px;">nice</span></div><br></div>',
       width: 300,
       height: 300,
       filter: 'blur(2px)',
       movable: true,
-      zIndex: 2147483646
+      zIndex: 2147483646,
     })
     await watermark.create()
 

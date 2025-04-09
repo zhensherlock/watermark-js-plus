@@ -5,7 +5,8 @@ import { ImageWatermark } from '../../src/core/image'
 import imageWatermarkTextResult from '../assets/image-watermark-text-result.png'
 import { base64ToBuffer, sleep } from '../utils'
 
-const imageWatermarkOriginal = 'https://upic-1258271354.cos.ap-shanghai.myqcloud.com/uPic/image-watermark-original-tuxD08.jpg'
+const imageWatermarkOriginal =
+  'https://upic-1258271354.cos.ap-shanghai.myqcloud.com/uPic/image-watermark-original-tuxD08.jpg'
 
 describe('core image module', () => {
   test('image-watermark create expected true', async () => {
@@ -22,7 +23,7 @@ describe('core image module', () => {
       translatePlacement: 'bottom-end',
       fontColor: '#fff',
       globalAlpha: 0.5,
-      fontSize: '30px'
+      fontSize: '30px',
     })
     await watermark.create()
     await sleep(10000)
