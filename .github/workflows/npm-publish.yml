@@ -28,7 +28,7 @@ jobs:
           cache: npm
 
       - name: Install Package
-        run: npm ci
+        run: npm i
 
       - name: Build Package
         run: npm run build
