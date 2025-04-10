@@ -92,7 +92,7 @@ class Watermark {
       position:${parentElementType === 'root' ? 'fixed' : 'absolute'}!important;-webkit-print-color-adjust:exact!important;width:100%!important;height:100%!important;
       z-index:${this.options.zIndex}!important;background-image:url(${image})!important;background-repeat:${this.options.backgroundRepeat}!important;
       background-size:${backgroundSize[0]}px ${backgroundSize[1]}px!important;background-position:${this.options.backgroundPosition};
-      ${this.options.movable ? 'animation: 200s ease 0s infinite normal none running watermark !important;' : ''}
+      ${this.options.movable ? 'animation: 200s linear 0s infinite alternate watermark !important;' : ''}
     `
     this.watermarkDom.appendChild(watermarkInnerDom)
     this.parentElement.appendChild(this.watermarkDom)
