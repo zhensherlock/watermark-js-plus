@@ -100,7 +100,7 @@ class Watermark {
     if (this.options.mutationObserve) {
       try {
         this.bindMutationObserve()
-      } catch (e) {
+      } catch {
         this.options.onObserveError?.()
       }
     }
