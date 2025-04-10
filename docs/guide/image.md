@@ -32,7 +32,8 @@ onMounted(() => {
       translatePlacement: 'bottom-end',
       fontColor: '#fff',
       globalAlpha: 0.5,
-      fontSize: '30px'
+      fontSize: '30px',
+      crossOrigin: true,
     });
     textWatermarkIsFirst.value = false
   })
@@ -105,7 +106,10 @@ watermark.destroy() // remove watermark
 ```
 
 <div>
+
   <img class="text-watermark-image" :src="imageSrc">
+
+[//]: # (  <img class="text-watermark-image" src="https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/402413381-a24bd4a5-c4e0-45d6-b8ce-94e99e29a111-dowV4C.png">)
 </div>
 <el-affix target=".text-card" position="bottom" :offset="0">
   <el-space class="block-operation">

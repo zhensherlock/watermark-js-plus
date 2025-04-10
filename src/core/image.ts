@@ -26,6 +26,9 @@ class ImageWatermark {
       ...initialOptions,
       ...args,
     }
+    if (this.props.crossOrigin) {
+      this.props.dom?.setAttribute('crossOrigin', 'anonymous')
+    }
     this.watermarkCanvas = new WatermarkCanvas(this.props, this.options)
     this.originalSrc = this.props.dom?.src
     this.backgroundImage = this.getBackgroundImage()

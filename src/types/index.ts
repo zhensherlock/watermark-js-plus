@@ -149,4 +149,5 @@ export interface CustomContentSVGType {
 
 export interface ImageWatermarkOptions extends WatermarkOptions {
   dom: HTMLImageElement
+  crossOrigin: boolean
 }

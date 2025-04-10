@@ -142,7 +142,7 @@ export const loadImage = (
   height: number | undefined = undefined,
 ): Promise<HTMLImageElement> => {
   const image = new Image()
-  image.setAttribute('crossOrigin', 'Anonymous')
+  image.setAttribute('crossOrigin', 'anonymous')
   !isUndefined(width) && (image.width = <number>width)
   !isUndefined(height) && (image.height = <number>height)
   image.src = url
