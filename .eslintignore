@@ -1,7 +1,0 @@
-*/build/*.js
-*/public
-dist
-.husky/
-lib
-*/node_modules
-package-lock.json
