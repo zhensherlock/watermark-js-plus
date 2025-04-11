@@ -20,18 +20,21 @@ class ImageWatermark {
    * ImageWatermark constructor
    * @param args - image watermark args
    */
-  constructor (args: Partial<ImageWatermarkOptions> = {}) {
+  constructor(args: Partial<ImageWatermarkOptions> = {}) {
     this.props = args
     this.options = {
       ...initialOptions,
-      ...args
+      ...args,
+    }
+    if (this.props.crossOrigin) {
+      this.props.dom?.setAttribute('crossOrigin', 'anonymous')
     }
     this.watermarkCanvas = new WatermarkCanvas(this.props, this.options)
     this.originalSrc = this.props.dom?.src
     this.backgroundImage = this.getBackgroundImage()
   }
 
-  async create () {
+  async create() {
     if (this.drew) {
       return
     }
@@ -41,26 +44,24 @@ class ImageWatermark {
       ...this.options.gridLayoutOptions,
       width: this.backgroundImage?.width,
       height: this.backgroundImage?.height,
-      backgroundImage: this.backgroundImage
+      backgroundImage: this.backgroundImage,
     }
-    this.layoutCanvas = renderLayout(this.options, <HTMLCanvasElement> this.watermarkCanvas?.getCanvas())
+    this.layoutCanvas = renderLayout(this.options, <HTMLCanvasElement>this.watermarkCanvas?.getCanvas())
     this.options.dom!.src = convertImage(this.layoutCanvas)
     this.watermarkCanvas?.clear()
     this.drew = true
   }
 
-  destroy () {
-    this.options.dom!.src = <string> this.originalSrc
+  destroy() {
+    this.options.dom!.src = <string>this.originalSrc
     this.drew = false
   }
 
-  private getBackgroundImage () {
+  private getBackgroundImage() {
     if (this.options.dom) {
       return this.options.dom
     }
   }
 }
 
-export {
-  ImageWatermark
-}
+export { ImageWatermark }

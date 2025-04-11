@@ -13,7 +13,7 @@ class GridLayout {
   private readonly matrix: Matrix<number>
   private readonly gap: [number, number]
 
-  constructor (args: WatermarkOptions, partialCanvas: HTMLCanvasElement) {
+  constructor(args: WatermarkOptions, partialCanvas: HTMLCanvasElement) {
     this.options = args
     this.partialWidth = this.options.width
     this.partialHeight = this.options.height
@@ -24,10 +24,10 @@ class GridLayout {
     this.partialCanvas = partialCanvas
   }
 
-  draw (): HTMLCanvasElement {
+  draw(): HTMLCanvasElement {
     const layoutCanvas = WatermarkCanvas.createCanvas(
-      this.options.gridLayoutOptions?.width || (this.partialWidth * this.cols + this.gap[0] * this.cols),
-      this.options.gridLayoutOptions?.height || (this.partialHeight * this.rows + this.gap[1] * this.rows)
+      this.options.gridLayoutOptions?.width || this.partialWidth * this.cols + this.gap[0] * this.cols,
+      this.options.gridLayoutOptions?.height || this.partialHeight * this.rows + this.gap[1] * this.rows,
     )
     const layoutContext = layoutCanvas.getContext('2d')
     if (this.options.gridLayoutOptions?.backgroundImage) {
@@ -35,8 +35,8 @@ class GridLayout {
         this.options.gridLayoutOptions?.backgroundImage,
         0,
         0,
-        <number> this.options.gridLayoutOptions?.width,
-        <number> this.options.gridLayoutOptions?.height
+        <number>this.options.gridLayoutOptions?.width,
+        <number>this.options.gridLayoutOptions?.height,
       )
     }
     for (let rowIndex = 0; rowIndex < this.rows; rowIndex++) {
@@ -49,7 +49,7 @@ class GridLayout {
           this.partialWidth * colIndex + this.gap[0] * colIndex,
           this.partialHeight * rowIndex + this.gap[1] * rowIndex,
           this.partialWidth,
-          this.partialHeight
+          this.partialHeight,
         )
       }
     }
@@ -57,6 +57,4 @@ class GridLayout {
   }
 }
 
-export {
-  GridLayout
-}
+export { GridLayout }

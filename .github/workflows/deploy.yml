@@ -21,8 +21,12 @@ jobs:
           node-version: 20
           cache: npm
 
+      - name: Clean dependencies
+        run: |
+          rm -rf package-lock.json node_modules
+
       - name: Install Package
-        run: npm ci
+        run: npm i
 
       - name: Build Docs Package
         run: npm run docs:build
