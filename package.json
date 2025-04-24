@@ -135,7 +135,7 @@
     "terser": "^5.39.0",
     "ts-jest": "^29.3.1",
     "typescript": "^5.8.3",
-    "unplugin-element-plus": "^0.9.1",
+    "unplugin-element-plus": "^0.10.0",
     "vitepress": "^1.6.3",
     "vue": "^3.5.13",
     "whatwg-fetch": "^3.6.20"
