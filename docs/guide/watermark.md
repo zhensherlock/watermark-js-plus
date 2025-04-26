@@ -23,10 +23,12 @@ onMounted(() => {
   // child element watermark
   childElementWatermark = new Watermark({
     parent: '.parent-element',
-    width: 400,
-    height: 400,
+    width: 180,
+    height: 180,
+    textRowMaxWidth: 254,
     backgroundRepeat: 'no-repeat',
     zIndex: 900,
+    movable: true,
     // parent: '.parent-element',
     // // textRowMaxWidth: 200,
     // // contentType: 'multi-line-text',
@@ -372,10 +374,12 @@ import { Watermark } from 'watermark-js-plus' // import watermark plugin
 
 const watermark = new Watermark({
   parent: '.parent-element',
-  width: 400,
-  height: 400,
+  width: 180,
+  height: 180,
+  textRowMaxWidth: 254,
   backgroundRepeat: 'no-repeat',
-  zIndex: 900
+  zIndex: 900,
+  movable: true
 })
 
 watermark.create() // add watermark

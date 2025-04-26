@@ -1,4 +1,4 @@
-import { convertImage, isUndefined } from '../utils'
+import { convertImage, generateAnimationStyle, isUndefined } from '../utils'
 import type { ChangeOptionsMode, WatermarkDom, WatermarkOptions } from '../types'
 import { initialOptions } from '../utils/initialization'
 import protection from '../utils/protection'
@@ -92,7 +92,7 @@ class Watermark {
       position:${parentElementType === 'root' ? 'fixed' : 'absolute'}!important;-webkit-print-color-adjust:exact!important;width:100%!important;height:100%!important;
       z-index:${this.options.zIndex}!important;background-image:url(${image})!important;background-repeat:${this.options.backgroundRepeat}!important;
       background-size:${backgroundSize[0]}px ${backgroundSize[1]}px!important;background-position:${this.options.backgroundPosition};
-      ${this.options.movable ? 'animation: 200s linear 0s infinite alternate watermark !important;' : ''}
+      ${generateAnimationStyle(this.options.movable, this.options.backgroundRepeat)}
     `
     this.watermarkDom.appendChild(watermarkInnerDom)
     this.parentElement.appendChild(this.watermarkDom)
