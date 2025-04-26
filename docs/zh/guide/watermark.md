@@ -23,10 +23,12 @@ onMounted(() => {
   // 子元素水印
   childElementWatermark = new Watermark({
     parent: '.parent-element',
-    width: 400,
-    height: 400,
+    width: 180,
+    height: 180,
+    textRowMaxWidth: 254,
     backgroundRepeat: 'no-repeat',
-    zIndex: 900
+    zIndex: 900,
+    movable: true
   });
 });
 
@@ -318,10 +320,12 @@ import { Watermark } from 'watermark-js-plus' // 引入水印插件
 
 const watermark = new Watermark({
   parent: '.parent-element',
-  width: 400,
-  height: 400,
+  width: 180,
+  height: 180,
+  textRowMaxWidth: 254,
   backgroundRepeat: 'no-repeat',
-  zIndex: 900
+  zIndex: 900,
+  movable: true
 })
 
 watermark.create() // 添加水印

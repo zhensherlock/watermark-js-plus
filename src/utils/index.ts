@@ -156,3 +156,23 @@ export const loadImage = (
 export const generateMatrix = (rows: number, columns: number, value: any) => {
   return Array.from({ length: rows }, () => new Array(columns).fill(value))
 }
+
+export const generateAnimationStyle = (movable: boolean, backgroundRepeat: string) => {
+  if (!movable) {
+    return ''
+  }
+  const horizontalDuration = Math.random() * (8 - 2) + 2
+  const verticalDuration = Math.random() * (4 - 2) + 2
+  switch (backgroundRepeat) {
+    case 'repeat':
+      return 'animation: 200s linear 0s infinite alternate watermark !important;'
+    case 'repeat-x':
+      return `animation: ${horizontalDuration}s ease-in 0s infinite alternate watermark-vertical !important;'`
+    case 'repeat-y':
+      return `animation: ${verticalDuration}s ease-out 0s infinite alternate watermark-horizontal !important;'`
+    case 'no-repeat':
+      return `animation: ${horizontalDuration}s ease-in 0s infinite alternate watermark-horizontal, ${verticalDuration}s ease-out 0s infinite alternate watermark-vertical !important;`
+    default:
+      return ''
+  }
+}

@@ -15,6 +15,7 @@ describe('core watermark module', () => {
       rotate: 22,
       zIndex: 2147483646,
       monitorProtection: true,
+      movable: true,
     })
     await watermark.create()
     await watermark.check()
@@ -57,6 +58,14 @@ describe('core watermark module', () => {
       },
       'append',
     )
+
+    await watermark.changeOptions({
+      backgroundRepeat: 'repeat-x',
+    }, 'append')
+
+    await watermark.changeOptions({
+      backgroundRepeat: 'repeat-y',
+    }, 'append')
 
     expect($('body > div:last').css('z-index')).toBe('2147483646')
     watermark.destroy()

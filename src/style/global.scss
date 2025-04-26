@@ -15,3 +15,21 @@
     background-position: 0 0;
   }
 }
+
+@keyframes watermark-horizontal {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 100%;
+  }
+}
+
+@keyframes watermark-vertical {
+  from {
+    background-position-y: 0;
+  }
+  to {
+    background-position-y: 100%;
+  }
+}
