@@ -1,3 +1,26 @@
+# [1.6.0](https://github.com/zhensherlock/watermark-js-plus/compare/v1.5.9...v1.6.0) (2025-04-26)
+
+
+### ✨ Features | 新功能
+
+* **watermark:** add dynamic animation styles based on background repeat ([3f0b5a4](https://github.com/zhensherlock/watermark-js-plus/commit/3f0b5a4ff44fe00e8023f73abcfeff2e18e25f7d))
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update dependency element-plus to v2.9.8 ([b8b61e4](https://github.com/zhensherlock/watermark-js-plus/commit/b8b61e4d89953268c0a9c034591a877d24fab94a))
+* **deps:** update dependency eslint to v9.25.0 ([d984ccc](https://github.com/zhensherlock/watermark-js-plus/commit/d984ccc5405da86ea4f76a17f51e12e5dc4d25fd))
+* **deps:** update dependency eslint to v9.25.1 ([bdcc74d](https://github.com/zhensherlock/watermark-js-plus/commit/bdcc74d7c0436302598fa8e969f839f4aeab696e))
+* **deps:** update dependency lint-staged to v15.5.1 ([359e7a3](https://github.com/zhensherlock/watermark-js-plus/commit/359e7a39ca8777b70abb323ebf6411e7d2f968e5))
+* **deps:** update dependency rollup to v4.40.0 ([414eaed](https://github.com/zhensherlock/watermark-js-plus/commit/414eaedcc7a3fcfffc108658ac1d458bbee3ffe0))
+* **deps:** update dependency ts-jest to v29.3.2 ([ce38314](https://github.com/zhensherlock/watermark-js-plus/commit/ce383143cc8636b81fb0e8c02a17243a79bd7317))
+* **deps:** update typescript-eslint monorepo to v8.30.1 ([d93a5a4](https://github.com/zhensherlock/watermark-js-plus/commit/d93a5a489b09fd85bdc56083783ae0db735313c0))
+* **deps:** update typescript-eslint monorepo to v8.31.0 ([37cdb22](https://github.com/zhensherlock/watermark-js-plus/commit/37cdb2295292e3f21a7d3ca2546ffdffc1dc6826))
+* update dependencies ([847d03b](https://github.com/zhensherlock/watermark-js-plus/commit/847d03be6419a3067e656c7fb7cde395f2b3ad40))
+* update dependencies ([e2cf22b](https://github.com/zhensherlock/watermark-js-plus/commit/e2cf22b1f44e8f215b7d3b622e48323b1bf61cbd))
+
+
+
 ## [1.5.9](https://github.com/zhensherlock/watermark-js-plus/compare/v1.5.8...v1.5.9) (2025-04-11)
 
 
