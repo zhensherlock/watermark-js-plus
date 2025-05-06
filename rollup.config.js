@@ -1,36 +1,5 @@
-import filesize from 'rollup-plugin-filesize'
-import babel from '@rollup/plugin-babel'
-import resolve from '@rollup/plugin-node-resolve'
-import commonjs from '@rollup/plugin-commonjs'
-import eslint from '@rollup/plugin-eslint'
-import typescript from '@rollup/plugin-typescript'
-import strip from '@rollup/plugin-strip'
-import postcss from 'rollup-plugin-postcss'
-import { visualizer } from 'rollup-plugin-visualizer'
-import autoprefixer from 'autoprefixer'
-import cssnano from 'cssnano'
 import { generateOutputs } from './tools/output'
-
-const generatePlugins = (typescriptOptions = {}) => {
-  return [
-    eslint({
-      throwOnError: true,
-      throwOnWarning: true,
-      include: ['src/**'],
-      exclude: ['node_modules/**', 'src/style/**'],
-    }),
-    resolve(),
-    strip(),
-    typescript(typescriptOptions),
-    postcss({
-      plugins: [autoprefixer(), cssnano()],
-    }),
-    commonjs(),
-    filesize(),
-    babel({ babelHelpers: 'runtime', exclude: ['node_modules/**'] }),
-    visualizer(),
-  ]
-}
+import { generatePlugins } from './tools/plugins'
 
 export default [
   {
@@ -49,5 +18,45 @@ export default [
       declaration: false,
       outDir: null,
     }),
+  },
+  {
+    input: 'src/index.ts',
+    output: [
+      {
+        dir: 'dist/es',
+        format: 'es',
+        preserveModules: true,
+        entryFileNames: '[name].js',
+      },
+    ],
+    plugins: generatePlugins(
+      {
+        declaration: false,
+        outDir: null,
+      },
+      {
+        extract: 'style.css',
+      },
+    ),
+  },
+  {
+    input: 'src/index.ie.ts',
+    output: [
+      {
+        dir: 'dist/ie/es',
+        format: 'es',
+        preserveModules: true,
+        entryFileNames: '[name].js',
+      },
+    ],
+    plugins: generatePlugins(
+      {
+        declaration: false,
+        outDir: null,
+      },
+      {
+        extract: 'style.css',
+      },
+    ),
   },
 ]

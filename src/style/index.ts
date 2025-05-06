@@ -1,1 +1,1 @@
-import './global.scss'
+import './animation.scss'

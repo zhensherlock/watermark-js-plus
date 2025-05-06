@@ -53,6 +53,12 @@
       },
       "require": "./dist/index.cjs.js"
     },
+    "./es": {
+      "types": "./dist/types/index.d.ts",
+      "import": {
+        "default": "./dist/es/src/index.js"
+      }
+    },
     "./ie": {
       "types": "./dist/types/index.d.ts",
       "import": {
@@ -61,9 +67,17 @@
       },
       "require": "./dist/ie/index.cjs.js"
     },
+    "./ie/es": {
+      "types": "./dist/types/index.d.ts",
+      "import": {
+        "default": "./dist/ie/es/src/index.ie.js"
+      }
+    },
+    "./style.css": "./dist/es/style.css",
     "./package.json": "./package.json",
     "./dist/*": "./dist/*"
   },
+  "sideEffects": ["./src/style/**/*", "**/style.css", "**/ie/**/*"],
   "files": [
     "dist",
     "index.js",
