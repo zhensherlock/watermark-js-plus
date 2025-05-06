@@ -20,6 +20,9 @@ import { BlindWatermark } from 'watermark-js-plus/es'
 
 // 仅导入 ImageWatermark 组件
 import { ImageWatermark } from 'watermark-js-plus/es'
+
+// 注意：如果使用了 movable 参数，必须引入样式文件
+import 'watermark-js-plus/style.css'
 ```
 
 ## Benefits
