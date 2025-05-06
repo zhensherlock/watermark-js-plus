@@ -1,3 +1,17 @@
+## [1.6.1](https://github.com/zhensherlock/watermark-js-plus/compare/v1.6.0...v1.6.1) (2025-05-06)
+
+
+### ✨ Features | 新功能
+
+* add on-demand loading support and refactor build process ([79c1027](https://github.com/zhensherlock/watermark-js-plus/commit/79c1027d543ac6be6cb6709a2959219d35a9fb5c))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([0953301](https://github.com/zhensherlock/watermark-js-plus/commit/095330194e46986ed73b85636af814f7ebe155a1))
+
+
+
 # [1.6.0](https://github.com/zhensherlock/watermark-js-plus/compare/v1.5.9...v1.6.0) (2025-04-26)
 
 
