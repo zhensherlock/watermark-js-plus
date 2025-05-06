@@ -18,7 +18,7 @@ import { Watermark } from 'watermark-js-plus/ie'
 ## CDN
 ```html
 <!-- import JavaScript -->
-<script src="https://www.unpkg.com/watermark-js-plus@1.6.0/dist/ie/index.iife.min.js"></script>
+<script src="https://www.unpkg.com/watermark-js-plus@1.6.1/dist/ie/index.iife.min.js"></script>
 ```
 
 > 我们建议使用 CDN 引入用户在链接地址上锁定版本，以免将来插件升级时受到非兼容性更新的影响。锁定版本的方法请查看 [unpkg.com](https://unpkg.com/)。

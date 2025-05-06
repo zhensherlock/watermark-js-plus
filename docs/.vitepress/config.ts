@@ -63,6 +63,7 @@ export default {
           text: 'Extra',
           items: [
             { text: 'Internet Explorer', link: '/guide/extra/ie' },
+            { text: 'On demand', link: '/guide/extra/on-demand' },
           ]
         }
       ],
