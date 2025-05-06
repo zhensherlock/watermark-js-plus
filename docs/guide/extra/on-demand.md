@@ -20,6 +20,9 @@ import { BlindWatermark } from 'watermark-js-plus/es'
 
 // Import only the ImageWatermark component
 import { ImageWatermark } from 'watermark-js-plus/es'
+
+// Note: If you use the movable parameter, you must import the style file
+import 'watermark-js-plus/style.css'
 ```
 
 ## Benefits
