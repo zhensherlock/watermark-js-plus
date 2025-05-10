@@ -138,7 +138,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jimp": "^0.22.12",
     "jquery": "^3.7.1",
-    "lint-staged": "^15.5.1",
+    "lint-staged": "^16.0.0",
     "lodash": "^4.17.21",
     "markdown-it": "^14.1.0",
     "pinia": "^3.0.2",
