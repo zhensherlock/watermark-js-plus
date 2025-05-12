@@ -6,6 +6,7 @@
     "clean:dist": "rimraf dist",
     "prepare": "husky",
     "lint": "npx eslint \"src/**/*.{ts,js}\"",
+    "lint-staged": "lint-staged",
     "dev": "concurrently \"npm run src:dev\" \"npm run docs:dev\"",
     "src:dev": "rollup -c --bundleConfigAsCjs --watch",
     "test": "jest --no-cache",
