@@ -16,7 +16,6 @@ class Watermark {
   private watermarkDom?: WatermarkDom
   private props?: Partial<WatermarkOptions>
   private layoutCanvas?: HTMLCanvasElement
-  private checkWatermarkElementRequestID?: number
   private watermarkCanvas?: WatermarkCanvas
   private isCreating: Boolean = false
 
@@ -124,7 +123,6 @@ class Watermark {
     this.options.onBeforeDestroy?.()
     this.observer?.disconnect()
     this.parentObserve?.disconnect()
-    this.unbindCheckWatermarkElementEvent()
     this.watermarkDom?.parentNode?.removeChild(this.watermarkDom)
     this.options.onDestroyed?.()
   }
@@ -191,19 +189,10 @@ class Watermark {
     return 'custom'
   }
 
-  private async checkWatermarkElement() {
-    if (!this.parentElement.contains(<Node>this.watermarkDom)) {
-      this.remove()
-      await this.create()
-    }
-    this.bindCheckWatermarkElementEvent()
-  }
-
   private bindMutationObserve(): void {
     if (!this.watermarkDom) {
       return
     }
-    this.bindCheckWatermarkElementEvent()
     this.observer = new MutationObserver(async (mutationsList: MutationRecord[]) => {
       if (mutationsList.length > 0) {
         this.remove()
@@ -236,17 +225,6 @@ class Watermark {
       subtree: true, // 布尔值，表示是否将该观察器应用于该节点的所有后代节点。
       characterData: true, // 节点内容或节点文本的变动。
     })
-  }
-
-  private bindCheckWatermarkElementEvent(): void {
-    this.unbindCheckWatermarkElementEvent()
-    this.checkWatermarkElementRequestID = requestAnimationFrame(this.checkWatermarkElement.bind(this))
-  }
-
-  private unbindCheckWatermarkElementEvent(): void {
-    if (!isUndefined(this.checkWatermarkElementRequestID)) {
-      cancelAnimationFrame(<number>this.checkWatermarkElementRequestID)
-    }
   }
 }
 
