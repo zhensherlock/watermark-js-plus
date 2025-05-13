@@ -1,3 +1,18 @@
+## [1.6.2](https://github.com/zhensherlock/watermark-js-plus/compare/v1.6.1...v1.6.2) (2025-05-13)
+
+
+### ♻ Code Refactoring | 代码重构
+
+* **watermark:** remove redundant watermark element check logic ([65677b7](https://github.com/zhensherlock/watermark-js-plus/commit/65677b71951ff63695dc8397819c2e34f981d524))
+
+
+### 🎫 Chores | 其他更新
+
+* **husky:** simplify commit-msg hook script ([b8ceac1](https://github.com/zhensherlock/watermark-js-plus/commit/b8ceac1cb965306df207f86fd867553d1ba3818f))
+* update dependencies ([048608f](https://github.com/zhensherlock/watermark-js-plus/commit/048608fe2d5d4304bd385ac17e58cd9d1d09b456))
+
+
+
 ## [1.6.1](https://github.com/zhensherlock/watermark-js-plus/compare/v1.6.0...v1.6.1) (2025-05-06)
 
 
