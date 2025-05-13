@@ -49,7 +49,6 @@ export const generateRecommendOptions = (
   }
   ctx.font = `${options.fontStyle} ${options.fontVariant} ${options.fontWeight} ${options.fontSize} ${options.fontFamily}`
   ctx.filter = options.filter
-  // @ts-ignore
   ctx.letterSpacing = options.letterSpacing
   ctx.wordSpacing = options.wordSpacing
   if (options?.rotate) {
