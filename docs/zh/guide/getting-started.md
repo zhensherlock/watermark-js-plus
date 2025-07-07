@@ -20,14 +20,14 @@ $ npm install watermark-js-plus
 $ yarn add watermark-js-plus
 ```
 
-
 ## 用法
 
 1. 引入水印插件
 ```ts
 import { Watermark } from 'watermark-js-plus'
 ```
-2. 实例化
+
+2. 创建实例
 ```ts
 const watermark = new Watermark({
   content: 'hello my watermark',
@@ -38,12 +38,13 @@ const watermark = new Watermark({
   }
 })
 ```
-3. 添加水印
+
+3. 添加水印到页面
 ```ts
 watermark.create()
 ```
 
-## CDN
+## CDN 引入
 
 使用 jsDelivr CDN:
 
@@ -57,7 +58,7 @@ watermark.create()
 <script src="https://unpkg.com/watermark-js-plus/dist/index.iife.min.js"></script>
 ```
 
-用法
+使用示例:
 
 ```ts
 const watermark = new WatermarkPlus.Watermark({

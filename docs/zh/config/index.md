@@ -4,319 +4,262 @@ layout: doc
 
 <el-backtop></el-backtop>
 
-# 基础配置项
-
-## width
-
-- **Type:** `number`
-- **Default:** `300`
-
-单个水印的宽度。
-
-## height
-
-- **Type:** `number`
-- **Default:** `300`
-
-单个水印的高度。
-
-## rotate
-
-- **Type:** `number`
-- **Default:** `45`
-
-水印旋转角度。
-
-## layout
-
-- **Type:** `string`
-- **Default:** `default`
-
-水印布局方式。
-
-## gridLayoutOptions
-
-- **Type:** `Object`
-- **Default:** `null`
-
-水印Grid布局配置项。
-
-## auxiliaryLine
-
-- **Type:** `boolean`
-- **Default:** `false`
-
-水印辅助线可见性。
-
-## movable
-
-- **Type:** `boolean`
-- **Default:** `false`
-
-水印是否可移动。
-
-## translatePlacement
-
-- **Type:** `string`
-- **available values**: `'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'right' | 'middle'`
-
-水平方向的移动位置。
-
-## translateX
-
-- **Type:** `number`
-
-水平方向的移动距离。
-
-## translateY
-
-- **Type:** `number`
-
-垂直方向的移动距离。
-
-## contentType
-
-- **Type:** `string`
-- **Default:** `'text'`
-- **available values**: `'text' | 'image' | 'multi-line-text' | 'rich-text'`
-
-水印内容类型。
-
-## content
-
-- **Type:** `string`
-- **Default:** `'hello watermark-js-plus'`
-
-水印内容。
-
-## textType
-
-- **Type:** `string`
-- **Default:** `'fill'`
-- **available values**: `'fill' | 'stroke'`
-
-文本水印渲染文字的方式。方式：填充文字和绘制文字。
-
-## textRowMaxWidth
-
-- **Type:** `number`
-
-文本水印单行最大宽度。
-
-## image
-
-- **Type:** `string`
-
-水印图像路径。
-
-## imageWidth
-
-- **Type:** `number`
-- **Default:** `0`
-
-水印图像宽度。
-
-## imageHeight
-
-- **Type:** `number`
-- **Default:** `0`
-
-水印图像高度。
-
-## richTextWidth
-
-- **Type:** `number`
-
-水印富文本宽度。
-
-## richTextHeight
-
-- **Type:** `number`
-
-水印富文本高度。
-
-## lineHeight
-
-- **Type:** `number`
-- **Default:** `30`
-
-水印内容行高。
-
-## zIndex
-
-- **Type:** `number`
-- **Default:** `2147483647`
-
-z-index
-
-## backgroundPosition
-
-- **Type:** `string`
-- **Default:** `'0 0, 0 0'`
-
-background-position
-
-## backgroundRepeat
-
-- **Type:** `string`
-- **Default:** `'repeat'`
-
-background-repeat
-
-## fontSize
-
-- **Type:** `string`
-- **Default:** `'20px'`
-
-水印内容的字体大小。
-
-## fontFamily
-
-- **Type:** `string`
-- **Default:** `'sans-serif'`
-
-水印内容的字体。
-
-## fontStyle
-
-- **Type:** `string`
-- **Default:** `''`
-
-水印内容的fontStyle。
-
-## fontVariant
-
-- **Type:** `string`
-- **Default:** `''`
-
-水印内容的fontVariant。
-
-## textAlign
-
-- **Type:** `string`
-- **available values**: `'center' | 'end' | 'left' | 'right' | 'start'`
-
-水印内容水平对齐方式。
-
-## textBaseline
-
-- **Type:** `string`
-- **available values**: `'top' | 'bottom' | 'middle' | 'alphabetic' | 'hanging' | 'ideographic'`
-
-水印内容基准线。
-![textBaseline](../../public/text-baseline.png)
-
-## fontColor
-
-- **Type:** `string`
-- **Default:** `'#000'`
-
-水印内容字体颜色。
-
-## globalAlpha
-
-- **Type:** `number`
-- **Default:** `0.5`
-
-水印的透明度。
-
-## fontWeight
-
-- **Type:** `string`
-- **Default:** `'normal'`
-
-水印内容字体权重。
-
-## filter
-
-- **Type:** `string`
-- **Default:** `''`
-
-水印内容的滤镜。
-
-## letterSpacing
-
-- **Type:** `string`
-- **Default:** `'0px'`
-
-指定绘制文本时字母之间的间距
-
-## wordSpacing
-
-- **Type:** `string`
-- **Default:** `'0px'`
-
-指定绘制文本时单词之间的间距
-
-## mode
-
-- **Type:** `string`
-- **Default:** `'default'`
-- **available values**: `'default' | 'blind'`
-
-水印模式。
-
-## mutationObserve
-
-- **Type:** `boolean`
-- **Default:** `true`
-
-启用侦听水印dom更改。
-
-## monitorProtection
-
-- **Type:** `boolean`
-- **Default:** `false`
-
-启用对 `MutationObserver` 和 `requestAnimationFrame` 的保护，以防止恶意篡改。
-> **注意：**  
-> **一旦开启，无法关闭保护。**
-
-## parent
-
-- **Type:** `Element | string`
-- **Default:** `'body'`
-
-水印的容器。
-
-## shadowStyle
-
-- **Type:** `Object`
-- **Default:** `null`
-
-水印的阴影样式。
-
-## advancedStyle
-
-- **Type:** `Object`
-- **Default:** `null`
-
-水印的渐变样式。
-
-## extraDrawFunc
-
-- **Type:** `Function`
-- **Default:** `() => {}`
-
-水印自定义额外绘图函数。
-
-## onSuccess
-
-- **Type:** `Function`
-- **Default:** `() => {}`
-
-水印添加成功的回调事件。
-
-## onBeforeDestroy
-
-- **Type:** `Function`
-- **Default:** `() => {}`
-
-水印删除前的回调事件。
-
-## onDestroyed
-
-- **Type:** `Function`
-- **Default:** `() => {}`
-
-水印删除后的回调事件。
+# 水印配置选项
+
+## 基础配置
+
+### width
+- **类型:** `number`
+- **默认值:** `300`
+- **描述:** 单个水印单元的宽度
+
+### height
+- **类型:** `number`
+- **默认值:** `300`
+- **描述:** 单个水印单元的高度
+
+### rotate
+- **类型:** `number`
+- **默认值:** `45`
+- **描述:** 水印旋转角度(度数)
+
+### layout
+- **类型:** `string`
+- **默认值:** `'default'`
+- **描述:** 水印布局模式
+- **可选值:** 多种布局类型(具体实现相关)
+
+### gridLayoutOptions
+- **类型:** `Object`
+- **默认值:** `null`
+- **描述:** 网格布局的自定义配置选项
+
+### auxiliaryLine
+- **类型:** `boolean`
+- **默认值:** `false`
+- **描述:** 是否显示辅助定位线
+
+## 定位与移动
+
+### translatePlacement
+- **类型:** `string`
+- **默认值:** `'middle'`
+- **可选值:**
+  - `'top'`, `'top-start'`, `'top-end'`
+  - `'bottom'`, `'bottom-start'`, `'bottom-end'`
+  - `'left'`, `'right'`, `'middle'`
+- **描述:** 平移变换的基础位置
+
+### translateX
+- **类型:** `number`
+- **描述:** 水平移动距离(正数=向右，负数=向左)
+
+### translateY
+- **类型:** `number`
+- **描述:** 垂直移动距离(正数=向下，负数=向上)
+
+### movable
+- **类型:** `boolean`
+- **默认值:** `false`
+- **描述:** 水印是否可交互移动
+
+### zIndex
+- **类型:** `number`
+- **默认值:** `2147483647`
+- **描述:** 控制图层叠放的CSS z-index属性
+
+### parent
+- **类型:** `Element | string`
+- **默认值:** `'body'`
+- **描述:** 水印的容器元素(选择器或DOM元素)
+
+## 内容配置
+
+### contentType
+- **类型:** `string`
+- **默认值:** `'text'`
+- **可选值:**
+  - `'text'`: 简单文本水印
+  - `'image'`: 图片水印
+  - `'multi-line-text'`: 多行文本
+  - `'rich-text'`: 格式化富文本
+- **描述:** 水印内容的显示类型
+
+### content
+- **类型:** `string`
+- **默认值:** `'hello watermark-js-plus'`
+- **描述:** 要显示的实际内容(文本或图片URL)
+
+### textType
+- **类型:** `string`
+- **默认值:** `'fill'`
+- **可选值:** `'fill'` | `'stroke'`
+- **描述:** 文本内容的渲染方式
+
+## 文本样式
+
+### fontSize
+- **类型:** `string`
+- **默认值:** `'20px'`
+- **描述:** 文本内容的字体大小
+
+### fontFamily
+- **类型:** `string`
+- **默认值:** `'sans-serif'`
+- **描述:** 文本内容的字体家族
+
+### fontStyle
+- **类型:** `string`
+- **默认值:** `''`
+- **描述:** 字体样式(如'italic')
+
+### fontVariant
+- **类型:** `string`
+- **默认值:** `''`
+- **描述:** 字体变体(如'small-caps')
+
+### fontWeight
+- **类型:** `string`
+- **默认值:** `'normal'`
+- **描述:** 字体粗细(如'bold')
+
+### fontColor
+- **类型:** `string`
+- **默认值:** `'#000'`
+- **描述:** 文本颜色
+
+### textAlign
+- **类型:** `string`
+- **可选值:** `'center'`, `'end'`, `'left'`, `'right'`, `'start'`
+- **描述:** 文本水平对齐方式
+
+### textBaseline
+- **类型:** `string`
+- **可选值:**
+  - `'top'`, `'bottom'`, `'middle'`
+  - `'alphabetic'`, `'hanging'`, `'ideographic'`
+- **描述:** 文本垂直对齐基线
+  ![textBaseline](../public/text-baseline.png)
+
+### lineHeight
+- **类型:** `number`
+- **默认值:** `30`
+- **描述:** 多行文本的行高
+
+### textRowMaxWidth
+- **类型:** `number`
+- **描述:** 文本行自动换前的最大宽度
+
+### letterSpacing
+- **类型:** `string`
+- **默认值:** `'0px'`
+- **描述:** 字符间距
+
+### wordSpacing
+- **类型:** `string`
+- **默认值:** `'0px'`
+- **描述:** 单词间距
+
+## 图片配置
+
+### image
+- **类型:** `string`
+- **描述:** 用作水印的图片URL(当contentType = 'image'时)
+
+### imageWidth
+- **类型:** `number`
+- **默认值:** `0`
+- **描述:** 图片显示宽度(0表示自然宽度)
+
+### imageHeight
+- **类型:** `number`
+- **默认值:** `0`
+- **描述:** 图片显示高度(0表示自然高度)
+
+## 富文本配置
+
+### richTextWidth
+- **类型:** `number`
+- **描述:** 富文本内容的宽度限制
+
+### richTextHeight
+- **类型:** `number`
+- **描述:** 富文本内容的高度限制
+
+## 视觉效果
+
+### globalAlpha
+- **类型:** `number`
+- **默认值:** `0.5`
+- **描述:** 水印的整体透明度(0.0到1.0)
+
+### filter
+- **类型:** `string`
+- **默认值:** `'none'`
+- **描述:** 要应用的CSS滤镜效果
+
+### shadowStyle
+- **类型:** `Object`
+- **默认值:** `null`
+- **描述:** 阴影配置对象(颜色、模糊、偏移)
+
+### advancedStyle
+- **类型:** `Object`
+- **默认值:** `null`
+- **描述:** 高级样式如渐变等
+
+### backgroundPosition
+- **类型:** `string`
+- **默认值:** `'0 0'`
+- **描述:** CSS background-position属性
+
+### backgroundRepeat
+- **类型:** `string`
+- **默认值:** `'repeat'`
+- **描述:** CSS background-repeat属性
+
+## 行为与安全
+
+### mode
+- **类型:** `string`
+- **默认值:** `'default'`
+- **可选值:** `'default'` | `'blind'`
+- **描述:** 水印显示模式
+
+### mutationObserve
+- **类型:** `boolean`
+- **默认值:** `true`
+- **描述:** 是否监控DOM的未授权更改
+
+### monitorProtection
+- **类型:** `boolean`
+- **默认值:** `false`
+- **描述:** 启用对MutationObserver和requestAnimationFrame篡改的保护
+- **重要:** 一旦启用，此保护无法禁用
+
+## 回调函数
+
+### extraDrawFunc
+- **类型:** `Function`
+- **默认值:** `() => {}`
+- **描述:** 额外绘图操作的回调函数
+
+### onSuccess
+- **类型:** `Function`
+- **默认值:** `() => {}`
+- **描述:** 水印成功应用时调用
+
+### onBeforeDestroy
+- **类型:** `Function`
+- **默认值:** `() => {}`
+- **描述:** 水印移除前调用
+
+### onDestroyed
+- **类型:** `Function`
+- **默认值:** `() => {}`
+- **描述:** 水印移除后调用
+
+### onObserveError
+- **类型:** `Function`
+- **默认值:** `() => {}`
+- **描述:** 当DOM变化观察失败时调用
