@@ -26,10 +26,10 @@ layout: doc
 ## destroy()
 - **描述**: 完全移除水印并清理观察者
 - **行为**:
-  - 触发 onBeforeDestroy() 回调
+  - 触发 `onBeforeDestroy()` 回调
   - 断开所有 MutationObservers
   - 移除水印DOM节点
-  - 触发 onDestroyed() 回调
+  - 触发 `onDestroyed()` 回调
 - **示例**:
 ```javascript
   watermark.destroy();
@@ -37,7 +37,7 @@ layout: doc
 
 ## check()
 - **描述**: 验证水印在DOM中的存在性
-- **返回**: Promise<boolean>
+- **返回**: `Promise<boolean>`
   - true: 水印存在于父元素中
   - false: 未找到水印
 - **示例**:
@@ -48,14 +48,14 @@ layout: doc
 ## changeOptions()
 - **描述**: 更新水印配置
 - **参数**:
-  - args: Partial<WatermarkOptions> - 新的配置选项
+  - args: `Partial<WatermarkOptions>` - 新的配置选项
   - mode: 'overwrite'|'append' - 如何合并新选项
   - redraw: boolean - 是否立即重新创建 (默认: true)
 - **行为**:
   - 根据指定模式合并新选项
   - 如果 monitorProtection=true，则启用保护
   - 如果 redraw=true，则重新创建水印
-- **返回**: Promise<void>
+- **返回**: `Promise<void>`
 - **示例**:
 ```javascript
   await watermark.changeOptions({ content: 'New Text' }, 'append');

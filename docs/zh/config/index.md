@@ -139,7 +139,7 @@ layout: doc
   - `'top'`, `'bottom'`, `'middle'`
   - `'alphabetic'`, `'hanging'`, `'ideographic'`
 - **描述:** 文本垂直对齐基线
-  ![textBaseline](../public/text-baseline.png)
+  ![textBaseline](../../public/text-baseline.png)
 
 ### lineHeight
 - **类型:** `number`

@@ -26,10 +26,10 @@ layout: doc
 ## destroy()
 - **Description**: Completely removes the watermark and cleans up observers
 - **Behavior**:
-  - Triggers onBeforeDestroy() callback
+  - Triggers `onBeforeDestroy()` callback
   - Disconnects all MutationObservers
   - Removes watermark DOM nodes
-  - Triggers onDestroyed() callback
+  - Triggers `onDestroyed()` callback
 - **Example**:
 ```javascript
   watermark.destroy();
@@ -37,7 +37,7 @@ layout: doc
 
 ## check()
 - **Description**: Verifies watermark DOM existence
-- **Returns**: Promise<boolean>
+- **Returns**: `Promise<boolean>`
   - true: Watermark exists in parentElement
   - false: Watermark not found
 - **Example**:
@@ -48,14 +48,14 @@ layout: doc
 ## changeOptions()
 - **Description**: Updates watermark configuration
 - **Parameters**:
-  - args: Partial<WatermarkOptions> - New configuration options
+  - args: `Partial<WatermarkOptions>` - New configuration options
   - mode: 'overwrite'|'append' - How to merge new options
   - redraw: boolean - Whether to recreate immediately (default: true)
 - **Behavior**:
   - Merges new options according to specified mode
   - Enables protection if monitorProtection=true
   - Recreates watermark if redraw=true
-- **Returns**: Promise<void>
+- **Returns**: `Promise<void>`
 - **Example**:
 ```javascript
   await watermark.changeOptions({ content: 'New Text' }, 'append');
