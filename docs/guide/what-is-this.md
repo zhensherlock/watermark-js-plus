@@ -5,7 +5,7 @@ layout: doc
 <el-backtop></el-backtop>
 
 # What is this?
-This is a *canvas-based* watermark for browser.
+This is a *canvas-based* watermark library for browsers.
 
 ## Features
 - Create watermark and blind watermark

@@ -6,7 +6,7 @@ layout: doc
 
 # Getting Started
 
-## Installing
+## Installation
 
 Using npm:
 
@@ -20,13 +20,14 @@ Using yarn:
 $ yarn add watermark-js-plus
 ```
 
-## Usage
+## Basic Usage
 
 1. Import watermark plugin
 ```ts
 import { Watermark } from 'watermark-js-plus'
 ```
-2. instantiation
+
+2. Create instance
 ```ts
 const watermark = new Watermark({
   content: 'hello my watermark',
@@ -37,12 +38,13 @@ const watermark = new Watermark({
   }
 })
 ```
-3. Add a watermark to the web page
+
+3. Add watermark to page
 ```ts
 watermark.create()
 ```
 
-## CDN
+## CDN Usage
 
 Using jsDelivr CDN:
 
@@ -56,7 +58,7 @@ Using unpkg CDN:
 <script src="https://unpkg.com/watermark-js-plus/dist/index.iife.min.js"></script>
 ```
 
-Usage
+Usage example:
 
 ```ts
 const watermark = new WatermarkPlus.Watermark({
