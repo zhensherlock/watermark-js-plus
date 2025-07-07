@@ -61,7 +61,9 @@ layout: doc
 ### movable
 - **类型:** `boolean`
 - **默认值:** `false`
-- **描述:** 水印是否可交互移动
+- **描述:** 当设为 `true` 时，水印节点会在父元素内模拟碰撞反弹运动。
+  - 将覆盖默认的 CSS 动画效果（如 `background-position` 关键帧动画）
+  - 运动轨迹由内部物理模拟实现，无需用户交互
 
 ### zIndex
 - **类型:** `number`

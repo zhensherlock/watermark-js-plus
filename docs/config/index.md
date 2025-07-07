@@ -61,7 +61,9 @@ layout: doc
 ### movable
 - **Type:** `boolean`
 - **Default:** `false`
-- **Description:** Whether the watermark can be moved interactively.
+- **Description:** When `true`, the watermark node will simulate collision-based movement within its parent element, automatically bouncing off boundaries.
+  - Replaces the default CSS animation (e.g., `background-position` keyframes). 
+  - Movement speed/direction follows internal physics simulation (no user interaction).
 
 ### zIndex
 - **Type:** `number`
