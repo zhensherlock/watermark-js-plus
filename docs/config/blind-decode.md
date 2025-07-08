@@ -7,35 +7,35 @@ layout: doc
 # Blind Watermark Decoding
 
 ## url
-- **Type:** `string`
-- **Default:** `''`
-- **Description:** Path to the image requiring decoding (URL or base64)
+- **Type**: `string`
+- **Default**: `''`
+- **Description**: Path to the image requiring decoding (URL or base64)
 
 ## mode
-- **Type:** `string`
-- **Default:** `'canvas'`
-- **Available Values:** `'canvas'`
-- **Description:** Decoding mode, currently only canvas method is supported
+- **Type**: `string`
+- **Default**: `'canvas'`
+- **Available Values**: `'canvas'`
+- **Description**: Decoding mode, currently only canvas method is supported
 
 ## fillColor
-- **Type:** `string`
-- **Default:** `'#000'`
-- **Description:** Fill color used during decoding, affects final decoding result
+- **Type**: `string`
+- **Default**: `'#000'`
+- **Description**: Fill color used during decoding, affects final decoding result
 
 ## compositeOperation
-- **Type:** `string`
-- **Default:** `'color-burn'`
-- **Description:** Image composite operation type used to enhance watermark visibility
+- **Type**: `string`
+- **Default**: `'color-burn'`
+- **Description**: Image composite operation type used to enhance watermark visibility
 
 ## compositeTimes
-- **Type:** `number`
-- **Default:** `3`
-- **Description:** Number of composite operation repetitions - more repetitions make watermark more visible
+- **Type**: `number`
+- **Default**: `3`
+- **Description**: Number of composite operation repetitions - more repetitions make watermark more visible
 
 ## onSuccess
-- **Type:** `Function`
-- **Default:** `undefined`
-- **Description:** Callback function after successful decoding, parameter contains decoded image data
+- **Type**: `Function`
+- **Default**: `undefined`
+- **Description**: Callback function after successful decoding, parameter contains decoded image data
 
 ## Decoding Principle
 Blind watermark decoding works through these steps:

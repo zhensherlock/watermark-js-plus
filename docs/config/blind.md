@@ -14,14 +14,14 @@ This configuration **inherits all options** from [Watermark Configuration Option
 ## Specialized Properties
 
 ### globalAlpha
-- **Type:** `number`
-- **Fixed Value:** `0.005`
-- **Description:** Preset to ultra-low transparency for blind watermark effect. All modification attempts will be automatically overridden.
+- **Type**: `number`
+- **Fixed Value**: `0.005`
+- **Description**: Preset to ultra-low transparency for blind watermark effect. All modification attempts will be automatically overridden.
 
 ### mode
-- **Type:** `string`
-- **Fixed Value:** `'blind'`
-- **Description:** Locked in blind watermark mode. Changing this value has no effect.
+- **Type**: `string`
+- **Fixed Value**: `'blind'`
+- **Description**: Locked in blind watermark mode. Changing this value has no effect.
 
 ## Technical Implementation
 The blind watermark:

@@ -9,259 +9,357 @@ layout: doc
 ## Basic Configuration
 
 ### width
-- **Type:** `number`
-- **Default:** `300`
-- **Description:** Unit width for a single watermark element.
+- **Type**: `number`
+- **Default**: `300`
+- **Description**: Unit width for a single watermark element.
 
 ### height
-- **Type:** `number`
-- **Default:** `300`
-- **Description:** Unit height for a single watermark element.
+- **Type**: `number`
+- **Default**: `300`
+- **Description**: Unit height for a single watermark element.
 
 ### rotate
-- **Type:** `number`
-- **Default:** `45`
-- **Description:** Rotation angle of the watermark in degrees.
+- **Type**: `number`
+- **Default**: `45`
+- **Description**: Rotation angle of the watermark in degrees.
 
 ### layout
-- **Type:** `string`
-- **Default:** `'default'`
-- **Description:** Layout mode for watermark arrangement.
-- **Possible Values:** Various layout types (implementation specific)
+- **Type**: `string`
+- **Default**: `'default'`
+- **Description**: Controls the arrangement of watermark elements
+- **Available Values**:
+  - `'default'` (Default mode)
+    * Basic layout with minimal configuration
+    * Suitable for simple use cases
+
+  - `'grid'` (Grid layout)
+    * Arranges watermarks in a matrix grid pattern
+    * Requires `gridLayoutOptions` configuration
+    * Typical use case: Generating patterned watermark backgrounds
 
 ### gridLayoutOptions
-- **Type:** `Object`
-- **Default:** `null`
-- **Description:** Custom options for grid-based layout configuration.
+- **Type**: `GridLayoutOptions`
+- **Default**: `null`
+- **Description**: Custom options for grid-based layout configuration.
+- **Properties**:
+  - `cols`: Number of columns (default: `1`)
+  - `rows`: Number of rows (default: `1`)
+  - `gap`: Spacing as `[horizontal, vertical]` (default: `[0, 0]`)
+  - `matrix`: 2D matrix controlling visibility per grid cell (default: all `1`s)
+  - `backgroundImage`: Optional background image (covers entire grid)
+  - `width`: Optional custom total width (overrides cols/gap calculation)
+  - `height`: Optional custom total height (overrides rows/gap calculation)
 
 ### auxiliaryLine
-- **Type:** `boolean`
-- **Default:** `false`
-- **Description:** Whether to display auxiliary guidelines for positioning.
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Whether to display auxiliary guidelines for positioning.
 
 ## Positioning & Movement
 
 ### translatePlacement
-- **Type:** `string`
-- **Default:** `'middle'`
-- **Available Values:**
-  - `'top'`, `'top-start'`, `'top-end'`
-  - `'bottom'`, `'bottom-start'`, `'bottom-end'`
-  - `'left'`, `'right'`, `'middle'`
-- **Description:** Base position for translation transformation.
+- **Type**: `TranslatePlacementType`
+- **Default**: `'middle'`
+- **Available Values**:
+  - `'top'` - Top center
+  - `'top-start'` - Top left
+  - `'top-end'` - Top right
+  - `'bottom'` - Bottom center
+  - `'bottom-start'` - Bottom left
+  - `'bottom-end'` - Bottom right
+  - `'left'` - Middle left
+  - `'right'` - Middle right
+  - `'middle'` - Center (default)
+- **Description**:
+  - Determines the base position for watermark placement and rotation transformation
+  - Affects both the initial position and gradient calculations when using advanced styles
+  - Automatically adjusts text alignment and baseline when not explicitly set
+  - Coordinates with `translateX` and `translateY` for precise positioning
+- **Note**:
+  - When combined with rotation, the placement becomes the rotation center point
+  - For text watermarks, this also affects text baseline calculation
 
 ### translateX
-- **Type:** `number`
-- **Description:** Horizontal movement distance (positive = right, negative = left).
+- **Type**: `number`
+- **Default**: Auto-calculated (based on `translatePlacement` and `width`)
+- **Description**: 
+  - Horizontal offset (in pixels)
+  - Positive value → Right movement | Negative value ← Left movement
+  - Overrides horizontal positioning from `translatePlacement`
+  - Serves as X-coordinate for rotation pivot point
+  - Affects calculation of linear/radial gradient start points
 
 ### translateY
-- **Type:** `number`
-- **Description:** Vertical movement distance (positive = down, negative = up).
+- **Type**: `number`
+- **Default**: Auto-calculated (based on `translatePlacement` and `height`)
+- **Description**:
+  - Vertical offset (in pixels)
+  - Positive value ↓ Downward movement | Negative value ↑ Upward movement
+  - Overrides vertical positioning from `translatePlacement`
+  - Serves as Y-coordinate for rotation pivot point
+  - Affects automatic calculation of text baseline (`textBaseline`)
 
 ### movable
-- **Type:** `boolean`
-- **Default:** `false`
-- **Description:** When `true`, the watermark node will simulate collision-based movement within its parent element, automatically bouncing off boundaries.
-  - Replaces the default CSS animation (e.g., `background-position` keyframes). 
-  - Movement speed/direction follows internal physics simulation (no user interaction).
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**:  
+  When enabled, applies dynamic movement effects to the watermark. The behavior differs based on `backgroundRepeat`:
+  - `repeat`: Full 2D floating animation (200s duration)
+  - `repeat-x`: Horizontal oscillation (random 2-8s duration)
+  - `repeat-y`: Vertical oscillation (random 2-4s duration)
+  - `no-repeat`: Combined horizontal+vertical movement. The watermark node will simulate collision-based movement within its parent element, automatically bouncing off boundaries.
+- **Mechanism**:
+  - Implemented via CSS `animation` with randomized durations
+  - Uses `alternate` direction for ping-pong effect
+  - Speed ranges:
+    - Horizontal: 2-8 seconds per cycle
+    - Vertical: 2-4 seconds per cycle
+- **Note**:
+  - Disables when `mutationObserve` is active
+  - Animation intensity scales with container size
+  - For physics-based movement, combine with `advancedStyle` gradients
 
 ### zIndex
-- **Type:** `number`
-- **Default:** `2147483647`
-- **Description:** CSS z-index property for layering control.
+- **Type**: `number`
+- **Default**: `2147483647`
+- **Description**: CSS z-index property for layering control.
 
 ### parent
-- **Type:** `Element | string`
-- **Default:** `'body'`
-- **Description:** Container element for the watermark (selector or DOM element).
+- **Type**: `Element | string`
+- **Default**: `'body'`
+- **Description**: Container element for the watermark (selector or DOM element).
 
 ## Content Configuration
 
 ### contentType
-- **Type:** `string`
-- **Default:** `'text'`
-- **Available Values:**
+- **Type**: `string`
+- **Default**: `'text'`
+- **Available Values**:
   - `'text'`: Simple text watermark
   - `'image'`: Image watermark
-  - `'multi-line-text'`: Multi-line text
-  - `'rich-text'`: Formatted rich text
-- **Description:** Type of content to display as watermark.
+  - `'multi-line-text'`: Multi-line text watermark
+  - `'rich-text'`: Formatted rich text watermark
+- **Description**: Type of content to display as watermark.
 
 ### content
-- **Type:** `string`
-- **Default:** `'hello watermark-js-plus'`
-- **Description:** The actual content to display (text or image URL).
+- **Type**: `string`
+- **Default**: `'hello watermark-js-plus'`
+- **Description**: The actual content to display (text or image URL).
 
 ### textType
-- **Type:** `string`
-- **Default:** `'fill'`
-- **Available Values:** `'fill'` | `'stroke'`
-- **Description:** Rendering method for text content.
+- **Type**: `string`
+- **Default**: `'fill'`
+- **Available Values**: `'fill'` | `'stroke'`
+- **Description**: Rendering method for text content.
 
 ## Text Styling
 
 ### fontSize
-- **Type:** `string`
-- **Default:** `'20px'`
-- **Description:** Font size for text content.
+- **Type**: `string`
+- **Default**: `'20px'`
+- **Description**: Font size for text content.
 
 ### fontFamily
-- **Type:** `string`
-- **Default:** `'sans-serif'`
-- **Description:** Font family for text content.
+- **Type**: `string`
+- **Default**: `'sans-serif'`
+- **Description**: Font family for text content.
 
 ### fontStyle
-- **Type:** `string`
-- **Default:** `''`
-- **Description:** Font style (e.g., 'italic').
+- **Type**: `string`
+- **Default**: `''`
+- **Description**: Font style (e.g., 'italic').
 
 ### fontVariant
-- **Type:** `string`
-- **Default:** `''`
-- **Description:** Font variant (e.g., 'small-caps').
+- **Type**: `string`
+- **Default**: `''`
+- **Description**: Font variant (e.g., 'small-caps').
 
 ### fontWeight
-- **Type:** `string`
-- **Default:** `'normal'`
-- **Description:** Font weight (e.g., 'bold').
+- **Type**: `string`
+- **Default**: `'normal'`
+- **Description**: Font weight (e.g., 'bold').
 
 ### fontColor
-- **Type:** `string`
-- **Default:** `'#000'`
-- **Description:** Text color.
+- **Type**: `string`
+- **Default**: `'#000'`
+- **Description**: Text color.
 
 ### textAlign
-- **Type:** `string`
-- **Available Values:** `'center'`, `'end'`, `'left'`, `'right'`, `'start'`
-- **Description:** Horizontal text alignment.
+- **Type**: `string`
+- **Available Values**: `'center'`, `'end'`, `'left'`, `'right'`, `'start'`
+- **Description**: Horizontal text alignment.
 
 ### textBaseline
-- **Type:** `string`
-- **Available Values:**
+- **Type**: `string`
+- **Available Values**:
   - `'top'`, `'bottom'`, `'middle'`
   - `'alphabetic'`, `'hanging'`, `'ideographic'`
-- **Description:** Vertical text alignment baseline.
+- **Description**: Vertical text alignment baseline.
   ![textBaseline](../public/text-baseline.png)
 
 ### lineHeight
-- **Type:** `number`
-- **Default:** `30`
-- **Description:** Line height for multi-line text.
+- **Type**: `number`
+- **Default**: `30`
+- **Description**: Line height for multi-line text.
 
 ### textRowMaxWidth
-- **Type:** `number`
-- **Description:** Maximum width for text rows before wrapping.
+- **Type**: `number`
+- **Description**: Maximum width for text rows before wrapping.
 
 ### letterSpacing
-- **Type:** `string`
-- **Default:** `'0px'`
-- **Description:** Spacing between characters.
+- **Type**: `string`
+- **Default**: `'0px'`
+- **Description**: Spacing between characters.
 
 ### wordSpacing
-- **Type:** `string`
-- **Default:** `'0px'`
-- **Description:** Spacing between words.
+- **Type**: `string`
+- **Default**: `'0px'`
+- **Description**: Spacing between words.
 
 ## Image Configuration
 
 ### image
-- **Type:** `string`
-- **Description:** URL of the image to use as watermark (when contentType = 'image').
+- **Type**: `string`
+- **Description**: URL of the image to use as watermark (when contentType = 'image').
 
 ### imageWidth
-- **Type:** `number`
-- **Default:** `0`
-- **Description:** Display width for the image (0 = natural width).
+- **Type**: `number`
+- **Default**: `0`
+- **Description**: Display width for the image (0 = natural width).
 
 ### imageHeight
-- **Type:** `number`
-- **Default:** `0`
-- **Description:** Display height for the image (0 = natural height).
+- **Type**: `number`
+- **Default**: `0`
+- **Description**: Display height for the image (0 = natural height).
 
 ## Rich Text Configuration
 
 ### richTextWidth
-- **Type:** `number`
-- **Description:** Width constraint for rich text content.
+- **Type**: `number`
+- **Description**: Width constraint for rich text content.
 
 ### richTextHeight
-- **Type:** `number`
-- **Description:** Height constraint for rich text content.
+- **Type**: `number`
+- **Description**: Height constraint for rich text content.
 
 ## Visual Effects
 
 ### globalAlpha
-- **Type:** `number`
-- **Default:** `0.5`
-- **Description:** Overall transparency of the watermark (0.0 to 1.0).
+- **Type**: `number`
+- **Default**: `0.5`
+- **Description**: Overall transparency of the watermark (0.0 to 1.0).
 
 ### filter
-- **Type:** `string`
-- **Default:** `'none'`
-- **Description:** CSS filter effects to apply.
+- **Type**: `string`
+- **Default**: `'none'`
+- **Description**: CSS filter effects to apply.
 
 ### shadowStyle
-- **Type:** `Object`
-- **Default:** `null`
-- **Description:** Shadow configuration object (color, blur, offset).
+- **Type**: `CanvasShadowStyles`
+- **Default**: `null`
+- **Properties**:
+  - `shadowColor`: `string`  
+    Shadow color (supports all CSS color formats)
+  - `shadowBlur`: `number`  
+    Blur level (in pixels, 0 = no blur)
+  - `shadowOffsetX`: `number`  
+    Horizontal offset (in pixels, positive = right)
+  - `shadowOffsetY`: `number`  
+    Vertical offset (in pixels, positive = down)
+- **Description**:
+  Adds standard Canvas shadow effects with features:
+  - Supports transparency (alpha channel)
+  - Hardware-accelerated blur
+  - Offsets are unaffected by `rotate`/`translate`
+  - Combines multiplicatively with `globalAlpha`
+- **Note**:
+  - Requires `shadowColor` to be set to take effect
+  - Blur calculations may impact rendering performance
+  - May appear subtle at low opacity (`globalAlpha < 0.3`)
 
 ### advancedStyle
-- **Type:** `Object`
-- **Default:** `null`
-- **Description:** Advanced styling like gradients.
+- **Type**: `AdvancedStyleType`
+- **Default**: `null`
+- **Properties**:
+  - `type`: `'linear' | 'radial' | 'conic' | 'pattern'`  
+    Gradient type (linear/radial/conic/pattern)
+  - `params`: Configuration object
+    - `linear`: { x0, y0, x1, y1 }  
+      Start/end coordinates for linear gradient
+    - `radial`: { x0, y0, r0, x1, y1, r1 }  
+      Circle parameters for radial gradient
+    - `conic`: { startAngle, x, y }  
+      Starting angle and center point for conic gradient
+    - `pattern`: { image, repetition }  
+      Pattern fill settings
+  - `colorStops`: `Array<{ offset: number, color: string }>`  
+    Color stop positions and values
+- **Description**:
+  Enables advanced fill styles that override default `fontColor`. Supports:
+  - All CSS gradient types (auto-adapted to Canvas coordinates)
+  - Image pattern fills (with cross-origin support)
+  - Smart coordinate positioning (auto-adjusts gradient points based on `translatePlacement`)
+- **Note**:
+  - Works with `textType` (applies to both `fillStyle` and `strokeStyle`)
+  - Requires preloaded images for `pattern` type
+  - Coordinate system affected by `rotate` and `translateX/Y` transforms
 
 ### backgroundPosition
-- **Type:** `string`
-- **Default:** `'0 0'`
-- **Description:** CSS background-position property.
+- **Type**: `string`
+- **Default**: `'0 0'`
+- **Description**: CSS background-position property.
 
 ### backgroundRepeat
-- **Type:** `string`
-- **Default:** `'repeat'`
-- **Description:** CSS background-repeat property.
+- **Type**: `string`
+- **Default**: `'repeat'`
+- **Description**: CSS background-repeat property.
 
 ## Behavior & Security
 
 ### mode
-- **Type:** `string`
-- **Default:** `'default'`
-- **Available Values:** `'default'` | `'blind'`
-- **Description:** Watermark display mode.
+- **Type**: `string`
+- **Default**: `'default'`
+- **Available Values**:
+  - `'default'`: Standard visible watermark mode (normal transparency)
+  - `'blind'`: Invisible watermark mode (extremely low transparency) for covert protection
+- **Description**: Determines the watermark visibility behavior.
+  - In `default` mode, the watermark is visibly displayed with configured transparency.
+  - In `blind` mode, the watermark becomes nearly invisible (fixed at globalAlpha=0.005) while remaining detectable through decoding.
 
 ### mutationObserve
-- **Type:** `boolean`
-- **Default:** `true`
-- **Description:** Whether to monitor DOM for unauthorized changes.
+- **Type**: `boolean`
+- **Default**: `true`
+- **Description**: Whether to monitor DOM for unauthorized changes.
 
 ### monitorProtection
-- **Type:** `boolean`
-- **Default:** `false`
-- **Description:** Enable protection against MutationObserver and requestAnimationFrame tampering.
-- **Important:** Once enabled, this protection cannot be disabled.
+- **Type**: `boolean`
+- **Default**: `false`
+- **Description**: Enable protection against MutationObserver tampering.
+- **Important**: Once enabled, this protection cannot be disabled.
 
 ## Callbacks
 
 ### extraDrawFunc
-- **Type:** `Function`
-- **Default:** `() => {}`
-- **Description:** Additional drawing operations callback.
+- **Type**: `Function`
+- **Default**: `() => {}`
+- **Description**: Additional drawing operations callback.
 
 ### onSuccess
-- **Type:** `Function`
-- **Default:** `() => {}`
-- **Description:** Called when watermark is successfully applied.
+- **Type**: `Function`
+- **Default**: `() => {}`
+- **Description**: Called when watermark is successfully applied.
 
 ### onBeforeDestroy
-- **Type:** `Function`
-- **Default:** `() => {}`
-- **Description:** Called before watermark removal.
+- **Type**: `Function`
+- **Default**: `() => {}`
+- **Description**: Called before watermark removal.
 
 ### onDestroyed
-- **Type:** `Function`
-- **Default:** `() => {}`
-- **Description:** Called after watermark removal.
+- **Type**: `Function`
+- **Default**: `() => {}`
+- **Description**: Called after watermark removal.
 
 ### onObserveError
-- **Type:** `Function`
-- **Default:** `() => {}`
-- **Description:** Called when mutation observation fails.
+- **Type**: `Function`
+- **Default**: `() => {}`
+- **Description**: Called when mutation observation fails.
