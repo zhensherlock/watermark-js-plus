@@ -108,6 +108,9 @@ layout: doc
   • `repeat-x`: 水平往返运动（2-8秒随机周期）  
   • `repeat-y`: 垂直往返运动（2-4秒随机周期）  
   • `no-repeat`: 双轴复合运动。水印节点会在父元素内模拟碰撞反弹运动。
+- **示例**:
+  - [StackBlitz](https://stackblitz.com/edit/webpack-webpack-js-org-wq26h43z)
+  - [Demo](../guide/watermark.html#child-element-watermark)
 - **运动特性**:
   - 智能速度调节（水平2-8秒/周期，垂直2-4秒/周期）
   - 边界感知的自动转向
