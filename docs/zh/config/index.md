@@ -253,9 +253,9 @@ layout: doc
 - **描述**: 要应用的CSS滤镜效果
 
 ### shadowStyle
-- **Type**: `CanvasShadowStyles`
-- **Default**: `null`
-- **Properties**:
+- **类型**: `CanvasShadowStyles`
+- **默认值**: `null`
+- **配置属性**:
   - `shadowColor`: `string`  
     阴影颜色（支持所有CSS颜色格式）
   - `shadowBlur`: `number`  
@@ -264,13 +264,13 @@ layout: doc
     水平偏移量（单位：像素，正值=右偏移）
   - `shadowOffsetY`: `number`  
     垂直偏移量（单位：像素，正值=下偏移）
-- **Description**:
+- **功能说明**:
   为水印添加Canvas标准的阴影效果，特性包括：
   - 支持透明色（alpha通道）
   - 模糊效果经过硬件加速优化
   - 偏移量不受`rotate`和`translate`影响
   - 与`globalAlpha`参数叠加作用
-- **Note**:
+- **注意事项**:
   - 需要同时设置`shadowColor`才会生效
   - 模糊计算会轻微影响渲染性能
   - 在低透明度(`globalAlpha < 0.3`)时效果可能不明显
