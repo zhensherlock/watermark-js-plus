@@ -98,7 +98,7 @@ layout: doc
   - 作为旋转中心点的Y坐标
   - 影响文本基线(`textBaseline`)的自动计算
 
-### movable
+### movable（动画）
 - **类型**: `boolean`
 - **默认值**: `false`
 - **功能描述**:
