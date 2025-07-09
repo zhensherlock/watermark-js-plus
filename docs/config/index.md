@@ -99,7 +99,7 @@ layout: doc
   - Serves as Y-coordinate for rotation pivot point
   - Affects automatic calculation of text baseline (`textBaseline`)
 
-### movable
+### movable (animation)
 - **Type**: `boolean`
 - **Default**: `false`
 - **Description**:  
