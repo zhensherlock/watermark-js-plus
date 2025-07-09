@@ -64,6 +64,7 @@ export default {
           items: [
             { text: 'Internet Explorer', link: '/guide/extra/ie' },
             { text: 'On demand', link: '/guide/extra/on-demand' },
+            { text: 'Examples', link: '/guide/extra/examples' },
           ]
         }
       ],
