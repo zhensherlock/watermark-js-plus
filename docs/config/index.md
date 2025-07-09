@@ -103,7 +103,7 @@ layout: doc
 - **Type**: `boolean`
 - **Default**: `false`
 - **Description**:  
-  When enabled, applies dynamic movement effects to the watermark. The behavior differs based on `backgroundRepeat`:
+  When enabled, the watermark will exhibit physics-based animated motion. The behavior differs based on `backgroundRepeat`:
   - `repeat`: Full 2D floating animation (200s duration)
   - `repeat-x`: Horizontal oscillation (random 2-8s duration)
   - `repeat-y`: Vertical oscillation (random 2-4s duration)
@@ -119,7 +119,6 @@ layout: doc
     - Vertical: 2-4 seconds per cycle
 - **Note**:
   - Disables when `mutationObserve` is active
-  - Animation intensity scales with container size
   - For physics-based movement, combine with `advancedStyle` gradients
 
 ### zIndex
