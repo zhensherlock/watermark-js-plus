@@ -46,6 +46,7 @@ export default {
         items: [
           { text: 'Internet Explorer', link: '/zh/guide/extra/ie' },
           { text: '按需加载', link: '/zh/guide/extra/on-demand' },
+          { text: '示例', link: '/zh/guide/extra/examples' },
         ]
       }
     ],

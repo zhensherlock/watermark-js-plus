@@ -255,7 +255,20 @@ layout: doc
 ### filter
 - **Type**: `string`
 - **Default**: `'none'`
-- **Description**: CSS filter effects to apply.
+- **Description**: Applies CSS filter effects similar to those available for CSS. The value is a string containing one or more of the following filter functions.
+  - `url()`: Applies an SVG filter defined in an external resource (e.g., `url(#custom-filter)`)
+  - `blur(<length>)`: Applies a Gaussian blur (e.g., `blur(5px)`)
+  - `brightness(<percentage>)`: Adjusts brightness (e.g., `brightness(150%)`)
+  - `contrast(<percentage>)`: Adjusts contrast (e.g., `contrast(75%)`)
+  - `drop-shadow(<offset-x> <offset-y> <blur-radius> <color>)`: Applies a drop shadow (e.g., `drop-shadow(4px 4px 8px blue)`)
+  - `grayscale(<percentage>)`: Converts to grayscale (e.g., `grayscale(100%)`)
+  - `hue-rotate(<angle>)`: Applies hue rotation (e.g., `hue-rotate(90deg)`)
+  - `invert(<percentage>)`: Inverts colors (e.g., `invert(50%)`)
+  - `opacity(<percentage>)`: Adjusts opacity (e.g., `opacity(25%)`)
+  - `saturate(<percentage>)`: Adjusts saturation (e.g., `saturate(200%)`)
+  - `sepia(<percentage>)`: Applies sepia tone (e.g., `sepia(80%)`)
+
+Multiple filters can be combined by space-separating them (e.g., `brightness(120%) contrast(110%)`). The value `'none'` indicates no filter effect.
 
 ### shadowStyle
 - **Type**: `CanvasShadowStyles`

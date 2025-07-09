@@ -253,7 +253,20 @@ layout: doc
 ### filter
 - **类型**: `string`
 - **默认值**: `'none'`
-- **描述**: 要应用的CSS滤镜效果
+- **描述**: 应用与 CSS 类似的滤镜效果。该值是一个字符串，可包含以下一种或多种滤镜函数：
+  - `url()`: 引用外部 SVG 滤镜（如 `url(#custom-filter)`）
+  - `blur(<length>)`: 应用高斯模糊 (如 `blur(5px)`)
+  - `brightness(<percentage>)`: 调整亮度 (如 `brightness(150%)`)
+  - `contrast(<percentage>)`: 调整对比度 (如 `contrast(75%)`)
+  - `drop-shadow(<offset-x> <offset-y> <blur-radius> <color>)`: 添加投影 (如 `drop-shadow(4px 4px 8px blue)`)
+  - `grayscale(<percentage>)`: 转换为灰度 (如 `grayscale(100%)`)
+  - `hue-rotate(<angle>)`: 调整色相旋转 (如 `hue-rotate(90deg)`)
+  - `invert(<percentage>)`: 颜色反转 (如 `invert(50%)`)
+  - `opacity(<percentage>)`: 调整透明度 (如 `opacity(25%)`)
+  - `saturate(<percentage>)`: 调整饱和度 (如 `saturate(200%)`)
+  - `sepia(<percentage>)`: 应用深褐色调 (如 `sepia(80%)`)
+
+多个滤镜可通过空格组合使用 (如 `brightness(120%) contrast(110%)`)。 默认值  `'none'` 表示不应用任何滤镜效果。
 
 ### shadowStyle
 - **类型**: `CanvasShadowStyles`
