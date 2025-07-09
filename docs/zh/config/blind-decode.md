@@ -4,7 +4,7 @@ layout: doc
 
 <el-backtop></el-backtop>
 
-# 盲水印解码
+# 暗水印解码
 
 ## url
 - **类型**: `string`
@@ -38,8 +38,8 @@ layout: doc
 - **描述**: 解码成功后的回调函数，参数为解码后的图像数据
 
 ## 解码原理
-盲水印解码通过以下步骤实现:
-1. 加载包含盲水印的图片
+暗水印解码通过以下步骤实现:
+1. 加载包含暗水印的图片
 2. 创建canvas并绘制原图
 3. 应用指定的合成操作(compositeOperation)和填充颜色(fillColor)
 4. 多次重复合成操作(compositeTimes)以增强水印可见性
