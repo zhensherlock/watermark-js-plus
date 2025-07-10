@@ -61,15 +61,15 @@ layout: doc
 - **Type**: `TranslatePlacementType`
 - **Default**: `'middle'`
 - **Available Values**:
-  - `'top'` - Top center
-  - `'top-start'` - Top left
-  - `'top-end'` - Top right
-  - `'bottom'` - Bottom center
-  - `'bottom-start'` - Bottom left
-  - `'bottom-end'` - Bottom right
-  - `'left'` - Middle left
-  - `'right'` - Middle right
-  - `'middle'` - Center (default)
+  - `'top'`: Top center
+  - `'top-start'`: Top left
+  - `'top-end'`: Top right
+  - `'bottom'`: Bottom center
+  - `'bottom-start'`: Bottom left
+  - `'bottom-end'`: Bottom right
+  - `'left'`: Middle left
+  - `'right'`: Middle right
+  - `'middle'`: Center (default)
 - **Description**:
   - Determines the base position for watermark placement and rotation transformation
   - Affects both the initial position and gradient calculations when using advanced styles
@@ -284,7 +284,6 @@ Multiple filters can be combined by space-separating them (e.g., `brightness(120
 - **Description**:
   Adds standard Canvas shadow effects with features:
   - Supports transparency (alpha channel)
-  - Hardware-accelerated blur
   - Offsets are unaffected by `rotate`/`translate`
   - Combines multiplicatively with `globalAlpha`
 - **Note**:

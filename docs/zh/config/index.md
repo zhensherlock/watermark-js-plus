@@ -60,15 +60,15 @@ layout: doc
 - **类型**: `TranslatePlacementType`
 - **默认值**: `'middle'`
 - **可选值**:
-  - `'top'` - 顶部居中
-  - `'top-start'` - 顶部居左
-  - `'top-end'` - 顶部居右
-  - `'bottom'` - 底部居中
-  - `'bottom-start'` - 底部居左
-  - `'bottom-end'` - 底部居右
-  - `'left'` - 左侧居中
-  - `'right'` - 右侧居中
-  - `'middle'` - 正中心（默认值）
+  - `'top'`: 顶部居中
+  - `'top-start'`: 顶部居左
+  - `'top-end'`: 顶部居右
+  - `'bottom'`: 底部居中
+  - `'bottom-start'`: 底部居左
+  - `'bottom-end'`: 底部居右
+  - `'left'`: 左侧居中
+  - `'right'`: 右侧居中
+  - `'middle'`: 正中心（默认值）
 - **功能说明**:
   - 决定水印的基础定位和旋转变换的基准点
   - 会影响高级样式中的渐变计算
@@ -282,7 +282,6 @@ layout: doc
 - **功能说明**:
   为水印添加Canvas标准的阴影效果，特性包括：
   - 支持透明色（alpha通道）
-  - 模糊效果经过硬件加速优化
   - 偏移量不受`rotate`和`translate`影响
   - 与`globalAlpha`参数叠加作用
 - **注意事项**:
