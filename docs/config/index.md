@@ -110,7 +110,7 @@ layout: doc
   - `no-repeat`: Combined horizontal+vertical movement. The watermark node will simulate collision-based movement within its parent element, automatically bouncing off boundaries.
 - **Live Examples**:
   - [StackBlitz](https://stackblitz.com/edit/webpack-webpack-js-org-wq26h43z)
-  - [Demo](../guide/watermark.html#child-element-watermark)
+  - [Demo](https://zhensherlock.github.io/watermark-js-plus/guide/watermark.html#child-element-watermark)
 - **Mechanism**:
   - Implemented via CSS `animation` with randomized durations
   - Uses `alternate` direction for ping-pong effect

@@ -110,7 +110,7 @@ layout: doc
   • `no-repeat`: 双轴复合运动。水印节点会在父元素内模拟碰撞反弹运动。
 - **示例**:
   - [StackBlitz](https://stackblitz.com/edit/webpack-webpack-js-org-wq26h43z)
-  - [Demo](../guide/watermark.html#child-element-watermark)
+  - [Demo](https://zhensherlock.github.io/watermark-js-plus/zh/guide/watermark.html#%E5%AD%90%E5%85%83%E7%B4%A0%E6%B0%B4%E5%8D%B0)
 - **运动特性**:
   - 智能速度调节（水平2-8秒/周期，垂直2-4秒/周期）
   - 边界感知的自动转向
