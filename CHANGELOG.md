@@ -1,3 +1,12 @@
+## [1.6.3](https://github.com/zhensherlock/watermark-js-plus/compare/v1.6.2...v1.6.3) (2025-07-25)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* change animation timing function to linear for consistency ([27e1ecb](https://github.com/zhensherlock/watermark-js-plus/commit/27e1ecbe13d8de135a05ae3b1646b42bfd456bb2))
+
+
+
 ## [1.6.2](https://github.com/zhensherlock/watermark-js-plus/compare/v1.6.1...v1.6.2) (2025-05-13)
 
 

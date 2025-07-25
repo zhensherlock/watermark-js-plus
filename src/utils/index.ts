@@ -167,11 +167,11 @@ export const generateAnimationStyle = (movable: boolean, backgroundRepeat: strin
     case 'repeat':
       return 'animation: 200s linear 0s infinite alternate watermark !important;'
     case 'repeat-x':
-      return `animation: ${horizontalDuration}s ease-in 0s infinite alternate watermark-vertical !important;'`
+      return `animation: ${horizontalDuration}s linear 0s infinite alternate watermark-vertical !important;'`
     case 'repeat-y':
-      return `animation: ${verticalDuration}s ease-out 0s infinite alternate watermark-horizontal !important;'`
+      return `animation: ${verticalDuration}s linear 0s infinite alternate watermark-horizontal !important;'`
     case 'no-repeat':
-      return `animation: ${horizontalDuration}s ease-in 0s infinite alternate watermark-horizontal, ${verticalDuration}s ease-out 0s infinite alternate watermark-vertical !important;`
+      return `animation: ${horizontalDuration}s linear 0s infinite alternate watermark-horizontal, ${verticalDuration}s linear 0s infinite alternate watermark-vertical !important;`
     default:
       return ''
   }
