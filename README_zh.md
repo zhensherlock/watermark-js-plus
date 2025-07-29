@@ -121,7 +121,7 @@ BlindWatermark.decode({
 [npm-release-link]: https://www.npmjs.com/package/watermark-js-plus
 [npm-release-shield]: https://img.shields.io/npm/v/watermark-js-plus?color=1677FF&labelColor=black&logo=npm&logoColor=white&style=flat-square
 [npm-downloads-link]: https://www.npmjs.com/package/watermark-js-plus
-[npm-downloads-shield]: https://img.shields.io/npm/dw/watermark-js-plus.svg?labelColor=black&style=flat-square&color=1677FF
+[npm-downloads-shield]: https://img.shields.io/npm/dm/watermark-js-plus.svg?labelColor=black&style=flat-square&color=1677FF
 [package-size-link]: https://github.com/zhensherlock/watermark-js-plus
 [package-size-shield]: https://img.shields.io/bundlephobia/minzip/watermark-js-plus?color=1677FF&label=build&labelColor=black&logo=rollupdotjs&logoColor=white&style=flat-square
 [codecov-link]: https://codecov.io/gh/zhensherlock/watermark-js-plus
