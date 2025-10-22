@@ -115,7 +115,7 @@
     "@typescript-eslint/parser": "^8.32.1",
     "@vue/theme": "^2.3.0",
     "autoprefixer": "^10.4.21",
-    "canvas": "^2.11.2",
+    "canvas": "^3.0.0",
     "codecov": "^3.8.3",
     "concurrently": "^8.2.2",
     "conventional-changelog-angular": "^7.0.0",
