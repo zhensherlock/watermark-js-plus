@@ -327,8 +327,8 @@ import {
 import { Plus } from '@element-plus/icons-vue'
 import { genFileId } from 'element-plus'
 import type { UploadFile, UploadInstance, UploadRawFile } from 'element-plus'
-import { loadImage } from '../../src/utils'
-import { WatermarkOptions } from '../../src/types'
+import { loadImage } from '../../../src/utils'
+import { WatermarkOptions } from '../../../src'
 
 const props = defineProps({
   options: {
