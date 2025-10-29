@@ -6,59 +6,61 @@ module.exports = {
       let discard = true
       const issues = []
 
-      commit.notes.forEach(note => {
-        note.title = 'BREAKING CHANGES'
+      const newCommit = {
+        ...commit,
+        notes: commit.notes.map(note => ({
+          ...note,
+          title: 'BREAKING CHANGES',
+        })),
+      }
+
+      if (newCommit.notes.length > 0) {
         discard = false
-      })
-      if (commit.type === 'feat') {
-        commit.type = '✨ Features | 新功能'
-      } else if (commit.type === 'fix') {
-        commit.type = '🐛 Bug Fixes | Bug 修复'
-      } else if (commit.type === 'perf') {
-        commit.type = '⚡ Performance Improvements | 性能优化'
-      } else if (commit.type === 'revert' || commit.revert) {
-        commit.type = '⏪ Reverts | 回退'
-      } else if (commit.type === 'refactor') {
-        commit.type = '♻ Code Refactoring | 代码重构'
-      } else if (commit.type === 'test') {
-        commit.type = '✅ Tests | 测试'
-      } else if (commit.type === 'build') {
-        commit.type = '👷‍ Build System | 构建'
-      } else if (commit.type === 'chore') {
-        commit.type = '🎫 Chores | 其他更新'
-      } else if (commit.type === 'style') {
-        commit.type = '💄 Styles | 风格'
+      }
+
+      const typeMap = {
+        feat: '✨ Features | 新功能',
+        fix: '🐛 Bug Fixes | Bug 修复',
+        perf: '⚡ Performance Improvements | 性能优化',
+        revert: '⏪ Reverts | 回退',
+        refactor: '♻ Code Refactoring | 代码重构',
+        test: '✅ Tests | 测试',
+        build: '👷‍ Build System | 构建',
+        chore: '🎫 Chores | 其他更新',
+        style: '💄 Styles | 风格',
+        ci: '🔧 Continuous Integration | CI 配置',
+        docs: '📝 Documentation | 文档',
+      }
+
+      if (typeMap[newCommit.type]) {
+        newCommit.type = typeMap[newCommit.type]
+      } else if (newCommit.type === 'revert' || newCommit.revert) {
+        newCommit.type = typeMap['revert']
       } else if (discard) {
         return
-      } else if (commit.type === 'ci') {
-        commit.type = '🔧 Continuous Integration | CI 配置'
-      } else if (commit.type === 'docs') {
-        commit.type = '📝 Documentation | 文档'
       }
 
-      if (commit.scope === '*') {
-        commit.scope = ''
+      if (newCommit.scope === '*') {
+        newCommit.scope = ''
       }
 
-      if (typeof commit.hash === 'string') {
-        commit.shortHash = commit.hash.substring(0, 7)
+      if (typeof newCommit.hash === 'string') {
+        newCommit.shortHash = newCommit.hash.substring(0, 7)
       }
 
-      if (typeof commit.subject === 'string') {
+      if (typeof newCommit.subject === 'string') {
         let url = context.repository ? `${context.host}/${context.owner}/${context.repository}` : context.repoUrl
 
         if (url) {
           url = `${url}/issues/`
-          // Issue URLs.
-          commit.subject = commit.subject.replace(/#([0-9]+)/g, (_, issue) => {
+          newCommit.subject = newCommit.subject.replace(/#([0-9]+)/g, (_, issue) => {
             issues.push(issue)
             return `[#${issue}](${url}${issue})`
           })
         }
 
         if (context.host) {
-          // User URLs.
-          commit.subject = commit.subject.replace(/\B@([a-z0-9](?:-?[a-z0-9/]){0,38})/g, (_, username) => {
+          newCommit.subject = newCommit.subject.replace(/\B@([a-z0-9](?:-?[a-z0-9/]){0,38})/g, (_, username) => {
             if (username.includes('/')) {
               return `@${username}`
             }
@@ -67,14 +69,14 @@ module.exports = {
         }
       }
 
-      // remove references that already appear in the subject
-      commit.references = commit.references.filter(reference => {
+      newCommit.references = newCommit.references.filter(reference => {
         if (issues.indexOf(reference.issue) === -1) {
           return true
         }
         return false
       })
-      return commit
+
+      return newCommit
     },
     groupBy: 'type',
     commitGroupsSort: 'title',
