@@ -9,7 +9,7 @@ layout: doc
 <script setup lang="ts">
 import { reactive, getCurrentInstance, onMounted } from 'vue';
 import { useData } from 'vitepress';
-import WatermarkOptionsForm from '../../components/WatermarkOptionsForm.vue';
+import WatermarkOptionsForm from '../../.vitepress/components/WatermarkOptionsForm.vue';
 // import { cloneDeep } from 'lodash';
 import cloneDeep from 'lodash/cloneDeep';
 import { useAppStore } from '../../.vitepress/stores/app';
