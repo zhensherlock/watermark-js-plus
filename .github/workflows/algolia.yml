@@ -8,7 +8,7 @@ jobs:
     if: github.repository == 'zhensherlock/watermark-js-plus'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Get the content of algolia.json as config
         id: algolia_config
         run: echo "config=$(cat crawlerConfig.json | jq -r tostring)" >> $GITHUB_OUTPUT
