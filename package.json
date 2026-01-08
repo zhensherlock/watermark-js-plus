@@ -154,7 +154,7 @@
     "terser": "^5.44.0",
     "ts-jest": "^29.4.5",
     "typescript": "^5.9.3",
-    "unplugin-element-plus": "^0.10.0",
+    "unplugin-element-plus": "^0.11.0",
     "vitepress": "^2.0.0-alpha.12",
     "vitepress-plugin-group-icons": "^1.6.5",
     "vitepress-plugin-llms": "^1.8.1",
