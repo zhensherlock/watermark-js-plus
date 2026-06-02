@@ -117,7 +117,7 @@
     "autoprefixer": "^10.4.21",
     "canvas": "^3.2.0",
     "codecov": "^3.8.3",
-    "concurrently": "^9.2.1",
+    "concurrently": "^10.0.0",
     "conventional-changelog-angular": "^8.1.0",
     "conventional-changelog-cli": "^5.0.0",
     "core-js": "^3.46.0",
