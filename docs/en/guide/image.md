@@ -6,8 +6,8 @@ layout: doc
 <script setup lang="ts">
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
 import { onMounted, ref } from 'vue';
-import { ImageWatermark } from '../../src';
-import imageSrc from '../public/image.png';
+import { ImageWatermark } from '../../../src';
+import imageSrc from '../../public/image.png';
 
 let textWatermark = null;
 let textWatermarkImgDom = null;
@@ -158,4 +158,3 @@ watermark.destroy() // remove watermark
   </el-space>
 </el-affix>
 </div>
-

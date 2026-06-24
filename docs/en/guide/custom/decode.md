@@ -9,7 +9,7 @@ layout: doc
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { Plus, Warning } from '@element-plus/icons-vue'; 
-import { BlindWatermark } from '../../../src';
+import { BlindWatermark } from '../../../../src';
 
 const imageUrl = ref('');
 const theme = ref('light');

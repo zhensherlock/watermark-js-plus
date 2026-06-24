@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import _ from 'lodash'
 import { Watermark, BlindWatermark } from '../../../src';
-import type { WatermarkOptions, ChangeOptionsMode } from '../../../src/types'
+import type { WatermarkOptions, ChangeOptionsMode } from '../../../src'
 
 const useAppStore = defineStore('app', {
   state: () => {

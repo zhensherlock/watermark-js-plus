@@ -9,8 +9,8 @@ import { ref, getCurrentInstance, onMounted } from 'vue';
 import dayjs from 'dayjs';
 import { Plus, Warning } from '@element-plus/icons-vue';
 import { useData } from 'vitepress';
-import { BlindWatermark } from '../../src';
-import { useAppStore } from '../.vitepress/stores/app';
+import { BlindWatermark } from '../../../src';
+import { useAppStore } from '../../.vitepress/stores/app';
 
 const appStore = useAppStore();
 const { isDark } = useData();

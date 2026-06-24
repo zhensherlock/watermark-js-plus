@@ -1,13 +1,19 @@
+import { defineConfig } from 'vitepress'
+// import llmstxt from 'vitepress-plugin-llms'
+import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
 // @ts-ignore
 import { version } from '../../package.json'
-import zh_CN from './locales/zh-CN'
 
-export default {
+export default defineConfig({
   title: 'watermark-js-plus',
-  description: 'A watermark plugin',
+  description: 'A advanced watermark plugin',
+  rewrites: {
+    'en/:rest*': ':rest*',
+    'en/index.md': 'index.md',
+  },
   base: '/watermark-js-plus/',
   head: [
-    ['link', { rel: 'shortcut icon', href: '/watermark-js-plus/favicons/favicon-64x64.png' }],
+    ['link', { rel: 'shortcut icon', href: '/watermark-js-plus/favicons/favicon.png' }],
     ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/watermark-js-plus/favicons/apple-touch-icon.png' }],
     // ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png' }],
     // ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png' }],
@@ -17,9 +23,17 @@ export default {
     // ['meta', { name: "msapplication-config", content: "/assets/favicons/browserconfig.xml"}],
     // ['meta', { name: "theme-color", content: "#ffffff"}],
   ],
+  locales: {
+    root: { label: 'English', lang: 'en-US', dir: 'ltr' },
+    zh: { label: '简体中文', lang: 'zh-Hans', dir: 'ltr' },
+  },
   themeConfig: {
     logo: '/logo.png',
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/zhensherlock/watermark-js-plus' },
+    ],
     nav: [
+      { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/what-is-this', activeMatch: '/guide/' },
       { text: 'Configs', link: '/config/', activeMatch: '/config/' },
       {
@@ -29,15 +43,8 @@ export default {
             text: 'Changelog',
             link: 'https://github.com/zhensherlock/watermark-js-plus/blob/main/CHANGELOG.md'
           },
-          // {
-          //   text: 'Contributing',
-          //   link: 'https://github.com/zhensherlock/watermark-js-plus/blob/main/.github/contributing.md'
-          // }
-        ]
-      }
-    ],
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/zhensherlock/watermark-js-plus' },
+        ],
+      },
     ],
     sidebar: {
       '/guide': [
@@ -81,36 +88,27 @@ export default {
         }
       ]
     },
-    algolia: {
-      appId: 'V6CF28P0PS',
-      apiKey: '692752b7b3c6f794997d8ae22aed79fa',
-      indexName: 'dev_docs'
+    search: {
+      provider: 'algolia',
+      options: {
+        appId: 'V6CF28P0PS',
+        apiKey: '692752b7b3c6f794997d8ae22aed79fa',
+        indexName: 'dev_docs',
+      },
     },
     footer: {
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2021-present Michael Sun'
     },
-    localeLinks: {
-      text: 'English',
-      items: [
-        { text: 'English', link: '/' },
-        { text: '简体中文', link: '/zh/' },
-      ]
-    },
   },
   markdown: {
-    // lineNumbers: true
-  },
-  locales: {
-    root: {
-      label: 'English',
-      lang: 'en'
+    config(md) {
+      md.use(groupIconMdPlugin)
     },
-    zh: {
-      label: '中文',
-      lang: 'zh-CN',
-      link: '/zh/',
-      themeConfig: zh_CN
-    }
-  }
-}
+  },
+  vite: {
+    plugins: [
+      groupIconVitePlugin(),
+    ],
+  },
+})
