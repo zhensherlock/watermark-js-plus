@@ -107,7 +107,7 @@
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-replace": "^6.0.3",
     "@rollup/plugin-strip": "^3.0.4",
-    "@rollup/plugin-terser": "0.4.4",
+    "@rollup/plugin-terser": "1.0.0",
     "@rollup/plugin-typescript": "^12.3.0",
     "@types/jquery": "^4.0.1",
     "@types/markdown-it": "^14.1.2",
