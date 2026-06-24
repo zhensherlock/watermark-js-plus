@@ -91,6 +91,10 @@
     "LICENSE",
     "README.md"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "devDependencies": {
     "@babel/core": "^8.0.1",
     "@babel/eslint-parser": "^8.0.1",

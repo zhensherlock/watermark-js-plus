@@ -1,43 +1,65 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
-
 name: npm-publish
 
 on:
   release:
     types: [created]
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   build:
     if: github.repository == 'zhensherlock/watermark-js-plus'
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Install Node
         uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
           registry-url: https://registry.npmjs.org/
-          cache: npm
-
-      - name: Clean dependencies
-        run: |
-          rm -rf package-lock.json node_modules
+          package-manager-cache: false
 
       - name: Install Package
-        run: npm i
+        run: npm ci
 
       - name: Build Package
         run: npm run build
 
+      - name: Pack Package
+        run: npm pack
+
+      - name: Upload Package Artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: npm-package
+          path: watermark-js-plus-*.tgz
+
+  publish:
+    if: github.repository == 'zhensherlock/watermark-js-plus'
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Download Package Artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: npm-package
+          path: .
+
+      - name: Install Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org/
+          package-manager-cache: false
+
       - name: Publish NPM Package
-        run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+        run: npm publish *.tgz --provenance --access public
