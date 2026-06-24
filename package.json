@@ -153,7 +153,7 @@
     "rollup-plugin-your-function": "^0.5.3",
     "terser": "^5.48.0",
     "ts-jest": "^29.4.11",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.0",
     "unplugin-element-plus": "^0.10.0",
     "vitepress": "^2.0.0-alpha.17",
     "vitepress-plugin-group-icons": "^1.7.5",
