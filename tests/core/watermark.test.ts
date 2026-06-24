@@ -1,8 +1,67 @@
 import $ from 'jquery'
 import { describe, expect, test } from '@jest/globals'
 import { Watermark } from '../../src/core/watermark'
+import { sleep } from '../utils'
 
 describe('core watermark module', () => {
+  test('parent sibling mutation should not recreate watermark', async () => {
+    const parentElement = document.createElement('div')
+    document.body.appendChild(parentElement)
+    let destroyCount = 0
+    const watermark = new Watermark({
+      content: 'hello my watermark',
+      width: 50,
+      height: 50,
+      zIndex: 2147483646,
+      parent: parentElement,
+      onBeforeDestroy: () => {
+        destroyCount++
+      },
+    })
+    try {
+      await watermark.create()
+      const watermarkDom = parentElement.lastElementChild
+
+      const externalDom = document.createElement('div')
+      externalDom.id = 'ai-assistant'
+      parentElement.appendChild(externalDom)
+      await sleep(20)
+
+      expect(destroyCount).toBe(0)
+      expect(parentElement.contains(watermarkDom)).toBe(true)
+      expect(parentElement.lastElementChild).toBe(externalDom)
+    } finally {
+      watermark.destroy()
+      parentElement.remove()
+    }
+  })
+
+  test('removed watermark should be recreated by parent observer', async () => {
+    const parentElement = document.createElement('div')
+    document.body.appendChild(parentElement)
+    const watermark = new Watermark({
+      content: 'hello my watermark',
+      width: 50,
+      height: 50,
+      zIndex: 2147483646,
+      parent: parentElement,
+    })
+    try {
+      await watermark.create()
+      const watermarkDom = parentElement.lastElementChild
+
+      watermarkDom?.remove()
+      await sleep(20)
+
+      expect(await watermark.check()).toBe(true)
+      expect(parentElement.contains(watermarkDom)).toBe(false)
+      expect((parentElement.lastElementChild as HTMLElement).style.zIndex).toBe('2147483646')
+    } finally {
+      watermark.destroy()
+      parentElement.remove()
+    }
+  })
+
   test('text watermark expected true', async () => {
     const watermark = new Watermark({
       textBaseline: 'middle',

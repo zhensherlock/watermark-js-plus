@@ -207,23 +207,15 @@ class Watermark {
     })
     this.parentObserve = new MutationObserver(async (mutationsList: MutationRecord[]) => {
       for (const item of mutationsList) {
-        if (
-          item?.target === this.watermarkDom ||
-          item?.removedNodes?.[0] === this.watermarkDom ||
-          (item.type === 'childList' &&
-            item.target === this.parentElement &&
-            item.target.lastChild !== this.watermarkDom)
-        ) {
+        const watermarkRemoved = Array.from(item.removedNodes).includes(<Node>this.watermarkDom)
+        if (watermarkRemoved) {
           this.remove()
           await this.create()
         }
       }
     })
     this.parentObserve.observe(this.parentElement, {
-      attributes: true, // 属性的变动
       childList: true, // 子节点的变动（指新增，删除或者更改）
-      subtree: true, // 布尔值，表示是否将该观察器应用于该节点的所有后代节点。
-      characterData: true, // 节点内容或节点文本的变动。
     })
   }
 }
