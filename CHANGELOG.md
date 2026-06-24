@@ -1,3 +1,48 @@
+## [1.6.4](https://github.com/zhensherlock/watermark-js-plus/compare/v1.6.3...v1.6.4) (2026-06-24)
+
+
+### ♻ Code Refactoring | 代码重构
+
+* **crawlerConfig:** nest selectors under default key for better organization ([2cb0a3e](https://github.com/zhensherlock/watermark-js-plus/commit/2cb0a3e4641cd2c060392763db80747ea14e7c8f))
+* improve changelog generation logic and update dependencies ([81a54f1](https://github.com/zhensherlock/watermark-js-plus/commit/81a54f13c8acc3cabfccd2e68c8daf8f73c007fa))
+
+
+### ✨ Features | 新功能
+
+* add watermark options form component and config ([b0e92fd](https://github.com/zhensherlock/watermark-js-plus/commit/b0e92fdedb386e8dd539de5c5b983d52cf5bf60d))
+
+
+### 🎫 Chores | 其他更新
+
+* update dependencies ([df4852d](https://github.com/zhensherlock/watermark-js-plus/commit/df4852d658ec077b1a1e44430f74e3d6d470a84c))
+* update dependencies ([854b656](https://github.com/zhensherlock/watermark-js-plus/commit/854b6564902f51f6a78cb4e8fde85f8ff52d3ecb))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* avoid recreation on sibling DOM mutations ([#1396](https://github.com/zhensherlock/watermark-js-plus/issues/1396)) ([8064d08](https://github.com/zhensherlock/watermark-js-plus/commit/8064d08fad1298ba486b75aa28c2746a16997d2d))
+
+
+### 💄 Styles | 风格
+
+* enforce LF line endings for JS/TS files and Prettier config ([6cb1edd](https://github.com/zhensherlock/watermark-js-plus/commit/6cb1edd7ac78a203a35965287573968e8e2c0e3c))
+
+
+### 📝 Documentation | 文档
+
+* refactor docs to bilingual structure and migrate vitepress config ([7b06f6d](https://github.com/zhensherlock/watermark-js-plus/commit/7b06f6d0b33186d8b606e3e86ba98ae6a0b4d3c1))
+* update CDN version from 1.6.2 to 1.6.3 in IE docs ([4602be2](https://github.com/zhensherlock/watermark-js-plus/commit/4602be2b9164043d8beb2f0ff72d2727bb4a76fa))
+* update CDN version from 1.6.2 to 1.6.3 in IE docs ([9deb2ff](https://github.com/zhensherlock/watermark-js-plus/commit/9deb2ffcf34e621d0264abae6b6af5c8cdc41ed4))
+* update docs ([94de95c](https://github.com/zhensherlock/watermark-js-plus/commit/94de95cda847620bf6069f884783da484ef1fc8d))
+* update docs ([4c7af74](https://github.com/zhensherlock/watermark-js-plus/commit/4c7af74037def55f86142178d20d3691561da584))
+
+
+### 🔧 Continuous Integration | CI 配置
+
+* add opencode workflow for AI-powered code suggestions ([386fae1](https://github.com/zhensherlock/watermark-js-plus/commit/386fae184a657e198b506b4eabcd9e9210a0577c))
+* update actions/checkout from v4 to v5 in all workflows ([f6877cc](https://github.com/zhensherlock/watermark-js-plus/commit/f6877cca648eacdbb5074af54d0ea152014c10ba))
+* update actions/setup-node from v4 to v6 in workflows ([5f88175](https://github.com/zhensherlock/watermark-js-plus/commit/5f88175567aa14a1626bf504e793f8887e98edc3))
+
 ## [1.6.3](https://github.com/zhensherlock/watermark-js-plus/compare/v1.6.2...v1.6.3) (2025-07-25)
 
 
