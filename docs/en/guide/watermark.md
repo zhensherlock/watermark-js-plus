@@ -6,10 +6,10 @@ layout: doc
 <script setup lang="ts">
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
 import { ref, getCurrentInstance, onMounted } from 'vue';
-import { Watermark } from '../../src';
+import { Watermark } from '../../../src';
 import { useData } from 'vitepress';
 import dayjs from 'dayjs';
-import { useAppStore } from '../.vitepress/stores/app';
+import { useAppStore } from '../../.vitepress/stores/app';
 
 const appStore = useAppStore();
 const { isDark } = useData();

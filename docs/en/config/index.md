@@ -197,7 +197,7 @@ layout: doc
   - `'top'`, `'bottom'`, `'middle'`
   - `'alphabetic'`, `'hanging'`, `'ideographic'`
 - **Description**: Vertical text alignment baseline.
-  ![textBaseline](../public/text-baseline.png)
+  ![textBaseline](../../public/text-baseline.png)
 
 ### lineHeight
 - **Type**: `number`
