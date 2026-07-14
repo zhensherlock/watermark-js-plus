@@ -1,0 +1,1 @@
+var e=`/watermark-js-plus/assets/text-baseline.DNicAYEF.png`,t=`/watermark-js-plus/assets/image.BDuqOd6r.png`;export{e as n,t};
