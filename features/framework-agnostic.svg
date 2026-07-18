@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 144" role="img" aria-labelledby="title">
+  <title id="title">Framework agnostic</title>
+  <defs>
+    <linearGradient id="brand" x1="49" y1="72" x2="97" y2="116" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6489EF"/>
+      <stop offset="1" stop-color="#2854BF"/>
+    </linearGradient>
+    <filter id="shadow" x="14" y="18" width="116" height="113" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#244B9B" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <g transform="rotate(-8 47 61)">
+      <rect x="23" y="37" width="48" height="48" rx="14" fill="#fff" stroke="#4169C9" stroke-width="4"/>
+      <path d="m33 49 14 24 14-24h-8l-6 11-6-11h-8Z" fill="#5279DD" stroke="#4169C9" stroke-width="2" stroke-linejoin="round"/>
+    </g>
+    <g transform="rotate(8 97 54)">
+      <rect x="73" y="30" width="48" height="48" rx="14" fill="#fff" stroke="#4169C9" stroke-width="4"/>
+      <ellipse cx="97" cy="54" rx="17" ry="7" fill="none" stroke="#5279DD" stroke-width="3.5"/>
+      <ellipse cx="97" cy="54" rx="17" ry="7" fill="none" stroke="#5279DD" stroke-width="3.5" transform="rotate(60 97 54)"/>
+      <ellipse cx="97" cy="54" rx="17" ry="7" fill="none" stroke="#5279DD" stroke-width="3.5" transform="rotate(120 97 54)"/>
+      <circle cx="97" cy="54" r="4" fill="#4169C9"/>
+    </g>
+    <rect x="47" y="72" width="50" height="46" rx="14" fill="url(#brand)" stroke="#244FAD" stroke-width="4"/>
+    <path d="m57 86 5 18 10-14 10 14 5-18" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 144" role="img" aria-labelledby="title">
+  <title id="title">Three watermark APIs</title>
+  <defs>
+    <linearGradient id="panel" x1="45" y1="48" x2="115" y2="111" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6F92F2"/>
+      <stop offset="1" stop-color="#315BC6"/>
+    </linearGradient>
+    <filter id="shadow" x="16" y="17" width="116" height="112" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#244B9B" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <rect x="22" y="23" width="78" height="60" rx="12" fill="#DCE7FF" stroke="#9CB5F5" stroke-width="4"/>
+    <path d="M34 38h34M34 49h22" stroke="#6F92E8" stroke-width="5" stroke-linecap="round"/>
+    <rect x="32" y="34" width="82" height="64" rx="13" fill="#EDF2FF" stroke="#7899E8" stroke-width="4"/>
+    <circle cx="94" cy="53" r="7" fill="#7FA0F0"/>
+    <path d="m44 84 18-19 13 12 10-10 17 17H44Z" fill="#B7CAF9"/>
+    <rect x="42" y="45" width="80" height="66" rx="14" fill="#fff" stroke="#244FAD" stroke-width="5"/>
+    <path d="M54 61h35M54 72h22" stroke="#B4C6F5" stroke-width="5" stroke-linecap="round"/>
+    <g transform="rotate(-12 82 88)">
+      <rect x="51" y="79" width="63" height="20" rx="10" fill="url(#panel)"/>
+      <path d="m62 86 4 7 5-7 5 7 4-7" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M87 89h17" stroke="#DDE7FF" stroke-width="3.5" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
