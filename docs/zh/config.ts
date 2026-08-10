@@ -22,14 +22,14 @@ export default defineAdditionalConfig({
         items: [
           {
             text: '更新日志',
-            link: 'https://github.com/zhensherlock/watermark-js-plus/blob/main/CHANGELOG.md'
+            link: 'https://github.com/zhensherlock/watermark-js-plus/blob/main/CHANGELOG.md',
           },
           // {
           //   text: '贡献',
           //   link: 'https://github.com/vuejs/vitepress/blob/main/.github/contributing.md'
           // }
-        ]
-      }
+        ],
+      },
     ],
     sidebar: {
       '/zh/guide': [
@@ -42,7 +42,7 @@ export default defineAdditionalConfig({
             { text: 'Watermark', link: '/zh/guide/watermark' },
             { text: '图片水印', link: '/zh/guide/image' },
             { text: '暗水印', link: '/zh/guide/blind-watermark' },
-          ]
+          ],
         },
         {
           text: '资源',
@@ -50,8 +50,8 @@ export default defineAdditionalConfig({
             { text: '示例', link: '/zh/guide/extra/examples' },
             { text: 'ES 模块导入', link: '/zh/guide/extra/on-demand' },
             { text: '旧版浏览器支持', link: '/zh/guide/extra/ie' },
-          ]
-        }
+          ],
+        },
       ],
       '/zh/tools': [
         {
@@ -59,9 +59,10 @@ export default defineAdditionalConfig({
           items: [
             { text: '工具总览', link: '/zh/tools/' },
             { text: '水印配置生成器', link: '/zh/tools/watermark-configurator' },
+            { text: '图片水印工具', link: '/zh/tools/image-watermark' },
             { text: '暗水印解码器', link: '/zh/tools/blind-watermark-decoder' },
-          ]
-        }
+          ],
+        },
       ],
       '/zh/config': [
         {
@@ -73,17 +74,16 @@ export default defineAdditionalConfig({
             { text: 'ImageWatermark 配置项', link: '/zh/config/#image-watermark-options' },
             { text: 'BlindWatermark 配置项', link: '/zh/config/blind' },
             { text: '解码参数', link: '/zh/config/blind-decode' },
-          ]
-        }
-      ]
+          ],
+        },
+      ],
     },
     footer: {
-      message: '本中文文档内容版权为 Michael Sun 所有，保留所有权利。'
+      message: '本中文文档内容版权为 Michael Sun 所有，保留所有权利。',
     },
     search: { options: searchOptions() },
-  }
+  },
 })
-
 
 function searchOptions(): Partial<DefaultTheme.AlgoliaSearchOptions> {
   return {
