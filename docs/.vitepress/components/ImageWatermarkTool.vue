@@ -20,12 +20,16 @@ import {
   TopRight,
   UploadFilled,
 } from '@element-plus/icons-vue'
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { ImageWatermark } from '../../../src'
 import type { ImageWatermarkOptions } from '../../../src'
 
 type Locale = 'en' | 'zh'
 type WatermarkKind = 'text' | 'logo'
+type WatermarkPreset = 'custom' | 'copyright' | 'subtle' | 'tiled' | 'logo-corner'
+type TextRendering = 'fill' | 'stroke'
+type GradientType = 'linear' | 'radial' | 'conic'
+type RepeatPattern = 'grid' | 'diagonal'
 type WatermarkPosition =
   'top-start' | 'top' | 'top-end' | 'left' | 'middle' | 'right' | 'bottom-start' | 'bottom' | 'bottom-end' | 'repeat'
 
@@ -59,6 +63,12 @@ const messages = {
     original: 'Original',
     output: 'Output',
     rendering: 'Updating preview…',
+    presetLabel: 'Preset',
+    customPreset: 'Custom',
+    copyrightPreset: 'Copyright corner',
+    subtlePreset: 'Subtle signature',
+    tiledPreset: 'Tiled protection',
+    logoCornerPreset: 'Logo corner',
     kindLabel: 'Watermark type',
     textKind: 'Text',
     logoKind: 'Logo',
@@ -69,6 +79,49 @@ const messages = {
     replaceLogo: 'Replace logo',
     logoHint: 'PNG with transparency works best.',
     colorLabel: 'Text color',
+    textStyleLabel: 'Text style',
+    textStyleHint: 'Typography, outline, multi-line, and gradient.',
+    textStyleExpandLabel: 'Show text style settings',
+    textStyleCollapseLabel: 'Hide text style settings',
+    fontFamilyLabel: 'Font family',
+    sansSerifFont: 'Sans serif',
+    serifFont: 'Serif',
+    monospaceFont: 'Monospace',
+    fontWeightLabel: 'Weight',
+    regularWeight: 'Regular',
+    mediumWeight: 'Medium',
+    semiboldWeight: 'Semibold',
+    boldWeight: 'Bold',
+    italicLabel: 'Italic',
+    textRenderingLabel: 'Rendering',
+    fillRendering: 'Fill',
+    strokeRendering: 'Outline',
+    strokeWidthLabel: 'Outline width',
+    letterSpacingLabel: 'Letter spacing',
+    multiLineLabel: 'Multi-line text',
+    multiLineHint: 'Wrap long text and preserve manual line breaks.',
+    lineHeightLabel: 'Line height',
+    textMaxWidthLabel: 'Maximum width',
+    gradientLabel: 'Text gradient',
+    gradientHint: 'Replace the solid text color with a gradient.',
+    gradientActive: 'Gradient active',
+    gradientToggleLabel: 'Enable text gradient',
+    gradientTypeLabel: 'Gradient type',
+    linearGradient: 'Linear',
+    radialGradient: 'Radial',
+    conicGradient: 'Conic',
+    gradientStartLabel: 'Start color',
+    gradientEndLabel: 'End color',
+    gradientAngleLabel: 'Angle',
+    imageFilterLabel: 'Image filters',
+    imageFilterHint: 'Tune the uploaded logo without changing the source file.',
+    imageFilterExpandLabel: 'Show image filter settings',
+    imageFilterCollapseLabel: 'Hide image filter settings',
+    brightnessLabel: 'Brightness',
+    contrastLabel: 'Contrast',
+    saturationLabel: 'Saturation',
+    grayscaleLabel: 'Grayscale',
+    resetFilters: 'Reset filters',
     sizeLabel: 'Size',
     opacityLabel: 'Opacity',
     rotationLabel: 'Rotation',
@@ -82,7 +135,17 @@ const messages = {
     shadowExpandLabel: 'Show shadow settings',
     shadowCollapseLabel: 'Hide shadow settings',
     positionLabel: 'Position',
-    spacingLabel: 'Repeat spacing',
+    precisePositionLabel: 'Precise offset',
+    precisePositionHint: 'Fine-tune from the selected anchor point.',
+    precisePositionExpandLabel: 'Show precise position settings',
+    precisePositionCollapseLabel: 'Hide precise position settings',
+    positionOffsetXLabel: 'X offset',
+    positionOffsetYLabel: 'Y offset',
+    repeatPatternLabel: 'Pattern',
+    gridPattern: 'Grid',
+    diagonalPattern: 'Diagonal',
+    horizontalSpacingLabel: 'Horizontal spacing',
+    verticalSpacingLabel: 'Vertical spacing',
     reset: 'Reset options',
     download: 'Download PNG',
     downloadHint: 'Keeps the aspect ratio; large images are scaled to a 2400 px maximum edge.',
@@ -117,6 +180,12 @@ const messages = {
     original: '原图',
     output: '导出',
     rendering: '正在更新预览…',
+    presetLabel: '水印预设',
+    customPreset: '自定义',
+    copyrightPreset: '版权角标',
+    subtlePreset: '轻量签名',
+    tiledPreset: '平铺保护',
+    logoCornerPreset: 'Logo 角标',
     kindLabel: '水印类型',
     textKind: '文字',
     logoKind: '图片',
@@ -127,6 +196,49 @@ const messages = {
     replaceLogo: '更换图片水印',
     logoHint: '推荐使用带透明背景的 PNG。',
     colorLabel: '文字颜色',
+    textStyleLabel: '文字样式',
+    textStyleHint: '设置字体、描边、多行文字和渐变。',
+    textStyleExpandLabel: '展开文字样式设置',
+    textStyleCollapseLabel: '收起文字样式设置',
+    fontFamilyLabel: '字体',
+    sansSerifFont: '无衬线',
+    serifFont: '衬线',
+    monospaceFont: '等宽',
+    fontWeightLabel: '字重',
+    regularWeight: '常规',
+    mediumWeight: '中等',
+    semiboldWeight: '半粗',
+    boldWeight: '粗体',
+    italicLabel: '斜体',
+    textRenderingLabel: '渲染方式',
+    fillRendering: '填充',
+    strokeRendering: '描边',
+    strokeWidthLabel: '描边宽度',
+    letterSpacingLabel: '字符间距',
+    multiLineLabel: '多行文字',
+    multiLineHint: '自动换行并保留手动输入的换行。',
+    lineHeightLabel: '行高',
+    textMaxWidthLabel: '最大宽度',
+    gradientLabel: '文字渐变',
+    gradientHint: '使用渐变替代纯色文字。',
+    gradientActive: '已使用渐变',
+    gradientToggleLabel: '启用文字渐变',
+    gradientTypeLabel: '渐变类型',
+    linearGradient: '线性',
+    radialGradient: '径向',
+    conicGradient: '锥形',
+    gradientStartLabel: '起始颜色',
+    gradientEndLabel: '结束颜色',
+    gradientAngleLabel: '角度',
+    imageFilterLabel: '图片滤镜',
+    imageFilterHint: '不修改源文件，直接调整水印图片效果。',
+    imageFilterExpandLabel: '展开图片滤镜设置',
+    imageFilterCollapseLabel: '收起图片滤镜设置',
+    brightnessLabel: '亮度',
+    contrastLabel: '对比度',
+    saturationLabel: '饱和度',
+    grayscaleLabel: '灰度',
+    resetFilters: '重置滤镜',
     sizeLabel: '大小',
     opacityLabel: '透明度',
     rotationLabel: '旋转角度',
@@ -140,7 +252,17 @@ const messages = {
     shadowExpandLabel: '展开阴影设置',
     shadowCollapseLabel: '收起阴影设置',
     positionLabel: '水印位置',
-    spacingLabel: '重复间距',
+    precisePositionLabel: '精确偏移',
+    precisePositionHint: '基于当前定位点进行细微调整。',
+    precisePositionExpandLabel: '展开精确位置设置',
+    precisePositionCollapseLabel: '收起精确位置设置',
+    positionOffsetXLabel: '水平偏移',
+    positionOffsetYLabel: '垂直偏移',
+    repeatPatternLabel: '排列方式',
+    gridPattern: '网格',
+    diagonalPattern: '交错',
+    horizontalSpacingLabel: '水平间距',
+    verticalSpacingLabel: '垂直间距',
     reset: '重置参数',
     download: '下载 PNG',
     downloadHint: '保留原图宽高比；大图会缩放至最长边 2400 px。',
@@ -173,11 +295,32 @@ const resultUrl = ref('')
 const sourceMeta = ref<ImageMeta>()
 const outputSize = ref<{ width: number; height: number }>()
 const logoAspectRatio = ref(1)
+const selectedPreset = ref<WatermarkPreset>('custom')
 const watermarkKind = ref<WatermarkKind>('text')
 const watermarkText = ref('watermark-js-plus')
 const fontSize = ref(48)
 const logoScale = ref(18)
 const fontColor = ref('#ffffff')
+const textStyleExpanded = ref(false)
+const fontFamily = ref('Arial, sans-serif')
+const fontWeight = ref('400')
+const fontItalic = ref(false)
+const textRendering = ref<TextRendering>('fill')
+const strokeWidth = ref(2)
+const letterSpacing = ref(0)
+const multiLineEnabled = ref(false)
+const textLineHeight = ref(1.25)
+const textMaxWidth = ref(60)
+const gradientEnabled = ref(false)
+const gradientType = ref<GradientType>('linear')
+const gradientStartColor = ref('#ffffff')
+const gradientEndColor = ref('#409eff')
+const gradientAngle = ref(0)
+const imageFilterExpanded = ref(false)
+const imageBrightness = ref(100)
+const imageContrast = ref(100)
+const imageSaturation = ref(100)
+const imageGrayscale = ref(0)
 const opacity = ref(62)
 const rotation = ref(0)
 const shadowEnabled = ref(false)
@@ -187,7 +330,12 @@ const shadowBlur = ref(8)
 const shadowOffsetX = ref(2)
 const shadowOffsetY = ref(2)
 const position = ref<WatermarkPosition>('bottom-end')
-const repeatSpacing = ref(72)
+const precisePositionExpanded = ref(false)
+const positionOffsetX = ref(0)
+const positionOffsetY = ref(0)
+const repeatPattern = ref<RepeatPattern>('grid')
+const repeatSpacingX = ref(72)
+const repeatSpacingY = ref(52)
 const processing = ref(false)
 const errorMessage = ref('')
 const isDragging = ref(false)
@@ -199,6 +347,7 @@ let renderTimer: ReturnType<typeof setTimeout> | undefined
 let renderRequest = 0
 let sourceRequest = 0
 let dragDepth = 0
+let applyingPreset = false
 
 const positions = computed(() => [
   { value: 'top-start' as const, label: copy.value.topStart, icon: TopLeft },
@@ -211,6 +360,27 @@ const positions = computed(() => [
   { value: 'bottom' as const, label: copy.value.bottom, icon: Bottom },
   { value: 'bottom-end' as const, label: copy.value.bottomEnd, icon: BottomRight },
   { value: 'repeat' as const, label: copy.value.repeat, icon: Grid },
+])
+
+const presetOptions = computed(() => [
+  { value: 'custom' as const, label: copy.value.customPreset },
+  { value: 'copyright' as const, label: copy.value.copyrightPreset },
+  { value: 'subtle' as const, label: copy.value.subtlePreset },
+  { value: 'tiled' as const, label: copy.value.tiledPreset },
+  { value: 'logo-corner' as const, label: copy.value.logoCornerPreset },
+])
+
+const fontFamilyOptions = computed(() => [
+  { value: 'Arial, sans-serif', label: copy.value.sansSerifFont },
+  { value: 'Georgia, serif', label: copy.value.serifFont },
+  { value: '"Courier New", monospace', label: copy.value.monospaceFont },
+])
+
+const fontWeightOptions = computed(() => [
+  { value: '400', label: copy.value.regularWeight },
+  { value: '500', label: copy.value.mediumWeight },
+  { value: '600', label: copy.value.semiboldWeight },
+  { value: '700', label: copy.value.boldWeight },
 ])
 
 const previewUrl = computed(() => resultUrl.value || sourceUrl.value)
@@ -244,6 +414,22 @@ const outputSizeLabel = computed(() => {
     return ''
   }
   return `${outputSize.value.width} × ${outputSize.value.height} PNG`
+})
+const imageFilterValue = computed(() => {
+  if (
+    imageBrightness.value === 100 &&
+    imageContrast.value === 100 &&
+    imageSaturation.value === 100 &&
+    imageGrayscale.value === 0
+  ) {
+    return 'none'
+  }
+  return [
+    `brightness(${imageBrightness.value}%)`,
+    `contrast(${imageContrast.value}%)`,
+    `saturate(${imageSaturation.value}%)`,
+    `grayscale(${imageGrayscale.value}%)`,
+  ].join(' ')
 })
 const requirementMessage = computed(() => {
   if (!sourceUrl.value) {
@@ -359,12 +545,32 @@ function removeSource() {
   errorMessage.value = ''
 }
 
-function resetOptions() {
+function setDefaultOptions() {
   watermarkKind.value = 'text'
   watermarkText.value = 'watermark-js-plus'
   fontSize.value = 48
   logoScale.value = 18
   fontColor.value = '#ffffff'
+  textStyleExpanded.value = false
+  fontFamily.value = 'Arial, sans-serif'
+  fontWeight.value = '400'
+  fontItalic.value = false
+  textRendering.value = 'fill'
+  strokeWidth.value = 2
+  letterSpacing.value = 0
+  multiLineEnabled.value = false
+  textLineHeight.value = 1.25
+  textMaxWidth.value = 60
+  gradientEnabled.value = false
+  gradientType.value = 'linear'
+  gradientStartColor.value = '#ffffff'
+  gradientEndColor.value = '#409eff'
+  gradientAngle.value = 0
+  imageFilterExpanded.value = false
+  imageBrightness.value = 100
+  imageContrast.value = 100
+  imageSaturation.value = 100
+  imageGrayscale.value = 0
   opacity.value = 62
   rotation.value = 0
   shadowEnabled.value = false
@@ -374,20 +580,100 @@ function resetOptions() {
   shadowOffsetX.value = 2
   shadowOffsetY.value = 2
   position.value = 'bottom-end'
-  repeatSpacing.value = 72
+  precisePositionExpanded.value = false
+  positionOffsetX.value = 0
+  positionOffsetY.value = 0
+  repeatPattern.value = 'grid'
+  repeatSpacingX.value = 72
+  repeatSpacingY.value = 52
   errorMessage.value = ''
 }
 
+function resetOptions() {
+  setDefaultOptions()
+  selectedPreset.value = 'custom'
+}
+
+function applyPreset(preset: WatermarkPreset) {
+  selectedPreset.value = preset
+  if (preset === 'custom') {
+    return
+  }
+
+  applyingPreset = true
+  setDefaultOptions()
+  selectedPreset.value = preset
+
+  switch (preset) {
+    case 'copyright':
+      watermarkText.value = '© watermark-js-plus'
+      fontSize.value = 46
+      fontWeight.value = '600'
+      opacity.value = 72
+      shadowEnabled.value = true
+      shadowExpanded.value = false
+      break
+    case 'subtle':
+      fontSize.value = 34
+      opacity.value = 30
+      break
+    case 'tiled':
+      fontSize.value = 36
+      opacity.value = 22
+      rotation.value = -30
+      position.value = 'repeat'
+      repeatPattern.value = 'diagonal'
+      repeatSpacingX.value = 88
+      repeatSpacingY.value = 64
+      break
+    case 'logo-corner':
+      watermarkKind.value = 'logo'
+      logoScale.value = 16
+      opacity.value = 72
+      break
+  }
+
+  void nextTick(() => {
+    applyingPreset = false
+  })
+}
+
+function resetImageFilters() {
+  imageBrightness.value = 100
+  imageContrast.value = 100
+  imageSaturation.value = 100
+  imageGrayscale.value = 0
+}
+
+function getTextLayoutMetrics(pixelWidth: number) {
+  const content = watermarkText.value.trim()
+  const lines = content.split('\n')
+  const weightFactor = Number(fontWeight.value) >= 600 ? 1.06 : 1
+  const characterWidth = Math.max(1, (fontSize.value * 0.58 + letterSpacing.value) * weightFactor)
+  const maximumWidth = pixelWidth * (multiLineEnabled.value ? textMaxWidth.value / 100 : 0.82)
+  const charactersPerLine = Math.max(1, Math.floor(maximumWidth / characterWidth))
+  const lineCount = multiLineEnabled.value
+    ? lines.reduce((total, line) => total + Math.max(1, Math.ceil(line.length / charactersPerLine)), 0)
+    : 1
+  const measuredWidth = Math.max(fontSize.value * 2.2, ...lines.map(line => line.length * characterWidth))
+  const textRowWidth = Math.min(maximumWidth, measuredWidth)
+  const stylePadding = textRendering.value === 'stroke' ? strokeWidth.value * 2 : 0
+
+  return {
+    lineCount,
+    textRowWidth,
+    markWidth: textRowWidth + stylePadding,
+    markHeight:
+      (multiLineEnabled.value ? lineCount * fontSize.value * textLineHeight.value : fontSize.value * 1.25) +
+      stylePadding,
+  }
+}
+
 function getWatermarkMetrics(pixelWidth: number) {
-  const markWidth =
-    watermarkKind.value === 'text'
-      ? Math.min(
-          pixelWidth * 0.82,
-          Math.max(fontSize.value * 2.2, watermarkText.value.trim().length * fontSize.value * 0.58),
-        )
-      : pixelWidth * (logoScale.value / 100)
+  const textMetrics = getTextLayoutMetrics(pixelWidth)
+  const markWidth = watermarkKind.value === 'text' ? textMetrics.markWidth : pixelWidth * (logoScale.value / 100)
   const markHeight =
-    watermarkKind.value === 'text' ? fontSize.value * 1.25 : markWidth / Math.max(0.1, logoAspectRatio.value)
+    watermarkKind.value === 'text' ? textMetrics.markHeight : markWidth / Math.max(0.1, logoAspectRatio.value)
   const radians = -rotation.value * (Math.PI / 180)
   const cosine = Math.cos(radians)
   const sine = Math.sin(radians)
@@ -416,10 +702,59 @@ function getWatermarkMetrics(pixelWidth: number) {
   return {
     markWidth,
     markHeight,
+    textRowWidth: textMetrics.textRowWidth,
     boundsWidth: maxX - minX,
     boundsHeight: maxY - minY,
     imageOriginOffsetX: (minX + maxX) / 2,
     imageOriginOffsetY: (minY + maxY) / 2,
+  }
+}
+
+function createGradientStyle(
+  metrics: ReturnType<typeof getWatermarkMetrics>,
+  density: number,
+): ImageWatermarkOptions['advancedStyle'] {
+  if (watermarkKind.value !== 'text' || !gradientEnabled.value) {
+    return undefined
+  }
+
+  const width = metrics.markWidth / density
+  const height = metrics.markHeight / density
+  const angle = gradientAngle.value * (Math.PI / 180)
+  const radius = Math.max(width, height) / 2
+  const colorStops = [
+    { offset: 0, color: gradientStartColor.value },
+    { offset: 1, color: gradientEndColor.value },
+  ]
+
+  switch (gradientType.value) {
+    case 'radial':
+      return {
+        type: 'radial',
+        params: {
+          radial: { x0: 0, y0: 0, r0: 0, x1: 0, y1: 0, r1: radius },
+        },
+        colorStops,
+      }
+    case 'conic':
+      return {
+        type: 'conic',
+        params: {
+          conic: { startAngle: angle, x: 0, y: 0 },
+        },
+        colorStops,
+      }
+    default: {
+      const x = Math.cos(angle) * (width / 2)
+      const y = Math.sin(angle) * (height / 2)
+      return {
+        type: 'linear',
+        params: {
+          linear: { x0: -x, y0: -y, x1: x, y1: y },
+        },
+        colorStops,
+      }
+    }
   }
 }
 
@@ -458,14 +793,33 @@ function createOptions(
     globalAlpha: opacity.value / 100,
     fontColor: fontColor.value,
     fontSize: `${fontSize.value / density}px`,
-    fontFamily: 'Arial, sans-serif',
+    fontFamily: fontFamily.value,
+    fontWeight: fontWeight.value,
+    fontStyle: fontItalic.value ? 'italic' : '',
+    letterSpacing: `${letterSpacing.value / density}px`,
+    textType: textRendering.value,
+    lineHeight: (fontSize.value * textLineHeight.value) / density,
     textAlign: 'center' as const,
     textBaseline: 'middle' as const,
     content: watermarkText.value.trim(),
-    contentType: watermarkKind.value === 'text' ? ('text' as const) : ('image' as const),
+    contentType:
+      watermarkKind.value === 'text'
+        ? multiLineEnabled.value
+          ? ('multi-line-text' as const)
+          : ('text' as const)
+        : ('image' as const),
     image: watermarkKind.value === 'logo' ? logoUrl.value : undefined,
     imageWidth: watermarkKind.value === 'logo' ? metrics.markWidth / density : 0,
     imageHeight: 0,
+    filter: watermarkKind.value === 'logo' ? imageFilterValue.value : 'none',
+    advancedStyle: createGradientStyle(metrics, density),
+    extraDrawFunc:
+      watermarkKind.value === 'text' && textRendering.value === 'stroke'
+        ? (context: CanvasRenderingContext2D) => {
+            context.lineJoin = 'round'
+            context.lineWidth = strokeWidth.value / density
+          }
+        : undefined,
     shadowStyle: shadowEnabled.value
       ? {
           shadowBlur: shadowBlur.value,
@@ -478,31 +832,43 @@ function createOptions(
   }
 
   if (position.value === 'repeat') {
-    const tileWidth = Math.max(80, metrics.boundsWidth + repeatSpacing.value)
-    const tileHeight = Math.max(64, metrics.boundsHeight + repeatSpacing.value * 0.72)
+    const tileWidth = Math.max(80, metrics.boundsWidth + repeatSpacingX.value)
+    const tileHeight = Math.max(64, metrics.boundsHeight + repeatSpacingY.value)
+    const cols = Math.ceil(pixelWidth / tileWidth) + 1
+    const rows = Math.ceil(pixelHeight / tileHeight) + 1
     return {
       ...base,
       width: Math.ceil(tileWidth / density),
       height: Math.ceil(tileHeight / density),
-      textRowMaxWidth: Math.ceil(metrics.markWidth / density),
+      textRowMaxWidth: Math.ceil(metrics.textRowWidth / density),
       gridLayoutOptions: {
-        cols: Math.ceil(pixelWidth / tileWidth) + 1,
-        rows: Math.ceil(pixelHeight / tileHeight) + 1,
+        cols,
+        rows,
         gap: [0, 0],
+        matrix:
+          repeatPattern.value === 'diagonal'
+            ? Array.from({ length: rows }, (_, rowIndex) =>
+                Array.from({ length: cols }, (_, columnIndex) => ((rowIndex + columnIndex) % 2 === 0 ? 1 : 0)),
+              )
+            : undefined,
       },
     }
   }
 
   const [translateX, translateY] = getPosition(pixelWidth, pixelHeight, metrics.boundsWidth, metrics.boundsHeight)
-  const imageTranslateX = watermarkKind.value === 'logo' ? translateX - metrics.imageOriginOffsetX : translateX
-  const imageTranslateY = watermarkKind.value === 'logo' ? translateY - metrics.imageOriginOffsetY : translateY
+  const preciseTranslateX = translateX + positionOffsetX.value
+  const preciseTranslateY = translateY + positionOffsetY.value
+  const imageTranslateX =
+    watermarkKind.value === 'logo' ? preciseTranslateX - metrics.imageOriginOffsetX : preciseTranslateX
+  const imageTranslateY =
+    watermarkKind.value === 'logo' ? preciseTranslateY - metrics.imageOriginOffsetY : preciseTranslateY
   return {
     ...base,
     width: image.width,
     height: image.height,
     translateX: imageTranslateX / density,
     translateY: imageTranslateY / density,
-    textRowMaxWidth: Math.ceil(pixelWidth * 0.82) / density,
+    textRowMaxWidth: Math.ceil(metrics.textRowWidth) / density,
     gridLayoutOptions: {
       cols: 1,
       rows: 1,
@@ -645,15 +1011,33 @@ function downloadResult() {
   anchor.click()
 }
 
+watch([sourceUrl, logoUrl], scheduleRender, { flush: 'post' })
+
 watch(
   [
-    sourceUrl,
-    logoUrl,
     watermarkKind,
     watermarkText,
     fontSize,
     logoScale,
     fontColor,
+    fontFamily,
+    fontWeight,
+    fontItalic,
+    textRendering,
+    strokeWidth,
+    letterSpacing,
+    multiLineEnabled,
+    textLineHeight,
+    textMaxWidth,
+    gradientEnabled,
+    gradientType,
+    gradientStartColor,
+    gradientEndColor,
+    gradientAngle,
+    imageBrightness,
+    imageContrast,
+    imageSaturation,
+    imageGrayscale,
     opacity,
     rotation,
     shadowEnabled,
@@ -662,9 +1046,18 @@ watch(
     shadowOffsetX,
     shadowOffsetY,
     position,
-    repeatSpacing,
+    positionOffsetX,
+    positionOffsetY,
+    repeatPattern,
+    repeatSpacingX,
+    repeatSpacingY,
   ],
-  scheduleRender,
+  () => {
+    if (!applyingPreset && selectedPreset.value !== 'custom') {
+      selectedPreset.value = 'custom'
+    }
+    scheduleRender()
+  },
   { flush: 'post' },
 )
 
@@ -768,6 +1161,23 @@ onUnmounted(() => {
         </header>
 
         <div class="settings-scroll">
+          <div class="setting-group preset-setting">
+            <label for="watermark-preset">{{ copy.presetLabel }}</label>
+            <el-select
+              id="watermark-preset"
+              v-model="selectedPreset"
+              :aria-label="copy.presetLabel"
+              @change="applyPreset"
+            >
+              <el-option
+                v-for="presetOption in presetOptions"
+                :key="presetOption.value"
+                :label="presetOption.label"
+                :value="presetOption.value"
+              />
+            </el-select>
+          </div>
+
           <fieldset class="setting-group">
             <legend>{{ copy.kindLabel }}</legend>
             <div class="kind-switch" role="radiogroup" :aria-label="copy.kindLabel">
@@ -805,15 +1215,17 @@ onUnmounted(() => {
               <el-input
                 id="watermark-copy"
                 v-model="watermarkText"
-                maxlength="80"
+                :type="multiLineEnabled ? 'textarea' : 'text'"
+                :rows="multiLineEnabled ? 3 : 1"
+                maxlength="160"
                 show-word-limit
                 :placeholder="copy.textPlaceholder"
               />
               <div class="color-row">
                 <span>{{ copy.colorLabel }}</span>
                 <div>
-                  <el-color-picker v-model="fontColor" :aria-label="copy.colorLabel" />
-                  <code>{{ fontColor.toUpperCase() }}</code>
+                  <el-color-picker v-model="fontColor" :aria-label="copy.colorLabel" :disabled="gradientEnabled" />
+                  <code>{{ gradientEnabled ? copy.gradientActive : fontColor.toUpperCase() }}</code>
                 </div>
               </div>
             </div>
@@ -838,6 +1250,291 @@ onUnmounted(() => {
             </div>
           </div>
 
+          <div v-if="watermarkKind === 'text'" class="setting-group advanced-setting">
+            <button
+              class="advanced-heading-button"
+              type="button"
+              :class="{ expanded: textStyleExpanded }"
+              :aria-label="textStyleExpanded ? copy.textStyleCollapseLabel : copy.textStyleExpandLabel"
+              :aria-expanded="textStyleExpanded"
+              aria-controls="text-style-details"
+              @click="textStyleExpanded = !textStyleExpanded"
+            >
+              <span class="advanced-copy">
+                <strong>{{ copy.textStyleLabel }}</strong>
+                <small>{{ copy.textStyleHint }}</small>
+              </span>
+              <el-icon><ArrowDown /></el-icon>
+            </button>
+
+            <div
+              id="text-style-details"
+              class="advanced-details"
+              :class="{ expanded: textStyleExpanded }"
+              :aria-hidden="!textStyleExpanded"
+              :inert="!textStyleExpanded"
+            >
+              <div class="advanced-details-inner">
+                <div class="compact-fields">
+                  <label class="compact-field" for="font-family">
+                    <span>{{ copy.fontFamilyLabel }}</span>
+                    <el-select id="font-family" v-model="fontFamily" :aria-label="copy.fontFamilyLabel">
+                      <el-option
+                        v-for="fontOption in fontFamilyOptions"
+                        :key="fontOption.value"
+                        :label="fontOption.label"
+                        :value="fontOption.value"
+                      />
+                    </el-select>
+                  </label>
+                  <label class="compact-field" for="font-weight">
+                    <span>{{ copy.fontWeightLabel }}</span>
+                    <el-select id="font-weight" v-model="fontWeight" :aria-label="copy.fontWeightLabel">
+                      <el-option
+                        v-for="weightOption in fontWeightOptions"
+                        :key="weightOption.value"
+                        :label="weightOption.label"
+                        :value="weightOption.value"
+                      />
+                    </el-select>
+                  </label>
+                </div>
+
+                <div class="toggle-row">
+                  <label for="font-italic">{{ copy.italicLabel }}</label>
+                  <el-switch id="font-italic" v-model="fontItalic" :aria-label="copy.italicLabel" />
+                </div>
+
+                <div class="field-stack">
+                  <span class="field-label">{{ copy.textRenderingLabel }}</span>
+                  <div class="option-switch" role="radiogroup" :aria-label="copy.textRenderingLabel">
+                    <button
+                      type="button"
+                      role="radio"
+                      :aria-checked="textRendering === 'fill'"
+                      :class="{ active: textRendering === 'fill' }"
+                      @click="textRendering = 'fill'"
+                    >
+                      {{ copy.fillRendering }}
+                    </button>
+                    <button
+                      type="button"
+                      role="radio"
+                      :aria-checked="textRendering === 'stroke'"
+                      :class="{ active: textRendering === 'stroke' }"
+                      @click="textRendering = 'stroke'"
+                    >
+                      {{ copy.strokeRendering }}
+                    </button>
+                  </div>
+                </div>
+
+                <div v-if="textRendering === 'stroke'" class="slider-control">
+                  <div class="control-label">
+                    <label for="stroke-width">{{ copy.strokeWidthLabel }}</label>
+                    <output>{{ strokeWidth }}px</output>
+                  </div>
+                  <el-slider
+                    id="stroke-width"
+                    v-model="strokeWidth"
+                    :aria-label="copy.strokeWidthLabel"
+                    :min="1"
+                    :max="12"
+                    :show-tooltip="false"
+                  />
+                </div>
+
+                <div class="slider-control">
+                  <div class="control-label">
+                    <label for="letter-spacing">{{ copy.letterSpacingLabel }}</label>
+                    <output>{{ letterSpacing }}px</output>
+                  </div>
+                  <el-slider
+                    id="letter-spacing"
+                    v-model="letterSpacing"
+                    :aria-label="copy.letterSpacingLabel"
+                    :min="-4"
+                    :max="24"
+                    :show-tooltip="false"
+                  />
+                </div>
+
+                <div class="toggle-row toggle-row-with-copy">
+                  <label for="multi-line-text">
+                    <strong>{{ copy.multiLineLabel }}</strong>
+                    <small>{{ copy.multiLineHint }}</small>
+                  </label>
+                  <el-switch id="multi-line-text" v-model="multiLineEnabled" :aria-label="copy.multiLineLabel" />
+                </div>
+
+                <div v-if="multiLineEnabled" class="compact-sliders">
+                  <div class="slider-control">
+                    <div class="control-label">
+                      <label for="text-line-height">{{ copy.lineHeightLabel }}</label>
+                      <output>{{ textLineHeight.toFixed(2) }}</output>
+                    </div>
+                    <el-slider
+                      id="text-line-height"
+                      v-model="textLineHeight"
+                      :aria-label="copy.lineHeightLabel"
+                      :min="1"
+                      :max="2"
+                      :step="0.05"
+                      :show-tooltip="false"
+                    />
+                  </div>
+                  <div class="slider-control">
+                    <div class="control-label">
+                      <label for="text-max-width">{{ copy.textMaxWidthLabel }}</label>
+                      <output>{{ textMaxWidth }}%</output>
+                    </div>
+                    <el-slider
+                      id="text-max-width"
+                      v-model="textMaxWidth"
+                      :aria-label="copy.textMaxWidthLabel"
+                      :min="20"
+                      :max="90"
+                      :show-tooltip="false"
+                    />
+                  </div>
+                </div>
+
+                <div class="gradient-setting">
+                  <div class="toggle-row toggle-row-with-copy">
+                    <label for="text-gradient">
+                      <strong>{{ copy.gradientLabel }}</strong>
+                      <small>{{ copy.gradientHint }}</small>
+                    </label>
+                    <el-switch id="text-gradient" v-model="gradientEnabled" :aria-label="copy.gradientToggleLabel" />
+                  </div>
+
+                  <div v-if="gradientEnabled" class="gradient-details">
+                    <label class="compact-field" for="gradient-type">
+                      <span>{{ copy.gradientTypeLabel }}</span>
+                      <el-select id="gradient-type" v-model="gradientType" :aria-label="copy.gradientTypeLabel">
+                        <el-option :label="copy.linearGradient" value="linear" />
+                        <el-option :label="copy.radialGradient" value="radial" />
+                        <el-option :label="copy.conicGradient" value="conic" />
+                      </el-select>
+                    </label>
+                    <div class="compact-fields color-fields">
+                      <div class="compact-field">
+                        <span>{{ copy.gradientStartLabel }}</span>
+                        <el-color-picker v-model="gradientStartColor" :aria-label="copy.gradientStartLabel" />
+                      </div>
+                      <div class="compact-field">
+                        <span>{{ copy.gradientEndLabel }}</span>
+                        <el-color-picker v-model="gradientEndColor" :aria-label="copy.gradientEndLabel" />
+                      </div>
+                    </div>
+                    <div class="slider-control">
+                      <div class="control-label">
+                        <label for="gradient-angle">{{ copy.gradientAngleLabel }}</label>
+                        <output>{{ gradientAngle }}°</output>
+                      </div>
+                      <el-slider
+                        id="gradient-angle"
+                        v-model="gradientAngle"
+                        :aria-label="copy.gradientAngleLabel"
+                        :min="0"
+                        :max="360"
+                        :show-tooltip="false"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div v-if="watermarkKind === 'logo'" class="setting-group advanced-setting">
+            <button
+              class="advanced-heading-button"
+              type="button"
+              :class="{ expanded: imageFilterExpanded }"
+              :aria-label="imageFilterExpanded ? copy.imageFilterCollapseLabel : copy.imageFilterExpandLabel"
+              :aria-expanded="imageFilterExpanded"
+              aria-controls="image-filter-details"
+              @click="imageFilterExpanded = !imageFilterExpanded"
+            >
+              <span class="advanced-copy">
+                <strong>{{ copy.imageFilterLabel }}</strong>
+                <small>{{ copy.imageFilterHint }}</small>
+              </span>
+              <el-icon><ArrowDown /></el-icon>
+            </button>
+
+            <div
+              id="image-filter-details"
+              class="advanced-details"
+              :class="{ expanded: imageFilterExpanded }"
+              :aria-hidden="!imageFilterExpanded"
+              :inert="!imageFilterExpanded"
+            >
+              <div class="advanced-details-inner">
+                <el-button text size="small" :icon="RefreshLeft" @click="resetImageFilters">
+                  {{ copy.resetFilters }}
+                </el-button>
+                <div class="slider-control">
+                  <div class="control-label">
+                    <label for="image-brightness">{{ copy.brightnessLabel }}</label>
+                    <output>{{ imageBrightness }}%</output>
+                  </div>
+                  <el-slider
+                    id="image-brightness"
+                    v-model="imageBrightness"
+                    :aria-label="copy.brightnessLabel"
+                    :min="0"
+                    :max="200"
+                    :show-tooltip="false"
+                  />
+                </div>
+                <div class="slider-control">
+                  <div class="control-label">
+                    <label for="image-contrast">{{ copy.contrastLabel }}</label>
+                    <output>{{ imageContrast }}%</output>
+                  </div>
+                  <el-slider
+                    id="image-contrast"
+                    v-model="imageContrast"
+                    :aria-label="copy.contrastLabel"
+                    :min="0"
+                    :max="200"
+                    :show-tooltip="false"
+                  />
+                </div>
+                <div class="slider-control">
+                  <div class="control-label">
+                    <label for="image-saturation">{{ copy.saturationLabel }}</label>
+                    <output>{{ imageSaturation }}%</output>
+                  </div>
+                  <el-slider
+                    id="image-saturation"
+                    v-model="imageSaturation"
+                    :aria-label="copy.saturationLabel"
+                    :min="0"
+                    :max="200"
+                    :show-tooltip="false"
+                  />
+                </div>
+                <div class="slider-control">
+                  <div class="control-label">
+                    <label for="image-grayscale">{{ copy.grayscaleLabel }}</label>
+                    <output>{{ imageGrayscale }}%</output>
+                  </div>
+                  <el-slider
+                    id="image-grayscale"
+                    v-model="imageGrayscale"
+                    :aria-label="copy.grayscaleLabel"
+                    :min="0"
+                    :max="100"
+                    :show-tooltip="false"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="setting-group slider-stack">
             <div class="slider-control">
               <div class="control-label">
@@ -847,6 +1544,7 @@ onUnmounted(() => {
               <el-slider
                 id="watermark-size"
                 v-model="sizeValue"
+                :aria-label="copy.sizeLabel"
                 :min="sizeRange.min"
                 :max="sizeRange.max"
                 :show-tooltip="false"
@@ -857,7 +1555,14 @@ onUnmounted(() => {
                 <label for="watermark-opacity">{{ copy.opacityLabel }}</label>
                 <output>{{ opacity }}%</output>
               </div>
-              <el-slider id="watermark-opacity" v-model="opacity" :min="5" :max="100" :show-tooltip="false" />
+              <el-slider
+                id="watermark-opacity"
+                v-model="opacity"
+                :aria-label="copy.opacityLabel"
+                :min="5"
+                :max="100"
+                :show-tooltip="false"
+              />
             </div>
             <div class="slider-control">
               <div class="control-label">
@@ -867,6 +1572,7 @@ onUnmounted(() => {
               <el-slider
                 id="watermark-rotation"
                 v-model="rotation"
+                :aria-label="copy.rotationLabel"
                 :min="-180"
                 :max="180"
                 :step="1"
@@ -932,7 +1638,14 @@ onUnmounted(() => {
                     <label for="shadow-blur">{{ copy.shadowBlurLabel }}</label>
                     <output>{{ shadowBlur }}px</output>
                   </div>
-                  <el-slider id="shadow-blur" v-model="shadowBlur" :min="0" :max="40" :show-tooltip="false" />
+                  <el-slider
+                    id="shadow-blur"
+                    v-model="shadowBlur"
+                    :aria-label="copy.shadowBlurLabel"
+                    :min="0"
+                    :max="40"
+                    :show-tooltip="false"
+                  />
                 </div>
 
                 <div class="shadow-offsets">
@@ -944,6 +1657,7 @@ onUnmounted(() => {
                     <el-slider
                       id="shadow-offset-x"
                       v-model="shadowOffsetX"
+                      :aria-label="copy.shadowOffsetXLabel"
                       :min="-40"
                       :max="40"
                       :show-tooltip="false"
@@ -957,6 +1671,7 @@ onUnmounted(() => {
                     <el-slider
                       id="shadow-offset-y"
                       v-model="shadowOffsetY"
+                      :aria-label="copy.shadowOffsetYLabel"
                       :min="-40"
                       :max="40"
                       :show-tooltip="false"
@@ -984,14 +1699,108 @@ onUnmounted(() => {
                 <span v-if="item.value === 'repeat'">{{ item.label }}</span>
               </button>
             </div>
+
+            <div v-if="position !== 'repeat'" class="precise-position">
+              <button
+                class="advanced-heading-button compact"
+                type="button"
+                :class="{ expanded: precisePositionExpanded }"
+                :aria-label="
+                  precisePositionExpanded ? copy.precisePositionCollapseLabel : copy.precisePositionExpandLabel
+                "
+                :aria-expanded="precisePositionExpanded"
+                aria-controls="precise-position-details"
+                @click="precisePositionExpanded = !precisePositionExpanded"
+              >
+                <span class="advanced-copy">
+                  <strong>{{ copy.precisePositionLabel }}</strong>
+                  <small>{{ copy.precisePositionHint }}</small>
+                </span>
+                <el-icon><ArrowDown /></el-icon>
+              </button>
+              <div
+                id="precise-position-details"
+                class="advanced-details"
+                :class="{ expanded: precisePositionExpanded }"
+                :aria-hidden="!precisePositionExpanded"
+                :inert="!precisePositionExpanded"
+              >
+                <div class="advanced-details-inner compact-number-fields">
+                  <label class="compact-field" for="position-offset-x">
+                    <span>{{ copy.positionOffsetXLabel }}</span>
+                    <el-input-number
+                      id="position-offset-x"
+                      v-model="positionOffsetX"
+                      :aria-label="copy.positionOffsetXLabel"
+                      :min="-500"
+                      :max="500"
+                      controls-position="right"
+                    />
+                  </label>
+                  <label class="compact-field" for="position-offset-y">
+                    <span>{{ copy.positionOffsetYLabel }}</span>
+                    <el-input-number
+                      id="position-offset-y"
+                      v-model="positionOffsetY"
+                      :aria-label="copy.positionOffsetYLabel"
+                      :min="-500"
+                      :max="500"
+                      controls-position="right"
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
           </fieldset>
 
-          <div v-if="position === 'repeat'" class="setting-group slider-control repeat-spacing">
-            <div class="control-label">
-              <label for="repeat-spacing">{{ copy.spacingLabel }}</label>
-              <output>{{ repeatSpacing }}px</output>
+          <div v-if="position === 'repeat'" class="setting-group repeat-spacing">
+            <div class="field-stack">
+              <span class="field-label">{{ copy.repeatPatternLabel }}</span>
+              <div class="option-switch" role="radiogroup" :aria-label="copy.repeatPatternLabel">
+                <button
+                  type="button"
+                  role="radio"
+                  :aria-checked="repeatPattern === 'grid'"
+                  :class="{ active: repeatPattern === 'grid' }"
+                  @click="repeatPattern = 'grid'"
+                >
+                  {{ copy.gridPattern }}
+                </button>
+                <button
+                  type="button"
+                  role="radio"
+                  :aria-checked="repeatPattern === 'diagonal'"
+                  :class="{ active: repeatPattern === 'diagonal' }"
+                  @click="repeatPattern = 'diagonal'"
+                >
+                  {{ copy.diagonalPattern }}
+                </button>
+              </div>
             </div>
-            <el-slider id="repeat-spacing" v-model="repeatSpacing" :min="16" :max="200" :show-tooltip="false" />
+            <div class="compact-number-fields">
+              <label class="compact-field" for="repeat-spacing-x">
+                <span>{{ copy.horizontalSpacingLabel }}</span>
+                <el-input-number
+                  id="repeat-spacing-x"
+                  v-model="repeatSpacingX"
+                  :aria-label="copy.horizontalSpacingLabel"
+                  :min="0"
+                  :max="400"
+                  controls-position="right"
+                />
+              </label>
+              <label class="compact-field" for="repeat-spacing-y">
+                <span>{{ copy.verticalSpacingLabel }}</span>
+                <el-input-number
+                  id="repeat-spacing-y"
+                  v-model="repeatSpacingY"
+                  :aria-label="copy.verticalSpacingLabel"
+                  :min="0"
+                  :max="400"
+                  controls-position="right"
+                />
+              </label>
+            </div>
           </div>
         </div>
 
@@ -1455,6 +2264,178 @@ onUnmounted(() => {
   gap: var(--tool-space-sm);
 }
 
+.preset-setting .el-select,
+.compact-field .el-select,
+.compact-field .el-input-number {
+  width: 100%;
+}
+
+.advanced-setting {
+  gap: 0;
+}
+
+.advanced-heading-button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: var(--vp-c-text-1);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  gap: var(--tool-space-lg);
+  justify-content: space-between;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.advanced-heading-button:hover,
+.advanced-heading-button:focus-visible {
+  color: var(--vp-c-brand-1);
+  outline: none;
+}
+
+.advanced-heading-button > .el-icon {
+  flex: 0 0 auto;
+  font-size: 16px;
+  transition: transform 160ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.advanced-heading-button.expanded > .el-icon {
+  transform: rotate(180deg);
+}
+
+.advanced-copy {
+  display: grid;
+  gap: var(--tool-space-xs);
+}
+
+.advanced-copy strong,
+.field-label,
+.compact-field > span,
+.toggle-row > label {
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.advanced-copy small,
+.toggle-row-with-copy small {
+  color: var(--vp-c-text-2);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.advanced-details {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 180ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 140ms ease;
+}
+
+.advanced-details.expanded {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.advanced-details-inner {
+  display: grid;
+  gap: var(--tool-space-lg);
+  min-height: 0;
+  overflow: hidden;
+}
+
+.advanced-details.expanded > .advanced-details-inner {
+  padding-top: var(--tool-space-lg);
+}
+
+.compact-fields,
+.compact-number-fields {
+  display: grid;
+  gap: var(--tool-space-md);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.compact-field,
+.field-stack {
+  display: grid;
+  gap: var(--tool-space-sm);
+  min-width: 0;
+}
+
+.toggle-row {
+  align-items: center;
+  display: flex;
+  gap: var(--tool-space-lg);
+  justify-content: space-between;
+}
+
+.toggle-row-with-copy > label {
+  display: grid;
+  gap: var(--tool-space-xs);
+}
+
+.option-switch {
+  background: var(--vp-c-bg-soft);
+  border-radius: 8px;
+  display: grid;
+  gap: var(--tool-space-xs);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: var(--tool-space-xs);
+}
+
+.option-switch button {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: var(--vp-c-text-2);
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  min-height: 36px;
+}
+
+.option-switch button:hover,
+.option-switch button:focus-visible {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+  outline: none;
+}
+
+.option-switch button.active {
+  background: var(--vp-c-bg);
+  border-color: var(--vp-c-divider);
+  color: var(--vp-c-brand-1);
+}
+
+.compact-sliders,
+.gradient-details {
+  display: grid;
+  gap: var(--tool-space-lg);
+}
+
+.gradient-setting {
+  border-top: 1px solid var(--vp-c-divider);
+  display: grid;
+  gap: var(--tool-space-lg);
+  padding-top: var(--tool-space-lg);
+}
+
+.color-fields .el-color-picker {
+  justify-self: start;
+}
+
+.precise-position {
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: var(--tool-space-md);
+}
+
+.advanced-heading-button.compact .advanced-copy small {
+  font-weight: 400;
+}
+
 .shadow-setting {
   gap: 0;
 }
@@ -1603,6 +2584,7 @@ onUnmounted(() => {
 
 .repeat-spacing {
   animation: reveal 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  gap: var(--tool-space-lg);
 }
 
 .export-area {
@@ -1674,6 +2656,8 @@ onUnmounted(() => {
   .upload-zone,
   .repeat-spacing,
   .shadow-details,
+  .advanced-details,
+  .advanced-heading-button > .el-icon,
   .shadow-expand .el-icon {
     animation: none;
     transition: none;
@@ -1794,6 +2778,11 @@ onUnmounted(() => {
   }
 
   .shadow-offsets {
+    grid-template-columns: 1fr;
+  }
+
+  .compact-fields,
+  .compact-number-fields {
     grid-template-columns: 1fr;
   }
 }
