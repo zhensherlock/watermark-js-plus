@@ -14,6 +14,12 @@
   - Repeated logo watermark: `/Users/sunzhenxuan/.codex/visualizations/2026/08/08/019fdf44-dad4-7772-9513-1bed70385f68/image-watermark-implementation/04-logo-desktop.png`
   - Mobile text watermark: `/Users/sunzhenxuan/.codex/visualizations/2026/08/08/019fdf44-dad4-7772-9513-1bed70385f68/image-watermark-implementation/05-text-mobile.png`
   - Dark theme: `/Users/sunzhenxuan/.codex/visualizations/2026/08/08/019fdf44-dad4-7772-9513-1bed70385f68/image-watermark-implementation/07-text-dark.png`
+  - Text watermark shadow: `/Users/sunzhenxuan/.codex/visualizations/2026/08/08/019fdf44-dad4-7772-9513-1bed70385f68/image-watermark-implementation/09-shadow-text-desktop.png`
+  - Logo watermark shadow and edge positioning: `/Users/sunzhenxuan/.codex/visualizations/2026/08/08/019fdf44-dad4-7772-9513-1bed70385f68/image-watermark-implementation/12-shadow-logo-position-fixed.png`
+  - Mobile shadow controls: `/Users/sunzhenxuan/.codex/visualizations/2026/08/08/019fdf44-dad4-7772-9513-1bed70385f68/image-watermark-implementation/11-shadow-mobile.png`
+  - Compact desktop settings: `/Users/sunzhenxuan/.codex/visualizations/2026/08/08/019fdf44-dad4-7772-9513-1bed70385f68/image-watermark-implementation/13-compact-settings-desktop.png`
+  - Compact mobile settings: `/Users/sunzhenxuan/.codex/visualizations/2026/08/08/019fdf44-dad4-7772-9513-1bed70385f68/image-watermark-implementation/14-compact-settings-mobile.png`
+  - Aligned panel headers: `/Users/sunzhenxuan/.codex/visualizations/2026/08/08/019fdf44-dad4-7772-9513-1bed70385f68/image-watermark-implementation/15-aligned-panel-headers.png`
 
 The source and implementation represent the same core interaction state, but not the same product shell or crop. The reference was used for workflow and information hierarchy; the implementation intentionally uses the repository's VitePress and Element Plus visual system. The combined comparison preserves each screenshot's natural aspect ratio and compares the split workspace, preview prominence, control grouping, and export hierarchy rather than claiming pixel identity.
 
@@ -22,10 +28,13 @@ The source and implementation represent the same core interaction state, but not
 - Desktop viewport: 1440 × 1000, device scale factor 1.
 - Mobile viewport: 390 × 844, device scale factor 1; captured component width 342 px.
 - Tested routes: `/zh/tools/image-watermark` and `/tools/image-watermark`.
-- Tested interactions: source image upload, live text watermark render, repeated-grid selection, logo watermark upload/render, option reset availability, PNG download, English localization, mobile reflow, and dark theme rendering.
+- Tested interactions: source image upload, live text watermark render, repeated-grid selection, logo watermark upload/render, shared shadow enable/disable, shadow color/blur/offset disclosure, option reset availability, PNG download, English localization, mobile reflow, and dark theme rendering.
 - Download result: `image-watermarked.png`.
 - Output verification: 1280 × 720 PNG, preserving the sample image's aspect ratio.
+- Shadow verification: enabling the shadow changes the generated PNG for single text, single logo, and repeated logo watermarks. The bottom-right logo remains inside the output after accounting for its rotated and shadowed bounds.
 - Layout verification: no horizontal document overflow at either tested viewport.
+- Compact-panel verification: the 1440 × 1000 desktop viewport produces a 760 px workspace with equal preview/settings heights. Only the 544 px settings body scrolls, while the header and export area remain visible. Mobile restores natural document flow with no nested settings scroll.
+- Header alignment verification: empty and uploaded desktop states both render 76 px preview/settings headers with a measured divider offset of 0 px.
 - Console check: no component exceptions or failed application resources. Chrome requested the development-only root `/favicon.ico`, which the base-path VitePress dev server returns as 404; the configured site favicon and production build are unaffected.
 
 ## Findings
@@ -44,7 +53,10 @@ No actionable P0, P1, or P2 issues remain.
 
 ## Comparison History
 
-- Pass 1: the combined full-view and focused-control comparisons found no P0/P1/P2 mismatch. The reference's batch/video, compression, shadow, and ZIP controls were intentionally excluded because this page is a single-image `ImageWatermark` tool with PNG output. No visual correction loop was required.
+- Pass 1: the combined full-view and focused-control comparisons found no P0/P1/P2 mismatch. The reference's batch/video, compression, shadow, and ZIP controls were initially excluded because this page is a single-image `ImageWatermark` tool with PNG output. No visual correction loop was required.
+- Pass 2: shared shadow controls were added for text and logo watermarks. Browser verification found and corrected the logo's custom-coordinate origin at edge placements; repeat, desktop, mobile, and type-switch states then passed without overflow or layout shift.
+- Pass 3: the desktop workspace was capped to prevent the settings column from stretching the preview. Shadow details can remain enabled while collapsed into a parameter summary, and desktop offset controls use a compact two-column layout. Mobile retains a single-column, natural-scroll flow.
+- Pass 4: preview file metadata was compacted onto the filename row and both desktop panel headers were normalized to 76 px, aligning their lower dividers without adding unnecessary height.
 
 ## Follow-up Polish
 

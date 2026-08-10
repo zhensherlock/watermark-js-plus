@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {
   Aim,
+  ArrowDown,
   Back,
   Bottom,
   BottomLeft,
@@ -71,6 +72,15 @@ const messages = {
     sizeLabel: 'Size',
     opacityLabel: 'Opacity',
     rotationLabel: 'Rotation',
+    shadowLabel: 'Shadow',
+    shadowHint: 'Improve contrast against detailed backgrounds.',
+    shadowToggleLabel: 'Enable watermark shadow',
+    shadowColorLabel: 'Shadow color',
+    shadowBlurLabel: 'Blur',
+    shadowOffsetXLabel: 'Horizontal offset',
+    shadowOffsetYLabel: 'Vertical offset',
+    shadowExpandLabel: 'Show shadow settings',
+    shadowCollapseLabel: 'Hide shadow settings',
     positionLabel: 'Position',
     spacingLabel: 'Repeat spacing',
     reset: 'Reset options',
@@ -120,6 +130,15 @@ const messages = {
     sizeLabel: '大小',
     opacityLabel: '透明度',
     rotationLabel: '旋转角度',
+    shadowLabel: '阴影',
+    shadowHint: '提升水印在复杂背景上的辨识度。',
+    shadowToggleLabel: '启用水印阴影',
+    shadowColorLabel: '阴影颜色',
+    shadowBlurLabel: '模糊',
+    shadowOffsetXLabel: '水平偏移',
+    shadowOffsetYLabel: '垂直偏移',
+    shadowExpandLabel: '展开阴影设置',
+    shadowCollapseLabel: '收起阴影设置',
     positionLabel: '水印位置',
     spacingLabel: '重复间距',
     reset: '重置参数',
@@ -161,6 +180,12 @@ const logoScale = ref(18)
 const fontColor = ref('#ffffff')
 const opacity = ref(62)
 const rotation = ref(0)
+const shadowEnabled = ref(false)
+const shadowExpanded = ref(false)
+const shadowColor = ref('#00000080')
+const shadowBlur = ref(8)
+const shadowOffsetX = ref(2)
+const shadowOffsetY = ref(2)
 const position = ref<WatermarkPosition>('bottom-end')
 const repeatSpacing = ref(72)
 const processing = ref(false)
@@ -342,6 +367,12 @@ function resetOptions() {
   fontColor.value = '#ffffff'
   opacity.value = 62
   rotation.value = 0
+  shadowEnabled.value = false
+  shadowExpanded.value = false
+  shadowColor.value = '#00000080'
+  shadowBlur.value = 8
+  shadowOffsetX.value = 2
+  shadowOffsetY.value = 2
   position.value = 'bottom-end'
   repeatSpacing.value = 72
   errorMessage.value = ''
@@ -357,12 +388,38 @@ function getWatermarkMetrics(pixelWidth: number) {
       : pixelWidth * (logoScale.value / 100)
   const markHeight =
     watermarkKind.value === 'text' ? fontSize.value * 1.25 : markWidth / Math.max(0.1, logoAspectRatio.value)
-  const radians = rotation.value * (Math.PI / 180)
+  const radians = -rotation.value * (Math.PI / 180)
+  const cosine = Math.cos(radians)
+  const sine = Math.sin(radians)
+  const corners = [
+    { x: 0, y: 0 },
+    { x: markWidth * cosine, y: markWidth * sine },
+    { x: -markHeight * sine, y: markHeight * cosine },
+    { x: markWidth * cosine - markHeight * sine, y: markWidth * sine + markHeight * cosine },
+  ]
+  const contentMinX = Math.min(...corners.map(corner => corner.x))
+  const contentMaxX = Math.max(...corners.map(corner => corner.x))
+  const contentMinY = Math.min(...corners.map(corner => corner.y))
+  const contentMaxY = Math.max(...corners.map(corner => corner.y))
+  const minX = shadowEnabled.value
+    ? Math.min(contentMinX, contentMinX + shadowOffsetX.value - shadowBlur.value)
+    : contentMinX
+  const maxX = shadowEnabled.value
+    ? Math.max(contentMaxX, contentMaxX + shadowOffsetX.value + shadowBlur.value)
+    : contentMaxX
+  const minY = shadowEnabled.value
+    ? Math.min(contentMinY, contentMinY + shadowOffsetY.value - shadowBlur.value)
+    : contentMinY
+  const maxY = shadowEnabled.value
+    ? Math.max(contentMaxY, contentMaxY + shadowOffsetY.value + shadowBlur.value)
+    : contentMaxY
   return {
     markWidth,
     markHeight,
-    boundsWidth: Math.abs(Math.cos(radians)) * markWidth + Math.abs(Math.sin(radians)) * markHeight,
-    boundsHeight: Math.abs(Math.sin(radians)) * markWidth + Math.abs(Math.cos(radians)) * markHeight,
+    boundsWidth: maxX - minX,
+    boundsHeight: maxY - minY,
+    imageOriginOffsetX: (minX + maxX) / 2,
+    imageOriginOffsetY: (minY + maxY) / 2,
   }
 }
 
@@ -409,6 +466,14 @@ function createOptions(
     image: watermarkKind.value === 'logo' ? logoUrl.value : undefined,
     imageWidth: watermarkKind.value === 'logo' ? metrics.markWidth / density : 0,
     imageHeight: 0,
+    shadowStyle: shadowEnabled.value
+      ? {
+          shadowBlur: shadowBlur.value,
+          shadowColor: shadowColor.value,
+          shadowOffsetX: shadowOffsetX.value,
+          shadowOffsetY: shadowOffsetY.value,
+        }
+      : undefined,
     crossOrigin: false,
   }
 
@@ -429,12 +494,14 @@ function createOptions(
   }
 
   const [translateX, translateY] = getPosition(pixelWidth, pixelHeight, metrics.boundsWidth, metrics.boundsHeight)
+  const imageTranslateX = watermarkKind.value === 'logo' ? translateX - metrics.imageOriginOffsetX : translateX
+  const imageTranslateY = watermarkKind.value === 'logo' ? translateY - metrics.imageOriginOffsetY : translateY
   return {
     ...base,
     width: image.width,
     height: image.height,
-    translateX: translateX / density,
-    translateY: translateY / density,
+    translateX: imageTranslateX / density,
+    translateY: imageTranslateY / density,
     textRowMaxWidth: Math.ceil(pixelWidth * 0.82) / density,
     gridLayoutOptions: {
       cols: 1,
@@ -506,6 +573,10 @@ function scheduleRender() {
 
   processing.value = true
   renderTimer = setTimeout(() => renderWatermark(requestId), 140)
+}
+
+function handleShadowToggle(enabled: boolean | string | number) {
+  shadowExpanded.value = Boolean(enabled)
 }
 
 function handleSourceChange(event: Event) {
@@ -585,6 +656,11 @@ watch(
     fontColor,
     opacity,
     rotation,
+    shadowEnabled,
+    shadowColor,
+    shadowBlur,
+    shadowOffsetX,
+    shadowOffsetY,
     position,
     repeatSpacing,
   ],
@@ -796,6 +872,98 @@ onUnmounted(() => {
                 :step="1"
                 :show-tooltip="false"
               />
+            </div>
+          </div>
+
+          <div class="setting-group shadow-setting">
+            <div class="shadow-heading">
+              <label class="shadow-copy" for="watermark-shadow">
+                <strong>{{ copy.shadowLabel }}</strong>
+                <small v-if="shadowEnabled && !shadowExpanded" class="shadow-summary">
+                  {{ shadowColor.toUpperCase() }} · {{ shadowBlur }}px · {{ shadowOffsetX }}, {{ shadowOffsetY }}px
+                </small>
+                <small v-else>{{ copy.shadowHint }}</small>
+              </label>
+              <div class="shadow-actions">
+                <el-switch
+                  id="watermark-shadow"
+                  v-model="shadowEnabled"
+                  :aria-label="copy.shadowToggleLabel"
+                  @change="handleShadowToggle"
+                />
+                <button
+                  v-if="shadowEnabled"
+                  class="shadow-expand"
+                  type="button"
+                  :class="{ expanded: shadowExpanded }"
+                  :aria-label="shadowExpanded ? copy.shadowCollapseLabel : copy.shadowExpandLabel"
+                  :aria-expanded="shadowExpanded"
+                  aria-controls="shadow-settings-details"
+                  @click="shadowExpanded = !shadowExpanded"
+                >
+                  <el-icon><ArrowDown /></el-icon>
+                </button>
+              </div>
+            </div>
+
+            <div
+              id="shadow-settings-details"
+              class="shadow-details"
+              :class="{ expanded: shadowEnabled && shadowExpanded }"
+              :aria-hidden="!(shadowEnabled && shadowExpanded)"
+              :inert="!(shadowEnabled && shadowExpanded)"
+            >
+              <div class="shadow-details-inner">
+                <div class="color-row">
+                  <span>{{ copy.shadowColorLabel }}</span>
+                  <div>
+                    <el-color-picker
+                      v-model="shadowColor"
+                      show-alpha
+                      color-format="hex"
+                      :aria-label="copy.shadowColorLabel"
+                    />
+                    <code>{{ shadowColor.toUpperCase() }}</code>
+                  </div>
+                </div>
+
+                <div class="slider-control">
+                  <div class="control-label">
+                    <label for="shadow-blur">{{ copy.shadowBlurLabel }}</label>
+                    <output>{{ shadowBlur }}px</output>
+                  </div>
+                  <el-slider id="shadow-blur" v-model="shadowBlur" :min="0" :max="40" :show-tooltip="false" />
+                </div>
+
+                <div class="shadow-offsets">
+                  <div class="slider-control">
+                    <div class="control-label">
+                      <label for="shadow-offset-x">{{ copy.shadowOffsetXLabel }}</label>
+                      <output>{{ shadowOffsetX }}px</output>
+                    </div>
+                    <el-slider
+                      id="shadow-offset-x"
+                      v-model="shadowOffsetX"
+                      :min="-40"
+                      :max="40"
+                      :show-tooltip="false"
+                    />
+                  </div>
+                  <div class="slider-control">
+                    <div class="control-label">
+                      <label for="shadow-offset-y">{{ copy.shadowOffsetYLabel }}</label>
+                      <output>{{ shadowOffsetY }}px</output>
+                    </div>
+                    <el-slider
+                      id="shadow-offset-y"
+                      v-model="shadowOffsetY"
+                      :min="-40"
+                      :max="40"
+                      :show-tooltip="false"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -1118,6 +1286,10 @@ onUnmounted(() => {
   gap: 0;
 }
 
+.settings-scroll > :last-child {
+  border-bottom: 0;
+}
+
 .setting-group {
   border: 0;
   border-bottom: 1px solid var(--vp-c-divider);
@@ -1283,6 +1455,107 @@ onUnmounted(() => {
   gap: var(--tool-space-sm);
 }
 
+.shadow-setting {
+  gap: 0;
+}
+
+.shadow-heading {
+  align-items: center;
+  display: flex;
+  gap: var(--tool-space-lg);
+  justify-content: space-between;
+}
+
+.shadow-copy {
+  cursor: pointer;
+  display: grid;
+  gap: var(--tool-space-xs);
+}
+
+.shadow-copy strong {
+  font-size: 13px;
+}
+
+.shadow-copy small {
+  color: var(--vp-c-text-2);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.shadow-copy .shadow-summary {
+  color: var(--vp-c-text-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.shadow-actions {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: var(--tool-space-xs);
+}
+
+.shadow-expand {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: var(--vp-c-text-2);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 16px;
+  height: 40px;
+  justify-content: center;
+  padding: 0;
+  width: 40px;
+}
+
+.shadow-expand:hover,
+.shadow-expand:focus-visible {
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-brand-1);
+  outline: none;
+}
+
+.shadow-expand .el-icon {
+  transition: transform 160ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.shadow-expand.expanded .el-icon {
+  transform: rotate(180deg);
+}
+
+.shadow-details {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 180ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 140ms ease;
+}
+
+.shadow-details.expanded {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.shadow-details-inner {
+  display: grid;
+  gap: var(--tool-space-lg);
+  min-height: 0;
+  overflow: hidden;
+}
+
+.shadow-details.expanded .shadow-details-inner {
+  padding-top: var(--tool-space-lg);
+}
+
+.shadow-offsets {
+  display: grid;
+  gap: var(--tool-space-md);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .control-label output {
   color: var(--vp-c-text-2);
   font-size: 12px;
@@ -1334,7 +1607,9 @@ onUnmounted(() => {
 
 .export-area {
   background: var(--vp-c-bg);
+  border-top: 1px solid var(--vp-c-divider);
   display: grid;
+  flex: 0 0 auto;
   gap: var(--tool-space-sm);
   padding: var(--tool-space-lg);
 }
@@ -1397,9 +1672,67 @@ onUnmounted(() => {
 
 @media (prefers-reduced-motion: reduce) {
   .upload-zone,
-  .repeat-spacing {
+  .repeat-spacing,
+  .shadow-details,
+  .shadow-expand .el-icon {
     animation: none;
     transition: none;
+  }
+}
+
+@media (min-width: 961px) {
+  .workspace {
+    height: clamp(640px, calc(100vh - 160px), 760px);
+    min-height: 640px;
+  }
+
+  .panel-header {
+    height: 76px;
+    min-height: 76px;
+  }
+
+  .preview-header > div:first-child {
+    column-gap: var(--tool-space-sm);
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .preview-header .panel-eyebrow {
+    grid-column: 1 / -1;
+  }
+
+  .preview-header .file-meta {
+    align-self: center;
+    white-space: nowrap;
+  }
+
+  .preview-panel,
+  .settings-panel {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .settings-scroll {
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-color: var(--vp-c-divider) transparent;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+  }
+
+  .settings-scroll::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .settings-scroll::-webkit-scrollbar-thumb {
+    background: var(--vp-c-divider);
+    background-clip: content-box;
+    border: 2px solid transparent;
+    border-radius: 999px;
+  }
+
+  .settings-scroll::-webkit-scrollbar-track {
+    background: transparent;
   }
 }
 
@@ -1458,6 +1791,10 @@ onUnmounted(() => {
     align-items: flex-start;
     flex-direction: column;
     gap: var(--tool-space-xs);
+  }
+
+  .shadow-offsets {
+    grid-template-columns: 1fr;
   }
 }
 </style>
