@@ -1,6 +1,6 @@
 export const defaultConfig = {
-  width: 300,
-  height: 300,
+  width: 200,
+  height: 200,
   rotate: 45,
   layout: 'default',
   // layout: 'grid',
@@ -36,6 +36,7 @@ export const defaultConfig = {
   textBaseline: undefined,
   filter: 'none',
   letterSpacing: '0px',
+  wordSpacing: '0px',
   richTextWidth: undefined,
   richTextHeight: undefined,
   image: '',
@@ -45,7 +46,7 @@ export const defaultConfig = {
     shadowBlur: 10,
     shadowColor: '#000000FF',
     shadowOffsetX: 0,
-    shadowOffsetY: 0
+    shadowOffsetY: 0,
   },
   advancedStyle: {
     type: 'linear',
@@ -71,28 +72,22 @@ export const defaultConfig = {
       },
       pattern: {
         image: '',
-        repetition: ''
-      }
+        repetition: '',
+      },
     },
     colorStops: [
       { offset: 0, color: 'red' },
       { offset: 0.5, color: 'green' },
-      { offset: 1, color: 'blue' }
-    ]
+      { offset: 1, color: 'blue' },
+    ],
   },
   extraDrawFunc: '',
   onSuccess: '',
   onBeforeDestroy: '',
-  onDestroyed: ''
+  onDestroyed: '',
 }
 
-export const basicOptionKeys = [
-  'width',
-  'height',
-  'rotate',
-  'contentType',
-  'content'
-]
+export const basicOptionKeys = ['width', 'height', 'rotate', 'contentType', 'content']
 
 export const positionOptionKeys = [
   'translatePlacement',
@@ -101,19 +96,12 @@ export const positionOptionKeys = [
   'backgroundPosition',
   'backgroundRepeat',
   'parent',
-  'zIndex'
+  'zIndex',
 ]
 
-export const richTextOptionKeys = [
-  'richTextWidth',
-  'richTextHeight'
-]
+export const richTextOptionKeys = ['richTextWidth', 'richTextHeight']
 
-export const imageOptionKeys = [
-  'image',
-  'imageWidth',
-  'imageHeight'
-]
+export const imageOptionKeys = ['image', 'imageWidth', 'imageHeight']
 
 export const styleOptionKeys = [
   'globalAlpha',
@@ -130,20 +118,11 @@ export const styleOptionKeys = [
   'filter',
   'textRowMaxWidth',
   'letterSpacing',
-  'wordSpacing'
+  'wordSpacing',
 ]
 
-export const shadowOptionKeys = [
-  'shadowStyle'
-]
+export const shadowOptionKeys = ['shadowStyle']
 
-export const advancedStyleOptionKeys = [
-  'advancedStyle'
-]
+export const advancedStyleOptionKeys = ['advancedStyle']
 
-export const extraOptionKeys = [
-  'mutationObserve',
-  'monitorProtection',
-  'auxiliaryLine',
-  'movable'
-]
+export const extraOptionKeys = ['mutationObserve', 'monitorProtection', 'auxiliaryLine', 'movable']

@@ -4,25 +4,31 @@
   width: 100%;
 }
 
+.watermark-configurator-page .VPDoc .container,
+.watermark-configurator-page .VPDoc .content,
+.watermark-configurator-page .VPDoc .content-container {
+  max-width: 1240px;
+}
+
 .VPHero .VPImage {
-  animation: blur-in 1s cubic-bezier(0, .55, .45, 1);
+  animation: blur-in 1s cubic-bezier(0, 0.55, 0.45, 1);
 }
 
 .VPFeatures .VPFeature .VPImage {
-  border: 1px solid rgba(36, 79, 173, .1);
+  border: 1px solid rgba(36, 79, 173, 0.1);
   border-radius: 18px;
   background:
-    radial-gradient(circle at 22% 18%, rgba(255, 255, 255, .95), transparent 42%),
+    radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.95), transparent 42%),
     linear-gradient(145deg, #f4f7ff, #e9efff);
-  box-shadow: 0 8px 22px rgba(36, 75, 155, .12);
+  box-shadow: 0 8px 22px rgba(36, 75, 155, 0.12);
 }
 
 .dark .VPFeatures .VPFeature .VPImage {
-  border-color: rgba(143, 170, 239, .18);
+  border-color: rgba(143, 170, 239, 0.18);
   background:
-    radial-gradient(circle at 22% 18%, rgba(111, 146, 242, .14), transparent 42%),
+    radial-gradient(circle at 22% 18%, rgba(111, 146, 242, 0.14), transparent 42%),
     linear-gradient(145deg, #202d4e, #17213b);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, .24);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
 }
 
 .VPContent.is-home {
@@ -89,12 +95,12 @@
 @keyframes blur-in {
   0% {
     filter: brightness(1) blur(10px);
-    transform: translate(-50%, -50%) scale(.94);
+    transform: translate(-50%, -50%) scale(0.94);
   }
 
   10% {
     filter: brightness(1.15) blur(5px);
-    transform: translate(-50%, -50%) scale(.98);
+    transform: translate(-50%, -50%) scale(0.98);
   }
 
   to {

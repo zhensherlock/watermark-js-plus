@@ -55,9 +55,7 @@ export default defineConfig({
 
     const isZh = pageData.relativePath.startsWith('zh/')
     const canonicalUrl = getCanonicalUrl(pageData.relativePath)
-    const socialImageAlt = isZh
-      ? 'watermark-js-plus 浏览器水印库'
-      : 'watermark-js-plus browser watermark library'
+    const socialImageAlt = isZh ? 'watermark-js-plus 浏览器水印库' : 'watermark-js-plus browser watermark library'
 
     return [
       ['link', { rel: 'canonical', href: canonicalUrl }],
@@ -77,9 +75,7 @@ export default defineConfig({
   },
   themeConfig: {
     logo: '/logo.png',
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/zhensherlock/watermark-js-plus' },
-    ],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/zhensherlock/watermark-js-plus' }],
     nav: [
       { text: 'Guide', link: '/guide/what-is-this', activeMatch: '/guide/' },
       { text: 'Tools', link: '/tools/', activeMatch: '/tools/' },
@@ -96,7 +92,7 @@ export default defineConfig({
         items: [
           {
             text: 'Changelog',
-            link: 'https://github.com/zhensherlock/watermark-js-plus/blob/main/CHANGELOG.md'
+            link: 'https://github.com/zhensherlock/watermark-js-plus/blob/main/CHANGELOG.md',
           },
         ],
       },
@@ -112,7 +108,7 @@ export default defineConfig({
             { text: 'Watermark', link: '/guide/watermark' },
             { text: 'Image Watermark', link: '/guide/image' },
             { text: 'Blind Watermark', link: '/guide/blind-watermark' },
-          ]
+          ],
         },
         {
           text: 'Resources',
@@ -120,8 +116,8 @@ export default defineConfig({
             { text: 'Examples', link: '/guide/extra/examples' },
             { text: 'ES Module Imports', link: '/guide/extra/on-demand' },
             { text: 'Legacy Browser Support', link: '/guide/extra/ie' },
-          ]
-        }
+          ],
+        },
       ],
       '/tools': [
         {
@@ -129,9 +125,10 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/tools/' },
             { text: 'Watermark Configurator', link: '/tools/watermark-configurator' },
+            { text: 'Image Watermark Tool', link: '/tools/image-watermark' },
             { text: 'Blind Watermark Decoder', link: '/tools/blind-watermark-decoder' },
-          ]
-        }
+          ],
+        },
       ],
       '/config': [
         {
@@ -143,9 +140,9 @@ export default defineConfig({
             { text: 'ImageWatermark Options', link: '/config/#image-watermark-options' },
             { text: 'BlindWatermark Options', link: '/config/blind' },
             { text: 'Decode Options', link: '/config/blind-decode' },
-          ]
-        }
-      ]
+          ],
+        },
+      ],
     },
     search: {
       provider: 'algolia',
@@ -157,7 +154,7 @@ export default defineConfig({
     },
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2021-present Michael Sun'
+      copyright: 'Copyright © 2021-present Michael Sun',
     },
   },
   markdown: {
@@ -166,8 +163,6 @@ export default defineConfig({
     },
   },
   vite: {
-    plugins: [
-      groupIconVitePlugin(),
-    ],
+    plugins: [groupIconVitePlugin()],
   },
 })
