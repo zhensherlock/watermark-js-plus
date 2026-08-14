@@ -186,7 +186,7 @@ onBeforeUnmount(() => {
 
     <div class="workbench">
       <div class="preview-rail">
-        <div class="preview-column">
+        <div class="preview-column" :class="{ 'is-code-view': activeWorkspaceView === 'code' }">
           <header class="panel-header workspace-header">
             <div class="workspace-heading">
               <div class="workspace-tabs" role="tablist" :aria-label="copy.workspace">
@@ -364,6 +364,7 @@ onBeforeUnmount(() => {
 .preview-rail {
   background: var(--vp-c-bg-soft);
   border-radius: 0 0 0 16px;
+  overflow: clip;
 }
 
 .preview-column {
@@ -375,6 +376,12 @@ onBeforeUnmount(() => {
   overflow: hidden;
   position: sticky;
   top: var(--vp-nav-height);
+}
+
+.preview-column.is-code-view {
+  height: auto;
+  min-height: 100%;
+  position: static;
 }
 
 .settings-panel {
