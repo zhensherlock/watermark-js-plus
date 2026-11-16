@@ -191,6 +191,7 @@ See the [legacy-browser guide](https://zhensherlock.github.io/watermark-js-plus/
 - [Optimized ESM imports](https://zhensherlock.github.io/watermark-js-plus/guide/extra/on-demand.html)
 - [Live framework examples](https://zhensherlock.github.io/watermark-js-plus/guide/extra/examples.html)
 - [Demo collection](https://github.com/zhensherlock/watermark-js-plus/discussions/590)
+- [Vben Admin](https://doc.vben.pro/en/guide/in-depth/features.html#page-watermark) uses `watermark-js-plus` for its page watermark feature.
 
 ## Contributing
 
