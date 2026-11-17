@@ -1,5 +1,7 @@
 ---
 layout: doc
+aside: false
+pageClass: blind-watermark-decoder-page
 description: 上传或粘贴图片，在浏览器中调整解码参数并显现其中的暗水印。
 ---
 # 暗水印解码器
@@ -450,163 +452,295 @@ onUnmounted(() => {
 });
 </script>
 
-<div>
-  <section class="upload-section" aria-labelledby="decode-image-title">
-    <div id="decode-image-title" class="title">原图</div>
-    <el-upload
-      ref="upload"
-      v-model:file-list="fileList"
-      class="decode-uploader"
-      drag
-      list-type="picture-card"
-      accept="image/*"
-      :auto-upload="false"
-      :limit="1"
-      :on-change="handleChangeImageSuccess"
-      :on-exceed="handleExceed"
-      :on-preview="handlePreview"
-      :on-remove="handleRemove"
-    >
-      <el-icon class="el-icon--upload"><UploadFilled /></el-icon>
-      <div class="el-upload__text">
-        将图片拖到此处或<em>点击上传</em>
+<div class="decoder-workbench">
+  <div class="decoder-main">
+    <div class="decoder-input-column">
+      <section class="decoder-section upload-section" aria-labelledby="decode-image-title">
+        <div class="section-header">
+          <span class="section-index">01</span>
+          <div>
+            <h2 id="decode-image-title" class="section-title">原图</h2>
+            <p class="section-description">拖入、选择或粘贴一张待解码图片。</p>
+          </div>
+        </div>
+        <el-upload
+          ref="upload"
+          v-model:file-list="fileList"
+          class="decode-uploader"
+          :class="{ 'has-file': fileList.length }"
+          drag
+          list-type="picture-card"
+          accept="image/*"
+          :auto-upload="false"
+          :limit="1"
+          :on-change="handleChangeImageSuccess"
+          :on-exceed="handleExceed"
+          :on-preview="handlePreview"
+          :on-remove="handleRemove"
+        >
+          <el-icon class="el-icon--upload"><UploadFilled /></el-icon>
+          <div class="el-upload__text">
+            将图片拖到此处或<em>点击上传</em>
+          </div>
+          <template #tip>
+            <div class="el-upload__tip">仅支持图片 · 也可按 Ctrl+V 或 Cmd+V 粘贴上传</div>
+          </template>
+        </el-upload>
+        <el-dialog v-model="previewVisible">
+          <img class="preview-dialog-image" :src="previewImageUrl" alt="图片预览" />
+        </el-dialog>
+      </section>
+      <section class="decoder-section" aria-labelledby="decode-options-title">
+        <div class="section-header">
+          <span class="section-index">02</span>
+          <div>
+            <h2 id="decode-options-title" class="section-title">解码参数</h2>
+            <p class="section-description">修改参数后，右侧结果会自动刷新。</p>
+          </div>
+        </div>
+        <div class="decode-form">
+          <div class="control-field control-field--wide">
+            <div class="control-label">
+              <span>图片背景</span>
+              <code>theme</code>
+            </div>
+            <el-radio-group v-model="theme" aria-label="图片背景" @change="handleChangeTheme">
+              <el-radio-button label="浅色" value="light" />
+              <el-radio-button label="深色" value="dark" />
+            </el-radio-group>
+          </div>
+          <div class="control-field control-field--wide">
+            <div class="control-label">
+              <span>合成模式</span>
+              <code>compositeOperation</code>
+            </div>
+            <el-select
+              v-model="compositeOperation"
+              aria-label="合成模式"
+              filterable
+              placeholder="请选择合成模式"
+              @change="handleChangeCompositeOperation"
+            >
+              <el-option v-for="item in compositeOperations" :key="item" :label="item" :value="item" />
+            </el-select>
+          </div>
+          <div class="control-field">
+            <div class="control-label">
+              <span>合成次数</span>
+              <code>compositeTimes</code>
+            </div>
+            <el-input-number
+              v-model="compositeTimes"
+              aria-label="合成次数"
+              @change="handleChangeCompositeTimes"
+            />
+          </div>
+          <div class="control-field">
+            <div class="control-label">
+              <span>填充颜色</span>
+              <code>fillColor</code>
+            </div>
+            <div class="color-control">
+              <el-color-picker
+                v-model="fillColor"
+                aria-label="填充颜色"
+                :clearable="false"
+                @change="handleChangeFillColor"
+              />
+              <span>{{ fillColor }}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <section class="decoder-section decoder-result-section" aria-labelledby="decode-result-title">
+      <div class="section-header">
+        <span class="section-index">03</span>
+        <div>
+          <h2 id="decode-result-title" class="section-title">解码结果</h2>
+          <p class="section-description">点击结果可查看原始尺寸。</p>
+        </div>
       </div>
-      <template #tip>
-        <div class="el-upload__tip">仅支持图片 · 也可按 Ctrl+V 或 Cmd+V 粘贴上传</div>
-      </template>
-    </el-upload>
-    <el-dialog v-model="previewVisible">
-      <img class="preview-dialog-image" :src="previewImageUrl" alt="图片预览" />
-    </el-dialog>
+      <div class="decoded-stage">
+        <el-image
+          v-if="resultImageUrl"
+          class="decoded-image"
+          :src="resultImageUrl"
+          :preview-src-list="[resultImageUrl]"
+          alt="解码后的图片"
+          fit="contain"
+        />
+        <el-empty v-else description="上传图片后即可查看解码结果" />
+      </div>
+    </section>
+  </div>
+  <section class="decoder-section recognition-section" aria-labelledby="recognition-title">
+    <div class="section-header">
+      <span class="section-index">04</span>
+      <div>
+        <h2 id="recognition-title" class="section-title">识别水印文字</h2>
+        <p class="section-description">将解码结果校正角度后，在浏览器本地运行 OCR。</p>
+      </div>
+    </div>
+    <div class="recognition-layout">
+      <div class="recognition-controls">
+        <p class="recognition-tip">
+          将解码图片旋转至水印文字水平，可以让 OCR 忽略倾斜后的原图文字，优先识别水印。默认 45° 校正对应本库的默认水印旋转角度。
+        </p>
+        <div class="recognition-options">
+          <span>水印校正角度</span>
+          <el-input-number
+            v-model="watermarkCorrectionAngle"
+            aria-label="水印校正角度"
+            :min="-180"
+            :max="180"
+            @change="resetRecognition"
+          />
+        </div>
+        <p class="recognition-tip">识别过程仅在浏览器本地运行，首次使用时需要下载中英文 OCR 模型。</p>
+        <el-button
+          type="primary"
+          :disabled="!resultImageUrl || recognizing"
+          :loading="recognizing"
+          @click="handleRecognizeText"
+        >
+          识别文字
+        </el-button>
+      </div>
+      <div class="recognition-output" aria-live="polite">
+        <el-progress
+          v-if="recognizing"
+          class="recognition-progress"
+          :percentage="recognitionProgress"
+          :status="recognitionProgress === 100 ? 'success' : undefined"
+        />
+        <el-alert
+          v-if="recognitionError"
+          class="recognition-alert"
+          :title="recognitionError"
+          type="error"
+          :closable="false"
+          show-icon
+        />
+        <div v-if="recognizedText" class="recognition-result">
+          <el-input v-model="recognizedText" type="textarea" :rows="6" aria-label="识别出的水印文字" />
+          <div class="recognition-meta">置信度：{{ recognitionConfidence }}%</div>
+          <el-space>
+            <el-button @click="handleCopyText">{{ copied ? '已复制' : '复制文字' }}</el-button>
+            <el-button @click="handleClearRecognition">清空</el-button>
+          </el-space>
+        </div>
+        <el-empty
+          v-else-if="recognitionCompleted"
+          description="未识别到文字，请调整解码参数后重新识别。"
+        />
+        <div v-else-if="!recognizing && !recognitionError" class="recognition-placeholder">
+          完成解码后，可从这里启动 OCR 并查看识别结果。
+        </div>
+      </div>
+    </div>
   </section>
-  <div class="title">解码参数</div>
-
-  <el-descriptions :column="1" border>
-    <el-descriptions-item label="图片背景">
-      <el-radio-group v-model="theme" @change="handleChangeTheme">
-        <el-radio-button label="浅色" value="light" />
-        <el-radio-button label="深色" value="dark" />
-      </el-radio-group>
-    </el-descriptions-item>
-    <el-descriptions-item label="合成模式（compositeOperation）">
-      <el-select style="width: 400px" v-model="compositeOperation" filterable placeholder="请选择合成模式" @change="handleChangeCompositeOperation">
-        <el-option v-for="item in compositeOperations" :key="item" :label="item" :value="item" />
-      </el-select>
-    </el-descriptions-item>
-    <el-descriptions-item label="合成次数（compositeTimes）">
-      <el-input-number v-model="compositeTimes" @change="handleChangeCompositeTimes" />
-    </el-descriptions-item>
-    <el-descriptions-item label="填充颜色（fillColor）">
-      <el-color-picker v-model="fillColor" @change="handleChangeFillColor" />
-    </el-descriptions-item>
-  </el-descriptions>
-
-  <div class="title">解码结果</div>
-  <el-image
-    v-if="resultImageUrl"
-    style="width: 400px; height: 400px"
-    :src="resultImageUrl"
-    :preview-src-list="[resultImageUrl]"
-    fit="cover"
-  />
-  <el-empty v-else description="上传图片后即可查看解码结果" />
-
-  <div class="title">识别水印文字</div>
-  <p class="recognition-tip">
-    将解码图片旋转至水印文字水平，可以让 OCR 忽略倾斜后的原图文字，优先识别水印。默认 45° 校正对应本库的默认水印旋转角度。
-  </p>
-  <div class="recognition-options">
-    <span>水印校正角度</span>
-    <el-input-number
-      v-model="watermarkCorrectionAngle"
-      :min="-180"
-      :max="180"
-      @change="resetRecognition"
-    />
-  </div>
-  <p class="recognition-tip">识别过程仅在浏览器本地运行，首次使用时需要下载中英文 OCR 模型。</p>
-  <el-button
-    type="primary"
-    :disabled="!resultImageUrl || recognizing"
-    :loading="recognizing"
-    @click="handleRecognizeText"
-  >
-    识别文字
-  </el-button>
-  <el-progress
-    v-if="recognizing"
-    class="recognition-progress"
-    :percentage="recognitionProgress"
-    :status="recognitionProgress === 100 ? 'success' : undefined"
-  />
-  <el-alert
-    v-if="recognitionError"
-    class="recognition-alert"
-    :title="recognitionError"
-    type="error"
-    :closable="false"
-    show-icon
-  />
-  <div v-if="recognizedText" class="recognition-result">
-    <el-input v-model="recognizedText" type="textarea" :rows="6" aria-label="识别出的水印文字" />
-    <div class="recognition-meta">置信度：{{ recognitionConfidence }}%</div>
-    <el-space>
-      <el-button @click="handleCopyText">{{ copied ? '已复制' : '复制文字' }}</el-button>
-      <el-button @click="handleClearRecognition">清空</el-button>
-    </el-space>
-  </div>
-  <el-empty
-    v-else-if="recognitionCompleted"
-    description="未识别到文字，请调整解码参数后重新识别。"
-  />
 </div>
 
 <el-backtop></el-backtop>
 
 <style scoped>
-.title {
+.decoder-workbench {
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 16px;
+  margin-top: 28px;
+  overflow: hidden;
+}
+.decoder-main {
+  display: grid;
+  grid-template-columns: minmax(340px, 0.82fr) minmax(0, 1.18fr);
+}
+.decoder-input-column,
+.decoder-result-section {
+  min-width: 0;
+}
+.decoder-result-section {
+  border-left: 1px solid var(--vp-c-divider);
+  display: flex;
+  flex-direction: column;
+}
+.decoder-section {
+  padding: 24px;
+}
+.decoder-input-column .decoder-section + .decoder-section,
+.recognition-section {
+  border-top: 1px solid var(--vp-c-divider);
+}
+.section-header {
+  align-items: flex-start;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.section-index {
+  color: var(--el-color-primary);
+  flex: 0 0 auto;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  line-height: 24px;
+}
+.section-title {
+  border: 0;
   color: var(--el-text-color-primary);
   font-size: 16px;
-  font-weight: bold;
-  margin: 10px 0;
+  font-weight: 650;
+  line-height: 24px;
+  margin: 0;
+  padding: 0;
 }
-.upload-section {
-  margin-bottom: 24px;
+.section-description {
+  color: var(--el-text-color-secondary);
+  font-size: 13px;
+  line-height: 20px;
+  margin: 2px 0 0;
 }
 .decode-uploader {
   display: block;
-  width: min(100%, 556px);
+  width: 100%;
 }
 .decode-uploader :deep(.el-upload-list--picture-card) {
-  align-items: flex-start;
-  display: flex;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   list-style: none;
+  margin: 0;
   padding-left: 0;
 }
 .decode-uploader :deep(.el-upload--picture-card) {
   background: transparent;
   border: 0;
-  height: 180px;
+  height: 200px;
   margin: 0;
-  order: -1;
-  width: min(100%, 360px);
+  width: 100%;
+}
+.decode-uploader.has-file :deep(.el-upload--picture-card) {
+  display: none;
 }
 .decode-uploader :deep(.el-upload-dragger) {
+  height: 200px;
+  padding: 40px 16px;
   width: 100%;
-  height: 180px;
 }
 .decode-uploader :deep(.el-upload-list__item) {
-  height: 180px;
+  background: var(--vp-c-bg-soft);
+  height: 200px;
   margin: 0;
-  width: 180px;
+  width: 100%;
 }
 .decode-uploader :deep(.el-upload-list__item-thumbnail) {
   display: block;
   margin: 0;
+  object-fit: contain;
 }
 .decode-uploader :deep(.el-upload__tip) {
   color: var(--el-text-color-secondary);
+  line-height: 20px;
   margin-top: 8px;
 }
 .preview-dialog-image {
@@ -614,6 +748,140 @@ onUnmounted(() => {
   max-height: 70vh;
   object-fit: contain;
   width: 100%;
+}
+.decode-form {
+  display: grid;
+  gap: 18px 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.control-field {
+  min-width: 0;
+}
+.control-field--wide {
+  grid-column: 1 / -1;
+}
+.control-label {
+  align-items: center;
+  color: var(--el-text-color-primary);
+  display: flex;
+  font-size: 13px;
+  font-weight: 600;
+  gap: 8px;
+  justify-content: space-between;
+  line-height: 20px;
+  margin-bottom: 7px;
+}
+.control-label code {
+  background: var(--vp-c-bg-soft);
+  border-radius: 4px;
+  color: var(--el-text-color-secondary);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 1px 5px;
+}
+.control-field:not(.control-field--wide) .control-label {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 2px;
+}
+.control-field :deep(.el-select),
+.control-field :deep(.el-input-number) {
+  width: 100%;
+}
+.color-control {
+  align-items: center;
+  border: 1px solid var(--el-border-color);
+  border-radius: var(--el-border-radius-base);
+  box-sizing: border-box;
+  color: var(--el-text-color-regular);
+  display: flex;
+  font-family: var(--vp-font-family-mono);
+  font-size: 12px;
+  gap: 0;
+  height: 32px;
+  padding: 0;
+  transition: border-color var(--el-transition-duration-fast);
+}
+.color-control:focus-within {
+  border-color: var(--el-color-primary);
+}
+.color-control > span {
+  flex: 1;
+  padding: 0 10px;
+}
+.color-control :deep(.el-color-picker) {
+  display: flex;
+  flex: 0 0 48px;
+  height: 30px;
+  width: 48px;
+}
+.color-control :deep(.el-color-picker__trigger) {
+  border: 0;
+  border-radius: calc(var(--el-border-radius-base) - 1px) 0 0
+    calc(var(--el-border-radius-base) - 1px);
+  border-right: 1px solid var(--el-border-color);
+  height: 30px;
+  justify-content: flex-start;
+  padding: 5px 6px;
+  transition:
+    background-color var(--el-transition-duration-fast),
+    border-color var(--el-transition-duration-fast);
+  width: 48px;
+}
+.color-control :deep(.el-color-picker__color) {
+  flex: 0 0 20px;
+  height: 20px;
+  position: static;
+  width: 20px;
+}
+.color-control :deep(.el-color-picker__color-inner) {
+  height: 100%;
+  position: static;
+  width: 100%;
+}
+.color-control :deep(.el-color-picker__icon) {
+  color: var(--el-text-color-secondary);
+  font-size: 10px;
+  position: absolute;
+  right: 5px;
+}
+.color-control :deep(.el-color-picker:hover .el-color-picker__trigger) {
+  background: var(--el-fill-color-light);
+  border-right-color: var(--el-border-color-hover);
+}
+.color-control :deep(.el-color-picker:focus-visible .el-color-picker__trigger) {
+  outline: none;
+}
+.decoded-stage {
+  align-items: center;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  min-height: 518px;
+  overflow: hidden;
+  padding: 16px;
+}
+.decoded-image {
+  display: block;
+  flex: 1;
+  height: auto;
+  min-height: 486px;
+  width: 100%;
+}
+.recognition-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+}
+.recognition-controls {
+  padding-right: 28px;
+}
+.recognition-output {
+  border-left: 1px solid var(--vp-c-divider);
+  min-height: 190px;
+  padding-left: 28px;
 }
 .recognition-tip,
 .recognition-meta {
@@ -632,11 +900,74 @@ onUnmounted(() => {
 .recognition-progress,
 .recognition-alert,
 .recognition-result {
-  margin-top: 16px;
-  max-width: 640px;
+  margin-bottom: 16px;
 }
 .recognition-meta {
   font-size: 14px;
   margin: 8px 0 12px;
+}
+.recognition-placeholder {
+  align-items: center;
+  color: var(--el-text-color-secondary);
+  display: flex;
+  font-size: 13px;
+  justify-content: center;
+  line-height: 22px;
+  min-height: 190px;
+  text-align: center;
+}
+@media (max-width: 960px) {
+  .decoder-main {
+    grid-template-columns: 1fr;
+  }
+  .decoder-result-section {
+    border-left: 0;
+    border-top: 1px solid var(--vp-c-divider);
+  }
+  .decoded-stage {
+    min-height: 420px;
+  }
+  .decoded-image {
+    min-height: 388px;
+  }
+}
+@media (max-width: 640px) {
+  .decoder-workbench {
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
+    margin-left: -24px;
+    margin-right: -24px;
+  }
+  .decoder-section {
+    padding: 20px 24px;
+  }
+  .decode-form,
+  .recognition-layout {
+    grid-template-columns: 1fr;
+  }
+  .control-field--wide {
+    grid-column: auto;
+  }
+  .recognition-controls {
+    padding-right: 0;
+  }
+  .recognition-output {
+    border-left: 0;
+    border-top: 1px solid var(--vp-c-divider);
+    margin-top: 24px;
+    min-height: 160px;
+    padding-left: 0;
+    padding-top: 24px;
+  }
+  .recognition-placeholder {
+    min-height: 120px;
+  }
+  .decoded-stage {
+    min-height: 320px;
+  }
+  .decoded-image {
+    min-height: 288px;
+  }
 }
 </style>

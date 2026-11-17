@@ -6,7 +6,10 @@
 
 .watermark-configurator-page .VPDoc .container,
 .watermark-configurator-page .VPDoc .content,
-.watermark-configurator-page .VPDoc .content-container {
+.watermark-configurator-page .VPDoc .content-container,
+.blind-watermark-decoder-page .VPDoc .container,
+.blind-watermark-decoder-page .VPDoc .content,
+.blind-watermark-decoder-page .VPDoc .content-container {
   max-width: 1240px;
 }
 

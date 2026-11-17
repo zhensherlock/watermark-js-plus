@@ -191,6 +191,7 @@ import { Watermark } from 'watermark-js-plus/ie'
 - [按需引入与 Tree Shaking](https://zhensherlock.github.io/watermark-js-plus/zh/guide/extra/on-demand.html)
 - [框架在线示例](https://zhensherlock.github.io/watermark-js-plus/zh/guide/extra/examples.html)
 - [演示集合](https://github.com/zhensherlock/watermark-js-plus/discussions/590)
+- [Vben Admin](https://doc.vben.pro/guide/in-depth/features.html#页面水印) 使用 `watermark-js-plus` 实现页面水印。
 
 ## 参与贡献
 
