@@ -11,7 +11,6 @@ class ImageWatermark {
   private readonly options: {} & WatermarkOptions & Partial<ImageWatermarkOptions>
   private readonly props?: Partial<ImageWatermarkOptions>
   private watermarkCanvas?: WatermarkCanvas
-  private layoutCanvas?: HTMLCanvasElement
   private readonly originalSrc?: string
   private readonly backgroundImage?: HTMLImageElement
   private drew = false
@@ -46,8 +45,8 @@ class ImageWatermark {
       height: this.backgroundImage?.height,
       backgroundImage: this.backgroundImage,
     }
-    this.layoutCanvas = renderLayout(this.options, <HTMLCanvasElement>this.watermarkCanvas?.getCanvas())
-    this.options.dom!.src = convertImage(this.layoutCanvas)
+    const layoutCanvas = renderLayout(this.options, <HTMLCanvasElement>this.watermarkCanvas?.getCanvas())
+    this.options.dom!.src = convertImage(layoutCanvas)
     this.watermarkCanvas?.clear()
     this.drew = true
   }

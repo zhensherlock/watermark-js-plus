@@ -15,7 +15,6 @@ class Watermark {
   private parentObserver?: MutationObserver
   private watermarkDom?: WatermarkDom
   private props?: Partial<WatermarkOptions>
-  private layoutCanvas?: HTMLCanvasElement
   private watermarkCanvas?: WatermarkCanvas
   private isCreating: Boolean = false
 
@@ -72,8 +71,8 @@ class Watermark {
       const firstDraw = isUndefined(this.watermarkDom)
 
       await this.watermarkCanvas?.draw()
-      this.layoutCanvas = renderLayout(this.options, <HTMLCanvasElement>this.watermarkCanvas?.getCanvas())
-      const image = convertImage(this.layoutCanvas)
+      const layoutCanvas = renderLayout(this.options, <HTMLCanvasElement>this.watermarkCanvas?.getCanvas())
+      const image = convertImage(layoutCanvas)
       this.watermarkCanvas?.clear()
       this.watermarkDom = document.createElement('div')
       const watermarkInnerDom = document.createElement('div')
