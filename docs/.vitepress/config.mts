@@ -1,9 +1,9 @@
 import { defineConfig } from 'vitepress'
 // import llmstxt from 'vitepress-plugin-llms'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
-// @ts-ignore
-import { version } from '../../package.json'
+import packageJson from '../../package.json' with { type: 'json' }
 
+const { version } = packageJson
 const siteUrl = 'https://zhensherlock.github.io/watermark-js-plus/'
 const socialImage = `${siteUrl}readme-hero.webp`
 const defaultDescription =
