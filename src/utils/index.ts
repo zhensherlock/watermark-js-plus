@@ -30,23 +30,23 @@ export const createSVGElement = (
 
 export const getMultiLineData = (ctx: CanvasRenderingContext2D, text: string, maxWidth: number) => {
   const result = []
-  let str = ''
-  let word = ''
+  let line = ''
   for (let i = 0, len = text.length; i < len; i++) {
-    word = text.charAt(i)
-    if (word === '\n') {
-      result.push(str)
-      str = ''
+    const character = text.charAt(i)
+    if (character === '\n') {
+      result.push(line)
+      line = ''
       continue
     }
-    str += word
-    if (ctx.measureText(str).width > maxWidth) {
-      result.push(str.substring(0, str.length - 1))
-      str = ''
-      i--
+    const nextLine = line + character
+    if (line && ctx.measureText(nextLine).width > maxWidth) {
+      result.push(line)
+      line = character
+    } else {
+      line = nextLine
     }
   }
-  result.push(str)
+  result.push(line)
   return result
 }
 
