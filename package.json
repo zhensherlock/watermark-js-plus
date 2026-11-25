@@ -1,6 +1,6 @@
 {
   "name": "watermark-js-plus",
-  "version": "1.6.6",
+  "version": "1.6.7",
   "description": "Framework-agnostic TypeScript watermark library for browsers with visible, image, and blind watermarks.",
   "scripts": {
     "clean:dist": "rimraf dist",
