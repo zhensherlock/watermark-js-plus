@@ -5,6 +5,7 @@ description: Render text or image watermarks directly into existing browser imag
 # Image Watermark
 
 <script setup lang="ts">
+import { ElAffix, ElSpace } from 'element-plus';
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
 import { onMounted, ref } from 'vue';
 import { ImageWatermark } from '../../../src';

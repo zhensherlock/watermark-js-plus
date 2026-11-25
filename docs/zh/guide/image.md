@@ -5,6 +5,7 @@ description: 使用 ImageWatermark API 将文本或图片水印直接绘制到�
 # 图片水印
 
 <script setup lang="ts">
+import { ElAffix, ElSpace } from 'element-plus';
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
 import { onMounted, ref } from 'vue';
 import { ImageWatermark } from '../../../src';

@@ -63,7 +63,7 @@
     transform: translate(-24px, 0);
   }
 
-  .VPContent.is-home .hero-lottie {
+  .VPContent.is-home .hero-art {
     width: min(100%, var(--home-hero-art-size));
   }
 

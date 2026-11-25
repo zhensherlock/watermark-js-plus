@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import ElementPlus from 'unplugin-element-plus/vite'
 // import llmstxt from 'vitepress-plugin-llms'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
 import packageJson from '../../package.json' with { type: 'json' }
@@ -163,6 +164,7 @@ export default defineConfig({
     },
   },
   vite: {
-    plugins: [groupIconVitePlugin()],
+    plugins: [groupIconVitePlugin(), ElementPlus({ include: [/\.(?:md|vue)(?:$|\?)/, /\.vue\.[jt]sx?\?vue/] })],
+    ssr: { noExternal: ['element-plus'] },
   },
 })

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Check, CopyDocument, Hide, RefreshLeft, View } from '@element-plus/icons-vue'
+import { ElButton } from 'element-plus'
 import cloneDeep from 'lodash/cloneDeep'
 import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useData } from 'vitepress'

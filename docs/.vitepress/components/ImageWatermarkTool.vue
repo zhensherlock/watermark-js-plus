@@ -20,6 +20,17 @@ import {
   TopRight,
   UploadFilled,
 } from '@element-plus/icons-vue'
+import {
+  ElButton,
+  ElColorPicker,
+  ElIcon,
+  ElInput,
+  ElInputNumber,
+  ElOption,
+  ElSelect,
+  ElSlider,
+  ElSwitch,
+} from 'element-plus'
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { ImageWatermark } from '../../../src'
 import type { ImageWatermarkOptions } from '../../../src'

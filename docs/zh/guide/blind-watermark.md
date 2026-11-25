@@ -5,6 +5,7 @@ description: 使用 BlindWatermark API 创建低透明度暗水印，并从截�
 # 暗水印
 
 <script setup lang="ts">
+import { ElAffix, ElMessage, ElSpace } from 'element-plus';
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
 import { getCurrentInstance } from 'vue';
 import dayjs from 'dayjs';
@@ -22,11 +23,11 @@ const handleAddTextBlindWatermark = () => {
     width: 200,
     height: 200,
     onSuccess: () => {
-      app.appContext.config.globalProperties.$message({
+      ElMessage({
         appendTo: '#app',
         message: '文本暗水印添加成功！',
         type: 'success'
-      });
+      }, app?.appContext);
     }
   }, 'blind')
 };
@@ -49,11 +50,11 @@ const handleAddMultiLineTextBlindWatermark = () => {
     width: 200,
     height: 200,
     onSuccess: () => {
-      app.appContext.config.globalProperties.$message({
+      ElMessage({
         appendTo: '#app',
         message: '多行文本暗水印添加成功！',
         type: 'success'
-      });
+      }, app?.appContext);
     }
   }, 'blind')
 };
@@ -70,11 +71,11 @@ const handleAddImageBlindWatermark = () => {
     width: 300,
     height: 300,
     onSuccess: () => {
-      app.appContext.config.globalProperties.$message({
+      ElMessage({
         appendTo: '#app',
         message: '图片暗水印添加成功！',
         type: 'success'
-      });
+      }, app?.appContext);
     }
   }, 'blind')
 };
@@ -89,11 +90,11 @@ const handleAddRichTextBlindWatermark = () => {
     width: 300,
     height: 300,
     onSuccess: () => {
-      app.appContext.config.globalProperties.$message({
+      ElMessage({
         appendTo: '#app',
         message: '富文本暗水印添加成功！',
         type: 'success'
-      });
+      }, app?.appContext);
     }
   }, 'blind')
 };

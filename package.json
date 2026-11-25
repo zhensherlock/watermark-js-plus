@@ -146,7 +146,6 @@
     "jquery": "^4.1.0",
     "lint-staged": "^17.6.2",
     "lodash": "^4.18.1",
-    "lottie-web": "^5.13.0",
     "markdown-it": "^14.3.3",
     "pinia": "^3.0.4",
     "prettier": "^3.10.1",
