@@ -1,0 +1,39 @@
+---
+url: https://zhensherlock.github.io/watermark-js-plus/zh/config/blind.md
+description: 查阅 BlindWatermark 继承标准 Watermark 能力时强制使用的配置值。
+---
+
+# BlindWatermark 配置项
+
+**相关内容：** [暗水印指南](/zh/guide/blind-watermark) · [Watermark 配置项](/zh/config/)
+
+## 继承说明
+
+本配置**继承所有**[水印配置选项](index.md)参数，但**固定以下值不可修改**:
+
+* `globalAlpha`: 恒为 `0.005` (不可修改)
+* `mode`: 恒为 `'blind'` (不可修改)
+
+## 特殊属性
+
+### globalAlpha
+
+* **类型**: `number`
+* **固定值**: `0.005`
+* **说明**: 预设极低透明度实现暗水印效果，所有修改尝试将被自动重置
+
+### mode
+
+* **类型**: `string`
+* **固定值**: `'blind'`
+* **说明**: 锁定为暗水印模式，修改此值无效
+
+## 使用示例
+
+```javascript
+// 以下值将被自动修正:
+new BlindWatermark({
+  globalAlpha: 0.1,  // 会被强制设为0.005
+  mode: 'default'    // 会被强制设为'blind'
+})
+```

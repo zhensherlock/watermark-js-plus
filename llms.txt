@@ -1,0 +1,41 @@
+# watermark-js-plus
+
+> Browser watermarks for any framework
+
+Add visible, image, and blind watermarks with a lightweight TypeScript library.
+
+## Table of Contents
+
+- [Blind Watermark](https://zhensherlock.github.io/watermark-js-plus/guide/blind-watermark.md): Create low-opacity blind watermarks and reveal them from screenshots or images with the BlindWatermark API.
+- [Blind Watermark Decoder](https://zhensherlock.github.io/watermark-js-plus/tools/blind-watermark-decoder.md): Upload or paste an image, tune the decode options, and reveal its blind watermark in the browser.
+- [BlindWatermark Options](https://zhensherlock.github.io/watermark-js-plus/config/blind.md): Reference the option values that BlindWatermark enforces while inheriting standard Watermark capabilities.
+- [BlindWatermark 配置项](https://zhensherlock.github.io/watermark-js-plus/zh/config/blind.md): 查阅 BlindWatermark 继承标准 Watermark 能力时强制使用的配置值。
+- [BlindWatermark.decode Options](https://zhensherlock.github.io/watermark-js-plus/config/blind-decode.md): Configure BlindWatermark.decode to enhance and reveal a blind watermark contained in a screenshot or image.
+- [BlindWatermark.decode 参数](https://zhensherlock.github.io/watermark-js-plus/zh/config/blind-decode.md): 配置 BlindWatermark.decode，对截图或图片中的暗水印进行增强和显现。
+- [ES Module Imports](https://zhensherlock.github.io/watermark-js-plus/guide/extra/on-demand.md): Import watermark-js-plus from its ES module entry for modern bundlers and tree shaking.
+- [ES 模块导入](https://zhensherlock.github.io/watermark-js-plus/zh/guide/extra/on-demand.md): 从 watermark-js-plus 的 ES 模块入口导入，配合现代构建工具和 Tree Shaking 使用。
+- [Examples](https://zhensherlock.github.io/watermark-js-plus/guide/extra/examples.md): Explore live watermark-js-plus examples for React, Vue, Angular, SvelteKit, Astro, and advanced integration scenarios.
+- [Getting Started](https://zhensherlock.github.io/watermark-js-plus/guide/getting-started.md): Install watermark-js-plus and add your first browser watermark with npm, yarn, or a version-pinned CDN script.
+- [Image Watermark](https://zhensherlock.github.io/watermark-js-plus/guide/image.md): Render text or image watermarks directly into existing browser images with the ImageWatermark API.
+- [Image Watermark Tool](https://zhensherlock.github.io/watermark-js-plus/tools/image-watermark.md): Add a text or logo watermark to an image and download the result directly in your browser.
+- [Legacy Browser Support](https://zhensherlock.github.io/watermark-js-plus/guide/extra/ie.md): Use the Internet Explorer build and blind-decoding fallbacks for legacy browser support.
+- [Tools](https://zhensherlock.github.io/watermark-js-plus/tools.md): Use interactive browser tools to configure watermarks or reveal a blind watermark from an image.
+- [Watermark](https://zhensherlock.github.io/watermark-js-plus/guide/watermark.md): Add configurable text, image, rich-text, moving, and container watermarks to browser pages with the Watermark API.
+- [Watermark](https://zhensherlock.github.io/watermark-js-plus/zh/guide/watermark.md): 使用 Watermark API 为浏览器页面添加可配置的文本、图片、富文本、动态和容器水印。
+- [Watermark Configurator](https://zhensherlock.github.io/watermark-js-plus/tools/watermark-configurator.md): Configure a watermark interactively, preview changes on the page, and copy the generated initialization code.
+- [Watermark Methods](https://zhensherlock.github.io/watermark-js-plus/config/function.md): Reference the Watermark and BlindWatermark instance methods and the methods supported by ImageWatermark.
+- [Watermark Options](https://zhensherlock.github.io/watermark-js-plus/config.md): Reference all watermark-js-plus options for content, layout, typography, opacity, animation, protection, and lifecycle callbacks.
+- [Watermark 方法](https://zhensherlock.github.io/watermark-js-plus/zh/config/function.md): 查阅 Watermark 和 BlindWatermark 的实例方法，以及 ImageWatermark 支持的方法。
+- [watermark-js-plus — JavaScript 与 TypeScript 浏览器水印库](https://zhensherlock.github.io/watermark-js-plus/zh.md): 一个轻量、框架无关的 TypeScript 浏览器水印库，支持可见水印、图片水印和暗水印。
+- [watermark-js-plus 是什么？](https://zhensherlock.github.io/watermark-js-plus/zh/guide/what-is-this.md): 了解如何使用 watermark-js-plus 的框架无关 TypeScript API，为浏览器页面添加可见水印、图片水印和暗水印。
+- [What is watermark-js-plus?](https://zhensherlock.github.io/watermark-js-plus/guide/what-is-this.md): Learn how watermark-js-plus adds visible, image, and blind watermarks to browser pages with framework-agnostic TypeScript APIs.
+- [图片水印](https://zhensherlock.github.io/watermark-js-plus/zh/guide/image.md): 使用 ImageWatermark API 将文本或图片水印直接绘制到浏览器中的现有图片。
+- [图片水印工具](https://zhensherlock.github.io/watermark-js-plus/zh/tools/image-watermark.md): 在线为图片添加文字或图片水印，并直接在浏览器中下载处理结果。
+- [在线工具](https://zhensherlock.github.io/watermark-js-plus/zh/tools.md): 使用浏览器在线工具配置水印，或从图片中显现暗水印。
+- [开始使用](https://zhensherlock.github.io/watermark-js-plus/zh/guide/getting-started.md): 使用 npm、yarn 或固定版本的 CDN 脚本安装 watermark-js-plus，并创建第一个浏览器水印。
+- [旧版浏览器支持](https://zhensherlock.github.io/watermark-js-plus/zh/guide/extra/ie.md): 使用 Internet Explorer 构建和暗水印解码回退支持旧版浏览器。
+- [暗水印](https://zhensherlock.github.io/watermark-js-plus/zh/guide/blind-watermark.md): 使用 BlindWatermark API 创建低透明度暗水印，并从截图或图片中将其显现。
+- [暗水印解码器](https://zhensherlock.github.io/watermark-js-plus/zh/tools/blind-watermark-decoder.md): 上传或粘贴图片，在浏览器中调整解码参数并显现其中的暗水印。
+- [水印配置生成器](https://zhensherlock.github.io/watermark-js-plus/zh/tools/watermark-configurator.md): 交互式调整水印参数，在页面中预览效果，并复制生成的初始化代码。
+- [水印配置选项](https://zhensherlock.github.io/watermark-js-plus/zh/config.md): 查阅 watermark-js-plus 的内容、布局、字体、透明度、动画、防篡改和生命周期回调配置项。
+- [示例](https://zhensherlock.github.io/watermark-js-plus/zh/guide/extra/examples.md): 查看 watermark-js-plus 在 React、Vue、Angular、SvelteKit、Astro 和高级集成场景中的在线示例。

@@ -1,0 +1,2601 @@
+---
+url: https://zhensherlock.github.io/watermark-js-plus/guide/blind-watermark.md
+description: >-
+  Create low-opacity blind watermarks and reveal them from screenshots or images
+  with the BlindWatermark API.
+---
+
+# Blind Watermark
+
+`BlindWatermark` inherits the content, layout, and lifecycle capabilities of `Watermark`, but always uses `globalAlpha: 0.005` and `mode: 'blind'`. See [BlindWatermark options](/config/blind) for the exact enforced values.
+
+## Text Blind Watermark
+
+```js
+import { BlindWatermark } from 'watermark-js-plus' // import watermark plugin
+
+const watermark = new BlindWatermark({
+  content: 'hello my watermark',
+  width: 200,
+  height: 200,
+  onSuccess: () => {
+    // success callback
+  }
+})
+
+watermark.create() // add watermark
+
+watermark.destroy() // remove watermark
+```
+
+👉 Add parameters for dark background：`fontColor: '#fff'`&#xA;&#xA;
+\<VPButton text="Add Text Blind Watermark" @click="handleAddTextBlindWatermark">
+\<VPButton text="Update Text Blind Watermark" @click="handleUpdateTextBlindWatermark">
+\<VPButton text="Remove Text Blind Watermark" @click="handleRemoveTextBlindWatermark">&#xA;&#xA;
+
+## Multiline Text Blind Watermark
+
+```js
+import { BlindWatermark } from 'watermark-js-plus' // import watermark plugin
+
+const watermark = new BlindWatermark({
+  contentType: 'multi-line-text',
+  content: 'hello my multiline blind watermark',
+  fontSize: '30px',
+  width: 200,
+  height: 200,
+  onSuccess: () => {
+    // success callback
+  }
+})
+
+watermark.create() // add watermark
+
+watermark.destroy() // remove watermark
+```
+
+👉 Add parameters for dark background：`fontColor: '#fff'`&#xA;&#xA;
+\<VPButton text="Add Multiline Text Blind Watermark" @click="handleAddMultiLineTextBlindWatermark">
+\<VPButton text="Remove Multiline Text Blind Watermark" @click="handleRemoveMultiLineTextBlindWatermark">&#xA;&#xA;
+
+## Image Blind Watermark
+
+```js
+import { BlindWatermark } from 'watermark-js-plus' // import watermark plugin
+
+const watermark = new BlindWatermark({
+  contentType: 'image',
+  image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
+  width: 300,
+  height: 300,
+  imageWidth: 100, // image width
+  // imageHeight: 20, // image height
+  onSuccess: () => {
+    // success callback
+  }
+})
+
+watermark.create() // add watermark
+
+watermark.destroy() // remove watermark
+```
+
+## Rich Text Blind Watermark
+
+```js
+import { BlindWatermark } from 'watermark-js-plus' // import watermark plugin
+
+const watermark = new BlindWatermark({
+  contentType: 'rich-text',
+  content: '<div><span style="color: #f00">good</span> watermark</div>',
+  width: 300,
+  height: 300,
+  onSuccess: () => {
+    // success callback
+  }
+})
+
+watermark.create() // add watermark
+
+watermark.destroy() // remove watermark
+```
+
+## Decode Blind Watermark
+
+For the easiest workflow, open the [Blind Watermark Decoder](/tools/blind-watermark-decoder) to upload or paste an image, adjust the decode options, and preview the result.
+
+Use `BlindWatermark.decode` when you need to integrate decoding into your own application. See [decode options](/config/blind-decode) for all available parameters.
+
+The decoder loads the source image into a Canvas, repeatedly applies the selected composite operation and fill color, then returns the enhanced image as a PNG Data URL.
+
+```js
+import { BlindWatermark } from 'watermark-js-plus' // import watermark plugin
+
+BlindWatermark.decode({
+  compositeOperation: 'overlay',
+  compositeTimes: 4,
+  url: uploadFile.url, // image url
+  onSuccess: (imageBase64) => {
+    // success callback
+  }
+})
+```
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/tools/blind-watermark-decoder.md
+description: >-
+  Upload or paste an image, tune the decode options, and reveal its blind
+  watermark in the browser.
+---
+
+# Blind Watermark Decoder
+
+Upload or paste an image containing a blind watermark, then adjust the options to reveal it.
+
+**Related:** [Blind watermark guide](/guide/blind-watermark) · [Decode options](/config/blind-decode)
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/config/blind.md
+description: >-
+  Reference the option values that BlindWatermark enforces while inheriting
+  standard Watermark capabilities.
+---
+
+# BlindWatermark Options
+
+**Related:** [Blind watermark guide](/guide/blind-watermark) · [Watermark options](/config/)
+
+## Inheritance Note
+
+This configuration **inherits all options** from [Watermark Options](index.md), but **enforces fixed values** for:
+
+* `globalAlpha`: Always `0.005` (cannot be modified)
+* `mode`: Always `'blind'` (cannot be modified)
+
+## Specialized Properties
+
+### globalAlpha
+
+* **Type**: `number`
+* **Fixed Value**: `0.005`
+* **Description**: Preset to ultra-low transparency for blind watermark effect. All modification attempts will be automatically overridden.
+
+### mode
+
+* **Type**: `string`
+* **Fixed Value**: `'blind'`
+* **Description**: Locked in blind watermark mode. Changing this value has no effect.
+
+## Example Usage
+
+```javascript
+// These values will be automatically corrected:
+new BlindWatermark({
+  globalAlpha: 0.1,  // Will be forced to 0.005
+  mode: 'default'    // Will be forced to 'blind'
+})
+```
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/zh/config/blind.md
+description: 查阅 BlindWatermark 继承标准 Watermark 能力时强制使用的配置值。
+---
+
+# BlindWatermark 配置项
+
+**相关内容：** [暗水印指南](/zh/guide/blind-watermark) · [Watermark 配置项](/zh/config/)
+
+## 继承说明
+
+本配置**继承所有**[水印配置选项](index.md)参数，但**固定以下值不可修改**:
+
+* `globalAlpha`: 恒为 `0.005` (不可修改)
+* `mode`: 恒为 `'blind'` (不可修改)
+
+## 特殊属性
+
+### globalAlpha
+
+* **类型**: `number`
+* **固定值**: `0.005`
+* **说明**: 预设极低透明度实现暗水印效果，所有修改尝试将被自动重置
+
+### mode
+
+* **类型**: `string`
+* **固定值**: `'blind'`
+* **说明**: 锁定为暗水印模式，修改此值无效
+
+## 使用示例
+
+```javascript
+// 以下值将被自动修正:
+new BlindWatermark({
+  globalAlpha: 0.1,  // 会被强制设为0.005
+  mode: 'default'    // 会被强制设为'blind'
+})
+```
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/config/blind-decode.md
+description: >-
+  Configure BlindWatermark.decode to enhance and reveal a blind watermark
+  contained in a screenshot or image.
+---
+
+# BlindWatermark.decode Options
+
+**Related:** [Blind watermark guide](/guide/blind-watermark) · [Blind Watermark Decoder](/tools/blind-watermark-decoder)
+
+## url
+
+* **Type**: `string`
+* **Default**: `''`
+* **Description**: Source image URL or Data URL. The decoder does not set `crossOrigin`, so use a same-origin source or Data URL to avoid a tainted Canvas and export failure.
+
+## mode
+
+* **Type**: `'canvas' | 'html' | 'svg'`
+* **Default**: `'canvas'`
+* **Supported Value**: `'canvas'`
+* **Description**: Only canvas decoding is implemented. The typed `'html'` and `'svg'` values currently perform no decoding.
+
+## fillColor
+
+* **Type**: `string`
+* **Default**: `'#000'`
+* **Description**: Fill color used during decoding, affects final decoding result
+
+## compositeOperation
+
+* **Type**: `string`
+* **Default**: `'color-burn'`
+* **Description**: Image composite operation used to enhance watermark visibility. The IE entry provides a software fallback for `'color-burn'` and `'overlay'` when the browser does not support them.
+
+## compositeTimes
+
+* **Type**: `number`
+* **Default**: `3`
+* **Description**: Number of composite passes. The visual result depends on `compositeOperation` and `fillColor`; values less than or equal to `0` skip compositing.
+
+## onSuccess
+
+* **Type**: `Function | undefined`
+* **Default**: `undefined`
+* **Description**: Callback after successful decoding; its parameter is the processed PNG Data URL.
+
+## Usage Example
+
+```javascript
+BlindWatermark.decode({
+  url: 'image-with-watermark.png',
+  fillColor: '#000',
+  compositeOperation: 'color-burn',
+  onSuccess: (decodedImage) => {
+    // Handle decoded image
+  }
+})
+```
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/zh/config/blind-decode.md
+description: 配置 BlindWatermark.decode，对截图或图片中的暗水印进行增强和显现。
+---
+
+# BlindWatermark.decode 参数
+
+**相关内容：** [暗水印指南](/zh/guide/blind-watermark) · [暗水印解码器](/zh/tools/blind-watermark-decoder)
+
+## url
+
+* **类型**: `string`
+* **默认值**: `''`
+* **描述**: 待解码图片的 URL 或 Data URL。解码器不会设置 `crossOrigin`，应使用同源地址或 Data URL，避免 Canvas 被污染而无法导出
+
+## mode
+
+* **类型**: `'canvas' | 'html' | 'svg'`
+* **默认值**: `'canvas'`
+* **支持值**: `'canvas'`
+* **描述**: 目前只实现了 canvas 解码；类型中包含的 `'html'` 和 `'svg'` 当前不会执行解码。
+
+## fillColor
+
+* **类型**: `string`
+* **默认值**: `'#000'`
+* **描述**: 解码时使用的填充颜色，影响最终解码效果
+
+## compositeOperation
+
+* **类型**: `string`
+* **默认值**: `'color-burn'`
+* **描述**: 用于增强水印可见性的图像合成操作。浏览器不支持时，IE 入口会为 `'color-burn'` 和 `'overlay'` 提供软件回退。
+
+## compositeTimes
+
+* **类型**: `number`
+* **默认值**: `3`
+* **描述**: 图像合成次数，实际效果取决于 `compositeOperation` 和 `fillColor`；小于或等于 `0` 时跳过合成
+
+## onSuccess
+
+* **类型**: `Function | undefined`
+* **默认值**: `undefined`
+* **描述**: 解码成功后的回调函数，参数为处理后的 PNG Data URL。
+
+## 使用示例
+
+```javascript
+BlindWatermark.decode({
+  url: 'image-with-watermark.png',
+  fillColor: '#000',
+  compositeOperation: 'color-burn',
+  onSuccess: (decodedImage) => {
+    // 处理解码后的图像
+  }
+})
+```
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/guide/extra/on-demand.md
+description: >-
+  Import watermark-js-plus from its ES module entry for modern bundlers and tree
+  shaking.
+---
+
+# ES Module Imports
+
+watermark-js-plus provides an ES module entry for modern build tools. Import the public classes your application uses from `watermark-js-plus/es`, then let your bundler handle tree shaking and production optimization.
+
+## Import from the ES module entry
+
+```ts
+// Watermark class
+import { Watermark } from 'watermark-js-plus/es'
+
+// Blind watermarks and decoding
+import { BlindWatermark } from 'watermark-js-plus/es'
+
+// Watermarks rendered into an image
+import { ImageWatermark } from 'watermark-js-plus/es'
+
+// Required when using the movable option
+import 'watermark-js-plus/style.css'
+```
+
+You can also group multiple imports in one statement:
+
+```ts
+import { BlindWatermark, Watermark } from 'watermark-js-plus/es'
+```
+
+## When to use it
+
+Use the `/es` entry when your application is built with an ES module-aware bundler such as Vite, Rollup, or webpack. The final bundle depends on your bundler configuration and the code your application actually imports.
+
+For most applications, importing from the package root remains the simplest option. Use the ES module entry when you need explicit control over the module format or want to inspect and optimize the generated bundle.
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/zh/guide/extra/on-demand.md
+description: 从 watermark-js-plus 的 ES 模块入口导入，配合现代构建工具和 Tree Shaking 使用。
+---
+
+# ES 模块导入
+
+watermark-js-plus 为现代构建工具提供了 ES 模块入口。请从 `watermark-js-plus/es` 导入应用使用的公开类，再由构建工具完成 Tree Shaking 和生产环境优化。
+
+## 从 ES 模块入口导入
+
+```ts
+// Watermark 类
+import { Watermark } from 'watermark-js-plus/es'
+
+// 暗水印及其解码
+import { BlindWatermark } from 'watermark-js-plus/es'
+
+// 将水印绘制到图片
+import { ImageWatermark } from 'watermark-js-plus/es'
+
+// 使用 movable 选项时必须引入
+import 'watermark-js-plus/style.css'
+```
+
+也可以在一条语句中导入多个类：
+
+```ts
+import { BlindWatermark, Watermark } from 'watermark-js-plus/es'
+```
+
+## 适用场景
+
+当项目使用 Vite、Rollup 或 webpack 等支持 ES 模块的构建工具时，可以使用 `/es` 入口。最终产物的体积取决于构建配置以及应用实际导入的代码。
+
+对大多数应用而言，从包根路径导入仍是最简单的方式。需要明确控制模块格式，或希望检查并优化构建产物时，再使用 ES 模块入口。
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/guide/extra/examples.md
+description: >-
+  Explore live watermark-js-plus examples for React, Vue, Angular, SvelteKit,
+  Astro, and advanced integration scenarios.
+---
+
+# Examples
+
+Collection of live examples demonstrating how to integrate watermark-js-plus with different JavaScript frameworks.
+
+## React Ecosystem
+
+| Framework   | Live Demo |
+|-------------|----------|
+| React       | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/vitejs-vite-mdnntv) |
+| Next.js     | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/stackblitz-starters-pv2mvx) |
+| Remix       | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/remix-run-remix-q4jgus) |
+
+## Vue Ecosystem
+
+| Framework  | Live Demo |
+|------------|----------|
+| Vue (2.x)  | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/vue2-vite-starter-t8cew5) |
+| Vue (3.x)  | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/vitejs-vite-m54xz7) |
+| Nuxt (2.x) | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/nuxt-starter-drw2fy) |
+| Nuxt (3.x) | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/nuxt-starter-gf357r) |
+| Quasar     | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/stackblitz-starters-rxyjhx) |
+
+## Other Frameworks
+
+| Framework       | Live Demo |
+|-----------------|----------|
+| Angular         | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/stackblitz-starters-etu1at) |
+| SvelteKit (Next)| [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/svelte-kit-9cqx23) |
+| SvelteKit (2.x) | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/sveltejs-kit-template-default-qhiudx) |
+| Astro           | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/withastro-astro-eeghpe) |
+
+## Advanced Scenarios
+
+| Scenario                | Live Demo |
+|-------------------------|----------|
+| Multiple Watermark Bind | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/vue2-vite-starter-a274yz) |
+| On-Demand Generation    | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/webpack-webpack-js-org-wq26h43z) |
+| Vanilla JS  | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/vitejs-vite-wfnb1k) |
+| IIFE (CDN)  | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/js-y7xfw5) |
+| Webpack     | [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/webpack-webpack-js-org-dysy1x) |
+
+## Usage Tips
+
+1. Click any "Open in StackBlitz" button to explore the live example
+2. Framework-specific implementations show recommended integration patterns
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/guide/getting-started.md
+description: >-
+  Install watermark-js-plus and add your first browser watermark with npm, yarn,
+  or a version-pinned CDN script.
+---
+
+# Getting Started
+
+## Installation
+
+Using npm:
+
+```bash
+$ npm install watermark-js-plus
+```
+
+Using yarn:
+
+```bash
+$ yarn add watermark-js-plus
+```
+
+## Basic Usage
+
+1. Import watermark plugin
+
+```ts
+import { Watermark } from 'watermark-js-plus'
+```
+
+2. Create instance
+
+```ts
+const watermark = new Watermark({
+  content: 'hello my watermark',
+  width: 200,
+  height: 200,
+  onSuccess: () => {
+    // success callback
+  }
+})
+```
+
+3. Add watermark to page
+
+```ts
+watermark.create()
+```
+
+## CDN Usage
+
+Using jsDelivr CDN:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/watermark-js-plus@1.6.7/dist/index.iife.min.js"></script>
+```
+
+Using unpkg CDN:
+
+```html
+<script src="https://unpkg.com/watermark-js-plus@1.6.7/dist/index.iife.min.js"></script>
+```
+
+Usage example:
+
+```ts
+const watermark = new WatermarkPlus.Watermark({
+  content: 'hello my watermark',
+  width: 200,
+  height: 200
+})
+watermark.create();
+```
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/guide/image.md
+description: >-
+  Render text or image watermarks directly into existing browser images with the
+  ImageWatermark API.
+---
+
+# Image Watermark
+
+For precise API details, see [ImageWatermark options](/config/#image-watermark-options) and the applicable methods in [Watermark methods](/config/function).
+
+## Text Watermark
+
+```html
+<img class="text-watermark-image" src="https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/402413381-a24bd4a5-c4e0-45d6-b8ce-94e99e29a111-dowV4C.png" crossorigin="anonymous">
+```
+
+```js
+import { ImageWatermark } from 'watermark-js-plus' // import watermark plugin
+
+const imgDom = document.querySelector('.text-watermark-image');
+await imgDom.decode()
+
+const watermark = new ImageWatermark({
+  content: 'my text watermark',
+  width: imgDom.width,
+  height: imgDom.height,
+  dom: imgDom,
+  rotate: 0,
+  translatePlacement: 'bottom-end',
+  fontColor: '#fff',
+  globalAlpha: 0.5,
+  fontSize: '30px',
+  crossOrigin: true
+})
+
+await watermark.create() // add watermark
+
+watermark.destroy() // remove watermark
+```
+
+[//]: # "  <img class=\"text-watermark-image\" src=\"https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/402413381-a24bd4a5-c4e0-45d6-b8ce-94e99e29a111-dowV4C.png\">"
+
+## Image Watermark
+
+```html
+<img class="image-watermark-image" src="https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/402413381-a24bd4a5-c4e0-45d6-b8ce-94e99e29a111-dowV4C.png" crossorigin="anonymous">
+```
+
+```js
+import { ImageWatermark } from 'watermark-js-plus' // import watermark plugin
+
+const imgDom = document.querySelector('.image-watermark-image');
+await imgDom.decode()
+
+const watermark = new ImageWatermark({
+  contentType: 'image',
+  image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
+  imageWidth: 200,
+  width: imgDom.width,
+  height: imgDom.height,
+  dom: imgDom,
+  rotate: 0,
+  translatePlacement: 'bottom-end',
+  crossOrigin: true
+})
+
+await watermark.create() // add watermark
+
+watermark.destroy() // remove watermark
+```
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/tools/image-watermark.md
+description: >-
+  Add a text or logo watermark to an image and download the result directly in
+  your browser.
+---
+
+# Image Watermark Tool
+
+Upload one image, customize a text or logo watermark, and download the finished PNG. All processing happens locally in your browser.
+
+**Related:** [Image Watermark guide](/guide/image) · [ImageWatermark options](/config/#image-watermark-options)
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/guide/extra/ie.md
+description: >-
+  Use the Internet Explorer build and blind-decoding fallbacks for legacy
+  browser support.
+---
+
+# Legacy Browser Support
+
+This plugin supports IE11 and partially supports IE10 and IE9.
+
+## NPM
+
+```ts
+import { Watermark } from 'watermark-js-plus/ie'
+```
+
+> This ensures compatibility with IE11 and partial support for IE10 and IE9.
+
+## Blind watermark decoding
+
+The IE build includes a software fallback for the `overlay` and `color-burn` canvas blend modes used by blind watermark decoding. The regular build does not include this fallback, so use the `/ie` entry when decoding blind watermarks in IE11.
+
+## CDN
+
+```html
+<!-- import JavaScript -->
+<script src="https://www.unpkg.com/watermark-js-plus@1.6.7/dist/ie/index.iife.min.js"></script>
+```
+
+> We recommend our users to lock version when using CDN. Please refer to [unpkg.com](https://unpkg.com/) for more information.
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/tools.md
+description: >-
+  Use interactive browser tools to configure watermarks or reveal a blind
+  watermark from an image.
+---
+
+# Tools
+
+Use these browser-based tools to complete common watermark tasks without writing integration code first.
+
+## [Watermark Configurator](/tools/watermark-configurator)
+
+Adjust watermark options interactively, preview the result on the page, and copy the generated initialization code.
+
+## [Image Watermark Tool](/tools/image-watermark)
+
+Upload an image, add a text or logo watermark, preview the result, and download a PNG without sending the image to a server.
+
+## [Blind Watermark Decoder](/tools/blind-watermark-decoder)
+
+Upload or paste an image, tune the decode options, and reveal its blind watermark.
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/guide/watermark.md
+description: >-
+  Add configurable text, image, rich-text, moving, and container watermarks to
+  browser pages with the Watermark API.
+---
+
+# Watermark
+
+Use the [Watermark Configurator](/tools/watermark-configurator) to adjust options interactively and generate initialization code. For precise API details, see [Watermark options](/config/) and [Watermark methods](/config/function).
+
+## Text Watermark
+
+```js
+import { Watermark } from 'watermark-js-plus' // import watermark plugin
+
+const watermark = new Watermark({
+  content: 'hello my watermark',
+  width: 200,
+  height: 200,
+  rotate: 22,
+  layout: 'grid',
+  gridLayoutOptions: {
+    rows: 2,
+    cols: 2,
+    gap: [20, 20],
+    matrix: [[1, 0], [0, 1]]
+  },
+  advancedStyle: {
+    type: 'linear',
+    colorStops: [
+      {
+        offset: 0,
+        color: 'red'
+      },
+      {
+        offset: 1,
+        color: 'blue'
+      }
+    ]
+  },
+  onSuccess: () => {
+    // success callback
+  }
+})
+
+watermark.create() // add watermark
+
+watermark.destroy() // remove watermark
+```
+
+## Multiline Text Watermark
+
+```js
+import { Watermark } from 'watermark-js-plus' // import watermark plugin
+
+const watermark = new Watermark({
+  contentType: 'multi-line-text',
+  content: 'multi text watermark',
+  fontSize: '30px',
+  width: 200,
+  height: 200,
+  shadowStyle: {
+    shadowBlur: 10,
+    shadowColor: '#000000FF',
+    shadowOffsetX: 0,
+    shadowOffsetY: 0
+  },
+  onSuccess: () => {
+    // success callback
+  }
+})
+
+watermark.create() // add watermark
+
+watermark.destroy() // remove watermark
+```
+
+## Image Watermark
+
+```js
+import { Watermark } from 'watermark-js-plus' // import watermark plugin
+
+const watermark = new Watermark({
+  contentType: 'image',
+  image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
+  width: 300,
+  height: 300,
+  imageWidth: 100, // image width
+  // imageHeight: 20, // image height
+  filter: 'grayscale(100%)', // graylevel
+  onSuccess: () => {
+    // success callback
+  }
+})
+
+watermark.create() // add watermark
+
+watermark.destroy() // remove watermark
+```
+
+## Rich Text Watermark
+
+```js
+import { Watermark } from 'watermark-js-plus' // import watermark plugin
+
+const watermark = new Watermark({
+  contentType: 'rich-text',
+  content: '<div style="background: #ccc;display: flex;flex-direction: column;"><div>how <span style="color: #f00;margin-left: 5px;">nice</span></div><img src="https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png" width="100px"></div>',
+  width: 300,
+  height: 300,
+  filter: 'blur(2px)',
+  movable: true,
+  onSuccess: () => {
+    // success callback
+  }
+})
+
+watermark.create() // add watermark
+
+watermark.destroy() // remove watermark
+```
+
+## Child Element Watermark
+
+> You need to **manually set the `position` style** for the parent DOM element, for example: `position: relative`.
+
+```js
+import { Watermark } from 'watermark-js-plus' // import watermark plugin
+
+const watermark = new Watermark({
+  parent: '.parent-element',
+  width: 180,
+  height: 180,
+  textRowMaxWidth: 254,
+  backgroundRepeat: 'no-repeat',
+  zIndex: 900,
+  movable: true
+})
+
+watermark.create() // add watermark
+
+watermark.destroy() // remove watermark
+```
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/zh/guide/watermark.md
+description: 使用 Watermark API 为浏览器页面添加可配置的文本、图片、富文本、动态和容器水印。
+---
+
+# Watermark
+
+使用[水印配置生成器](/zh/tools/watermark-configurator)可以交互式调整参数并生成初始化代码。精确的 API 说明参见 [Watermark 配置项](/zh/config/)和 [Watermark 方法](/zh/config/function)。
+
+## 文本水印
+
+```js
+import { Watermark } from 'watermark-js-plus' // 引入水印插件
+
+const watermark = new Watermark({
+  content: 'hello my watermark',
+  width: 200,
+  height: 200,
+  rotate: 22,
+  layout: 'grid',
+  gridLayoutOptions: {
+    rows: 2,
+    cols: 2,
+    gap: [20, 20],
+    matrix: [[1, 0], [0, 1]]
+  },
+  advancedStyle: {
+    type: 'linear',
+    colorStops: [
+      {
+        offset: 0,
+        color: 'red'
+      },
+      {
+        offset: 1,
+        color: 'blue'
+      }
+    ]
+  },
+  onSuccess: () => {
+    // success callback
+  }
+})
+
+watermark.create() // 添加水印
+
+watermark.destroy() // 删除水印
+```
+
+## 多行文本水印
+
+```js
+import { Watermark } from 'watermark-js-plus' // 引入水印插件
+
+const watermark = new Watermark({
+  contentType: 'multi-line-text',
+  content: 'multi text watermark',
+  fontSize: '30px',
+  width: 200,
+  height: 200,
+  shadowStyle: {
+    shadowBlur: 10,
+    shadowColor: '#000000FF',
+    shadowOffsetX: 0,
+    shadowOffsetY: 0
+  },
+  onSuccess: () => {
+    // success callback
+  }
+})
+
+watermark.create() // 添加水印
+
+watermark.destroy() // 删除水印
+```
+
+## 图片水印
+
+```js
+import { Watermark } from 'watermark-js-plus' // 引入水印插件
+
+const watermark = new Watermark({
+  contentType: 'image',
+  image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
+  width: 300,
+  height: 300,
+  imageWidth: 100, // 图片宽度
+  // imageHeight: 20, // 图片高度
+  filter: 'grayscale(100%)', // 灰阶
+  onSuccess: () => {
+    // success callback
+  }
+})
+
+watermark.create() // 添加水印
+
+watermark.destroy() // 删除水印
+```
+
+## 富文本水印
+
+```js
+import { Watermark } from 'watermark-js-plus' // 引入水印插件
+
+const watermark = new Watermark({
+  contentType: 'rich-text',
+  content: '<div style="background: #ccc;display: flex;flex-direction: column;"><div>太<span style="color: #f00">棒</span>了</div><img src="https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png" width="100px"></div>',
+  width: 300,
+  height: 300,
+  filter: 'blur(2px)',
+  movable: true,
+  onSuccess: () => {
+    // success callback
+  }
+})
+
+watermark.create() // 添加水印
+
+watermark.destroy() // 删除水印
+```
+
+## 子元素水印
+
+> 你需要**手动设置父级DOM元素的 `position` 样式**，例如：`position: relative`。
+
+```js
+import { Watermark } from 'watermark-js-plus' // 引入水印插件
+
+const watermark = new Watermark({
+  parent: '.parent-element',
+  width: 180,
+  height: 180,
+  textRowMaxWidth: 254,
+  backgroundRepeat: 'no-repeat',
+  zIndex: 900,
+  movable: true
+})
+
+watermark.create() // 添加水印
+
+watermark.destroy() // 删除水印
+```
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/tools/watermark-configurator.md
+description: >-
+  Configure a watermark interactively, preview changes on the page, and copy the
+  generated initialization code.
+---
+
+# Watermark Configurator
+
+Tune the watermark in a focused live preview, then copy the generated initialization code.
+
+**Related:** [Watermark guide](/guide/watermark) · [Watermark options](/config/) · [Watermark methods](/config/function)
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/config/function.md
+description: >-
+  Reference the Watermark and BlindWatermark instance methods and the methods
+  supported by ImageWatermark.
+---
+
+# Watermark Methods
+
+`Watermark` and `BlindWatermark` support every method below. `ImageWatermark` supports only `create()` and `destroy()`.
+
+**Related:** [Watermark guide](/guide/watermark) · [Image watermark guide](/guide/image) · [Watermark Configurator](/tools/watermark-configurator)
+
+## create()
+
+* **Description**: Creates and renders the watermark on the specified parent element
+* **Behavior**:
+  * Returns without creating if a duplicate watermark is found in the parent element
+  * Checks content validity based on contentType (text/image/multi-line-text/rich-text)
+  * Generates watermark canvas with configured styles (rotation, opacity, etc.)
+  * Converts canvas to background image with proper positioning
+  * Applies defensive CSS (!important flags, pointer-events: none)
+  * Handles both fixed (body/html) and custom parent elements
+  * Sets up MutationObserver if mutationObserve=true
+  * Triggers `onSuccess` callback only on first creation
+* **Returns**: `Promise<void>`
+* **Example**:
+
+```javascript
+  await watermark.create();
+```
+
+## destroy()
+
+* **Description**: Completely removes the watermark and cleans up observers
+* **Behavior**:
+  * Triggers `onBeforeDestroy()` callback
+  * Disconnects all MutationObservers
+  * Removes watermark DOM nodes
+  * Triggers `onDestroyed()` callback
+* **Example**:
+
+```javascript
+  watermark.destroy();
+```
+
+## check()
+
+* **Description**: Verifies watermark DOM existence
+* **Returns**: `Promise<boolean>`
+  * true: Watermark exists in parentElement
+  * false: Watermark not found
+* **Example**:
+
+```javascript
+  const exists = await watermark.check();
+```
+
+## changeOptions()
+
+* **Description**: Updates watermark configuration
+* **Parameters**:
+  * args: `Partial<WatermarkOptions>` - New configuration options (default: `{}`)
+  * mode: 'overwrite'|'append' - How to merge new options (default: `'overwrite'`)
+  * redraw: boolean - Whether to recreate immediately (default: true)
+* **Behavior**:
+  * `overwrite` replaces previous explicit options, so omitted values return to defaults
+  * `append` merges into previous explicit options
+  * Enables protection if monitorProtection=true
+  * Recreates watermark if redraw=true
+* **Returns**: `Promise<void>`
+* **Example**:
+
+```javascript
+  await watermark.changeOptions({ content: 'New Text' }, 'append');
+```
+
+## Technical Details
+
+* **DOM Structure**:
+
+```html
+<div style="/* defensive CSS */">
+  <div style="/* background image styles */"></div>
+</div>
+```
+
+* **Protection Mechanisms**:
+  * MutationObserver for DOM tampering detection
+  * Automatic recreation when modified
+  * CSS !important overrides
+
+* **Lifecycle Callbacks**:
+  * `onSuccess`: After successful creation
+  * `onBeforeDestroy`: Before removal
+  * `onDestroyed`: After removal
+  * `onObserveError`: When MutationObserver fails
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/config.md
+description: >-
+  Reference all watermark-js-plus options for content, layout, typography,
+  opacity, animation, protection, and lifecycle callbacks.
+---
+
+# Watermark Options
+
+**Related:** [Watermark guide](/guide/watermark) · [Watermark Configurator](/tools/watermark-configurator)
+
+## Basic Configuration
+
+### width
+
+* **Type**: `number`
+* **Default**: `300`
+* **Description**: Unit width for a single watermark element.
+
+### height
+
+* **Type**: `number`
+* **Default**: `300`
+* **Description**: Unit height for a single watermark element.
+
+### rotate
+
+* **Type**: `number`
+* **Default**: `45`
+* **Description**: Rotation angle of the watermark in degrees.
+
+### layout
+
+* **Type**: `LayoutType` (`'default' | 'grid'`)
+* **Default**: `'default'`
+* **Description**: Controls the arrangement of watermark elements
+* **Available Values**:
+  * `'default'` (Default mode)
+    * Basic layout with minimal configuration
+    * Suitable for simple use cases
+
+  * `'grid'` (Grid layout)
+    * Arranges watermarks in a matrix grid pattern
+    * `gridLayoutOptions` is optional and defaults to a 1 × 1 grid
+    * Typical use case: Generating patterned watermark backgrounds
+
+### gridLayoutOptions
+
+* **Type**: `GridLayoutOptions | undefined`
+* **Default**: `undefined`
+* **Description**: Custom options for grid-based layout configuration.
+* **Properties**:
+  * `cols`: Number of columns (default: `1`)
+  * `rows`: Number of rows (default: `1`)
+  * `gap`: Spacing as `[horizontal, vertical]` (default: `[0, 0]`)
+  * `matrix`: 2D matrix controlling visibility per grid cell (default: all `1`s)
+  * `backgroundImage`: Optional background image drawn across the grid; provide both `width` and `height` when using it
+  * `width`: Optional custom total width (overrides cols/gap calculation)
+  * `height`: Optional custom total height (overrides rows/gap calculation)
+* **Note**: For `Watermark` and `BlindWatermark`, custom grid `width` and `height` change the generated grid canvas, while the CSS background size is still calculated from the unit size, rows, columns, and gaps.
+
+### auxiliaryLine
+
+* **Type**: `boolean`
+* **Default**: `false`
+* **Description**: Whether to display auxiliary guidelines for positioning.
+
+## Positioning & Movement
+
+### translatePlacement
+
+* **Type**: `TranslatePlacementType`
+* **Default**: `'middle'`
+* **Available Values**:
+  * `'top'`: Top center
+  * `'top-start'`: Top left
+  * `'top-end'`: Top right
+  * `'bottom'`: Bottom center
+  * `'bottom-start'`: Bottom left
+  * `'bottom-end'`: Bottom right
+  * `'left'`: Middle left
+  * `'right'`: Middle right
+  * `'middle'`: Center (default)
+* **Description**:
+  * Determines the base position for watermark placement and rotation transformation
+  * Affects both the initial position and gradient calculations when using advanced styles
+  * Automatically adjusts text alignment and baseline when not explicitly set
+  * Coordinates with `translateX` and `translateY` for precise positioning
+* **Note**:
+  * When combined with rotation, the placement becomes the rotation center point
+  * For text watermarks, this also affects text baseline calculation
+
+### translateX
+
+* **Type**: `number | undefined`
+* **Default**: Auto-calculated (based on `translatePlacement` and `width`)
+* **Description**:
+  * Horizontal offset (in pixels)
+  * Positive value → Right movement | Negative value ← Left movement
+  * Serves as X-coordinate for rotation pivot point
+  * Affects calculation of linear/radial gradient start points
+
+### translateY
+
+* **Type**: `number | undefined`
+* **Default**: Auto-calculated (based on `translatePlacement` and `height`)
+* **Description**:
+  * Vertical offset (in pixels)
+  * Positive value ↓ Downward movement | Negative value ↑ Upward movement
+  * Serves as Y-coordinate for rotation pivot point
+  * Affects automatic calculation of text baseline (`textBaseline`)
+* **Note**: Custom coordinates require both `translateX` and `translateY`. If a non-`middle` `translatePlacement` is also explicitly provided, that placement takes precedence.
+
+### movable (animation)
+
+* **Type**: `boolean`
+* **Default**: `false`
+* **Description**:\
+  When enabled, CSS animations change the watermark's background position. The behavior differs based on `backgroundRepeat`:
+  * `repeat`: 2D background-position animation (200s duration)
+  * `repeat-x`: Vertical background-position animation (random 2-8s duration)
+  * `repeat-y`: Horizontal background-position animation (random 2-4s duration)
+  * `no-repeat`: Combined horizontal and vertical background-position animation
+* **Live Examples**:
+  * [StackBlitz](https://stackblitz.com/edit/webpack-webpack-js-org-wq26h43z)
+  * [Demo](https://zhensherlock.github.io/watermark-js-plus/guide/watermark.html#child-element-watermark)
+* **Mechanism**:
+  * Implemented via CSS `animation` with randomized durations
+  * Uses `alternate` direction for ping-pong effect
+  * Durations use the ranges listed above for each `backgroundRepeat` value
+
+### zIndex
+
+* **Type**: `number`
+* **Default**: `2147483647`
+* **Description**: CSS z-index property for layering control.
+
+### parent
+
+* **Type**: `Element | string`
+* **Default**: `'body'`
+* **Description**: Container element for the watermark (selector or DOM element).
+
+## Content Configuration
+
+### contentType
+
+* **Type**: `ContentTypeType` (`'text' | 'image' | 'multi-line-text' | 'rich-text'`)
+* **Default**: `'text'`
+* **Available Values**:
+  * `'text'`: Simple text watermark
+  * `'image'`: Image watermark
+  * `'multi-line-text'`: Multi-line text watermark
+  * `'rich-text'`: Formatted rich text watermark
+* **Description**: Type of content to display as watermark.
+
+### content
+
+* **Type**: `string`
+* **Default**: `'hello watermark-js-plus'`
+* **Description**: Text or HTML used by text, multi-line-text, and rich-text modes. Image mode uses the separate `image` option.
+
+### textType
+
+* **Type**: `TextType` (`'fill' | 'stroke'`)
+* **Default**: `'fill'`
+* **Available Values**: `'fill'` | `'stroke'`
+* **Description**: Rendering method for text content.
+
+## Text Styling
+
+### fontSize
+
+* **Type**: `string`
+* **Default**: `'20px'`
+* **Description**: Font size for text content.
+
+### fontFamily
+
+* **Type**: `string`
+* **Default**: `'sans-serif'`
+* **Description**: Font family for text content.
+
+### fontStyle
+
+* **Type**: `string`
+* **Default**: `''`
+* **Description**: Font style (e.g., 'italic').
+
+### fontVariant
+
+* **Type**: `string`
+* **Default**: `''`
+* **Description**: Font variant (e.g., 'small-caps').
+
+### fontWeight
+
+* **Type**: `string`
+* **Default**: `'normal'`
+* **Description**: Font weight (e.g., 'bold').
+
+### fontColor
+
+* **Type**: `string`
+* **Default**: `'#000'`
+* **Description**: Text color.
+
+### textAlign
+
+* **Type**: `TextAlignType | undefined`
+* **Default**: Auto-calculated from `translatePlacement` (`'center'` for the default middle placement, or `'left'` when both custom coordinates are used)
+* **Available Values**: `'center'`, `'end'`, `'left'`, `'right'`, `'start'`
+* **Description**: Horizontal text alignment.
+
+### textBaseline
+
+* **Type**: `TextBaselineType | undefined`
+* **Default**: Auto-calculated from `translatePlacement` (`'middle'` for the default middle placement, or `'top'` when both custom coordinates are used)
+* **Available Values**:
+  * `'top'`, `'bottom'`, `'middle'`
+  * `'alphabetic'`, `'hanging'`, `'ideographic'`
+* **Description**: Vertical text alignment baseline.
+  ![textBaseline](../../public/text-baseline.png)
+
+### lineHeight
+
+* **Type**: `number`
+* **Default**: `30`
+* **Description**: Line height for multi-line text.
+
+### textRowMaxWidth
+
+* **Type**: `number | undefined`
+* **Default**: The configured `width`
+* **Description**: Canvas text `maxWidth`; it is also the wrapping threshold for multi-line text.
+
+### letterSpacing
+
+* **Type**: `string`
+* **Default**: `'0px'`
+* **Description**: Spacing between characters.
+
+### wordSpacing
+
+* **Type**: `string`
+* **Default**: `'0px'`
+* **Description**: Spacing between words.
+
+## Image Configuration
+
+### image
+
+* **Type**: `string | undefined`
+* **Default**: `undefined`
+* **Description**: URL of the image to use as watermark when `contentType = 'image'`. It is loaded with `crossOrigin="anonymous"`, so remote servers must allow CORS.
+
+### imageWidth
+
+* **Type**: `number`
+* **Default**: `0`
+* **Description**: Display width. When both image dimensions are `0`, the natural size is used; when only `imageHeight` is set, width is calculated from the original aspect ratio.
+
+### imageHeight
+
+* **Type**: `number`
+* **Default**: `0`
+* **Description**: Display height. When both image dimensions are `0`, the natural size is used; when only `imageWidth` is set, height is calculated from the original aspect ratio.
+
+## Rich Text Configuration
+
+### richTextWidth
+
+* **Type**: `number | undefined`
+* **Default**: Measured rich-text content width, falling back to `width`
+* **Description**: Width constraint for rich text content.
+
+### richTextHeight
+
+* **Type**: `number | undefined`
+* **Default**: Measured rich-text content height, falling back to `height`
+* **Description**: Height constraint for rich text content.
+
+## Visual Effects
+
+### globalAlpha
+
+* **Type**: `number`
+* **Default**: `0.5`
+* **Description**: Overall transparency of the watermark (0.0 to 1.0).
+
+### filter
+
+* **Type**: `string`
+* **Default**: `'none'`
+* **Description**: Applies CSS filter effects similar to those available for CSS. The value is a string containing one or more of the following filter functions.
+  * `url()`: Applies an SVG filter defined in an external resource (e.g., `url(#custom-filter)`)
+  * `blur(<length>)`: Applies a Gaussian blur (e.g., `blur(5px)`)
+  * `brightness(<percentage>)`: Adjusts brightness (e.g., `brightness(150%)`)
+  * `contrast(<percentage>)`: Adjusts contrast (e.g., `contrast(75%)`)
+  * `drop-shadow(<offset-x> <offset-y> <blur-radius> <color>)`: Applies a drop shadow (e.g., `drop-shadow(4px 4px 8px blue)`)
+  * `grayscale(<percentage>)`: Converts to grayscale (e.g., `grayscale(100%)`)
+  * `hue-rotate(<angle>)`: Applies hue rotation (e.g., `hue-rotate(90deg)`)
+  * `invert(<percentage>)`: Inverts colors (e.g., `invert(50%)`)
+  * `opacity(<percentage>)`: Adjusts opacity (e.g., `opacity(25%)`)
+  * `saturate(<percentage>)`: Adjusts saturation (e.g., `saturate(200%)`)
+  * `sepia(<percentage>)`: Applies sepia tone (e.g., `sepia(80%)`)
+
+Multiple filters can be combined by space-separating them (e.g., `brightness(120%) contrast(110%)`). The value `'none'` indicates no filter effect.
+
+### shadowStyle
+
+* **Type**: `Partial<CanvasShadowStyles> | undefined`
+* **Default**: `undefined`
+* **Properties**:
+  * `shadowColor`: `string`\
+    Shadow color (supports all CSS color formats)
+  * `shadowBlur`: `number`\
+    Blur level (in pixels, 0 = no blur)
+  * `shadowOffsetX`: `number`\
+    Horizontal offset (in pixels, positive = right)
+  * `shadowOffsetY`: `number`\
+    Vertical offset (in pixels, positive = down)
+* **Description**:
+  Adds standard Canvas shadow effects with features:
+  * Supports transparency (alpha channel)
+  * Offsets are unaffected by `rotate`/`translate`
+  * Combines multiplicatively with `globalAlpha`
+* **Note**:
+  * Requires `shadowColor` to be set to take effect
+  * Blur calculations may impact rendering performance
+  * May appear subtle at low opacity (`globalAlpha < 0.3`)
+
+### advancedStyle
+
+* **Type**: `AdvancedStyleType | undefined`
+* **Default**: `undefined`
+* **Properties**:
+  * `type`: `'linear' | 'radial' | 'conic' | 'pattern'`\
+    Gradient type (linear/radial/conic/pattern)
+  * `params`: Configuration object
+    * `linear`: { x0, y0, x1, y1 }\
+      Start/end coordinates for linear gradient
+    * `radial`: { x0, y0, r0, x1, y1, r1 }\
+      Circle parameters for radial gradient
+    * `conic`: { startAngle, x, y }\
+      Starting angle and center point for conic gradient
+    * `pattern`: { image, repetition }\
+      Pattern fill settings
+  * `colorStops`: `Array<{ offset: number, color: string }>`\
+    Color stop positions and values
+* **Description**:
+  Enables advanced fill styles that override default `fontColor`. Supports:
+  * All CSS gradient types (auto-adapted to Canvas coordinates)
+  * Image pattern fills
+  * Smart coordinate positioning (auto-adjusts gradient points based on `translatePlacement`)
+* **Note**:
+  * Works with `textType` (applies to both `fillStyle` and `strokeStyle`)
+  * Requires preloaded images for `pattern` type
+
+### backgroundPosition
+
+* **Type**: `string`
+* **Default**: `'0 0'`
+* **Description**: CSS background-position property.
+
+### backgroundRepeat
+
+* **Type**: `string`
+* **Default**: `'repeat'`
+* **Description**: CSS background-repeat property.
+
+## Behavior & Security
+
+### mode
+
+* **Type**: `CreateWatermarkModeType` (`'default' | 'blind'`)
+* **Default**: `'default'`
+* **Available Values**:
+  * `'default'`: Standard visible watermark mode (normal transparency)
+  * `'blind'`: Blind watermark mode identifier
+* **Description**: Identifies the intended watermark mode. In a regular `Watermark`, setting this option to `'blind'` does not change opacity by itself. `BlindWatermark` enforces `mode: 'blind'` and `globalAlpha: 0.005`.
+
+### mutationObserve
+
+* **Type**: `boolean`
+* **Default**: `true`
+* **Description**: Whether to observe relevant attribute, child, and text changes within the watermark, plus direct removal from its parent, and recreate it when detected.
+
+### monitorProtection
+
+* **Type**: `boolean`
+* **Default**: `false`
+* **Description**: Enable protection against MutationObserver tampering.
+* **Important**: Once enabled, this protection cannot be disabled.
+
+## Callbacks
+
+### extraDrawFunc
+
+* **Type**: `Function | undefined`
+* **Default**: `undefined`
+* **Description**: Additional drawing operations callback.
+
+### onSuccess
+
+* **Type**: `Function`
+* **Default**: `() => {}`
+* **Description**: Called after the first successful creation. Redraws do not call it again; creating after `destroy()` does.
+
+### onBeforeDestroy
+
+* **Type**: `Function`
+* **Default**: `() => {}`
+* **Description**: Called before watermark removal.
+
+### onDestroyed
+
+* **Type**: `Function`
+* **Default**: `() => {}`
+* **Description**: Called after watermark removal.
+
+### onObserveError
+
+* **Type**: `Function`
+* **Default**: `() => {}`
+* **Description**: Called when mutation observation fails.
+
+## ImageWatermark-only Configuration {#image-watermark-options}
+
+### dom
+
+* **Type**: `HTMLImageElement`
+* **Required**: Required when calling `ImageWatermark.create()`
+* **Description**: Target image element. Its `src` is replaced with the generated watermarked PNG Data URL, and `destroy()` restores the original `src`.
+
+### crossOrigin
+
+* **Type**: `boolean | undefined`
+* **Default**: `undefined`
+* **Description**: When truthy, sets the target image element's `crossOrigin` attribute to `'anonymous'`. For a cross-origin image, the server must return compatible CORS headers for Canvas export.
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/zh/config/function.md
+description: 查阅 Watermark 和 BlindWatermark 的实例方法，以及 ImageWatermark 支持的方法。
+---
+
+# Watermark 方法
+
+`Watermark` 和 `BlindWatermark` 支持以下全部方法；`ImageWatermark` 仅支持 `create()` 和 `destroy()`。
+
+**相关内容：** [Watermark 指南](/zh/guide/watermark) · [图片水印指南](/zh/guide/image) · [水印配置生成器](/zh/tools/watermark-configurator)
+
+## create()
+
+* **描述**: 在指定父元素上创建并渲染水印
+* **行为**:
+  * 如果父元素中已有重复水印，则直接返回且不创建
+  * 根据contentType（文本/图片/多行文本/富文本）检查内容有效性
+  * 使用配置的样式（旋转、透明度等）生成水印画布
+  * 将画布转换为带有正确定位的背景图片
+  * 应用防御性CSS（!important标记，pointer-events: none）
+  * 处理固定（body/html）和自定义父元素
+  * 如果mutationObserve=true，则设置MutationObserver
+  * 仅在首次创建时触发 `onSuccess` 回调
+* **返回**: `Promise<void>`
+* **示例**:
+
+```javascript
+  await watermark.create();
+```
+
+## destroy()
+
+* **描述**: 完全移除水印并清理观察者
+* **行为**:
+  * 触发 `onBeforeDestroy()` 回调
+  * 断开所有 MutationObservers
+  * 移除水印DOM节点
+  * 触发 `onDestroyed()` 回调
+* **示例**:
+
+```javascript
+  watermark.destroy();
+```
+
+## check()
+
+* **描述**: 验证水印在DOM中的存在性
+* **返回**: `Promise<boolean>`
+  * true: 水印存在于父元素中
+  * false: 未找到水印
+* **示例**:
+
+```javascript
+  const exists = await watermark.check();
+```
+
+## changeOptions()
+
+* **描述**: 更新水印配置
+* **参数**:
+  * args: `Partial<WatermarkOptions>` - 新的配置选项（默认: `{}`）
+  * mode: 'overwrite'|'append' - 如何合并新选项（默认: `'overwrite'`）
+  * redraw: boolean - 是否立即重新创建 (默认: true)
+* **行为**:
+  * `overwrite` 会替换之前的显式配置，未传入的配置恢复默认值
+  * `append` 会合并到之前的显式配置
+  * 如果 monitorProtection=true，则启用保护
+  * 如果 redraw=true，则重新创建水印
+* **返回**: `Promise<void>`
+* **示例**:
+
+```javascript
+  await watermark.changeOptions({ content: 'New Text' }, 'append');
+```
+
+## 技术细节
+
+* **DOM Structure**:
+
+```html
+<div style="/* 防御性CSS */">
+  <div style="/* 背景图片样式 */"></div>
+</div>
+```
+
+* **保护机制**:
+  * MutationObserver用于检测DOM篡改
+  * 修改时自动重新创建
+  * CSS !important覆盖
+
+* **生命周期回调**:
+  * `onSuccess`: 成功创建后触发
+  * `onBeforeDestroy`: 移除前触发
+  * `onDestroyed`: 移除后触发
+  * `onObserveError`: MutationObserver 失败时触发
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/zh.md
+description: 一个轻量、框架无关的 TypeScript 浏览器水印库，支持可见水印、图片水印和暗水印。
+---
+
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/zh/guide/what-is-this.md
+description: 了解如何使用 watermark-js-plus 的框架无关 TypeScript API，为浏览器页面添加可见水印、图片水印和暗水印。
+---
+
+# watermark-js-plus 是什么？
+
+`watermark-js-plus` 是一个轻量、基于 Canvas 的 TypeScript 浏览器水印库。它可以直接用于原生 JavaScript 和各种前端框架，无需安装框架专用适配器。
+
+你可以用它为页面或指定容器添加可见水印、将水印直接绘制到现有图片中，或者创建低透明度暗水印并从截图或图片中将其显现。
+
+## 三种水印能力
+
+* **可见水印** — 为整个页面或指定容器添加文本、多行文本、图片或富文本水印，支持灵活布局、样式、运行时更新及可选的 DOM 防篡改恢复。
+* **图片水印** — 在浏览器中将文本或图片水印直接绘制到现有 `<img>` 元素。
+* **暗水印** — 添加低透明度水印，并通过内置解码能力从截图或图片中进行视觉增强和显现。
+
+## 面向前端开发
+
+* **框架无关** — 使用同一套浏览器 API 接入原生 JavaScript、React、Vue、Angular、Svelte 等前端项目。
+* **TypeScript 优先** — 为配置项和生命周期 API 提供完整的公共类型声明。
+* **ES 模块支持** — 现代构建工具可以直接使用标准包入口；需要明确使用 ES 模块时，也可以从保留模块结构的 `watermark-js-plus/es` 入口导入。详见 [ES 模块导入](/zh/guide/extra/on-demand)。
+
+## 浏览器兼容性
+
+| ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/main/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/main/src/firefox/firefox_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/main/src/safari/safari_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/main/src/opera/opera_48x48.png) | ![Edge](https://raw.githubusercontent.com/alrra/browser-logos/main/src/edge/edge_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) |
+|:-------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------:|
+|                                             最新版 ✔                                              |                                               最新版 ✔                                               |                                             最新版 ✔                                              |                                            最新版 ✔                                            |                                          最新版 ✔                                           |                                                        11（使用 `/ie`）✔                                                           |
+
+默认包入口面向现代浏览器。如需支持 IE11，以及部分支持 IE10 和 IE9，请使用专门的旧版浏览器入口：
+
+```ts
+import { Watermark } from 'watermark-js-plus/ie'
+```
+
+具体用法及暗水印解码兼容性说明参见[旧版浏览器支持](/zh/guide/extra/ie)。
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/guide/what-is-this.md
+description: >-
+  Learn how watermark-js-plus adds visible, image, and blind watermarks to
+  browser pages with framework-agnostic TypeScript APIs.
+---
+
+# What is watermark-js-plus?
+
+`watermark-js-plus` is a lightweight, Canvas-based TypeScript library for adding watermarks in the browser. It works with vanilla JavaScript and frontend frameworks without requiring a framework-specific adapter.
+
+Use it to add visible watermarks to pages and containers, render watermarks directly into existing images, or create and reveal low-opacity blind watermarks.
+
+## Three Watermark Capabilities
+
+* **Visible watermarks** — Add text, multi-line text, images, or rich text to an entire page or a specific container, with flexible layouts, styling, runtime updates, and optional DOM tamper recovery.
+* **Image watermarks** — Render text or image watermarks directly into an existing `<img>` element in the browser.
+* **Blind watermarks** — Add low-opacity watermarks and visually enhance them from screenshots or images with built-in decoding.
+
+## Built for Frontend Development
+
+* **Framework agnostic** — Use the same browser API with vanilla JavaScript, React, Vue, Angular, Svelte, and other frontend frameworks.
+* **TypeScript first** — Use complete public type declarations for configuration and lifecycle APIs.
+* **ES module support** — Import from the standard package entry with modern bundlers, or use the preserved-module `watermark-js-plus/es` entry when you need explicit ES module imports. See [ES Module Imports](/guide/extra/on-demand).
+
+## Browser Support
+
+| ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/main/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/main/src/firefox/firefox_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/main/src/safari/safari_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/main/src/opera/opera_48x48.png) | ![Edge](https://raw.githubusercontent.com/alrra/browser-logos/main/src/edge/edge_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) |
+|:-------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------:|
+|                                             Latest ✔                                              |                                               Latest ✔                                               |                                             Latest ✔                                              |                                            Latest ✔                                            |                                          Latest ✔                                           |                                                            11 with `/ie` ✔                                                             |
+
+The default package entry targets modern browsers. For IE11 and partial IE10/IE9 support, use the dedicated legacy-browser entry:
+
+```ts
+import { Watermark } from 'watermark-js-plus/ie'
+```
+
+See [Legacy Browser Support](/guide/extra/ie) for usage and blind-watermark decoding compatibility.
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/zh/guide/image.md
+description: 使用 ImageWatermark API 将文本或图片水印直接绘制到浏览器中的现有图片。
+---
+
+# 图片水印
+
+精确的 API 说明参见 [ImageWatermark 配置项](/zh/config/#image-watermark-options)及 [Watermark 方法](/zh/config/function)中的适用方法。
+
+## 文本水印
+
+```html
+<img class="text-watermark-image" src="https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/402413381-a24bd4a5-c4e0-45d6-b8ce-94e99e29a111-dowV4C.png" crossorigin="anonymous">
+```
+
+```js
+import { ImageWatermark } from 'watermark-js-plus' // import watermark plugin
+
+const imgDom = document.querySelector('.text-watermark-image');
+await imgDom.decode()
+
+const watermark = new ImageWatermark({
+  content: 'my text watermark',
+  width: imgDom.width,
+  height: imgDom.height,
+  dom: imgDom,
+  rotate: 0,
+  translatePlacement: 'bottom-end',
+  fontColor: '#fff',
+  globalAlpha: 0.5,
+  fontSize: '30px',
+  crossOrigin: true
+})
+
+await watermark.create() // 添加水印
+
+watermark.destroy() // 删除水印
+```
+
+## 图片水印
+
+```html
+<img class="image-watermark-image" src="https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/402413381-a24bd4a5-c4e0-45d6-b8ce-94e99e29a111-dowV4C.png" crossorigin="anonymous">
+```
+
+```js
+import { ImageWatermark } from 'watermark-js-plus' // import watermark plugin
+
+const imgDom = document.querySelector('.image-watermark-image');
+await imgDom.decode()
+
+const watermark = new ImageWatermark({
+  contentType: 'image',
+  image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
+  imageWidth: 200,
+  width: imgDom.width,
+  height: imgDom.height,
+  dom: imgDom,
+  rotate: 0,
+  translatePlacement: 'bottom-end',
+  crossOrigin: true
+})
+
+await watermark.create() // 添加水印
+
+watermark.destroy() // 删除水印
+```
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/zh/tools/image-watermark.md
+description: 在线为图片添加文字或图片水印，并直接在浏览器中下载处理结果。
+---
+
+# 图片水印工具
+
+上传一张图片，设置文字或图片水印，然后下载处理后的 PNG。整个过程仅在当前浏览器中完成。
+
+**相关内容：** [图片水印指南](/zh/guide/image) · [ImageWatermark 配置项](/zh/config/#image-watermark-options)
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/zh/tools.md
+description: 使用浏览器在线工具配置水印，或从图片中显现暗水印。
+---
+
+# 在线工具
+
+无需先编写集成代码，即可使用以下浏览器工具完成常见水印任务。
+
+## [水印配置生成器](/zh/tools/watermark-configurator)
+
+交互式调整水印参数，在页面中预览效果，并复制自动生成的初始化代码。
+
+## [图片水印工具](/zh/tools/image-watermark)
+
+上传图片，添加文字或图片水印，实时预览并下载 PNG；图片不会上传到服务器。
+
+## [暗水印解码器](/zh/tools/blind-watermark-decoder)
+
+上传或粘贴图片，调整解码参数并显现其中的暗水印。
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/zh/guide/getting-started.md
+description: 使用 npm、yarn 或固定版本的 CDN 脚本安装 watermark-js-plus，并创建第一个浏览器水印。
+---
+
+# 开始使用
+
+## 安装
+
+使用 npm:
+
+```bash
+$ npm install watermark-js-plus
+```
+
+使用 yarn:
+
+```bash
+$ yarn add watermark-js-plus
+```
+
+## 用法
+
+1. 引入水印插件
+
+```ts
+import { Watermark } from 'watermark-js-plus'
+```
+
+2. 创建实例
+
+```ts
+const watermark = new Watermark({
+  content: 'hello my watermark',
+  width: 200,
+  height: 200,
+  onSuccess: () => {
+    // success callback
+  }
+})
+```
+
+3. 添加水印到页面
+
+```ts
+watermark.create()
+```
+
+## CDN 引入
+
+使用 jsDelivr CDN:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/watermark-js-plus@1.6.7/dist/index.iife.min.js"></script>
+```
+
+使用 unpkg CDN:
+
+```html
+<script src="https://unpkg.com/watermark-js-plus@1.6.7/dist/index.iife.min.js"></script>
+```
+
+使用示例:
+
+```ts
+const watermark = new WatermarkPlus.Watermark({
+  content: 'hello my watermark',
+  width: 200,
+  height: 200
+})
+watermark.create();
+```
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/zh/guide/extra/ie.md
+description: 使用 Internet Explorer 构建和暗水印解码回退支持旧版浏览器。
+---
+
+# 旧版浏览器支持
+
+支持IE11，部分支持IE10和IE9。
+
+## NPM
+
+```ts
+import { Watermark } from 'watermark-js-plus/ie'
+```
+
+> 如果需要支持 Internet Explorer (IE)，请使用专门针对 IE 的版本
+
+## 暗水印解析
+
+IE 版本为暗水印解析使用的 `overlay` 和 `color-burn` Canvas 混合模式提供了软件回退实现。普通版本不会包含这部分代码，因此在 IE11 中解析暗水印时需要使用 `/ie` 入口。
+
+## CDN
+
+```html
+<!-- import JavaScript -->
+<script src="https://www.unpkg.com/watermark-js-plus@1.6.7/dist/ie/index.iife.min.js"></script>
+```
+
+> 我们建议使用 CDN 引入用户在链接地址上锁定版本，以免将来插件升级时受到非兼容性更新的影响。锁定版本的方法请查看 [unpkg.com](https://unpkg.com/)。
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/zh/guide/blind-watermark.md
+description: 使用 BlindWatermark API 创建低透明度暗水印，并从截图或图片中将其显现。
+---
+
+# 暗水印
+
+`BlindWatermark` 继承 `Watermark` 的内容、布局和生命周期能力，但始终使用 `globalAlpha: 0.005` 和 `mode: 'blind'`。固定值的精确说明参见 [BlindWatermark 配置项](/zh/config/blind)。
+
+## 文本暗水印
+
+```js
+import { BlindWatermark } from 'watermark-js-plus' // 引入水印插件
+
+const watermark = new BlindWatermark({
+  content: 'hello my watermark',
+  width: 200,
+  height: 200,
+  onSuccess: () => {
+    // success callback
+  }
+})
+
+watermark.create() // 添加水印
+
+watermark.destroy() // 删除水印
+```
+
+👉 深色背景请添加参数：`fontColor: '#fff'`&#xA;&#xA;
+\<VPButton text="添加文本暗水印" @click="handleAddTextBlindWatermark">
+\<VPButton text="修改文本暗水印" @click="handleUpdateTextBlindWatermark">
+\<VPButton text="删除文本暗水印" @click="handleRemoveTextBlindWatermark">&#xA;&#xA;
+
+## 多行文本暗水印
+
+```js
+import { BlindWatermark } from 'watermark-js-plus' // 引入水印插件
+
+const watermark = new BlindWatermark({
+  contentType: 'multi-line-text',
+  content: 'hello my watermark watermark',
+  fontSize: '30px',
+  width: 200,
+  height: 200,
+  onSuccess: () => {
+    // success callback
+  }
+})
+
+watermark.create() // 添加水印
+
+watermark.destroy() // 删除水印
+```
+
+👉 深色背景请添加参数：`fontColor: '#fff'`&#xA;&#xA;
+\<VPButton text="添加多行文本暗水印" @click="handleAddMultiLineTextBlindWatermark">
+\<VPButton text="删除多行文本暗水印" @click="handleRemoveMultiLineTextBlindWatermark">&#xA;&#xA;
+
+## 图片暗水印
+
+```js
+import { BlindWatermark } from 'watermark-js-plus' // 引入水印插件
+
+const watermark = new BlindWatermark({
+  contentType: 'image',
+  image: 'https://cdn.jsdelivr.net/gh/zhensherlock/oss@main/uPic/github-mkWBiK.png',
+  width: 300,
+  height: 300,
+  imageWidth: 100, // 图片宽度
+  // imageHeight: 20, // 图片高度
+  onSuccess: () => {
+    // success callback
+  }
+})
+
+watermark.create() // 添加水印
+
+watermark.destroy() // 删除水印
+```
+
+## 富文本暗水印
+
+```js
+import { BlindWatermark } from 'watermark-js-plus' // 引入水印插件
+
+const watermark = new BlindWatermark({
+  contentType: 'rich-text',
+  content: '<div style="background: #ccc;">富文本暗水印 <span style="color: #f00">good</span></div>',
+  width: 300,
+  height: 300,
+  onSuccess: () => {
+    // success callback
+  }
+})
+
+watermark.create() // 添加水印
+
+watermark.destroy() // 删除水印
+```
+
+## 解码暗水印
+
+推荐使用 [暗水印解码器](/zh/tools/blind-watermark-decoder)：上传或粘贴图片后，即可调整解码参数并预览结果。
+
+如需在应用中集成解码能力，请使用 `BlindWatermark.decode`。全部参数说明参见[解码参数](/zh/config/blind-decode)。
+
+解码器会将源图片绘制到 Canvas，使用指定的合成模式和填充颜色进行多次增强，最后返回 PNG Data URL。
+
+```js
+import { BlindWatermark } from 'watermark-js-plus' // 引入水印插件
+
+BlindWatermark.decode({
+  compositeOperation: 'overlay',
+  compositeTimes: 4,
+  url: uploadFile.url, // 需要解析暗水印图片的URL
+  onSuccess: (imageBase64) => {
+    // 解析成功后的回调事件，返回的是解析后图片的base64
+  }
+})
+```
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/zh/tools/blind-watermark-decoder.md
+description: 上传或粘贴图片，在浏览器中调整解码参数并显现其中的暗水印。
+---
+
+# 暗水印解码器
+
+上传或粘贴一张包含暗水印的图片，然后调整参数以显现水印内容。
+
+**相关内容：** [暗水印指南](/zh/guide/blind-watermark) · [解码参数](/zh/config/blind-decode)
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/zh/tools/watermark-configurator.md
+description: 交互式调整水印参数，在页面中预览效果，并复制生成的初始化代码。
+---
+
+# 水印配置生成器
+
+在独立预览区实时调整水印效果，并复制自动生成的初始化代码。
+
+**相关内容：** [Watermark 指南](/zh/guide/watermark) · [Watermark 配置项](/zh/config/) · [Watermark 方法](/zh/config/function)
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/zh/config.md
+description: 查阅 watermark-js-plus 的内容、布局、字体、透明度、动画、防篡改和生命周期回调配置项。
+---
+
+# 水印配置选项
+
+**相关内容：** [Watermark 指南](/zh/guide/watermark) · [水印配置生成器](/zh/tools/watermark-configurator)
+
+## 基础配置
+
+### width
+
+* **类型**: `number`
+* **默认值**: `300`
+* **描述**: 单个水印单元的宽度
+
+### height
+
+* **类型**: `number`
+* **默认值**: `300`
+* **描述**: 单个水印单元的高度
+
+### rotate
+
+* **类型**: `number`
+* **默认值**: `45`
+* **描述**: 水印旋转角度(度数)
+
+### layout
+
+* **类型**: `LayoutType`（`'default' | 'grid'`）
+* **默认值**: `'default'`
+* **描述**: 控制水印元素的排列方式
+* **可选值及说明**:
+  * `'default'` (默认模式)
+    * 基础布局，配置简单
+    * 适用于常规场景
+  * `'grid'` (网格布局)
+    * 将水印按矩阵网格形式排列
+    * `gridLayoutOptions` 可选，省略时使用 1 × 1 网格
+    * 典型应用场景：生成规律排列的水印背景
+
+### gridLayoutOptions
+
+* **类型**: `GridLayoutOptions | undefined`
+* **默认值**: `undefined`
+* **描述**: 网格布局的自定义配置项
+* **配置属性**:
+  * `cols`: 列数（默认 `1`）
+  * `rows`: 行数（默认 `1`）
+  * `gap`: 间距配置，格式为 `[水平间距, 垂直间距]`（默认 `[0, 0]`）
+  * `matrix`: 二维矩阵，控制每个网格位是否显示水印（默认全 `1` 矩阵）
+  * `backgroundImage`: 在网格区域绘制的可选背景图；使用时需同时提供 `width` 和 `height`
+  * `width`: 可选总宽度（覆盖自动计算的列/间距宽度）
+  * `height`: 可选总高度（覆盖自动计算的行/间距高度）
+* **注意**: 对 `Watermark` 和 `BlindWatermark` 而言，自定义网格 `width`、`height` 会改变生成的网格 Canvas，但 CSS 背景尺寸仍根据水印单元宽高、行列数和间距计算。
+
+### auxiliaryLine
+
+* **类型**: `boolean`
+* **默认值**: `false`
+* **描述**: 是否显示辅助定位线
+
+## 定位与移动
+
+### translatePlacement
+
+* **类型**: `TranslatePlacementType`
+* **默认值**: `'middle'`
+* **可选值**:
+  * `'top'`: 顶部居中
+  * `'top-start'`: 顶部居左
+  * `'top-end'`: 顶部居右
+  * `'bottom'`: 底部居中
+  * `'bottom-start'`: 底部居左
+  * `'bottom-end'`: 底部居右
+  * `'left'`: 左侧居中
+  * `'right'`: 右侧居中
+  * `'middle'`: 正中心（默认值）
+* **功能说明**:
+  * 决定水印的基础定位和旋转变换的基准点
+  * 会影响高级样式中的渐变计算
+  * 当未显式设置时，会自动调整文本对齐方式和基线
+  * 与 `translateX` 和 `translateY` 配合实现精确定位
+* **注意事项**:
+  * 当结合旋转使用时，该定位点将成为旋转中心
+  * 对于文本水印，该参数还会影响文本基线的计算
+
+### translateX
+
+* **类型**: `number | undefined`
+* **默认值**: 自动计算（根据`translatePlacement`和`width`）
+* **描述**:
+  * 水平偏移量（单位：像素）
+  * 正值 → 向右移动 | 负值 ← 向左移动
+  * 作为旋转中心点的X坐标
+  * 影响线性渐变/径向渐变的起始点计算
+
+### translateY
+
+* **类型**: `number | undefined`
+* **默认值**: 自动计算（根据`translatePlacement`和`height`）
+* **描述**:
+  * 垂直偏移量（单位：像素）
+  * 正值 ↓ 向下移动 | 负值 ↑ 向上移动
+  * 作为旋转中心点的Y坐标
+  * 影响文本基线(`textBaseline`)的自动计算
+* **注意**: 自定义坐标必须同时传入 `translateX` 和 `translateY`。如果同时显式传入非 `'middle'` 的 `translatePlacement`，则预设定位优先。
+
+### movable（动画）
+
+* **类型**: `boolean`
+* **默认值**: `false`
+* **功能描述**:
+  启用后，通过 CSS 动画改变水印的背景位置。
+  具体模式取决于`backgroundRepeat`配置：
+  * `repeat`: 二维背景位置动画（200秒周期）
+  * `repeat-x`: 垂直背景位置动画（2-8秒随机周期）
+  * `repeat-y`: 水平背景位置动画（2-4秒随机周期）
+  * `no-repeat`: 水平和垂直背景位置的组合动画。
+* **示例**:
+  * [StackBlitz](https://stackblitz.com/edit/webpack-webpack-js-org-wq26h43z)
+  * [Demo](https://zhensherlock.github.io/watermark-js-plus/zh/guide/watermark.html#子元素水印)
+* **运动特性**:
+  * 根据上述 `backgroundRepeat` 值在对应范围内随机生成周期
+  * 使用 `alternate` 动画模式往返播放
+* **技术说明**:
+  * 通过CSS `animation` 高性能实现
+  * 运动幅度随容器尺寸自适应
+
+### zIndex
+
+* **类型**: `number`
+* **默认值**: `2147483647`
+* **描述**: 控制图层叠放的CSS z-index属性
+
+### parent
+
+* **类型**: `Element | string`
+* **默认值**: `'body'`
+* **描述**: 水印的容器元素(选择器或DOM元素)
+
+## 内容配置
+
+### contentType
+
+* **类型**: `ContentTypeType`（`'text' | 'image' | 'multi-line-text' | 'rich-text'`）
+* **默认值**: `'text'`
+* **可选值**:
+  * `'text'`: 简单文本水印
+  * `'image'`: 图片水印
+  * `'multi-line-text'`: 多行文本水印
+  * `'rich-text'`: 格式化富文本水印
+* **描述**: 水印内容的显示类型
+
+### content
+
+* **类型**: `string`
+* **默认值**: `'hello watermark-js-plus'`
+* **描述**: 文本、多行文本和富文本模式使用的文本或 HTML；图片模式使用单独的 `image` 配置
+
+### textType
+
+* **类型**: `TextType`（`'fill' | 'stroke'`）
+* **默认值**: `'fill'`
+* **可选值**: `'fill'` | `'stroke'`
+* **描述**: 文本内容的渲染方式
+
+## 文本样式
+
+### fontSize
+
+* **类型**: `string`
+* **默认值**: `'20px'`
+* **描述**: 文本内容的字体大小
+
+### fontFamily
+
+* **类型**: `string`
+* **默认值**: `'sans-serif'`
+* **描述**: 文本内容的字体家族
+
+### fontStyle
+
+* **类型**: `string`
+* **默认值**: `''`
+* **描述**: 字体样式(如'italic')
+
+### fontVariant
+
+* **类型**: `string`
+* **默认值**: `''`
+* **描述**: 字体变体(如'small-caps')
+
+### fontWeight
+
+* **类型**: `string`
+* **默认值**: `'normal'`
+* **描述**: 字体粗细(如'bold')
+
+### fontColor
+
+* **类型**: `string`
+* **默认值**: `'#000'`
+* **描述**: 文本颜色
+
+### textAlign
+
+* **类型**: `TextAlignType | undefined`
+* **默认值**: 根据 `translatePlacement` 自动计算（默认居中定位时为 `'center'`，同时使用自定义坐标时为 `'left'`）
+* **可选值**: `'center'`, `'end'`, `'left'`, `'right'`, `'start'`
+* **描述**: 文本水平对齐方式
+
+### textBaseline
+
+* **类型**: `TextBaselineType | undefined`
+* **默认值**: 根据 `translatePlacement` 自动计算（默认居中定位时为 `'middle'`，同时使用自定义坐标时为 `'top'`）
+* **可选值**:
+  * `'top'`, `'bottom'`, `'middle'`
+  * `'alphabetic'`, `'hanging'`, `'ideographic'`
+* **描述**: 文本垂直对齐基线
+  ![textBaseline](../../public/text-baseline.png)
+
+### lineHeight
+
+* **类型**: `number`
+* **默认值**: `30`
+* **描述**: 多行文本的行高
+
+### textRowMaxWidth
+
+* **类型**: `number | undefined`
+* **默认值**: 配置的 `width`
+* **描述**: Canvas 文本的 `maxWidth`，同时也是多行文本的自动换行阈值
+
+### letterSpacing
+
+* **类型**: `string`
+* **默认值**: `'0px'`
+* **描述**: 字符间距
+
+### wordSpacing
+
+* **类型**: `string`
+* **默认值**: `'0px'`
+* **描述**: 单词间距
+
+## 图片配置
+
+### image
+
+* **类型**: `string | undefined`
+* **默认值**: `undefined`
+* **描述**: `contentType = 'image'` 时使用的图片 URL。图片以 `crossOrigin="anonymous"` 加载，因此远程服务器必须允许 CORS
+
+### imageWidth
+
+* **类型**: `number`
+* **默认值**: `0`
+* **描述**: 图片显示宽度。宽高均为 `0` 时使用自然尺寸；仅设置 `imageHeight` 时，宽度按原始比例计算
+
+### imageHeight
+
+* **类型**: `number`
+* **默认值**: `0`
+* **描述**: 图片显示高度。宽高均为 `0` 时使用自然尺寸；仅设置 `imageWidth` 时，高度按原始比例计算
+
+## 富文本配置
+
+### richTextWidth
+
+* **类型**: `number | undefined`
+* **默认值**: 测量到的富文本内容宽度，无法测量时回退到 `width`
+* **描述**: 富文本内容的宽度限制
+
+### richTextHeight
+
+* **类型**: `number | undefined`
+* **默认值**: 测量到的富文本内容高度，无法测量时回退到 `height`
+* **描述**: 富文本内容的高度限制
+
+## 视觉效果
+
+### globalAlpha
+
+* **类型**: `number`
+* **默认值**: `0.5`
+* **描述**: 水印的整体透明度(0.0到1.0)
+
+### filter
+
+* **类型**: `string`
+* **默认值**: `'none'`
+* **描述**: 应用与 CSS 类似的滤镜效果。该值是一个字符串，可包含以下一种或多种滤镜函数：
+  * `url()`: 引用外部 SVG 滤镜（如 `url(#custom-filter)`）
+  * `blur(<length>)`: 应用高斯模糊 (如 `blur(5px)`)
+  * `brightness(<percentage>)`: 调整亮度 (如 `brightness(150%)`)
+  * `contrast(<percentage>)`: 调整对比度 (如 `contrast(75%)`)
+  * `drop-shadow(<offset-x> <offset-y> <blur-radius> <color>)`: 添加投影 (如 `drop-shadow(4px 4px 8px blue)`)
+  * `grayscale(<percentage>)`: 转换为灰度 (如 `grayscale(100%)`)
+  * `hue-rotate(<angle>)`: 调整色相旋转 (如 `hue-rotate(90deg)`)
+  * `invert(<percentage>)`: 颜色反转 (如 `invert(50%)`)
+  * `opacity(<percentage>)`: 调整透明度 (如 `opacity(25%)`)
+  * `saturate(<percentage>)`: 调整饱和度 (如 `saturate(200%)`)
+  * `sepia(<percentage>)`: 应用深褐色调 (如 `sepia(80%)`)
+
+多个滤镜可通过空格组合使用 (如 `brightness(120%) contrast(110%)`)。 默认值  `'none'` 表示不应用任何滤镜效果。
+
+### shadowStyle
+
+* **类型**: `Partial<CanvasShadowStyles> | undefined`
+* **默认值**: `undefined`
+* **配置属性**:
+  * `shadowColor`: `string`\
+    阴影颜色（支持所有CSS颜色格式）
+  * `shadowBlur`: `number`\
+    模糊级别（单位：像素，0=无模糊）
+  * `shadowOffsetX`: `number`\
+    水平偏移量（单位：像素，正值=右偏移）
+  * `shadowOffsetY`: `number`\
+    垂直偏移量（单位：像素，正值=下偏移）
+* **功能说明**:
+  为水印添加Canvas标准的阴影效果，特性包括：
+  * 支持透明色（alpha通道）
+  * 偏移量不受`rotate`和`translate`影响
+  * 与`globalAlpha`参数叠加作用
+* **注意事项**:
+  * 需要同时设置`shadowColor`才会生效
+  * 模糊计算会轻微影响渲染性能
+  * 在低透明度(`globalAlpha < 0.3`)时效果可能不明显
+
+### advancedStyle
+
+* **类型**: `AdvancedStyleType | undefined`
+* **默认值**: `undefined`
+* **配置属性**:
+  * `type`: `'linear' | 'radial' | 'conic' | 'pattern'`\
+    渐变类型（线性/径向/锥形/图案）
+  * `params`: 渐变参数对象
+    * `linear`: { x0, y0, x1, y1 }\
+      线性渐变起止坐标
+    * `radial`: { x0, y0, r0, x1, y1, r1 }\
+      径向渐变圆参数
+    * `conic`: { startAngle, x, y }\
+      锥形渐变起始角度和中心点
+    * `pattern`: { image, repetition }\
+      图案填充设置
+  * `colorStops`: `Array<{ offset: number, color: string }>`\
+    色标位置和颜色值数组
+* **功能说明**:
+  实现高级填充样式，覆盖默认的`fontColor`设置。支持：
+  * 全类型CSS渐变（自动适配Canvas坐标系）
+  * 图片纹理填充
+  * 智能坐标定位（根据`translatePlacement`自动调整渐变起止点）
+* **注意事项**:
+  * 与`textType`联动（同时作用于`fillStyle`和`strokeStyle`）
+  * 当使用`pattern`类型时，需要预加载图片资源
+
+### backgroundPosition
+
+* **类型**: `string`
+* **默认值**: `'0 0'`
+* **描述**: CSS background-position属性
+
+### backgroundRepeat
+
+* **类型**: `string`
+* **默认值**: `'repeat'`
+* **描述**: CSS background-repeat属性
+
+## 行为与安全
+
+### mode
+
+* **类型**: `CreateWatermarkModeType`（`'default' | 'blind'`）
+* **默认值**: `'default'`
+* **可选值**:
+  * `'default'`: 标准可见水印模式（正常透明度）
+  * `'blind'`: 暗水印模式标识
+* **描述**: 标识预期的水印模式。在普通 `Watermark` 中，仅设置为 `'blind'` 不会自动改变透明度；`BlindWatermark` 会固定 `mode: 'blind'` 和 `globalAlpha: 0.005`。
+
+### mutationObserve
+
+* **类型**: `boolean`
+* **默认值**: `true`
+* **描述**: 是否监听水印内相关的属性、子节点和文本变化，以及水印被父元素直接移除的情况，并在检测到变化时重新创建
+
+### monitorProtection
+
+* **类型**: `boolean`
+* **默认值**: `false`
+* **描述**: 启用对MutationObserver篡改的保护
+* **重要**: 一旦启用，此保护无法禁用
+
+## 回调函数
+
+### extraDrawFunc
+
+* **类型**: `Function | undefined`
+* **默认值**: `undefined`
+* **描述**: 额外绘图操作的回调函数
+
+### onSuccess
+
+* **类型**: `Function`
+* **默认值**: `() => {}`
+* **描述**: 首次成功创建后调用；普通重绘不会再次调用，执行 `destroy()` 后重新创建会再次调用
+
+### onBeforeDestroy
+
+* **类型**: `Function`
+* **默认值**: `() => {}`
+* **描述**: 水印移除前调用
+
+### onDestroyed
+
+* **类型**: `Function`
+* **默认值**: `() => {}`
+* **描述**: 水印移除后调用
+
+### onObserveError
+
+* **类型**: `Function`
+* **默认值**: `() => {}`
+* **描述**: 当DOM变化观察失败时调用
+
+## ImageWatermark 专属配置 {#image-watermark-options}
+
+### dom
+
+* **类型**: `HTMLImageElement`
+* **必填**: 调用 `ImageWatermark.create()` 时必填
+* **描述**: 目标图片元素。创建时其 `src` 会替换为生成的带水印 PNG Data URL，`destroy()` 会恢复原始 `src`
+
+### crossOrigin
+
+* **类型**: `boolean | undefined`
+* **默认值**: `undefined`
+* **描述**: 值为真时，将目标图片元素的 `crossOrigin` 属性设为 `'anonymous'`。对于跨域图片，服务器必须返回兼容的 CORS 响应头才能导出 Canvas
+
+---
+
+---
+url: https://zhensherlock.github.io/watermark-js-plus/zh/guide/extra/examples.md
+description: 查看 watermark-js-plus 在 React、Vue、Angular、SvelteKit、Astro 和高级集成场景中的在线示例。
+---
+
+# 示例
+
+以下是在不同JavaScript框架中使用watermark-js-plus的完整实例集合。
+
+## React 生态
+
+| 框架   | 在线演示 |
+|-------------|----------|
+| React       | [![在StackBlitz中打开](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/vitejs-vite-mdnntv) |
+| Next.js     | [![在StackBlitz中打开](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/stackblitz-starters-pv2mvx) |
+| Remix       | [![在StackBlitz中打开](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/remix-run-remix-q4jgus) |
+
+## Vue 生态
+
+| 框架  | 在线演示 |
+|------------|----------|
+| Vue (2.x)  | [![在StackBlitz中打开](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/vue2-vite-starter-t8cew5) |
+| Vue (3.x)  | [![在StackBlitz中打开](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/vitejs-vite-m54xz7) |
+| Nuxt (2.x) | [![在StackBlitz中打开](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/nuxt-starter-drw2fy) |
+| Nuxt (3.x) | [![在StackBlitz中打开](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/nuxt-starter-gf357r) |
+| Quasar     | [![在StackBlitz中打开](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/stackblitz-starters-rxyjhx) |
+
+## 其他框架
+
+| 框架       | 在线演示 |
+|-----------------|----------|
+| Angular         | [![在StackBlitz中打开](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/stackblitz-starters-etu1at) |
+| SvelteKit (Next)| [![在StackBlitz中打开](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/svelte-kit-9cqx23) |
+| SvelteKit (2.x) | [![在StackBlitz中打开](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/sveltejs-kit-template-default-qhiudx) |
+| Astro           | [![在StackBlitz中打开](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/withastro-astro-eeghpe) |
+
+## 高级应用场景
+
+| 场景                | 在线演示 |
+|-------------------------|----------|
+| Multiple Watermark Bind | [![在StackBlitz中打开](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/vue2-vite-starter-a274yz) |
+| On-Demand Generation    | [![在StackBlitz中打开](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/webpack-webpack-js-org-wq26h43z) |
+| Vanilla JS  | [![在StackBlitz中打开](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/vitejs-vite-wfnb1k) |
+| IIFE (CDN)  | [![在StackBlitz中打开](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/js-y7xfw5) |
+| Webpack     | [![在StackBlitz中打开](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/webpack-webpack-js-org-dysy1x) |
+
+## 使用提示
+
+1. 点击任意"Open in StackBlitz"按钮即可查看实时示例
+2. 各框架示例展示了推荐的集成模式
