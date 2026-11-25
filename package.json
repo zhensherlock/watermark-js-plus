@@ -158,7 +158,7 @@
     "terser": "^5.51.4",
     "tesseract.js": "^7.0.0",
     "ts-jest": "^29.4.15",
-    "typescript": "^5.9.3",
+    "typescript": "^7.0.0",
     "unplugin-element-plus": "^0.11.2",
     "vitepress": "^2.0.0-alpha.21",
     "vitepress-plugin-group-icons": "^1.8.2",
