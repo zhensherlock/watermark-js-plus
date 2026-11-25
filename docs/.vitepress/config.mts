@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 import ElementPlus from 'unplugin-element-plus/vite'
-// import llmstxt from 'vitepress-plugin-llms'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
+import llmstxt from 'vitepress-plugin-llms'
 import packageJson from '../../package.json' with { type: 'json' }
 
 const { version } = packageJson
@@ -9,6 +9,12 @@ const siteUrl = 'https://zhensherlock.github.io/watermark-js-plus/'
 const socialImage = `${siteUrl}readme-hero.webp`
 const defaultDescription =
   'A lightweight, framework-agnostic TypeScript library for visible, image, and blind watermarks in the browser.'
+const llmsPlugins = llmstxt({
+  domain: new URL(siteUrl).origin,
+  injectLLMHint: false,
+  // Index both locales, including pages outside the default sidebar.
+  sidebar: [],
+}).map(plugin => ({ ...plugin, apply: 'build' as const }))
 
 function getCanonicalUrl(relativePath: string) {
   if (!relativePath || relativePath === 'index.md') {
@@ -25,10 +31,8 @@ function getCanonicalUrl(relativePath: string) {
 export default defineConfig({
   title: 'watermark-js-plus',
   description: defaultDescription,
-  rewrites: {
-    'en/:rest*': ':rest*',
-    'en/index.md': 'index.md',
-  },
+  // The LLM plugin also uses this rewrite to resolve Markdown output paths.
+  rewrites: page => page.replace(/^en\//, ''),
   base: '/watermark-js-plus/',
   sitemap: {
     hostname: siteUrl,
@@ -164,7 +168,11 @@ export default defineConfig({
     },
   },
   vite: {
-    plugins: [groupIconVitePlugin(), ElementPlus({ include: [/\.(?:md|vue)(?:$|\?)/, /\.vue\.[jt]sx?\?vue/] })],
+    plugins: [
+      groupIconVitePlugin(),
+      ElementPlus({ include: [/\.(?:md|vue)(?:$|\?)/, /\.vue\.[jt]sx?\?vue/] }),
+      ...llmsPlugins,
+    ],
     ssr: { noExternal: ['element-plus'] },
   },
 })
