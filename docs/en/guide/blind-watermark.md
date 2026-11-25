@@ -5,6 +5,7 @@ description: Create low-opacity blind watermarks and reveal them from screenshot
 # Blind Watermark
 
 <script setup lang="ts">
+import { ElAffix, ElMessage, ElSpace } from 'element-plus';
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
 import { getCurrentInstance } from 'vue';
 import dayjs from 'dayjs';
@@ -22,11 +23,11 @@ const handleAddTextBlindWatermark = () => {
     width: 200,
     height: 200,
     onSuccess: () => {
-      app.appContext.config.globalProperties.$message({
+      ElMessage({
         appendTo: '#app',
         message: 'The text blind watermark added successfully!',
         type: 'success'
-      });
+      }, app?.appContext);
     }
   }, 'blind')
 };
@@ -49,11 +50,11 @@ const handleAddMultiLineTextBlindWatermark = () => {
     width: 200,
     height: 200,
     onSuccess: () => {
-      app.appContext.config.globalProperties.$message({
+      ElMessage({
         appendTo: '#app',
         message: 'The multiline text blind watermark added successfully!',
         type: 'success'
-      });
+      }, app?.appContext);
     }
   }, 'blind')
 };
@@ -70,11 +71,11 @@ const handleAddImageBlindWatermark = () => {
     width: 300,
     height: 300,
     onSuccess: () => {
-      app.appContext.config.globalProperties.$message({
+      ElMessage({
         appendTo: '#app',
         message: 'The image blind watermark added successfully!',
         type: 'success'
-      });
+      }, app?.appContext);
     }
   }, 'blind')
 };
@@ -89,11 +90,11 @@ const handleAddRichTextBlindWatermark = () => {
     width: 300,
     height: 300,
     onSuccess: () => {
-      app.appContext.config.globalProperties.$message({
+      ElMessage({
         appendTo: '#app',
         message: 'The rich text blind watermark added successfully!',
         type: 'success'
-      });
+      }, app?.appContext);
     }
   }, 'blind')
 };

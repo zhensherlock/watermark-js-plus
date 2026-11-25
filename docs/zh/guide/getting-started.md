@@ -50,13 +50,13 @@ watermark.create()
 使用 jsDelivr CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/watermark-js-plus@1.6.6/dist/index.iife.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/watermark-js-plus@1.6.7/dist/index.iife.min.js"></script>
 ```
 
 使用 unpkg CDN:
 
 ```html
-<script src="https://unpkg.com/watermark-js-plus@1.6.6/dist/index.iife.min.js"></script>
+<script src="https://unpkg.com/watermark-js-plus@1.6.7/dist/index.iife.min.js"></script>
 ```
 
 使用示例:

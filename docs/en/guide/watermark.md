@@ -5,6 +5,7 @@ description: Add configurable text, image, rich-text, moving, and container wate
 # Watermark
 
 <script setup lang="ts">
+import { ElAffix, ElMessage, ElSpace } from 'element-plus';
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
 import { ref, getCurrentInstance, onMounted } from 'vue';
 import { Watermark } from '../../../src';
@@ -108,11 +109,11 @@ const handleAddTextWatermark = () => {
       ]
     },
     onSuccess: () => {
-      app.appContext.config.globalProperties.$message({
+      ElMessage({
         appendTo: '#app',
         message: 'The text watermark added successfully!',
         type: 'success'
-      });
+      }, app?.appContext);
     }
   })
 };
@@ -141,11 +142,11 @@ const handleAddMultiLineTextWatermark = () => {
       shadowOffsetY: 0
     },
     onSuccess: () => {
-      app.appContext.config.globalProperties.$message({
+      ElMessage({
         appendTo: '#app',
         message: 'The multi text watermark added successfully!',
         type: 'success'
-      });
+      }, app?.appContext);
     }
   });
 };
@@ -163,11 +164,11 @@ const handleAddImageWatermark = () => {
     height: 300,
     filter: 'grayscale(100%)',
     onSuccess: () => {
-      app.appContext.config.globalProperties.$message({
+      ElMessage({
         appendTo: '#app',
         message: 'The image watermark added successfully!',
         type: 'success'
-      });
+      }, app?.appContext);
     }
   })
 };
@@ -193,11 +194,11 @@ const handleAddRichTextWatermark = () => {
     filter: 'blur(2px)',
     movable: true,
     onSuccess: () => {
-      app.appContext.config.globalProperties.$message({
+      ElMessage({
         appendTo: '#app',
         message: 'The rich text watermark added successfully！',
         type: 'success'
-      });
+      }, app?.appContext);
     }
   });
 };

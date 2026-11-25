@@ -3,7 +3,8 @@ import { convertImage, isFunction } from '../utils'
 import { Watermark } from './watermark'
 import { WatermarkCanvas } from './canvas'
 import { applyBlindDecodeComposite } from './blind-decode'
-import protection from '../utils/protection'
+
+const blindOptions = { globalAlpha: 0.005, mode: 'blind' } as const
 
 /**
  * BlindWatermark class
@@ -14,11 +15,7 @@ class BlindWatermark extends Watermark {
    * @param props - blind watermark options
    */
   constructor(props: Partial<WatermarkOptions> = {}) {
-    const defaultProps: Partial<WatermarkOptions> = {
-      globalAlpha: 0.005,
-      mode: 'blind',
-    }
-    super({ ...props, ...defaultProps })
+    super({ ...props, ...blindOptions })
   }
 
   async changeOptions(
@@ -26,14 +23,7 @@ class BlindWatermark extends Watermark {
     mode: ChangeOptionsMode = 'overwrite',
     redraw: boolean = true,
   ) {
-    args.globalAlpha = 0.005
-    args.mode = 'blind'
-    this.initConfigData(args, mode)
-    protection(this.options.monitorProtection)
-    if (redraw) {
-      this.remove()
-      await this.create()
-    }
+    return super.changeOptions({ ...args, ...blindOptions }, mode, redraw)
   }
 
   /**

@@ -131,7 +131,7 @@ import 'watermark-js-plus/style.css'
 
 ## 暗水印解析
 
-`BlindWatermark.decode()` 可以增强图片中已有的暗水印，并通过 Data URL 返回处理后的图片：
+`BlindWatermark.decode()` 可以增强图片中已有的暗水印，并将处理后的图片以 Data URL 的形式传给 `onSuccess` 回调。
 
 ```ts
 import { BlindWatermark } from 'watermark-js-plus'
@@ -152,7 +152,7 @@ BlindWatermark.decode({
 通过 CDN 使用时，建议固定具体版本：
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/watermark-js-plus@1.6.6/dist/index.iife.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/watermark-js-plus@1.6.7/dist/index.iife.min.js"></script>
 <script>
   const watermark = new WatermarkPlus.Watermark({
     content: '内部资料',

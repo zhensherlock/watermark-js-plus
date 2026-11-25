@@ -1,3 +1,81 @@
+## [1.6.7](https://github.com/zhensherlock/watermark-js-plus/compare/v1.6.6...v1.6.7) (2026-11-25)
+
+
+### ♻ Code Refactoring | 代码重构
+
+* **docs:** simplify homepage hero animation ([e0f0a02](https://github.com/zhensherlock/watermark-js-plus/commit/e0f0a021afce4e613a46d5dc47da0a66c3f87340))
+* keep watermark layout canvases local ([e35371e](https://github.com/zhensherlock/watermark-js-plus/commit/e35371e91a98fe932277afdefe43ce4357fc57fa))
+* reuse base changeOptions for blind watermarks ([0ca0fef](https://github.com/zhensherlock/watermark-js-plus/commit/0ca0fef613a9e8e01c23a7acc69fc7e85d9f7cec))
+
+
+### ⚡ Performance Improvements | 性能优化
+
+* **docs:** streamline hero and load Element Plus on demand ([d14fcf4](https://github.com/zhensherlock/watermark-js-plus/commit/d14fcf4ccf8680aa1902ece0b3c7f3ea7ec3a4cd))
+
+
+### ✨ Features | 新功能
+
+* **docs:** add advanced image watermark controls ([b7b112d](https://github.com/zhensherlock/watermark-js-plus/commit/b7b112d46dd6a4eba1bbbb620f51b13e09aea96f))
+* **docs:** add animated homepage hero ([c3099c1](https://github.com/zhensherlock/watermark-js-plus/commit/c3099c1b01e7c8b863f5c643b621e74b485ce556))
+* **docs:** add blind watermark text recognition ([6449b66](https://github.com/zhensherlock/watermark-js-plus/commit/6449b663c1b8eb84e7e36457a56740f352708569))
+* **docs:** add dedicated tools section ([11495e8](https://github.com/zhensherlock/watermark-js-plus/commit/11495e875fa31453eed3e2e4ede6a00d5a7ba9c6))
+* **docs:** add image watermark shadow controls ([f05eba3](https://github.com/zhensherlock/watermark-js-plus/commit/f05eba349a2403f52abf0314613cd460579fc216))
+* **docs:** add image watermark tool ([f94a4bd](https://github.com/zhensherlock/watermark-js-plus/commit/f94a4bda2c1248ae65a5de56b44cd2c4ff008a63))
+* **docs:** add llms.txt support ([fd3273f](https://github.com/zhensherlock/watermark-js-plus/commit/fd3273f5a2404d22ac715d0fdb8a75e64a5a49dd))
+* **docs:** improve decode image uploads ([7167c2a](https://github.com/zhensherlock/watermark-js-plus/commit/7167c2a3b87085efbd530c1e0edb159f3c8a192c))
+* **docs:** localize watermark options form ([94fa746](https://github.com/zhensherlock/watermark-js-plus/commit/94fa74662d0b831b45a43c36892db9a6e3884439))
+* **docs:** redesign blind watermark decoder ([c1f01fd](https://github.com/zhensherlock/watermark-js-plus/commit/c1f01fdbe3a389e3e8059cde206a78cdbb956ba0))
+* **docs:** redesign watermark configurator ([b3cc0f6](https://github.com/zhensherlock/watermark-js-plus/commit/b3cc0f6034f05dd3d7b7b25b0809f619ba2999dc))
+
+
+### 🎫 Chores | 其他更新
+
+* **deps:** update actions/setup-node action to v7 ([fd87287](https://github.com/zhensherlock/watermark-js-plus/commit/fd872873be7ebd196d82688ad2ad5a50845548fb))
+* **design:** add GitHub social preview assets ([76a27e6](https://github.com/zhensherlock/watermark-js-plus/commit/76a27e65629e22f885bdf2b123d5b8dc4aca7988))
+* **docs:** remove unused hero animation asset ([7d65a72](https://github.com/zhensherlock/watermark-js-plus/commit/7d65a72d96f0e2a02f3d5483c2aee4218b39294c))
+* **github:** modernize contribution templates ([ae522f1](https://github.com/zhensherlock/watermark-js-plus/commit/ae522f14e0da2395999d254aaf2d4e115d92a813))
+* update dependencies ([17c474a](https://github.com/zhensherlock/watermark-js-plus/commit/17c474ae577201495ae04f7e2fa9496ca119861b))
+* update dependencies ([3e6f1ed](https://github.com/zhensherlock/watermark-js-plus/commit/3e6f1edbf5af9a146db42b23159e4d6569fc5052))
+* update dependencies and fix build compatibility ([e26c73e](https://github.com/zhensherlock/watermark-js-plus/commit/e26c73ee57229e473a56273df608f8e3cb53012f))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* avoid infinite loops when wrapping wide characters ([4aacb08](https://github.com/zhensherlock/watermark-js-plus/commit/4aacb08f2755510461c977fe4cde7943b0385b1f))
+* **docs:** prevent configurator code view clipping ([79bff72](https://github.com/zhensherlock/watermark-js-plus/commit/79bff725030c9aaa07e13434c0c8a5ff068f0eb4))
+* **docs:** resolve Element Plus SSR warnings ([d6ba7a8](https://github.com/zhensherlock/watermark-js-plus/commit/d6ba7a8c537e3d8c3176c61cc22215c7b027d728))
+* **docs:** simplify CodePen iframe markup ([d571c3f](https://github.com/zhensherlock/watermark-js-plus/commit/d571c3f77ad686cc52b9a1f78e07c7a028ad4bc4))
+
+
+### 💄 Styles | 风格
+
+* **docs:** refine homepage responsive layout ([9cd61cf](https://github.com/zhensherlock/watermark-js-plus/commit/9cd61cfe48d68ea73f525b8fa812affee40789f3))
+
+
+### 📝 Documentation | 文档
+
+* add contribution guide ([16d172f](https://github.com/zhensherlock/watermark-js-plus/commit/16d172fae9315f322141140f9d7133a69e8102cd))
+* add Vben Admin watermark example ([9ed516e](https://github.com/zhensherlock/watermark-js-plus/commit/9ed516e8285a1b799a94d0e3cd19810f6941dde9))
+* **config:** align options with implementation ([96978b6](https://github.com/zhensherlock/watermark-js-plus/commit/96978b6a1d0838265a0fe7692bea6b04a9ed0afa))
+* **config:** correct API reference details ([3ba10b4](https://github.com/zhensherlock/watermark-js-plus/commit/3ba10b427e70a6b9e9e29bffe2211e1ab79ba0cf))
+* **config:** reorganize API reference ([71e1a6e](https://github.com/zhensherlock/watermark-js-plus/commit/71e1a6e9e3021987d36e4b5eb98091d9a1071a3e))
+* **guide:** clarify capabilities and browser support ([9a2f214](https://github.com/zhensherlock/watermark-js-plus/commit/9a2f214d14a83dff0aa72355e98a5e8abb1db349))
+* **guide:** clarify ES module imports ([0a2a01c](https://github.com/zhensherlock/watermark-js-plus/commit/0a2a01c75fbcf0c8e4987f04716078bb325c5c10))
+* **guide:** connect core guides to API reference ([1641678](https://github.com/zhensherlock/watermark-js-plus/commit/164167880913e051adce83ce808a5d6e71326351))
+* **guide:** correct watermark usage examples ([c3a3f68](https://github.com/zhensherlock/watermark-js-plus/commit/c3a3f68ccd94d5f64dea1b8e7aab20fbfa9d9144))
+* **guide:** polish examples and onboarding copy ([1fb84e0](https://github.com/zhensherlock/watermark-js-plus/commit/1fb84e0d7f71550ded9c3b8c9ada5bf45681703f))
+* **guide:** streamline blind watermark decoding ([eef6540](https://github.com/zhensherlock/watermark-js-plus/commit/eef65403870c4cf9898f961feb7452e99fd0a031))
+* **readme:** revamp documentation and examples ([25c018f](https://github.com/zhensherlock/watermark-js-plus/commit/25c018f6327233bcd543ec644103ca335467978f))
+* **site:** refresh content and metadata ([71b81af](https://github.com/zhensherlock/watermark-js-plus/commit/71b81afb5261968be5b10f05e6edb4411d862bb2))
+* **site:** use refreshed landing page assets ([8b7dc09](https://github.com/zhensherlock/watermark-js-plus/commit/8b7dc09ef7835f8969a94cfe84093a8ec122c851))
+* **ui:** add documentation design context ([6924b96](https://github.com/zhensherlock/watermark-js-plus/commit/6924b96a481e6edf31012da93dbf2640a1cb145c))
+* update CI Node.js version in AGENTS.md ([7ae8f96](https://github.com/zhensherlock/watermark-js-plus/commit/7ae8f96886bdbad84e8f328f031a0e0baa988a8d))
+
+
+### 🔧 Continuous Integration | CI 配置
+
+* upgrade Node.js workflows to 22 ([ecde1a6](https://github.com/zhensherlock/watermark-js-plus/commit/ecde1a65a5cbb095c7ae6491c707bcffbec91cff))
+
 ## [1.6.6](https://github.com/zhensherlock/watermark-js-plus/compare/v1.6.5...v1.6.6) (2026-07-14)
 
 

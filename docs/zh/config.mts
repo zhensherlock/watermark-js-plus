@@ -1,5 +1,7 @@
 import { defineAdditionalConfig, type DefaultTheme } from 'vitepress'
-import { version } from '../../package.json'
+import packageJson from '../../package.json' with { type: 'json' }
+
+const { version } = packageJson
 
 export default defineAdditionalConfig({
   description: '一个轻量、框架无关的 TypeScript 浏览器水印库，支持可见水印、图片水印和暗水印。',

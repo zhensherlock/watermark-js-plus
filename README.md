@@ -131,7 +131,7 @@ See the [optimized imports guide](https://zhensherlock.github.io/watermark-js-pl
 
 ## Blind watermark decoding
 
-`BlindWatermark.decode()` enhances a blind watermark contained in an image and returns the processed image as a data URL:
+`BlindWatermark.decode()` enhances a blind watermark contained in an image and passes the processed image as a data URL to the `onSuccess` callback.
 
 ```ts
 import { BlindWatermark } from 'watermark-js-plus'
@@ -152,7 +152,7 @@ BlindWatermark.decode({
 Pin the package version when loading it from a CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/watermark-js-plus@1.6.6/dist/index.iife.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/watermark-js-plus@1.6.7/dist/index.iife.min.js"></script>
 <script>
   const watermark = new WatermarkPlus.Watermark({
     content: 'Confidential',

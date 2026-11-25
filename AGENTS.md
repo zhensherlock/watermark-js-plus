@@ -1,6 +1,6 @@
 ## Commands
 
-- Use npm; `.npmrc` sets `legacy-peer-deps=true`, and `.nvmrc` asks for Node `v22`. Build/PR/docs CI uses Node 20, while release CI uses Node 24.
+- Use npm; `.npmrc` sets `legacy-peer-deps=true`, and `.nvmrc` asks for Node `v22`. Build/PR/docs CI uses Node 22, while release CI uses Node 24.
 - Install with `npm install`. PR CI intentionally deletes `package-lock.json` and `node_modules` before `npm i`; release publish is the path that uses `npm ci`.
 - Quick checks: `npm run lint`, `npm run build:types`, `npm test -- tests/utils/index.test.ts --runInBand`.
 - Full PR-shaped verification: `npm run build`, `npm test`, then `npm run docs:build`.

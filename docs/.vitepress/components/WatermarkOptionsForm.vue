@@ -595,7 +595,20 @@ import {
   extraOptionKeys,
 } from './config'
 import { Plus } from '@element-plus/icons-vue'
-import { genFileId } from 'element-plus'
+import {
+  ElCollapse,
+  ElCollapseItem,
+  ElColorPicker,
+  ElIcon,
+  ElInput,
+  ElInputNumber,
+  ElOption,
+  ElSelect,
+  ElSlider,
+  ElSwitch,
+  ElUpload,
+  genFileId,
+} from 'element-plus'
 import type { UploadFile, UploadInstance, UploadRawFile } from 'element-plus'
 import { loadImage } from '../../../src/utils'
 import type { WatermarkOptions } from '../../../src'

@@ -13,7 +13,25 @@ description: 上传或粘贴图片，在浏览器中调整解码参数并显现�
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 import { UploadFilled } from '@element-plus/icons-vue';
-import { genFileId } from 'element-plus';
+import {
+  ElAlert,
+  ElButton,
+  ElColorPicker,
+  ElDialog,
+  ElEmpty,
+  ElIcon,
+  ElImage,
+  ElInput,
+  ElInputNumber,
+  ElOption,
+  ElProgress,
+  ElRadioButton,
+  ElRadioGroup,
+  ElSelect,
+  ElSpace,
+  ElUpload,
+  genFileId,
+} from 'element-plus';
 import type { UploadInstance, UploadProps, UploadRawFile, UploadUserFile } from 'element-plus';
 import { BlindWatermark } from '../../../src';
 

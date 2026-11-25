@@ -16,7 +16,25 @@ Upload or paste an image containing a blind watermark, then adjust the options t
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 import { UploadFilled } from '@element-plus/icons-vue';
-import { genFileId } from 'element-plus';
+import {
+  ElAlert,
+  ElButton,
+  ElColorPicker,
+  ElDialog,
+  ElEmpty,
+  ElIcon,
+  ElImage,
+  ElInput,
+  ElInputNumber,
+  ElOption,
+  ElProgress,
+  ElRadioButton,
+  ElRadioGroup,
+  ElSelect,
+  ElSpace,
+  ElUpload,
+  genFileId,
+} from 'element-plus';
 import type { UploadInstance, UploadProps, UploadRawFile, UploadUserFile } from 'element-plus';
 import { BlindWatermark } from '../../../src';
 

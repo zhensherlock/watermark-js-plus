@@ -5,6 +5,7 @@ description: 使用 Watermark API 为浏览器页面添加可配置的文本、�
 # Watermark
 
 <script setup lang="ts">
+import { ElAffix, ElMessage, ElSpace } from 'element-plus';
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue';
 import { ref, getCurrentInstance, onMounted } from 'vue';
 import { Watermark } from '../../../src';
@@ -63,11 +64,11 @@ const handleAddTextWatermark = () => {
       ]
     },
     onSuccess: () => {
-      app.appContext.config.globalProperties.$message({
+      ElMessage({
         appendTo: '#app',
         message: '文本水印添加成功！',
         type: 'success'
-      });
+      }, app?.appContext);
     }
   })
 };
@@ -96,11 +97,11 @@ const handleAddMultiLineTextWatermark = () => {
       shadowOffsetY: 0
     },
     onSuccess: () => {
-      app.appContext.config.globalProperties.$message({
+      ElMessage({
         appendTo: '#app',
         message: '多行文本水印添加成功！',
         type: 'success'
-      });
+      }, app?.appContext);
     }
   });
 };
@@ -118,11 +119,11 @@ const handleAddImageWatermark = () => {
     height: 300,
     filter: 'grayscale(100%)',
     onSuccess: () => {
-      app.appContext.config.globalProperties.$message({
+      ElMessage({
         appendTo: '#app',
         message: '图片水印添加成功！',
         type: 'success'
-      });
+      }, app?.appContext);
     }
   })
 };
@@ -139,11 +140,11 @@ const handleAddRichTextWatermark = () => {
     filter: 'blur(2px)',
     movable: true,
     onSuccess: () => {
-      app.appContext.config.globalProperties.$message({
+      ElMessage({
         appendTo: '#app',
         message: '富文本水印添加成功！',
         type: 'success'
-      });
+      }, app?.appContext);
     }
   });
 };
