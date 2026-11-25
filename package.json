@@ -147,7 +147,7 @@
     "lint-staged": "^17.6.2",
     "lodash": "^4.18.1",
     "markdown-it": "^14.3.3",
-    "pinia": "^3.0.4",
+    "pinia": "^4.0.0",
     "prettier": "^3.10.1",
     "rimraf": "^6.1.4",
     "rollup": "^4.68.8",
