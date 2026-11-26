@@ -78,6 +78,8 @@ const handleRemoveImageWatermark = () => {
 
 精确的 API 说明参见 [ImageWatermark 配置项](/zh/config/#image-watermark-options)及 [Watermark 方法](/zh/config/function)中的适用方法。
 
+如果水印图片加载失败，`create()` 返回的 Promise 会被拒绝，且不会修改目标图片。请捕获错误后重试，或改用其他水印图片。
+
 ## 文本水印
 
 <div class="text-card">

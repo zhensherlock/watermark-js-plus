@@ -54,7 +54,7 @@ class WatermarkCanvas {
     WatermarkCanvas.clearCanvas(this.canvas)
   }
 
-  draw(): Promise<HTMLCanvasElement> {
+  async draw(): Promise<HTMLCanvasElement> {
     const ctx = this.canvas.getContext('2d')
     if (ctx === null) {
       throw new Error('get context error')
@@ -80,22 +80,28 @@ class WatermarkCanvas {
     ctx.save()
     ctx.translate(this.options.translateX as number, this.options.translateY as number)
     ctx.rotate(this.options.rotate)
-    return new Promise(resolve => {
+    try {
       switch (this.options.contentType) {
         case 'text':
-          this.drawText(ctx, resolve)
+          this.drawText(ctx)
           break
         case 'image':
-          this.drawImage(ctx, resolve)
+          await this.drawImage(ctx)
           break
         case 'multi-line-text':
-          this.drawMultiLineText(ctx, resolve)
+          this.drawMultiLineText(ctx)
           break
         case 'rich-text':
-          this.drawRichText(ctx, resolve)
+          await this.drawRichText(ctx)
           break
+        default:
+          throw new Error('Unsupported watermark content type')
       }
-    })
+      return this.canvas
+    } catch (error) {
+      this.clear()
+      throw error
+    }
   }
 
   private setStyle(ctx: CanvasRenderingContext2D) {
@@ -213,26 +219,23 @@ class WatermarkCanvas {
     ctx[methodName] && ctx[methodName](params.text, params.x, params.y, params.maxWidth)
   }
 
-  private drawText(ctx: CanvasRenderingContext2D, resolve: Function) {
+  private drawText(ctx: CanvasRenderingContext2D) {
     this.setText(ctx, {
       text: this.options.content,
       x: 0,
       y: 0 - this.recommendOptions.textLine.yOffsetValue,
       maxWidth: this.options.textRowMaxWidth || this.options.width,
     })
-    resolve(ctx.canvas)
   }
 
-  private drawImage(ctx: CanvasRenderingContext2D, resolve: Function) {
-    loadImage(<string>this.options.image).then(image => {
-      const { width: imageWidth, height: imageHeight } = this.getImageRect(image)
-      const imagePosition = this.getDrawImagePosition(imageWidth, imageHeight)
-      ctx.drawImage(image, imagePosition.x, imagePosition.y, imageWidth, imageHeight)
-      resolve(ctx.canvas)
-    })
+  private async drawImage(ctx: CanvasRenderingContext2D) {
+    const image = await loadImage(<string>this.options.image)
+    const { width: imageWidth, height: imageHeight } = this.getImageRect(image)
+    const imagePosition = this.getDrawImagePosition(imageWidth, imageHeight)
+    ctx.drawImage(image, imagePosition.x, imagePosition.y, imageWidth, imageHeight)
   }
 
-  private drawMultiLineText(ctx: CanvasRenderingContext2D, resolve: Function) {
+  private drawMultiLineText(ctx: CanvasRenderingContext2D) {
     // image.width = this.options.width
     // image.height = this.options.height
     // const element = createCustomContentSvg(context, this.options)
@@ -259,16 +262,13 @@ class WatermarkCanvas {
         maxWidth: this.options.textRowMaxWidth || this.options.width,
       })
     })
-    resolve(ctx.canvas)
   }
 
-  private async drawRichText(ctx: CanvasRenderingContext2D, resolve: Function) {
+  private async drawRichText(ctx: CanvasRenderingContext2D) {
     const obj = await createCustomContentSVG(ctx, this.options)
-    loadImage(convertSVGToImage(obj.element), obj.width, obj.height).then(image => {
-      const imagePosition = this.getDrawImagePosition(image.width, image.height)
-      ctx.drawImage(image, imagePosition.x, imagePosition.y, image.width, image.height)
-      resolve(ctx.canvas)
-    })
+    const image = await loadImage(convertSVGToImage(obj.element), obj.width, obj.height)
+    const imagePosition = this.getDrawImagePosition(image.width, image.height)
+    ctx.drawImage(image, imagePosition.x, imagePosition.y, image.width, image.height)
   }
 
   private getImageRect(image: HTMLImageElement) {

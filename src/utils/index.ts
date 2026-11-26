@@ -145,11 +145,10 @@ export const loadImage = (
   image.setAttribute('crossOrigin', 'anonymous')
   !isUndefined(width) && (image.width = <number>width)
   !isUndefined(height) && (image.height = <number>height)
-  image.src = url
-  return new Promise(resolve => {
-    image.onload = () => {
-      resolve(image)
-    }
+  return new Promise((resolve, reject) => {
+    image.onload = () => resolve(image)
+    image.onerror = () => reject(new Error('Failed to load watermark image'))
+    image.src = url
   })
 }
 
