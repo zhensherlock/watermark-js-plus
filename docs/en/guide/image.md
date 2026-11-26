@@ -79,6 +79,8 @@ const handleRemoveImageWatermark = () => {
 
 For precise API details, see [ImageWatermark options](/config/#image-watermark-options) and the applicable methods in [Watermark methods](/config/function).
 
+If the watermark image fails to load, `create()` rejects and leaves the target image unchanged. Catch the error before retrying or choosing a different watermark image.
+
 ## Text Watermark
 
 <div class="text-card">
